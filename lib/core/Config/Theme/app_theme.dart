@@ -1,0 +1,178 @@
+import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_fonts.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flutter/material.dart';
+
+abstract class AppThemeLight {
+  static ThemeData getTheme(ColorScheme colorScheme) {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColorsLight.white,
+        foregroundColor: AppColorsLight.black,
+        elevation: AppSizes.appBarElevation,
+        titleTextStyle: TextStyle(
+          fontFamily: AppFonts.inter,
+          fontSize: AppSizes.xlFont_20,
+          fontWeight: FontWeight.w500,
+          color: AppColorsLight.black,
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColorsLight.pink,
+          foregroundColor: AppColorsLight.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppSizes.borderRadiusFull),
+          ),
+          textStyle: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: AppSizes.mdFont_16,
+            fontFamily: AppFonts.inter,
+            color: AppColorsLight.white,
+          ),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          textStyle: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: AppSizes.mdFont_16,
+            fontFamily: AppFonts.inter,
+          ),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        errorStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.roboto,
+          color: AppColorsLight.red,
+        ),
+        hintStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.roboto,
+          color: AppColorsLight.white[70],
+        ),
+        labelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.roboto,
+          color: AppColorsLight.gray,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
+          borderSide: const BorderSide(color: AppColorsLight.gray),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
+          borderSide: const BorderSide(color: AppColorsLight.gray),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
+          borderSide: const BorderSide(color: AppColorsLight.gray),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
+          borderSide: const BorderSide(color: AppColorsLight.red),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
+          borderSide: const BorderSide(color: AppColorsLight.red),
+        ),
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppColorsLight.pink[70],
+      ),
+      textTheme: TextTheme(
+        bodySmall: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.xlFont_20,
+          fontFamily: AppFonts.inter,
+        ),
+        bodyMedium: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.roboto,
+        ),
+        bodyLarge: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.roboto,
+        ),
+        labelSmall: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_13,
+          fontFamily: AppFonts.inter,
+        ),
+        labelMedium: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.inter,
+        ),
+        labelLarge: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+        headlineMedium: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.roboto,
+        ),
+
+        titleLarge: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.lgFont_18,
+          fontFamily: AppFonts.roboto,
+        ),
+
+        displayMedium: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.inter,
+        ),
+        displaySmall: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.lgFont_18,
+          fontFamily: AppFonts.inter,
+        ),
+        headlineLarge: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+        displayLarge: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.inter,
+        ),
+        headlineSmall: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+        ),
+        titleMedium: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+        ),
+      ),
+    );
+  }
+
+  static ThemeData lightTheme = getTheme(
+    const ColorScheme(
+      brightness: Brightness.light,
+      primary: AppColorsLight.pink,
+      onPrimary: AppColorsLight.white,
+      secondary: AppColorsLight.green,
+      onSecondary: AppColorsLight.white,
+      surface: AppColorsLight.white,
+      onSurface: AppColorsLight.black,
+      error: AppColorsLight.red,
+      onError: AppColorsLight.white,
+    ),
+  );
+}
