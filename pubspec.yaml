@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.8.1
+  sdk: ">=3.1.0 <3.8.1"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -98,31 +98,31 @@ flutter:
   fonts:
     - family: Inter
       fonts:
-        - asset: fonts/Inter_18pt-Black.ttf
+        - asset: assets/fonts/Inter_18pt-Black.ttf
           weight: 900
-        - asset: fonts/Inter_18pt-Bold.ttf
+        - asset: assets/fonts/Inter_18pt-Bold.ttf
           weight: 700
-        - asset: fonts/Inter_18pt-ExtraBold.ttf
+        - asset: assets/fonts/Inter_18pt-ExtraBold.ttf
           weight: 800
-        - asset: fonts/Inter_18pt-Medium.ttf
+        - asset: assets/fonts/Inter_18pt-Medium.ttf
           weight: 500
-        - asset: fonts/Inter_18pt-Regular.ttf
+        - asset: assets/fonts/Inter_18pt-Regular.ttf
           weight: 400
-        - asset: fonts/Inter_18pt-SemiBold.ttf
+        - asset: assets/onts/Inter_18pt-SemiBold.ttf
           weight: 600
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto-Black.ttf
           weight: 900
-        - asset: fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
-        - asset: fonts/Roboto-ExtraBold.ttf
+        - asset: assets/fonts/Roboto-ExtraBold.ttf
           weight: 800
-        - asset: fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
           weight: 500
-        - asset: fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
           weight: 400
-        - asset: fonts/Roboto-SemiBold.ttf
+        - asset: assets/fonts/Roboto-SemiBold.ttf
           weight: 600
   
 flutter_assets:
