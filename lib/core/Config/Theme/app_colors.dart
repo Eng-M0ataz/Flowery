@@ -19,7 +19,7 @@ abstract class AppColorsLight {
     90: Color(0xFF460a23),
     100: Color(0xFF2a0615),
   });
-  static const MaterialColor black = MaterialColor(0x0c1015, <int, Color>{
+  static const MaterialColor black = MaterialColor(0xFF0c1015, <int, Color>{
     0: Color(0xFF0c1015), // base color
     10: Color(0xFFcecfd0),
     20: Color(0xFFaeafb1),
@@ -44,5 +44,17 @@ abstract class AppColorsLight {
     80: Color(0xFF7d7d7d),
     90: Color(0xFF535353),
     100: Color(0xFF323232),
+  });
+  static const MaterialColor blue = MaterialColor(0xFF2196F3, <int, Color>{
+    0: Color(0xFFE3F2FD), // lightest
+    10: Color(0xFFBBDEFB),
+    20: Color(0xFF90CAF9),
+    30: Color(0xFF64B5F6),
+    40: Color(0xFF42A5F5),
+    50: Color(0xFF2196F3), // base color (primary)
+    60: Color(0xFF1E88E5),
+    70: Color(0xFF1976D2),
+    80: Color(0xFF1565C0),
+    90: Color(0xFF0D47A1), // darkest
   });
 }

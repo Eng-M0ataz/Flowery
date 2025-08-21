@@ -8,7 +8,7 @@ abstract class AppThemeLight {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColorsLight.white,
         foregroundColor: AppColorsLight.black,
         elevation: AppSizes.appBarElevation,
@@ -26,7 +26,7 @@ abstract class AppThemeLight {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusFull),
           ),
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: AppSizes.mdFont_16,
             fontFamily: AppFonts.inter,

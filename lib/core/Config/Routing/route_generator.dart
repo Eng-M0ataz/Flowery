@@ -1,3 +1,4 @@
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ class RouteGenerator {
     switch (settings.name) {
       case AppRoutes.signInRoute:
       case AppRoutes.signUpRoute:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.mainLayoutRoute:
       default:

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Routing/route_generator.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
@@ -41,6 +42,7 @@ class FlowerECommerceApp extends StatelessWidget {
       ),
       theme: AppThemeLight.lightTheme,
       onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: AppRoutes.signUpRoute,
     );
   }
 }

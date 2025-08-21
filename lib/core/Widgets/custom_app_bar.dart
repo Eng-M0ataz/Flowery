@@ -14,9 +14,11 @@ class CustomBackButton extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onTap ?? context.pop,
-          child: Icon(Icons.arrow_back_ios, size: 20),
+          child: const Padding(
+            padding: EdgeInsets.only(left: 12), // هنا المسافة
+            child: Icon(Icons.arrow_back_ios, size: 20),
+          ),
         ),
-
         Text(
           title,
           style: thmeData.textTheme.bodySmall!.copyWith(
