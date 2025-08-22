@@ -135,22 +135,22 @@ class _SigninScreenState extends State<SigninScreen> {
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
-                    if (state is SignInError) {
+                    if (state.failure != null) {
                       DialogueUtils.showMessage(
                         context: context,
                         title: LocaleKeys.Error,
-                        message: state.message,
+                        message: state.failure?.errorMessage ?? "error",
                         posActionName: LocaleKeys.OK,
                       );
                     }
-                    if (state is SignInSuccess) {
+                    if (state.response != null) {
                       // Navigate to Home Screen or Dashboard
                       context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
                           predicate: (route) => false);
                     }
                   },
                   builder: (context, state) {
-                    final isLoading = state is SignInLoading;
+                    final isLoading = state.isLoading;
 
                     return CustomElevatedButton(
                       title: LocaleKeys.Login,

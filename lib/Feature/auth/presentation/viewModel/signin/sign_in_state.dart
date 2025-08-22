@@ -1,14 +1,25 @@
 part of 'sign_in_view_model.dart';
 
-abstract class SignInState {}
+class SignInState {
+  SigninResponseEntity? response;
+  Failure? failure;
+  bool isLoading;
 
-class SignInInitial extends SignInState {}
-class SignInLoading extends SignInState {}
-class SignInSuccess extends SignInState {
-  final ApiSuccessResult<SigninResponseEntity> response;
-  SignInSuccess(this.response);
-}
-class SignInError extends SignInState {
-  final String message;
-  SignInError(this.message);
+  SignInState({
+    this.response,
+    this.failure,
+    this.isLoading = false
+  });
+
+  SignInState copyWith({
+    SigninResponseEntity? response,
+    Failure? failure,
+    bool? isLoading,
+  }) {
+    return SignInState(
+        response: response ?? this.response,
+        failure: failure ?? this.failure,
+        isLoading: isLoading ?? this.isLoading
+    );
+  }
 }

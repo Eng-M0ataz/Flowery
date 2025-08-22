@@ -15,14 +15,11 @@ class SigninUseCase{
     required String email,
     required String password
   }) async {
-    final result = await authRepo.signin(
-      email: email,
-      password: password
-    );
 
-    return result.when(
-        success: (data) => data as ApiSuccessResult<SigninResponseEntity>,
-        error: (failure) => failure as ApiErrorResult<SigninResponseEntity>
+
+    return authRepo.signin(
+        email: email,
+        password: password
     );
   }
 }

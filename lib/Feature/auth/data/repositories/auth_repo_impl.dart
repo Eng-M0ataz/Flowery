@@ -1,8 +1,9 @@
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/Entity/sign_in_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/repositories/auth_repo.dart';
-import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../../../core/Errors/api_results.dart';
 
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
@@ -13,15 +14,11 @@ class AuthRepoImpl implements AuthRepo {
   Future<ApiResult<SigninResponseEntity>> signin({
     required String email,
     required String password
-  }) async {
-    final result = await _authRemoteDataSource.signin(
+  }) {
+
+    return _authRemoteDataSource.signin(
         email: email,
         password: password
-    );
-
-    return result.when(
-        success: (data) => data as ApiSuccessResult<SigninResponseEntity>,
-        error: (failure) => failure as ApiErrorResult<SigninResponseEntity>
     );
   }
 }
