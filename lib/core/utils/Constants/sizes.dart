@@ -31,8 +31,10 @@ abstract class AppSizes {
   // button sizes
 
   static const double buttomHigh = 56;
+  static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
   static const double buttonWidth = double.infinity;
+  static const double buttonWidthSm_80 = 80;
 
   // AppBar High
 
