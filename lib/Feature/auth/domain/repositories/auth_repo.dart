@@ -1,1 +1,3 @@
-abstract interface class AuthRepo {}
+abstract interface class AuthRepo {
+ Future <void> isGuest();
+}

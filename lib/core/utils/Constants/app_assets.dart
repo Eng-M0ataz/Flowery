@@ -12,6 +12,8 @@ class Assets {
   static const String assetsImagesCategoryUnselected =
       "assets/images/category_unselected.svg";
 
+
+
   /// Assets for assetsImagesHomeSelected
   /// assets/images/home_selected.svg
   static const String assetsImagesHomeSelected =
@@ -21,6 +23,7 @@ class Assets {
   /// assets/images/home_unselected.svg
   static const String assetsImagesHomeUnselected =
       "assets/images/home_unselected.svg";
+
 
   /// Assets for assetsImagesPersonSelected
   /// assets/images/person_selected.svg
@@ -32,10 +35,13 @@ class Assets {
   static const String assetsImagesPersonUnselected =
       "assets/images/person_unselected.svg";
 
+
+
   /// Assets for assetsImagesShoppingCartSelected
   /// assets/images/shopping_cart_selected.svg
   static const String assetsImagesShoppingCartSelected =
       "assets/images/shopping_cart_selected.svg";
+
 
   /// Assets for assetsImagesShoppingCartUnselected
   /// assets/images/shopping_cart_unselected.svg

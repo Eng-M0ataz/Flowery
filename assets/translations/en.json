@@ -1,1 +1,7 @@
-{}
+{
+  "home": "Home",
+  "cart": "Cart",
+  "profile": "Profile",
+  "category": "Category",
+  "continue": "Continue as guest"
+}

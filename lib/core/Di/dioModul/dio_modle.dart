@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flower_e_commerce_app/core/Services/secure_storge.dart';
+import 'package:flower_e_commerce_app/core/Services/storge_interface.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/api_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../di.dart';
@@ -23,7 +24,9 @@ abstract class DioModule {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          final String token = await getIt.get<SecureStorgeImpl>().read(
+          final String token = await getIt
+              .get<Storage>(instanceName: AppConstants.secureStorage)
+              .read(
             key: ApiConstants.token,
           );
           if (token.isNotEmpty) {

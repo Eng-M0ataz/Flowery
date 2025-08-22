@@ -30,18 +30,23 @@ abstract class AppSizes {
 
   // button sizes
 
-  static const double buttomHigh = 56;
+  static const double buttomHigh_48 = 48;
+  static const double buttonWidthSm_80=80;
   static const double buttomRadius = 8;
   static const double buttonWidth = double.infinity;
 
   // AppBar High
 
   static const double appBarHigh = 56.0;
+  static const double appBarHigh_24 = 24.0;
   static const double appBarElevation = 0.0;
 
   // Image sizes
 
   static const double imageHigh = 80.0;
+  static const double imageHighnNavBar_24 = 24.0;
+  static const double imageWidthnNavBar_24 = 24.0;
+
 
   // Default Spacing Between items
 

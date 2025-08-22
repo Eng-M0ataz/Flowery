@@ -3,9 +3,9 @@ import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: Storge)
-@Named(AppConstants.secureStorge)
-class SecureStorgeImpl implements Storge {
+@LazySingleton(as: Storage)
+@Named(AppConstants.secureStorage)
+class SecureStorageImpl implements Storage {
   final FlutterSecureStorage _storage = FlutterSecureStorage();
   @override
   Future<void> write({required String key, required String value}) async {
