@@ -14,43 +14,42 @@ class BuildPasswordAndConfirmField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        children: [
-          Expanded(
-              child: TextFormField(
-            controller: passwordController,
-            keyboardType: TextInputType.visiblePassword,
-            textInputAction: TextInputAction.next,
-            autofillHints: const [AutofillHints.password],
-            decoration: InputDecoration(
-              labelText: "password_label".tr(),
-              hintText: "password_hint".tr(),
-              labelStyle: Theme.of(context).textTheme.titleMedium,
-              hintStyle: Theme.of(context).textTheme.bodyMedium,
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-            ),
-            validator: Validations.validatePassword,
-          )),
-          const SizedBox(width: AppSizes.paddingSm_8),
-          Expanded(
-              child: TextFormField(
-            controller: confirmController,
-            keyboardType: TextInputType.visiblePassword,
-            textInputAction: TextInputAction.next,
-            autofillHints: const [AutofillHints.password],
-            decoration: InputDecoration(
-              labelText: "confirm_password_label".tr(),
-              hintText: "confirm_password_hint".tr(),
-              labelStyle: Theme.of(context).textTheme.titleMedium,
-              hintStyle: Theme.of(context).textTheme.bodyMedium,
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-            ),
-            validator: (val) => Validations.validateConfirmPassword(
-                val, passwordController.text),
-          )),
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+            child: TextFormField(
+          controller: passwordController,
+          keyboardType: TextInputType.visiblePassword,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.password],
+          decoration: InputDecoration(
+            labelText: "password_label".tr(),
+            hintText: "password_hint".tr(),
+            labelStyle: Theme.of(context).textTheme.titleMedium,
+            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+          ),
+          validator: Validations.validatePassword,
+        )),
+        const SizedBox(width: AppSizes.paddingSm_8),
+        Expanded(
+            child: TextFormField(
+          controller: confirmController,
+          keyboardType: TextInputType.visiblePassword,
+          textInputAction: TextInputAction.next,
+          autofillHints: const [AutofillHints.password],
+          decoration: InputDecoration(
+            labelText: "confirm_password_label".tr(),
+            hintText: "confirm_password_hint".tr(),
+            labelStyle: Theme.of(context).textTheme.titleMedium,
+            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+          ),
+          validator: (val) =>
+              Validations.validateConfirmPassword(val, passwordController.text),
+        )),
+      ],
     );
   }
 }

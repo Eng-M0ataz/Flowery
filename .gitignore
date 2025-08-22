@@ -45,6 +45,7 @@ app.*.map.json
 /android/app/release
 lib/core/Di/di.config.dart
 lib/core/Di/di.config.dart
+lib\Feature\auth\api\models\user_dto.g.dart
 
 # Generated files
 *.g.dart
