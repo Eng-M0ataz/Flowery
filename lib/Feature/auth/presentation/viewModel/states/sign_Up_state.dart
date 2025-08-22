@@ -5,24 +5,28 @@ class SignUpState {
   final String? errorMessage;
   final SignUpResponseEntity? response;
   final bool isSuccess;
-  SignUpState({
-    this.isLoading = false,
-    this.errorMessage,
-    this.response,
-    this.isSuccess = false,
-  });
+  final String selectedGender;
+
+  SignUpState(
+      {this.isLoading = false,
+      this.errorMessage,
+      this.response,
+      this.isSuccess = false,
+      this.selectedGender = 'Female'});
 
   SignUpState copyWith({
     bool? isLoading,
     String? errorMessage,
     SignUpResponseEntity? response,
     bool? isSuccess,
+    String? selectedGender,
   }) {
     return SignUpState(
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage,
       response: response ?? this.response,
       isSuccess: isSuccess ?? this.isSuccess,
+      selectedGender: selectedGender ?? this.selectedGender,
     );
   }
 }

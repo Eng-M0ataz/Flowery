@@ -96,7 +96,6 @@ class _SignUpFormState extends State<SignUpForm> {
                           selectedGender: viewModel.selectedGender,
                           onChanged: (String gender) {
                             viewModel.updateGender(gender);
-                            setState(() {});
                           }),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
                       Row(

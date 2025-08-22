@@ -83,6 +83,7 @@ class SignupViewModel extends Cubit<SignUpState> {
 
   void updateGender(String gender) {
     selectedGender = gender;
+    emit(state.copyWith(selectedGender: gender));
   }
 
   void clearForm() {
