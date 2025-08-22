@@ -1,3 +1,4 @@
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,9 @@ class RouteGenerator {
       case AppRoutes.signInRoute:
       case AppRoutes.signUpRoute:
       case AppRoutes.forgetPasswordRoute:
+        return MaterialPageRoute(
+          builder: (_) => ForgetPasswordScreen(), // Replace with actual widget
+        );
       case AppRoutes.mainLayoutRoute:
       default:
         return unDefinedRoute();

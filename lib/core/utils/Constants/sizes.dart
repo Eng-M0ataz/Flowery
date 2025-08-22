@@ -30,9 +30,11 @@ abstract class AppSizes {
 
   // button sizes
 
-  static const double buttomHigh = 56;
-  static const double buttomRadius = 8;
+  static const double buttonHigh = 56;
+  static const double buttonHigh_48 = 48;
+  static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
+  static const double buttonWidth_80 = 80.0;
 
   // AppBar High
 
@@ -48,7 +50,11 @@ abstract class AppSizes {
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spacingBetweenItems_10 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
+  static const double spaceBetweenItems_16 = 16.0;
+  static const double spaceBetweenItems_24 = 24.0;
+  static const double spaceBetweenItems_32 = 32.0;
+  static const double spaceBetweenItems_40 = 40.0;
+  static const double spaceBetweenItems_48 = 48.0;
 
   // Default Spacing Between Sections
 
