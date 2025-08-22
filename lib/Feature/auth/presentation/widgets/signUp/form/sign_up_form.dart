@@ -19,14 +19,9 @@ import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends StatelessWidget {
   SignUpForm({super.key});
 
-  @override
-  State<SignUpForm> createState() => _SignUpFormState();
-}
-
-class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignupViewModel, SignUpState>(

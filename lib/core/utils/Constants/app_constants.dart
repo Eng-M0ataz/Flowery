@@ -10,4 +10,5 @@ abstract class AppConstants {
   static const String gender = 'gender';
   static const String male = 'male';
   static const String female = 'female';
+  static const String femaleValue = 'Female';
 }
