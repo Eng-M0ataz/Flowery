@@ -48,7 +48,6 @@ class ServerFailure extends Failure {
       return ServerFailure(errorMessage: "No response received from server.");
     }
 
-    // Handle specific status codes first
     switch (response.statusCode) {
       case 404:
         return ServerFailure(errorMessage: "Resource not found", code: '404');
@@ -57,82 +56,11 @@ class ServerFailure extends Failure {
           errorMessage: "Server error. Please try again later.",
           code: '500',
         );
-      case 409:
-        // Handle conflict error specifically
-        return ServerFailure._handleConflictError(response);
       default:
-        // Handle general errors with flexible error message extraction
-        return ServerFailure._extractErrorFromResponse(response);
-    }
-  }
-
-  // Handle 409 Conflict errors specifically
-  factory ServerFailure._handleConflictError(Response response) {
-    try {
-      final responseData = response.data;
-      if (responseData is Map<String, dynamic>) {
-        // Try different possible error field names
-        final errorMessage = responseData['error'] ??
-            responseData['message'] ??
-            responseData['msg'] ??
-            'Conflict error occurred';
         return ServerFailure(
-          errorMessage: errorMessage.toString(),
-          code: '409',
+          errorMessage: response.data["message"] ?? response.data["error"],
+          code: response.data["code"].toString(),
         );
-      }
-      return ServerFailure(
-        errorMessage: "User already exists",
-        code: '409',
-      );
-    } catch (e) {
-      return ServerFailure(
-        errorMessage: "User already exists",
-        code: '409',
-      );
-    }
-  }
-
-  // Extract error message from response data with fallback options
-  factory ServerFailure._extractErrorFromResponse(Response response) {
-    try {
-      final responseData = response.data;
-
-      if (responseData is Map<String, dynamic>) {
-        // Try different possible error field names in order of preference
-        final errorMessage = responseData['error'] ??
-            responseData['message'] ??
-            responseData['msg'] ??
-            responseData['detail'] ??
-            'Server error occurred';
-
-        final code = responseData['code']?.toString() ??
-            responseData['status']?.toString() ??
-            response.statusCode.toString();
-
-        return ServerFailure(
-          errorMessage: errorMessage.toString(),
-          code: code,
-        );
-      } else if (responseData is String) {
-        // If response data is a string, use it directly
-        return ServerFailure(
-          errorMessage: responseData,
-          code: response.statusCode.toString(),
-        );
-      } else {
-        // Fallback for unknown response format
-        return ServerFailure(
-          errorMessage: "Server error occurred",
-          code: response.statusCode.toString(),
-        );
-      }
-    } catch (e) {
-      // Final fallback if everything fails
-      return ServerFailure(
-        errorMessage: "Unexpected server error",
-        code: response.statusCode.toString(),
-      );
     }
   }
 }

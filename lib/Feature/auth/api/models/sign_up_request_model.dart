@@ -1,10 +1,10 @@
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'sign_up_request_dto.g.dart';
+part 'sign_up_request_model.g.dart';
 
 @JsonSerializable()
-class SignUpRequestDto {
+class SignUpRequestModel {
   @JsonKey(name: 'firstName')
   final String firstName;
 
@@ -26,7 +26,7 @@ class SignUpRequestDto {
   @JsonKey(name: 'gender')
   final String gender;
 
-  SignUpRequestDto({
+  SignUpRequestModel({
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -36,8 +36,8 @@ class SignUpRequestDto {
     required this.gender,
   });
 
-  factory SignUpRequestDto.fromDomain(SignUpRequestEntity entity) {
-    return SignUpRequestDto(
+  factory SignUpRequestModel.fromDomain(SignUpRequestEntity entity) {
+    return SignUpRequestModel(
       firstName: entity.firstName,
       lastName: entity.lastName,
       email: entity.email,
@@ -48,8 +48,8 @@ class SignUpRequestDto {
     );
   }
 
-  factory SignUpRequestDto.fromJson(Map<String, dynamic> json) =>
-      _$SignUpRequestDtoFromJson(json);
+  factory SignUpRequestModel.fromJson(Map<String, dynamic> json) =>
+      _$SignUpRequestModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SignUpRequestDtoToJson(this);
+  Map<String, dynamic> toJson() => _$SignUpRequestModelToJson(this);
 }

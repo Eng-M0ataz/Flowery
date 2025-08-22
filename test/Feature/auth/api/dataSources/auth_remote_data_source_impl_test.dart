@@ -2,7 +2,7 @@ import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/dataSources/auth_remote_data_source_impl.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/sign_up_response_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/response/sign_up_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_dto.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/user_dto.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntities/sign_up_response_entity.dart';
@@ -133,7 +133,7 @@ void main() {
 
       // Assert
       final captured = verify(mockApiServices.signUp(captureAny)).captured;
-      final capturedDto = captured.first as SignUpRequestDto;
+      final capturedDto = captured.first as SignUpRequestModel;
 
       expect(capturedDto.firstName, requestEntity.firstName);
       expect(capturedDto.lastName, requestEntity.lastName);

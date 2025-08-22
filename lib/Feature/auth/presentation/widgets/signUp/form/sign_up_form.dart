@@ -9,9 +9,10 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/b
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_phone_field.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
-import 'package:flower_e_commerce_app/core/utils/dialog_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 
@@ -31,26 +32,23 @@ class _SignUpFormState extends State<SignUpForm> {
     return BlocConsumer<SignupViewModel, SignUpState>(
         listener: (context, state) {
       if (state.errorMessage != null && !state.isLoading) {
-        DialogUtils.showMessage(
+        DialogueUtils.showMessage(
           context: context,
           message: state.errorMessage!,
         );
       }
       if (state.isSuccess && !state.isLoading) {
-        DialogUtils.showMessage(
+        DialogueUtils.showMessage(
           context: context,
-          message: 'account_created_successfully'.tr(),
+          message: LocaleKeys.account_created_successfully.tr(),
+          title: LocaleKeys.success.tr(),
+          posActionName: LocaleKeys.ok.tr(),
+          posAction: () {
+            context.pushReplacementNamed(AppRoutes.signInRoute);
+          },
         );
 
-        // Clear form after success
         context.read<SignupViewModel>().clearForm();
-
-        // Navigate after showing success message
-        Future.delayed(const Duration(seconds: 2), () {
-          if (context.mounted) {
-            Navigator.pushReplacementNamed(context, AppRoutes.signInRoute);
-          }
-        });
       }
     }, builder: (context, state) {
       final viewModel = context.read<SignupViewModel>();
@@ -59,7 +57,7 @@ class _SignUpFormState extends State<SignUpForm> {
           appBar: AppBar(
             leadingWidth: AppSizes.appBarLeadingWidth,
             leading: CustomBackButton(
-              title: "sign_up".tr(),
+              title: LocaleKeys.sign_up.tr(),
             ),
           ),
           body: SafeArea(
@@ -79,43 +77,48 @@ class _SignUpFormState extends State<SignUpForm> {
                         secondNameController:
                             viewModel.signUpLastNameController,
                       ),
-                      const SizedBox(height: AppSizes.paddingLg_24),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
                       BuildEmailField(
                         controller: viewModel.signUpEmailController,
                       ),
-                      const SizedBox(height: AppSizes.paddingLg_24),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
                       BuildPasswordAndConfirmField(
                           passwordController:
                               viewModel.signUpPasswordController,
                           confirmController:
                               viewModel.signUpRePasswordController),
-                      const SizedBox(height: AppSizes.paddingLg_24),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
                       BuildPhoneField(
                         controller: viewModel.signUpPhoneController,
                       ),
-                      const SizedBox(height: AppSizes.paddingLg_24),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
                       BuildGenderField(
                           selectedGender: viewModel.selectedGender,
                           onChanged: (String gender) {
                             viewModel.updateGender(gender);
                             setState(() {});
                           }),
-                      const SizedBox(height: AppSizes.paddingMd_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'create_account_prompt'.tr(),
+                            LocaleKeys.create_account_prompt.tr(),
                             style: AppThemeLight
                                 .lightTheme.textTheme.bodyMedium!
-                                .copyWith(fontSize: 10),
+                                .copyWith(fontSize: 11),
                           ),
                           TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                              minimumSize: const Size(0, 0),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
                             onPressed: () {
                               // TODO: navigate to terms and conditions
                             },
                             child: Text(
-                              'terms_and_conditions'.tr(),
+                              LocaleKeys.terms_and_conditions.tr(),
                               style: AppThemeLight
                                   .lightTheme.textTheme.labelLarge!
                                   .copyWith(
@@ -125,20 +128,21 @@ class _SignUpFormState extends State<SignUpForm> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_32),
                       CustomElevatedButton(
                         onPressed: state.isLoading
                             ? null
                             : () => viewModel.submitSignUpForm(),
                         isLoading: state.isLoading,
                         title: state.isLoading
-                            ? 'Loading...'
-                            : 'sign_up_title'.tr(),
+                            ? LocaleKeys.loading.tr()
+                            : LocaleKeys.sign_up_title.tr(),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppSizes.spacingBetweenItems_16),
                       BuildNavigationText(
-                          firstText: 'already_have_account_prompt'.tr(),
-                          secondText: 'login_title'.tr(),
+                          firstText:
+                              LocaleKeys.already_have_account_prompt.tr(),
+                          secondText: LocaleKeys.login_title.tr(),
                           routeName: AppRoutes.signInRoute)
                     ],
                   )),
@@ -149,5 +153,3 @@ class _SignUpFormState extends State<SignUpForm> {
     });
   }
 }
-/*
-;*/

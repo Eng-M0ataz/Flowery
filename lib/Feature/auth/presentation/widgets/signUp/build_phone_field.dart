@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class BuildPhoneField extends StatelessWidget {
@@ -14,10 +15,9 @@ class BuildPhoneField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       autofillHints: const [AutofillHints.telephoneNumber],
       decoration: InputDecoration(
-        labelText: "phone_number_label".tr(),
-        hintText: "phone_number_hint".tr(),
-        labelStyle:Theme.of(context).textTheme.titleMedium,
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
+        labelText: LocaleKeys.phone_number_label.tr(),
+        hintText: LocaleKeys.phone_number_hint.tr(),
+        labelStyle: Theme.of(context).textTheme.titleMedium,
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: Validations.validatePhoneNumber,

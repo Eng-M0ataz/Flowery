@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +25,9 @@ class BuildFirstAndLastNameField extends StatelessWidget {
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.name],
           decoration: InputDecoration(
-            labelText: 'first_name_label'.tr(),
+            labelText: LocaleKeys.first_name_label.tr(),
             labelStyle: Theme.of(context).textTheme.titleMedium,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
-            hintText: 'first_name_hint'.tr(),
+            hintText: LocaleKeys.first_name_hint.tr(),
             floatingLabelBehavior: FloatingLabelBehavior.always,
           ),
           validator: Validations.validateName,
@@ -41,9 +41,8 @@ class BuildFirstAndLastNameField extends StatelessWidget {
           autofillHints: const [AutofillHints.name],
           decoration: InputDecoration(
             labelStyle: Theme.of(context).textTheme.titleMedium,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
-            labelText: 'last_name_label'.tr(),
-            hintText: 'last_name_hint'.tr(),
+            labelText: LocaleKeys.last_name_label.tr(),
+            hintText: LocaleKeys.last_name_hint.tr(),
             floatingLabelBehavior: FloatingLabelBehavior.always,
           ),
           validator: Validations.validateName,

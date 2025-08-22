@@ -22,7 +22,7 @@ class _ApiServices implements ApiServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<SignUpResponseDto> signUp(SignUpRequestDto signUpRequest) async {
+  Future<SignUpResponseDto> signUp(SignUpRequestModel signUpRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

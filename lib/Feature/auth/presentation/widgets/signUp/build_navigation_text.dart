@@ -17,8 +17,7 @@ class BuildNavigationText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(firstText,
-            style: Theme.of(context).textTheme.headlineLarge),
+        Text(firstText, style: Theme.of(context).textTheme.headlineLarge),
         TextButton(
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
@@ -31,9 +30,10 @@ class BuildNavigationText extends StatelessWidget {
           child: Text(
             secondText,
             style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-              decoration: TextDecoration.underline,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+                  decoration: TextDecoration.underline,
+                  decorationColor: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
           ),
         ),
       ],

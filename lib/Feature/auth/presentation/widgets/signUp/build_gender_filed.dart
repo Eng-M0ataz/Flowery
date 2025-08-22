@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class BuildGenderField extends StatelessWidget {
         GenderOption(
           value: AppConstants.female,
           groupValue: selectedGender,
-          label: AppConstants.female.tr(),
+          label: LocaleKeys.female_label.tr(),
           activeColor: AppColorsLight.pink,
           onChanged: onChanged,
         ),
@@ -34,7 +35,7 @@ class BuildGenderField extends StatelessWidget {
         GenderOption(
           value: AppConstants.male,
           groupValue: selectedGender,
-          label: AppConstants.male.tr(),
+          label: LocaleKeys.male_label.tr(),
           activeColor: AppColorsLight.blue[80]!,
           onChanged: onChanged,
         ),

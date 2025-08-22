@@ -21,13 +21,15 @@
   "register_button": "Register",
   "forgot_password_link": "Forgot password?",
   "gender": "Gender",
-  "male": "Male",
-  "female": "Female",
   "create_account_prompt": "Creating an account, you agree to our",
   "terms_and_conditions": "Terms&Conditions",
   "sign_up_title": "Sign up",
   "already_have_account": "Already have an account?",
   "login_title": "Login",
-  "account_created_successfully":"'Account created successfully!'"
-
+  "account_created_successfully": "'Account created successfully!'",
+  "success": "Success",
+  "ok": "OK",
+  "loading": "Loading...",
+  "male_label": "Male",
+  "female_label": "Female"
 }

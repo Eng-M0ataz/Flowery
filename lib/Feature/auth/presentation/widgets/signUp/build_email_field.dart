@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class BuildEmailField extends StatelessWidget {
@@ -14,10 +15,10 @@ class BuildEmailField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       autofillHints: const [AutofillHints.email],
       decoration: InputDecoration(
-        labelText: 'email_label'.tr(),
+        labelText: LocaleKeys.email_label.tr(),
         labelStyle: Theme.of(context).textTheme.titleMedium,
-        hintText: 'email_hint'.tr(),
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
+        hintText: LocaleKeys.email_hint.tr(),
+      
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: Validations.validateEmail,

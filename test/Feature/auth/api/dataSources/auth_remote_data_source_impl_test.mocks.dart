@@ -9,7 +9,7 @@ import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart'
     as _i3;
 import 'package:flower_e_commerce_app/Feature/auth/api/models/response/sign_up_response_dto.dart'
     as _i2;
-import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_dto.dart'
+import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -47,7 +47,7 @@ class MockApiServices extends _i1.Mock implements _i3.ApiServices {
 
   @override
   _i4.Future<_i2.SignUpResponseDto> signUp(
-          _i5.SignUpRequestDto? signUpRequest) =>
+          _i5.SignUpRequestModel? signUpRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #signUp,

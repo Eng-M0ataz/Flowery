@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +25,9 @@ class BuildPasswordAndConfirmField extends StatelessWidget {
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.password],
           decoration: InputDecoration(
-            labelText: "password_label".tr(),
-            hintText: "password_hint".tr(),
+            labelText: LocaleKeys.password_label.tr(),
+            hintText: LocaleKeys.password_hint.tr(),
             labelStyle: Theme.of(context).textTheme.titleMedium,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
             floatingLabelBehavior: FloatingLabelBehavior.always,
           ),
           validator: Validations.validatePassword,
@@ -40,10 +40,9 @@ class BuildPasswordAndConfirmField extends StatelessWidget {
           textInputAction: TextInputAction.next,
           autofillHints: const [AutofillHints.password],
           decoration: InputDecoration(
-            labelText: "confirm_password_label".tr(),
-            hintText: "confirm_password_hint".tr(),
+            labelText: LocaleKeys.confirm_password_label.tr(),
+            hintText: LocaleKeys.confirm_password_hint.tr(),
             labelStyle: Theme.of(context).textTheme.titleMedium,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
             floatingLabelBehavior: FloatingLabelBehavior.always,
           ),
           validator: (val) =>
