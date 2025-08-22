@@ -1,4 +1,5 @@
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
@@ -15,7 +16,7 @@ class CustomBackButton extends StatelessWidget {
         GestureDetector(
           onTap: onTap ?? context.pop,
           child: const Padding(
-            padding: EdgeInsets.only(left: 12), // هنا المسافة
+            padding: EdgeInsets.only(left: AppSizes.paddingMd_12),
             child: Icon(Icons.arrow_back_ios, size: 20),
           ),
         ),

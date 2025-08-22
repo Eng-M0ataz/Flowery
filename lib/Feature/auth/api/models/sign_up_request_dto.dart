@@ -36,7 +36,6 @@ class SignUpRequestDto {
     required this.gender,
   });
 
-  /// From Domain Entity
   factory SignUpRequestDto.fromDomain(SignUpRequestEntity entity) {
     return SignUpRequestDto(
       firstName: entity.firstName,

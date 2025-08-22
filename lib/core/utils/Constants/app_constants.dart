@@ -7,4 +7,7 @@ abstract class AppConstants {
   static const String ar = 'ar';
   static const String assetsPath = 'assets/translations';
   static const String secureStorage = 'secureStorage';
+  static const String gender = 'gender';
+  static const String male = 'male';
+  static const String female = 'female';
 }

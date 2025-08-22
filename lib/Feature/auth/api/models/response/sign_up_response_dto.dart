@@ -1,13 +1,15 @@
 import 'package:flower_e_commerce_app/Feature/auth/api/models/user_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-part 'sign_in_response_dto.g.dart';
+part 'sign_up_response_dto.g.dart';
 
 @JsonSerializable()
 class SignUpResponseDto {
-  final String message;
-  final UserDto user;
-  final String token;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'user')
+  final UserDto? user;
+  @JsonKey(name: 'token')
+  final String? token;
 
   SignUpResponseDto({
     required this.message,
@@ -16,7 +18,7 @@ class SignUpResponseDto {
   });
 
   factory SignUpResponseDto.fromJson(Map<String, dynamic> json) =>
-      _$SignInResponseDtoFromJson(json);
+      _$SignUpResponseDtoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SignInResponseDtoToJson(this);
+  Map<String, dynamic> toJson() => _$SignUpResponseDtoToJson(this);
 }

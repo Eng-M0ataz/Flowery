@@ -5,14 +5,14 @@ extension UserDtoMapper on UserDto {
   UserEntity toEntity() {
     return UserEntity(
       id: id,
-      gender: gender,
-      photo: photo,
-      wishlist: wishlist,
-      addresses: addresses,
-      firstName: firstName,
-      lastName: lastName,
+      gender: gender??"",
+      photo: photo??"",
+      wishlist: wishlist??[],
+      addresses: addresses??[],
+      firstName: firstName??"",
+      lastName: lastName??"",
       email: email,
-      phone: phone,
+      phone: phone??"",
       role: role,
       createdAt: createdAt,
     );

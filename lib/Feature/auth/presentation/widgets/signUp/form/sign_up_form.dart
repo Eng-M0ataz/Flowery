@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_Up_state.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/signup_view_model.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_elevated_button.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_email_field.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_first_and_last_name_field.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_gender_filed.dart';
@@ -10,6 +9,8 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/b
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_phone_field.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/utils/dialog_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
@@ -38,7 +39,7 @@ class _SignUpFormState extends State<SignUpForm> {
       if (state.isSuccess && !state.isLoading) {
         DialogUtils.showMessage(
           context: context,
-          message: 'Account created successfully!',
+          message: 'account_created_successfully'.tr(),
         );
 
         // Clear form after success
@@ -56,7 +57,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
       return Scaffold(
           appBar: AppBar(
-            leadingWidth: 120,
+            leadingWidth: AppSizes.appBarLeadingWidth,
             leading: CustomBackButton(
               title: "sign_up".tr(),
             ),
@@ -66,39 +67,40 @@ class _SignUpFormState extends State<SignUpForm> {
               child: Form(
                 key: viewModel.formKey,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: AppSizes.paddingMd_20),
                   child: AutofillGroup(
                       child: Column(
                     children: [
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSizes.paddingLg_24),
                       BuildFirstAndLastNameField(
                         firstNameController:
                             viewModel.signUpFirstNameController,
                         secondNameController:
                             viewModel.signUpLastNameController,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSizes.paddingLg_24),
                       BuildEmailField(
                         controller: viewModel.signUpEmailController,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSizes.paddingLg_24),
                       BuildPasswordAndConfirmField(
                           passwordController:
                               viewModel.signUpPasswordController,
                           confirmController:
                               viewModel.signUpRePasswordController),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSizes.paddingLg_24),
                       BuildPhoneField(
                         controller: viewModel.signUpPhoneController,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSizes.paddingLg_24),
                       BuildGenderField(
                           selectedGender: viewModel.selectedGender,
                           onChanged: (String gender) {
                             viewModel.updateGender(gender);
                             setState(() {});
                           }),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppSizes.paddingMd_16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -124,14 +126,14 @@ class _SignUpFormState extends State<SignUpForm> {
                         ],
                       ),
                       const SizedBox(height: 32),
-                      BuildElevatedButton(
-                        text: state.isLoading
-                            ? 'Loading...'
-                            : 'sign_up_title'.tr(),
-                        isLoading: state.isLoading,
+                      CustomElevatedButton(
                         onPressed: state.isLoading
                             ? null
                             : () => viewModel.submitSignUpForm(),
+                        isLoading: state.isLoading,
+                        title: state.isLoading
+                            ? 'Loading...'
+                            : 'sign_up_title'.tr(),
                       ),
                       const SizedBox(height: 16),
                       BuildNavigationText(

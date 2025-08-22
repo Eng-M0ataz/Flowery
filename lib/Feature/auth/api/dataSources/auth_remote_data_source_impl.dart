@@ -11,7 +11,7 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  ApiServices _apiServices;
+  final ApiServices _apiServices;
 
   AuthRemoteDataSourceImpl({
     required ApiServices apiServicest,
@@ -22,15 +22,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     try {
       var response =
           await _apiServices.signUp(SignUpRequestDto.fromDomain(signUpRequest));
-      return ApiSuccessResult(data: response.toEntity());
+      return ApiSuccessResult<SignUpResponseEntity>(data: response.toEntity());
     } on DioException catch (dioError) {
-      // Handle DioException specifically to extract proper error messages
       final failure = ServerFailure.fromDioError(dioException: dioError);
       return ApiErrorResult<SignUpResponseEntity>(failure: failure);
     } catch (e) {
       return ApiErrorResult<SignUpResponseEntity>(
-          failure: ServerFailure(
-              errorMessage: "Unexpected error occurred: ${e.toString()}"));
+          failure: ServerFailure(errorMessage: e.toString()));
     }
   }
 }

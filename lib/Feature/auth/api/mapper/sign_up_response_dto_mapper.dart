@@ -4,5 +4,20 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntit
 
 extension SignUpResponseDtoMapper on SignUpResponseDto {
   SignUpResponseEntity toEntity() => SignUpResponseEntity(
-      message: message, token: token, user: user.toEntity());
+      message: message ?? "",
+      token: token ?? "",
+      user: user?.toEntity() ??
+          UserEntity(
+            addresses: List.empty(),
+            email: "",
+            firstName: "",
+            gender: "",
+            id: "",
+            lastName: "",
+            phone: "",
+            photo: "",
+            role: "",
+            wishlist: List.empty(),
+            createdAt: DateTime.now(),
+          ));
 }

@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +15,9 @@ class BuildEmailField extends StatelessWidget {
       autofillHints: const [AutofillHints.email],
       decoration: InputDecoration(
         labelText: 'email_label'.tr(),
-        labelStyle: AppThemeLight.lightTheme.textTheme.titleMedium,
+        labelStyle: Theme.of(context).textTheme.titleMedium,
         hintText: 'email_hint'.tr(),
-        hintStyle: AppThemeLight.lightTheme.textTheme.bodyMedium,
+        hintStyle: Theme.of(context).textTheme.bodyMedium,
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: Validations.validateEmail,

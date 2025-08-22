@@ -45,3 +45,12 @@ app.*.map.json
 /android/app/release
 lib/core/Di/di.config.dart
 lib/core/Di/di.config.dart
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.config.dart
+*.gr.dart
+.gitignore
+lib/Feature/auth/api/models/user_dto.g.dart
+lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart

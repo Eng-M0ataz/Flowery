@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class SignupViewModel extends Cubit<SignUpState> {
-  final SignUpUseCase signUpUseCase;
+  final SignUpUseCase _signUpUseCase;
 
   final TextEditingController signUpFirstNameController =
       TextEditingController();
@@ -30,7 +30,7 @@ class SignupViewModel extends Cubit<SignUpState> {
 
   final formKey = GlobalKey<FormState>();
   String selectedGender = 'Female';
-  SignupViewModel(this.signUpUseCase) : super(SignUpState());
+  SignupViewModel(this._signUpUseCase) : super(SignUpState());
 
   Future<void> doIntent(SignUpEvent event) async {
     switch (event) {
@@ -43,16 +43,18 @@ class SignupViewModel extends Cubit<SignUpState> {
     emit(state.copyWith(isSuccess: false, isLoading: true, errorMessage: null));
 
     final signUpRequestEntity = SignUpRequestEntity(
-      firstName: event.firstName,
-      lastName: event.lastName,
-      email: event.email,
-      password: event.password,
-      rePassword: event.rePassword,
-      phone: event.phone,
-      gender: event.gender,
+      firstName: signUpFirstNameController.text.trim(),
+      lastName: signUpLastNameController.text.trim(),
+      email: signUpEmailController.text.trim(),
+      password: signUpPasswordController.text.trim(),
+      rePassword: signUpRePasswordController.text.trim(),
+      phone: signUpPhoneController.text.trim().startsWith("+")
+          ? signUpPhoneController.text.trim()
+          : "+2${signUpPhoneController.text.trim()}",
+      gender: selectedGender.toLowerCase().trim(),
     );
 
-    final result = await signUpUseCase.invoke(signUpRequestEntity);
+    final result = await _signUpUseCase.invoke(signUpRequestEntity);
     switch (result) {
       case ApiSuccessResult<SignUpResponseEntity>():
         emit(state.copyWith(
@@ -75,18 +77,7 @@ class SignupViewModel extends Cubit<SignUpState> {
 
   Future<void> submitSignUpForm() async {
     if (formKey.currentState?.validate() == true) {
-      final event = SignUpSubmitEvent(
-        firstName: signUpFirstNameController.text.trim(),
-        lastName: signUpLastNameController.text.trim(),
-        email: signUpEmailController.text.trim(),
-        password: signUpPasswordController.text.trim(),
-        rePassword: signUpRePasswordController.text.trim(),
-        phone: signUpPhoneController.text.trim().startsWith("+")
-            ? signUpPhoneController.text.trim()
-            : "+2${signUpPhoneController.text.trim()}", // تأكد إنه international
-        gender: selectedGender.toLowerCase().trim(), // male / female
-      );
-      await doIntent(event);
+      await doIntent(SignUpSubmitEvent());
     }
   }
 

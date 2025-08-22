@@ -27,6 +27,7 @@
   "terms_and_conditions": "Terms&Conditions",
   "sign_up_title": "Sign up",
   "already_have_account": "Already have an account?",
-  "login_title": "Login"
+  "login_title": "Login",
+  "account_created_successfully":"'Account created successfully!'"
 
 }

@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flutter/material.dart';
 
 class BuildNavigationText extends StatelessWidget {
@@ -18,7 +18,7 @@ class BuildNavigationText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(firstText,
-            style: AppThemeLight.lightTheme.textTheme.headlineLarge),
+            style: Theme.of(context).textTheme.headlineLarge),
         TextButton(
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
@@ -26,11 +26,11 @@ class BuildNavigationText extends StatelessWidget {
             minimumSize: const Size(0, 0),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, routeName);
+            context.pushNamed(routeName);
           },
           child: Text(
             secondText,
-            style: AppThemeLight.lightTheme.textTheme.headlineLarge!.copyWith(
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
               decoration: TextDecoration.underline,
               color: Theme.of(context).colorScheme.primary,
             ),

@@ -6,10 +6,10 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class SignUpUseCase {
-  final AuthRepo authRepo;
-  SignUpUseCase({required this.authRepo});
+  final AuthRepo _authRepo;
+  SignUpUseCase({required AuthRepo authRepo}) : _authRepo = authRepo;
   Future<ApiResult<SignUpResponseEntity>> invoke(
       SignUpRequestEntity signUpRequestEntity) {
-    return authRepo.signUp(signUpRequestEntity);
+    return _authRepo.signUp(signUpRequestEntity);
   }
 }
