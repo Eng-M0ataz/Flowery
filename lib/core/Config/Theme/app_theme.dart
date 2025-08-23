@@ -85,7 +85,7 @@ abstract class AppThemeLight {
         ),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: AppColorsLight.pink[70],
+        color: AppColorsLight.pink,
       ),
       textTheme: const TextTheme(
         bodySmall: TextStyle(

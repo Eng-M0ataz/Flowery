@@ -3,6 +3,7 @@
 // ignore_for_file: constant_identifier_names
 
 abstract class  LocaleKeys {
+<<<<<<< HEAD
   static const already_have_account_prompt = 'already_have_account_prompt';
   static const confirm_password_label = 'confirm_password_label';
   static const create_account_button = 'create_account_button';
@@ -22,5 +23,11 @@ abstract class  LocaleKeys {
   static const reset_password_title = 'reset_password_title';
   static const sign_up = 'sign_up';
   static const dog = 'dog';
+=======
+  static const home = 'home';
+  static const cart = 'cart';
+  static const profile = 'profile';
+  static const category = 'category';
+>>>>>>> AppSection-and-GuestUser
 
 }

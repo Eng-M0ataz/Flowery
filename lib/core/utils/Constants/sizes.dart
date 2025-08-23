@@ -32,10 +32,9 @@ abstract class AppSizes {
 
   // button sizes
 
-  static const double buttomHigh = 56;
-
   static const double buttomHigh_48 = 48;
   static const double buttonWidthSm_80 = 80;
+  static const double buttomHigh = 56;
 
   static const double buttomRadius = 8;
   static const double buttonHigh = 56;
@@ -47,12 +46,15 @@ abstract class AppSizes {
   // AppBar High
 
   static const double appBarHigh = 56.0;
+  static const double appBarHigh_24 = 24.0;
   static const double appBarElevation = 0.0;
   static const double appBarLeadingWidth = 120.0;
 
   // Image sizes
 
   static const double imageHigh = 80.0;
+  static const double imageHighnNavBar_24 = 24.0;
+  static const double imageWidthnNavBar_24 = 24.0;
 
   // Default Spacing Between items
 
@@ -104,18 +106,18 @@ abstract class AppSizes {
   static const double pinCodeHeight_74 = 74;
   static const double pinCodeWidth_68 = 68;
   static const int pinCodeSpace = 16;
- static const double pinCodeBorderWidth_2=2;
+  static const double pinCodeBorderWidth_2 = 2;
 
   // grid view spacing
 
   static const double gridSpacing = 16.0;
 
   //custom elevated button
-  static const double customElevatedButtonHeight_24=24;
-  static const double customElevatedButtonWidth_24=24;
+  static const double customElevatedButtonHeight_24 = 24;
+  static const double customElevatedButtonWidth_24 = 24;
 
   //spacer
-  static const double spacerWidth_0=0;
+  static const double spacerWidth_0 = 0;
 
   // break points
 

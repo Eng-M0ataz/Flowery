@@ -55,5 +55,11 @@
   "confirmPassword": "Confirm password",
   "invalidCode": "Invalid code",
   "resetPassword": "Reset password",
-  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired"
+  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired",
+ "home": "Home",
+  "cart": "Cart",
+  "profile": "Profile",
+  "category": "Category",
+  "continue": "Continue as guest"
+
 }
