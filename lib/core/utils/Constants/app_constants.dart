@@ -6,4 +6,6 @@ abstract class AppConstants {
   static const String en = 'en';
   static const String ar = 'ar';
   static const String assetsPath = 'assets/translations';
+  static const String token = 'token';
+
 }
