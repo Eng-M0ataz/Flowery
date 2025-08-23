@@ -13,13 +13,15 @@ class SigninUseCase{
 
   Future<ApiResult<SigninResponseEntity>> invoke({
     required String email,
-    required String password
+    required String password,
+    bool? rememberMeChecked = false
   }) async {
 
 
     return authRepo.signin(
         email: email,
-        password: password
+        password: password,
+        rememberMeChecked: rememberMeChecked
     );
   }
 }

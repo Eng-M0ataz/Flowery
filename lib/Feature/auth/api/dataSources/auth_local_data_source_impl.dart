@@ -23,4 +23,22 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
     }
   }
 
+  @override
+  Future<ApiResult<void>> setRememberMe({required bool rememberMe}) async {
+    try {
+      await _storage.write(
+        key: AppConstants.rememberMe,
+        value: rememberMe.toString(),
+      );
+      return ApiSuccessResult<void>(data: null);
+    } catch (e) {
+      return ApiErrorResult<void>(failure: Failure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<bool> getRememberMe() async {
+    final String value = await _storage.read(key: AppConstants.rememberMe);
+    return value.toLowerCase() == 'true';
+  }
 }

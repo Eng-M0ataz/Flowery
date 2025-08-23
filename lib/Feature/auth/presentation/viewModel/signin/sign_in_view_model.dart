@@ -14,20 +14,22 @@ class SigninViewModel extends Cubit<SignInState> {
 
   Future<void> signin({
     required String email,
-    required String password
+    required String password,
+    bool? rememberMeChecked = false
   }) async {
     emit(state.copyWith(
       isLoading: true
     ));
     final result = await _useCase.invoke(
         email: email,
-        password: password
+        password: password,
+        rememberMeChecked: rememberMeChecked
     );
     switch(result){
       case ApiSuccessResult<SigninResponseEntity>():
         emit(state.copyWith(
             response: result.data,
-            isLoading: false
+            isLoading: false,
         ));
       case ApiErrorResult<SigninResponseEntity>():
         emit(state.copyWith(

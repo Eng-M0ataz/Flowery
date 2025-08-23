@@ -18,7 +18,8 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<ApiResult<SigninResponseEntity>> signin({
     required String email,
-    required String password
+    required String password,
+    bool? rememberMeChecked = false
   }) async {
 
     // final ApiSuccessResult result = ApiSuccessResult(data: data);
@@ -32,6 +33,11 @@ class AuthRepoImpl implements AuthRepo {
         final String? token = result.data.token;
         if(token != null && token.isNotEmpty) {
           await _authLocalDataSource.writeToken(token: token);
+
+          // If user checked "Remember Me"
+          if (rememberMeChecked!) {
+            await _authLocalDataSource.setRememberMe(rememberMe: true);
+          }
         }
       }
       return result;

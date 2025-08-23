@@ -103,9 +103,8 @@ class _SigninScreenState extends State<SigninScreen> {
                               Checkbox(
                                 value: _rememberMe,
                                 onChanged: (val) {
-                                  setState(() {
                                     _rememberMe = val ?? false;
-                                  });
+                                  setState(() {});
                                 },
                               ),
                               Text(LocaleKeys.Remember_me),
@@ -135,6 +134,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
+                    // Error State
                     if (state.failure != null) {
                       DialogueUtils.showMessage(
                         context: context,
@@ -143,6 +143,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         posActionName: LocaleKeys.OK,
                       );
                     }
+                    // Success State
                     if (state.response != null) {
                       // Navigate to Home Screen or Dashboard
                       context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
@@ -160,6 +161,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           context.read<SigninViewModel>().signin(
                             email: _emailController.text.trim(),
                             password: _passwordController.text.trim(),
+                            rememberMeChecked: _rememberMe,
                           );
                         }
                       },

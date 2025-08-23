@@ -10,23 +10,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'core/Services/storge_interface.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await configureDependencies();
   Bloc.observer = MyBlocObserver();
+
+  final initialRoute = await _getInitialRoute();
+
   runApp(
     EasyLocalization(
       supportedLocales: AppConstants.supportedLocales,
       path: AppConstants.assetsPath,
       fallbackLocale: const Locale(AppConstants.en),
-      child: const FlowerECommerceApp(),
+      child: FlowerECommerceApp(initialRoute: initialRoute),
     ),
   );
 }
 
+Future<String> _getInitialRoute() async {
+  final storage = getIt<Storage>(instanceName: AppConstants.secureStorage);
+  final rememberMeValue = await storage.read(key: AppConstants.rememberMe);
+
+  if (rememberMeValue.toLowerCase() == 'true') {
+    return AppRoutes.mainLayoutRoute;
+  }
+  return AppRoutes.signInRoute;
+}
+
 class FlowerECommerceApp extends StatelessWidget {
-  const FlowerECommerceApp({super.key});
+  final String initialRoute;
+  const FlowerECommerceApp({super.key, required this.initialRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +57,7 @@ class FlowerECommerceApp extends StatelessWidget {
         breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
       ),
       theme: AppThemeLight.lightTheme,
-      initialRoute: AppRoutes.signInRoute,
+      initialRoute: initialRoute, // ✅ FIXED HERE
       onGenerateRoute: RouteGenerator.getRoute,
     );
   }

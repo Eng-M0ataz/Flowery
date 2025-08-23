@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 abstract interface class AuthRepo {
   Future<ApiResult<SigninResponseEntity>> signin({
     required String email,
-    required String password
+    required String password,
+    bool? rememberMeChecked
   });
 }
