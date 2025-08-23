@@ -43,6 +43,21 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+lib/core/Di/di.config.dart
+lib\Feature\auth\api\models\user_dto.g.dart
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.config.dart
+*.gr.dart
+.gitignore
+lib/Feature/auth/api/models/user_dto.g.dart
+lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
+lib/Feature/auth/api/models/user_dto.g.dart
+lib/core/localization/codegen_loader.g.dart
+lib/core/localization/locale_keys.g.dart
+lib/Feature/auth/api/client/api_service.g.dart
 windows/flutter/generated_plugins.cmake
 windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugin_registrant.cc

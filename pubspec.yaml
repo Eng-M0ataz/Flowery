@@ -2,7 +2,7 @@ name: flower_e_commerce_app
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.0 <=3.9.0"
+  sdk: ">=3.1.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,54 +30,41 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_secure_storage: ^9.2.4
   cached_network_image: ^3.4.1
   dio: ^5.9.0
   flutter_bloc: ^9.1.1
   bloc: ^9.0.0
-  flutter_svg: ^2.2.0
+  flutter_svg: ^2.0.10+1
   flutter_timer_countdown: ^1.0.7
   get_it: ^8.2.0
   injectable: ^2.5.1
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
-  retrofit: ^4.7.1
+  retrofit: ^4.4.0
+  mockito: ^5.4.4
   responsive_framework: ^1.5.1
   easy_localization: ^3.0.8
-  equatable: ^2.0.7
-  pinput: ^5.0.1
-  bloc_test: ^10.0.0
-  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-  build_runner: ^2.7.0
-  test: ^1.25.15
-  json_serializable: ^6.10.0
-  retrofit_generator: ^10.0.2
-  injectable_generator: ^2.8.1
-  mockito: ^5.5.0
-
-
+  injectable_generator:
+  build_runner: ^2.4.13
+  flutter_lints: ^4.0.0
+  retrofit_generator: ">=8.0.0 <10.0.0"
+  json_serializable: ^6.8.0
+  hive_generator: ^2.0.1
+  test: ^1.25.7
+  mockito: ^5.4.4
+  bloc_test: ^10.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -88,7 +75,7 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
-    
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
@@ -129,7 +116,6 @@ flutter:
           weight: 400
         - asset: assets/fonts/Roboto-SemiBold.ttf
           weight: 600
-  
 flutter_assets:
   assets_path: assets/images/
   output_path: F:\real_projects\flower_e_commerce_app\lib\core\utils\Constants\

@@ -14,8 +14,6 @@ import 'package:mockito/mockito.dart';
 
 import 'auth_repo_impl_test.mocks.dart';
 
-
-
 @GenerateMocks([AuthRemoteDataSource])
 void main() {
   late MockAuthRemoteDataSource mockRemote;
@@ -51,8 +49,7 @@ void main() {
 
     test('delegates to data source and returns success', () async {
       when(mockRemote.forgetPassword(any)).thenAnswer((_) async =>
-          ApiSuccessResult<ForgetPasswordResponseEntity>(
-              data: responseEntity));
+          ApiSuccessResult<ForgetPasswordResponseEntity>(data: responseEntity));
 
       final result = await repo.forgetPassword(request);
 
@@ -120,8 +117,7 @@ void main() {
 
     test('delegates to data source and returns success', () async {
       when(mockRemote.resetPassword(any)).thenAnswer((_) async =>
-          ApiSuccessResult<ResetPasswordResponseEntity>(
-              data: responseEntity));
+          ApiSuccessResult<ResetPasswordResponseEntity>(data: responseEntity));
 
       final result = await repo.resetPassword(request);
 
