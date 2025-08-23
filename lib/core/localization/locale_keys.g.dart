@@ -65,5 +65,20 @@ abstract class  LocaleKeys {
   static const profile = 'profile';
   static const category = 'category';
   static const continues = 'continues';
+  static const Login = 'Login';
+  static const Email = 'Email';
+  static const EmailHint = 'EmailHint';
+  static const EmailRequired = 'EmailRequired';
+  static const EmailInvalid = 'EmailInvalid';
+  static const Password = 'Password';
+  static const PasswordHint = 'PasswordHint';
+  static const PasswordRequired = 'PasswordRequired';
+  static const Remember_me = 'Remember_me';
+  static const Forget_password = 'Forget_password';
+  static const Error = 'Error';
+  static const OK = 'OK';
+  static const guest = 'guest';
+  static const Do_not_have_an_account = 'Do_not_have_an_account';
+  static const Sign_up = 'Sign_up';
 
 }

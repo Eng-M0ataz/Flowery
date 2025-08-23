@@ -26,9 +26,10 @@ import '../../Feature/auth/data/repositories/auth_repo_impl.dart' as _i923;
 import '../../Feature/auth/domain/repositories/auth_repo.dart' as _i466;
 import '../../Feature/auth/domain/useCases/forget_password_use_case.dart'
     as _i568;
-import '../../Feature/auth/domain/useCases/login_use_case.dart' as _i198;
+import '../../Feature/auth/domain/useCases/guest_use_case.dart' as _i99;
 import '../../Feature/auth/domain/useCases/reset_password_use_case.dart'
     as _i576;
+import '../../Feature/auth/domain/useCases/sign_in_use_case.dart' as _i375;
 import '../../Feature/auth/domain/useCases/sign_up_use_case.dart' as _i630;
 import '../../Feature/auth/domain/useCases/verify_reset_code_use_case.dart'
     as _i136;
@@ -62,14 +63,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i927.SecureStorageImpl(),
       instanceName: 'secureStorage',
     );
+    gh.factory<_i896.AuthRemoteDataSource>(() =>
+        _i515.AuthRemoteDataSourceImpl(apiServices: gh<_i500.ApiServices>()));
     gh.factory<_i901.AuthLocalDataSource>(() => _i608.AuthLocalDataSourceImpl(
         gh<_i456.Storage>(instanceName: 'secureStorage')));
-    gh.factory<_i896.AuthRemoteDataSource>(() =>
-        _i515.AuthRemoteDataSourceImpl(apiServicest: gh<_i500.ApiServices>()));
-    gh.factory<_i198.SigninUseCase>(
-        () => _i198.SigninUseCase(gh<_i901.AuthLocalDataSource>()));
-    gh.factory<_i787.SigninViewModel>(
-        () => _i787.SigninViewModel(gh<_i198.SigninUseCase>()));
+    gh.factory<_i99.guestUseCase>(
+        () => _i99.guestUseCase(gh<_i901.AuthLocalDataSource>()));
     gh.factory<_i466.AuthRepo>(() => _i923.AuthRepoImpl(
           authRemoteDataSource: gh<_i896.AuthRemoteDataSource>(),
           authLocalDataSource: gh<_i901.AuthLocalDataSource>(),
@@ -86,10 +85,16 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i136.VerifyResetCodeUseCase>(),
               gh<_i576.ResetPasswordUseCase>(),
             ));
+    gh.factory<_i375.SigninUseCase>(
+        () => _i375.SigninUseCase(authRepo: gh<_i466.AuthRepo>()));
     gh.factory<_i630.SignUpUseCase>(
         () => _i630.SignUpUseCase(authRepo: gh<_i466.AuthRepo>()));
     gh.factory<_i248.SignupViewModel>(
         () => _i248.SignupViewModel(gh<_i630.SignUpUseCase>()));
+    gh.factory<_i787.SigninViewModel>(() => _i787.SigninViewModel(
+          gh<_i375.SigninUseCase>(),
+          gh<_i99.guestUseCase>(),
+        ));
     return this;
   }
 }

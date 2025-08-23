@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-
+import 'package:flower_e_commerce_app/Feature/auth/api/models/request/sign_in_request_dto.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/response/sign_in_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/response/sign_up_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/api_constants.dart';
@@ -16,23 +17,10 @@ import '../models/response/verify_reset_code_response_dto.dart';
 part 'api_service.g.dart';
 
 @injectable
-
-import 'package:flower_e_commerce_app/Feature/auth/api/model/requests/sign_in_request_dto.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/model/responses/sign_in_response_dto.dart';
-import 'package:injectable/injectable.dart';
-import 'package:retrofit/error_logger.dart';
-import 'package:retrofit/http.dart';
-
-import '../../../../core/utils/Constants/api_constants.dart';
-part 'api_service.g.dart';
-
-@singleton
-
 @RestApi()
 abstract class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
-
 
   @POST(ApiConstants.signUp)
   Future<SignUpResponseDto> signUp(@Body() SignUpRequestModel signUpRequest);
@@ -44,14 +32,9 @@ abstract class ApiServices {
   @POST(ApiConstants.verifyResetCode)
   Future<VerifyResetCodeResponseDto> verifyResetCode(
       @Body() VerifyResetCodeRequest verifyResetCodeRequest);
-
   @PUT(ApiConstants.resetPassword)
   Future<ResetPasswordResponseDto> resetPassword(
       @Body() ResetPasswordRequest resetPasswordRequest);
-
-@POST(ApiConstants.signIn)
-  Future<SigninResponseDto> signIn({
-    @Body() required SigninRequestDto request
-  });
-
+  @POST(ApiConstants.signIn)
+  Future<SigninResponseDto> signIn(@Body() SigninRequestDto request);
 }

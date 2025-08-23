@@ -20,6 +20,8 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forg
     as _i8;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart'
     as _i12;
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart'
+    as _i14;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart'
     as _i5;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart'
@@ -124,4 +126,32 @@ class MockAuthRemoteDataSource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<_i12.ResetPasswordResponseEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>> signin({
+    required String? email,
+    required String? password,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #signin,
+          [],
+          {
+            #email: email,
+            #password: password,
+          },
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i14.SigninResponseEntity>>(
+          this,
+          Invocation.method(
+            #signin,
+            [],
+            {
+              #email: email,
+              #password: password,
+            },
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>>);
 }

@@ -1,41 +1,35 @@
 import 'package:dio/dio.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/request/sign_in_request_dto.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart';
+import 'package:injectable/injectable.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
-
-import 'package:flower_e_commerce_app/Feature/auth/api/mapper/sign_up_response_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
-import 'package:dio/dio.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/request/forget_password_request.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/request/reset_password_request.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/request/verify_reset_code_request.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/mapper/sign_up_response_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/forget_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/reset_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/verify_reset_code_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/forget_password_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/reset_password_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/verify_reset_code_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
-
-import 'package:flower_e_commerce_app/Feature/auth/api/model/requests/sign_in_request_dto.dart';
-import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/Entity/sign_in_entity.dart';
-
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forget_password_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
-import 'package:injectable/injectable.dart';
-import '../../domain/entities/request/forget_password_request_entity.dart';
-import '../../domain/entities/request/reset_password_request_entity.dart';
-import '../../domain/entities/request/verify_reset_code_request_entity.dart';
-import '../../domain/entities/response/forget_password_response_entity.dart';
-import '../../domain/entities/response/reset_password_response_entity.dart';
-import '../../domain/entities/response/verify_reset_code_response_entity.dart';
-import '../models/request/forget_password_request.dart';
-import '../models/request/reset_password_request.dart';
-import '../models/request/verify_reset_code_request.dart';
 
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final ApiServices _apiServices;
-<<<<<<< HEAD
 
   AuthRemoteDataSourceImpl({
-    required ApiServices apiServicest,
-  }) : _apiServices = apiServicest;
+    required ApiServices apiServices,
+  }) : _apiServices = apiServices;
   @override
   Future<ApiResult<SignUpResponseEntity>> signup(
       SignUpRequestEntity signUpRequest) async {
@@ -115,27 +109,21 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
-  
-
-
   @override
-  Future<ApiResult<SigninResponseEntity>> signin({
-    required String email,
-    required String password
-  }) async {
-    try{
+  Future<ApiResult<SigninResponseEntity>> signin(
+      {required String email, required String password}) async {
+    try {
       final request = SigninRequestDto(email: email, password: password);
 
-      final response = await _apiServices.signIn(request: request);
+      final response = await _apiServices.signIn(request);
 
       return ApiSuccessResult<SigninResponseEntity>(data: response.toEntity());
-    } on DioException catch(e) {
+    } on DioException catch (e) {
       final failure = ServerFailure.fromDioError(dioException: e);
       return ApiErrorResult<SigninResponseEntity>(failure: failure);
-    } catch(e) {
+    } catch (e) {
       final failure = Failure(errorMessage: e.toString());
       return ApiErrorResult<SigninResponseEntity>(failure: failure);
     }
   }
-
 }

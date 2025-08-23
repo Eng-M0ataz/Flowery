@@ -1,4 +1,5 @@
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin/sign_in_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_in_state.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/helpers/regex.dart';
@@ -35,15 +36,15 @@ class _SigninScreenState extends State<SigninScreen> {
       child: Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppSizes.paddingMd_12),
+            padding:
+                const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 // Custom Back Button
                 const CustomBackButton(title: LocaleKeys.Login),
-                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 // Login Form
                 Form(
@@ -55,10 +56,8 @@ class _SigninScreenState extends State<SigninScreen> {
                       TextFormField(
                         controller: _emailController,
                         decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.Email,
-                              style: theme.textTheme.bodyMedium
-                          ),
+                          label: Text(LocaleKeys.Email,
+                              style: theme.textTheme.bodyMedium),
                           hintText: LocaleKeys.EmailHint,
                         ),
                         validator: (value) {
@@ -71,17 +70,15 @@ class _SigninScreenState extends State<SigninScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                       // Password
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.Password,
-                              style: theme.textTheme.bodyMedium
-                          ),
+                          label: Text(LocaleKeys.Password,
+                              style: theme.textTheme.bodyMedium),
                           hintText: LocaleKeys.PasswordHint,
                         ),
                         validator: (value) {
@@ -92,7 +89,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         },
                       ),
 
-                      const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                       // Remember me & Forget password
                       Row(
@@ -129,7 +126,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 // Bloc Consumer for Login Action
                 BlocConsumer<SigninViewModel, SignInState>(
@@ -158,24 +155,22 @@ class _SigninScreenState extends State<SigninScreen> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           context.read<SigninViewModel>().signin(
-                            email: _emailController.text.trim(),
-                            password: _passwordController.text.trim(),
-                          );
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text.trim(),
+                              );
                         }
                       },
                     );
                   },
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 // Continue as guest button
                 OutlinedButton(
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(
-                        AppRoutes.mainLayoutRoute,
-                        predicate: (route) => false
-                    ); // Navigate as guest
+                    context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
+                        predicate: (route) => false); // Navigate as guest
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),

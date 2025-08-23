@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/signup_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/form/sign_up_form.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';

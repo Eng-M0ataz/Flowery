@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/Feature/auth/domain/Entity/sign_in_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sign_in_response_dto.g.dart';
@@ -12,7 +12,7 @@ class SigninResponseDto {
   @JsonKey(name: "token")
   final String? token;
 
-  SigninResponseDto ({
+  SigninResponseDto({
     this.message,
     this.user,
     this.token,
@@ -60,7 +60,7 @@ class User {
   @JsonKey(name: "createdAt")
   final String? createdAt;
 
-  User ({
+  User({
     this.Id,
     this.firstName,
     this.lastName,
@@ -98,5 +98,3 @@ class User {
     );
   }
 }
-
-

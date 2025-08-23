@@ -1,5 +1,4 @@
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-
 abstract interface class AuthLocalDataSource {
 
   Future <ApiResult<void>> isGuest(); 

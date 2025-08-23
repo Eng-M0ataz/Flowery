@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/event/signin_event.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/events/signin_event.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_in_state.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart';
-import 'package:flower_e_commerce_app/core/Di/di.config.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elvated_button.dart';
@@ -11,9 +11,6 @@ import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-
-
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});
@@ -25,11 +22,12 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create:(context) =>  getIt.get<SigninViewModel>(),
+    return BlocProvider(
+      create: (context) => getIt.get<SigninViewModel>(),
       child: Scaffold(
         body: BlocConsumer<SigninViewModel, SignInState>(
           listener: (context, state) {
-              if (state.isSuccess) {
+            if (state.isSuccess) {
               context.pushNamed(AppRoutes.mainLayoutRoute);
             } else if (state.errorMessage != null) {
               DialogueUtils.showMessage(
@@ -47,7 +45,8 @@ class _SigninScreenState extends State<SigninScreen> {
                     elevatedButtonTheme: ElevatedButtonThemeData(
                       style: ElevatedButton.styleFrom(
                         side: const BorderSide(color: Colors.black),
-                        backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   ),
@@ -62,8 +61,11 @@ class _SigninScreenState extends State<SigninScreen> {
                       isLoading: state.isGuestLoading,
                       title: LocaleKeys.continueString.tr(),
                       onPressed: () {
-                        state.isGuestLoading?null:
-                        context.read<SigninViewModel>().doIntent(IsGuestEvent());
+                        state.isGuestLoading
+                            ? null
+                            : context
+                                .read<SigninViewModel>()
+                                .doIntent(IsGuestEvent());
                       },
                     ),
                   ),

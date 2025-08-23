@@ -13,8 +13,6 @@ import 'package:test/test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'auth_remote_data_source_impl_test.mocks.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/dataSources/auth_remote_data_source_impl.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/forget_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/reset_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/verify_reset_code_dto_mapper.dart';
@@ -27,14 +25,6 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/verif
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forget_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart';
-import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/Errors/failure.dart';
-import 'package:dio/dio.dart';
-import 'package:test/test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-
-import 'auth_remote_data_source_impl_test.mocks.dart';
 
 @GenerateMocks([ApiServices])
 void main() {
@@ -44,7 +34,7 @@ void main() {
   setUp(() {
     mockApiServices = MockApiServices();
     authRemoteDataSourceImpl =
-        AuthRemoteDataSourceImpl(apiServicest: mockApiServices);
+        AuthRemoteDataSourceImpl(apiServices: mockApiServices);
   });
   group('signUp', () {
     final requestEntity = SignUpRequestEntity(

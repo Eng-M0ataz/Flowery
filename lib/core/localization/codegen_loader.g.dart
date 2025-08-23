@@ -76,7 +76,21 @@ class CodegenLoader extends AssetLoader{
   "cart": "منتجاتي",
   "profile": "بيانات المستخدم",
   "category": "الفئات",
-  "continues": "الدخول كضيف"
+  "continues": "الدخول كضيف",
+  "Login": "تسجيل الدخول",
+  "Email": "البريد الإلكتروني",
+  "EmailHint": "أدخل بريدك الإلكتروني",
+  "EmailRequired": "البريد الإلكتروني مطلوب",
+  "EmailInvalid": "أدخل بريدًا إلكترونيًا صالحًا",
+  "Password": "كلمة المرور",
+  "PasswordHint": "أدخل كلمة المرور",
+  "PasswordRequired": "كلمة المرور مطلوبة",
+  "Remember_me": "تذكرني",
+  "Forget_password": "هل نسيت كلمة المرور؟",
+  "Error": "خطأ",
+  "guest": "المتابعة كضيف",
+  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
+  "Sign_up": "سجل"
 };
 static const Map<String,dynamic> _en = {
   "sign_up": "Sign up",
@@ -140,7 +154,21 @@ static const Map<String,dynamic> _en = {
   "cart": "Cart",
   "profile": "Profile",
   "category": "Category",
-  "continues": "Continue as guest"
+  "continues": "Continue as guest",
+  "Login": "Login",
+  "Email": "Email",
+  "EmailHint": "Enter your email",
+  "EmailRequired": "Email is required",
+  "EmailInvalid": "Enter a valid email",
+  "Password": "Password",
+  "PasswordHint": "Enter your password",
+  "PasswordRequired": "Password is required",
+  "RememberMe": "Remember me",
+  "ForgetPassword": "Forget password?",
+  "Error": "Error",
+  "guest": "Continue as guest",
+  "DoNotHaveAccount": "Don't have an account?",
+  "SignUp": "Sign up"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }
