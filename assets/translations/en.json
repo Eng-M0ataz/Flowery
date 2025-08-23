@@ -27,8 +27,6 @@
   "already_have_account": "Already have an account?",
   "login_title": "Login",
   "account_created_successfully": "'Account created successfully!'",
-  "success": "Success",
-  "ok": "OK",
   "loading": "Loading...",
   "male_label": "Male",
   "female_label": "Female",
@@ -59,5 +57,3 @@
   "resetPassword": "Reset password",
   "resetCodeInvalidOrExpired": "Reset code is invalid or has expired"
 }
-
-

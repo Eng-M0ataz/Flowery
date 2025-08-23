@@ -4,8 +4,8 @@ import 'package:flower_e_commerce_app/Feature/auth/api/mapper/sign_up_response_d
 import 'package:flower_e_commerce_app/Feature/auth/api/models/response/sign_up_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/user_dto.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntities/sign_up_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:dio/dio.dart';

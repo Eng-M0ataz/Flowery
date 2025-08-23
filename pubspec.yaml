@@ -46,6 +46,8 @@ dependencies:
   mockito: ^5.4.4
   responsive_framework: ^1.5.1
   easy_localization: ^3.0.8
+  equatable: ^2.0.7
+  pinput: ^5.0.1
 
 dev_dependencies:
   flutter_test:

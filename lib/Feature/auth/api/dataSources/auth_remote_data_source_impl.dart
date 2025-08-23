@@ -7,8 +7,8 @@ import 'package:flower_e_commerce_app/Feature/auth/api/mapper/forget_password_dt
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/reset_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/verify_reset_code_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntities/sign_up_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:injectable/injectable.dart';

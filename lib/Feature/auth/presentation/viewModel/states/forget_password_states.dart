@@ -42,7 +42,7 @@ class ForgetPasswordState extends Equatable {
     return ForgetPasswordState(
       step: step ?? this.step,
       status: status ?? this.status,
-      failure: failure ??this.failure,
+      failure: failure ?? this.failure,
       email: email ?? this.email,
       forgetResponse: forgetResponse ?? this.forgetResponse,
       verifyResponse: verifyResponse ?? this.verifyResponse,

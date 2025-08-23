@@ -24,7 +24,15 @@ import '../../Feature/auth/data/dataSources/auth_remote_data_source.dart'
     as _i896;
 import '../../Feature/auth/data/repositories/auth_repo_impl.dart' as _i923;
 import '../../Feature/auth/domain/repositories/auth_repo.dart' as _i466;
+import '../../Feature/auth/domain/useCases/forget_password_use_case.dart'
+    as _i568;
+import '../../Feature/auth/domain/useCases/reset_password_use_case.dart'
+    as _i576;
 import '../../Feature/auth/domain/useCases/sign_up_use_case.dart' as _i630;
+import '../../Feature/auth/domain/useCases/verify_reset_code_use_case.dart'
+    as _i136;
+import '../../Feature/auth/presentation/viewModel/viewModel/forget_password_view_model.dart'
+    as _i889;
 import '../../Feature/auth/presentation/viewModel/viewModel/signup_view_model.dart'
     as _i248;
 import '../Services/secure_storage.dart' as _i927;
@@ -57,6 +65,18 @@ extension GetItInjectableX on _i174.GetIt {
         _i515.AuthRemoteDataSourceImpl(apiServicest: gh<_i500.ApiServices>()));
     gh.factory<_i466.AuthRepo>(() => _i923.AuthRepoImpl(
         authRemoteDataSource: gh<_i896.AuthRemoteDataSource>()));
+    gh.factory<_i568.ForgetPasswordUseCase>(
+        () => _i568.ForgetPasswordUseCase(gh<_i466.AuthRepo>()));
+    gh.factory<_i576.ResetPasswordUseCase>(
+        () => _i576.ResetPasswordUseCase(gh<_i466.AuthRepo>()));
+    gh.factory<_i136.VerifyResetCodeUseCase>(
+        () => _i136.VerifyResetCodeUseCase(gh<_i466.AuthRepo>()));
+    gh.factory<_i889.ForgetPasswordViewModel>(
+        () => _i889.ForgetPasswordViewModel(
+              gh<_i568.ForgetPasswordUseCase>(),
+              gh<_i136.VerifyResetCodeUseCase>(),
+              gh<_i576.ResetPasswordUseCase>(),
+            ));
     gh.factory<_i630.SignUpUseCase>(
         () => _i630.SignUpUseCase(authRepo: gh<_i466.AuthRepo>()));
     gh.factory<_i248.SignupViewModel>(

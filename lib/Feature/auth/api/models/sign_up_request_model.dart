@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sign_up_request_model.g.dart';

@@ -6,9 +6,9 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/veri
 import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/forget_password_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/reset_password_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/verify_reset_code_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forgetPassword/forget_password_intent.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forgetPassword/forget_password_states.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forgetPassword/forget_password_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/events/forget_password_intent.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/forget_password_states.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/forget_password_view_model.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flutter/material.dart';

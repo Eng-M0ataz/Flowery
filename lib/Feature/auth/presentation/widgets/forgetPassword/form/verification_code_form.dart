@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../../../core/localization/locale_keys.g.dart';
 import '../../../../../../core/utils/Constants/sizes.dart';
-import '../../../viewModel/forgetPassword/forget_password_intent.dart';
-import '../../../viewModel/forgetPassword/forget_password_states.dart';
-import '../../../viewModel/forgetPassword/forget_password_view_model.dart';
+import '../../../viewModel/events/forget_password_intent.dart';
+import '../../../viewModel/states/forget_password_states.dart';
+import '../../../viewModel/viewModel/forget_password_view_model.dart';
 import '../build_pin_code.dart';
 import '../build_title_and_sub.dart';
 

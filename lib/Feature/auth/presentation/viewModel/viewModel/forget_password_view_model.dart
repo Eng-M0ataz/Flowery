@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forgetPassword/forget_password_states.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/forget_password_states.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
@@ -16,7 +16,7 @@ import '../../../domain/entities/response/verify_reset_code_response_entity.dart
 import '../../../domain/useCases/forget_password_use_case.dart';
 import '../../../domain/useCases/reset_password_use_case.dart';
 import '../../../domain/useCases/verify_reset_code_use_case.dart';
-import 'forget_password_intent.dart';
+import '../events/forget_password_intent.dart';
 
 @injectable
 class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {

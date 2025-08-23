@@ -31,10 +31,34 @@ abstract class  LocaleKeys {
   static const already_have_account = 'already_have_account';
   static const login_title = 'login_title';
   static const account_created_successfully = 'account_created_successfully';
-  static const success = 'success';
-  static const ok = 'ok';
   static const loading = 'loading';
   static const male_label = 'male_label';
   static const female_label = 'female_label';
+  static const error = 'error';
+  static const ok = 'ok';
+  static const success = 'success';
+  static const otpSentSuccess = 'otpSentSuccess';
+  static const passwordResetSuccess = 'passwordResetSuccess';
+  static const codeVerifiedSuccess = 'codeVerifiedSuccess';
+  static const operationCompleted = 'operationCompleted';
+  static const unexpectedError = 'unexpectedError';
+  static const password = 'password';
+  static const forgetPassword = 'forgetPassword';
+  static const enterEmailInstruction = 'enterEmailInstruction';
+  static const email = 'email';
+  static const enterEmail = 'enterEmail';
+  static const confirm = 'confirm';
+  static const invalidEmail = 'invalidEmail';
+  static const emailVerification = 'emailVerification';
+  static const enterCodeInstruction = 'enterCodeInstruction';
+  static const didNotReceiveCode = 'didNotReceiveCode';
+  static const resend = 'resend';
+  static const passwordValidation = 'passwordValidation';
+  static const newPassword = 'newPassword';
+  static const enterPassword = 'enterPassword';
+  static const confirmPassword = 'confirmPassword';
+  static const invalidCode = 'invalidCode';
+  static const resetPassword = 'resetPassword';
+  static const resetCodeInvalidOrExpired = 'resetCodeInvalidOrExpired';
 
 }
