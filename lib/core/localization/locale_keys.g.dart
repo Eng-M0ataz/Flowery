@@ -60,5 +60,10 @@ abstract class  LocaleKeys {
   static const invalidCode = 'invalidCode';
   static const resetPassword = 'resetPassword';
   static const resetCodeInvalidOrExpired = 'resetCodeInvalidOrExpired';
+  static const home = 'home';
+  static const cart = 'cart';
+  static const profile = 'profile';
+  static const category = 'category';
+  static const continues = 'continues';
 
 }

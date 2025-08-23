@@ -56,10 +56,9 @@
   "invalidCode": "Invalid code",
   "resetPassword": "Reset password",
   "resetCodeInvalidOrExpired": "Reset code is invalid or has expired",
- "home": "Home",
+  "home": "Home",
   "cart": "Cart",
   "profile": "Profile",
   "category": "Category",
-  "continue": "Continue as guest"
-
+  "continues": "Continue as guest"
 }

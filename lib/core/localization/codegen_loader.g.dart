@@ -71,7 +71,12 @@ class CodegenLoader extends AssetLoader{
   "confirmPassword": "تأكيد كلمة المرور",
   "invalidCode": "رمز غير صالح",
   "resetPassword": "إعادة تعيين كلمة المرور",
-  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته"
+  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
+  "home": "الصفحه الرئيسيه",
+  "cart": "منتجاتي",
+  "profile": "بيانات المستخدم",
+  "category": "الفئات",
+  "continues": "الدخول كضيف"
 };
 static const Map<String,dynamic> _en = {
   "sign_up": "Sign up",
@@ -130,7 +135,12 @@ static const Map<String,dynamic> _en = {
   "confirmPassword": "Confirm password",
   "invalidCode": "Invalid code",
   "resetPassword": "Reset password",
-  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired"
+  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired",
+  "home": "Home",
+  "cart": "Cart",
+  "profile": "Profile",
+  "category": "Category",
+  "continues": "Continue as guest"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

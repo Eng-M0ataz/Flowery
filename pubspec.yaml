@@ -37,7 +37,6 @@ dependencies:
   flutter_bloc: ^9.1.1
   bloc: ^9.0.0
   flutter_svg: ^2.0.10+1
-  flutter_svg: ^2.0.10+1
   flutter_timer_countdown: ^1.0.7
   get_it: ^8.2.0
   injectable: ^2.5.1

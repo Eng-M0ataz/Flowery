@@ -17,9 +17,13 @@ import '../dataSources/auth_remote_data_source.dart';
 
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
+  final AuthLocalDataSource _authLocalDataSource;
   final AuthRemoteDataSource _authRemoteDataSource;
-  AuthRepoImpl({required AuthRemoteDataSource authRemoteDataSource})
-      : _authRemoteDataSource = authRemoteDataSource;
+  AuthRepoImpl({
+    required AuthRemoteDataSource authRemoteDataSource,
+    required AuthLocalDataSource authLocalDataSource,
+  })  : _authLocalDataSource = authLocalDataSource,
+        _authRemoteDataSource = authRemoteDataSource;
 
   @override
   Future<ApiResult<SignUpResponseEntity>> signUp(
