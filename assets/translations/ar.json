@@ -31,10 +31,7 @@
   "ok": "موافق",
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
-  "female_label": "انثى"
-}
-
-{
+  "female_label": "انثى",
   "error": "خطأ",
   "ok": "موافق",
   "success": "نجاح",

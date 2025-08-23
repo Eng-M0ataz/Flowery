@@ -12,16 +12,12 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntit
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:injectable/injectable.dart';
-
-import '../../../../core/Errors/api_results.dart';
-import '../../../../core/Errors/failure.dart';
 import '../../domain/entities/request/forget_password_request_entity.dart';
 import '../../domain/entities/request/reset_password_request_entity.dart';
 import '../../domain/entities/request/verify_reset_code_request_entity.dart';
 import '../../domain/entities/response/forget_password_response_entity.dart';
 import '../../domain/entities/response/reset_password_response_entity.dart';
 import '../../domain/entities/response/verify_reset_code_response_entity.dart';
-import '../client/api_service.dart';
 import '../models/request/forget_password_request.dart';
 import '../models/request/reset_password_request.dart';
 import '../models/request/verify_reset_code_request.dart';
@@ -48,12 +44,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           failure: ServerFailure(errorMessage: e.toString()));
     }
   }
-}
-class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  final ApiServices _apiServices;
-
-  AuthRemoteDataSourceImpl({required ApiServices apiServices})
-      : _apiServices = apiServices;
 
   @override
   Future<ApiResult<ForgetPasswordResponseEntity>> forgetPassword(
@@ -117,4 +107,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
     }
   }
+
+  
 }

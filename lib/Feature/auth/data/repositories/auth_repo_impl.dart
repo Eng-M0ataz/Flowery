@@ -24,12 +24,6 @@ class AuthRepoImpl implements AuthRepo {
       SignUpRequestEntity signUpRequestEntity) {
     return _authRemoteDataSource.signup(signUpRequestEntity);
   }
-}
-class AuthRepoImpl implements AuthRepo {
-  final AuthRemoteDataSource _authRemoteDataSource;
-
-  AuthRepoImpl({required AuthRemoteDataSource authRemoteDataSource})
-      : _authRemoteDataSource = authRemoteDataSource;
 
   @override
   Future<ApiResult<ForgetPasswordResponseEntity>> forgetPassword(
