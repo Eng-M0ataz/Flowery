@@ -35,13 +35,14 @@ abstract class AppSizes {
   static const double buttomHigh_48 = 48;
   static const double buttonWidthSm_80 = 80;
   static const double buttomHigh = 56;
-
   static const double buttomRadius = 8;
   static const double buttonHigh = 56;
   static const double buttonHigh_48 = 48;
   static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
+
   static const double buttonWidth_80 = 80.0;
+
 
   // AppBar High
 

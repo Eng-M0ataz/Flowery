@@ -43,6 +43,7 @@ class FlowerECommerceApp extends StatelessWidget {
         breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
       ),
       theme: AppThemeLight.lightTheme,
+      initialRoute: AppRoutes.signInRoute,
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: AppRoutes.mainLayoutRoute,
     );

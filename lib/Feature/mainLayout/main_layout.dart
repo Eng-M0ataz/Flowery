@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cartFeature/cart_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoryFeature/category_screen.dart';

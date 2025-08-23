@@ -5,6 +5,9 @@ import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../../Services/storage_interface.dart';
+import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import '../../Services/storge_interface.dart';
 import '../di.dart';
 
 @module
@@ -28,11 +31,12 @@ abstract class DioModule {
           final String token = await getIt
               .get<Storage>(instanceName: AppConstants.secureStorage)
               .read(
-                key: ApiConstants.token,
+              key: ApiConstants.token,
               );
+
           if (token.isNotEmpty) {
             options.headers[ApiConstants.authorization] =
-                '${ApiConstants.bearer} $token';
+            '${ApiConstants.bearer} $token';
           }
           return handler.next(options);
         },

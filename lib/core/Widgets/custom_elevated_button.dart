@@ -16,9 +16,11 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedContainer(
+
         height: AppSizes.buttonHigh_48,
         width: isLoading
             ? AppSizes.buttonWidth_80
+
             : MediaQuery.of(context).size.width,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
@@ -31,8 +33,10 @@ class CustomElevatedButton extends StatelessWidget {
             BorderRadius.circular(AppSizes.borderRadiusFull),
           ),
           child: SizedBox(
+
             width: AppSizes.customElevatedButtonHeight_24,
             height: AppSizes.customElevatedButtonWidth_24,
+
             child: Theme(
               data: ThemeData(
                 progressIndicatorTheme: ProgressIndicatorThemeData(
@@ -56,4 +60,5 @@ class CustomElevatedButton extends StatelessWidget {
       ),
     );
   }
+
 }
