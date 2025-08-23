@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/Feature/cart/cart_screen.dart';
-import 'package:flower_e_commerce_app/Feature/category/category_screen.dart';
-import 'package:flower_e_commerce_app/Feature/home/home_screen.dart';
-import 'package:flower_e_commerce_app/Feature/profile/profile_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cartFeature/cart_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoryFeature/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/homeFeature/home_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profileFeature/profile_screen.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
