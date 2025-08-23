@@ -26,7 +26,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               context: context,
               status: state.status,
               successMessage: viewModel.getSuccessMessage(state),
-              errorMessage: state.errorMsg ?? LocaleKeys.unexpectedError.tr(),
+              errorMessage: state.failure?.errorMessage??'',
               onSuccess: () => viewModel.handleSuccessNavigation(
                   context, state, viewModel.pageController));
         },

@@ -81,7 +81,7 @@ class VerificationCodeForm extends StatelessWidget {
                                       );
                                     },
                                   )
-                                : Container(),
+                                : SizedBox(),
                           ],
                         );
                       },

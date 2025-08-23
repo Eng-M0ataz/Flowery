@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/localization/locale_keys.g.dart';
 
 class BuildPasswordField extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/localization/locale_keys.g.dart';
 
 class ResendText extends StatelessWidget {

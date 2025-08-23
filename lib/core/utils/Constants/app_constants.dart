@@ -9,5 +9,6 @@ abstract class AppConstants {
   static const String loading = 'loading';
   static const String error = 'error';
   static const String success = 'success';
-
+  static const int mainDuration = 10;
+  static const int resendDuration = 3;
 }

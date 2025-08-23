@@ -4,12 +4,15 @@ part 'forget_password_response_dto.g.dart';
 
 @JsonSerializable()
 class ForgetPasswordResponseDto {
-  final String message;
-  final String info;
+  @JsonKey(name: 'message')
+  final String? message;
+
+  @JsonKey(name: 'info')
+  final String? info;
 
   ForgetPasswordResponseDto({
-    required this.message,
-    required this.info,
+    this.message,
+    this.info,
   });
 
   factory ForgetPasswordResponseDto.fromJson(Map<String, dynamic> json) =>

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 
+import '../../../../../core/utils/Constants/app_constants.dart';
+
 class ResendTimer extends StatelessWidget {
   final void Function()? onEnd;
   const ResendTimer({super.key,required this.onEnd});
@@ -11,7 +13,7 @@ class ResendTimer extends StatelessWidget {
       format: CountDownTimerFormat
           .minutesSeconds,
       endTime: DateTime.now().add(
-        const Duration(minutes: 1),
+        const Duration(minutes: AppConstants.resendDuration),
       ),
       timeTextStyle: Theme.of(context)
           .textTheme

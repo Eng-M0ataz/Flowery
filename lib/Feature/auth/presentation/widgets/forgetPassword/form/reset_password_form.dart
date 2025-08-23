@@ -10,7 +10,7 @@ import '../../../viewModel/forgetPassword/forget_password_view_model.dart';
 import '../build_confirm_password_field.dart';
 import '../build_password_field.dart';
 import '../build_title_and_sub.dart';
-import '../custom_elevated_button.dart';
+import '../../../../../../core/Widgets/custom_elevated_button.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   const ResetPasswordForm({super.key});

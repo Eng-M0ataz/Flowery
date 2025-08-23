@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.0 <=3.8.1"
+  sdk: ">=3.1.0 <=3.9.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -46,9 +46,11 @@ dependencies:
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.7.1
-  mockito: ^5.5.0
   responsive_framework: ^1.5.1
   easy_localization: ^3.0.8
+  equatable: ^2.0.7
+  pinput: ^5.0.1
+  bloc_test: ^10.0.0
   
 
 dev_dependencies:
@@ -61,11 +63,14 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  build_runner: ^2.6.0
+  build_runner: ^2.7.0
   test: ^1.25.15
   json_serializable: ^6.10.0
   retrofit_generator: ^10.0.2
   injectable_generator: ^2.8.1
+  mockito: ^5.5.0
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

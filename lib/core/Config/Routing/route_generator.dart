@@ -9,7 +9,7 @@ class RouteGenerator {
       case AppRoutes.signUpRoute:
       case AppRoutes.forgetPasswordRoute:
         return MaterialPageRoute(
-          builder: (_) => ForgetPasswordScreen(), // Replace with actual widget
+          builder: (_) => ForgetPasswordScreen(),
         );
       case AppRoutes.mainLayoutRoute:
       default:

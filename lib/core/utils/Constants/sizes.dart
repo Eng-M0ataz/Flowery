@@ -87,13 +87,23 @@ abstract class AppSizes {
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 4.0;
 
-  // image carousel high
-
-  // loading indicator size
+  //pin code
+  static const int pinCodeLength_6 = 6;
+  static const double pinCodeHeight_74 = 74;
+  static const double pinCodeWidth_68 = 68;
+  static const int pinCodeSpace = 16;
+ static const double pinCodeBorderWidth_2=2;
 
   // grid view spacing
 
   static const double gridSpacing = 16.0;
+
+  //custom elevated button
+  static const double customElevatedButtonHeight_24=24;
+  static const double customElevatedButtonWidth_24=24;
+
+  //spacer
+  static const double spacerWidth_0=0;
 
   // break points
 

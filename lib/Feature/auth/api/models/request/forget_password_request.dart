@@ -1,9 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-
 import '../../../domain/entities/request/forget_password_request_entity.dart';
 
-
 part 'forget_password_request.g.dart';
+
 @JsonSerializable()
 class ForgetPasswordRequest {
   @JsonKey(name: 'email')
@@ -13,8 +12,6 @@ class ForgetPasswordRequest {
     required this.email,
   });
 
-
-/// From Domain Entity
   factory ForgetPasswordRequest.fromDomain(ForgetPasswordRequestEntity entity) {
     return ForgetPasswordRequest(
       email: entity.email,
@@ -25,5 +22,4 @@ class ForgetPasswordRequest {
       _$ForgetPasswordRequestFromJson(json);
 
   Map<String, dynamic> toJson() => _$ForgetPasswordRequestToJson(this);
-
 }

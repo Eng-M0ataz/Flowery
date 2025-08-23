@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forgetPassword/forget_password_states.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../../core/Errors/api_results.dart';
@@ -74,7 +76,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
         break;
       case ForgetPasswordStep.reset:
         if (state.resetResponse != null) {
-          Navigator.of(context).pop();
+          context.pop();
         } else {
           pageController.nextPage(
             duration: const Duration(milliseconds: 300),
@@ -129,14 +131,14 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
           status: ForgetPasswordStatus.success,
           email: email,
           forgetResponse: result.data,
-          errorMsg: null,
         ));
         break;
       case ApiErrorResult<ForgetPasswordResponseEntity>():
         emit(state.copyWith(
-          status: ForgetPasswordStatus.error,
-          errorMsg: result.failure.errorMessage,
-        ));
+            status: ForgetPasswordStatus.error,
+            failure: Failure(
+              errorMessage: result.failure.errorMessage,
+            )));
         break;
     }
   }
@@ -157,14 +159,14 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
           step: ForgetPasswordStep.reset,
           status: ForgetPasswordStatus.success,
           verifyResponse: result.data,
-          errorMsg: null,
         ));
         break;
       case ApiErrorResult<VerifyResetCodeResponseEntity>():
         emit(state.copyWith(
-          status: ForgetPasswordStatus.error,
-          errorMsg: result.failure.errorMessage,
-        ));
+            status: ForgetPasswordStatus.error,
+            failure: Failure(
+              errorMessage: result.failure.errorMessage,
+            )));
         break;
     }
   }
@@ -181,16 +183,16 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
         emit(state.copyWith(
           status: ForgetPasswordStatus.success,
           forgetResponse: result.data,
-          errorMsg: null,
           step: ForgetPasswordStep.resend,
           isResendAvailable: false,
         ));
         break;
       case ApiErrorResult<ForgetPasswordResponseEntity>():
         emit(state.copyWith(
-          status: ForgetPasswordStatus.error,
-          errorMsg: result.failure.errorMessage,
-        ));
+            status: ForgetPasswordStatus.error,
+            failure: Failure(
+              errorMessage: result.failure.errorMessage,
+            )));
         break;
     }
   }
@@ -210,17 +212,15 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
         emit(state.copyWith(
           status: ForgetPasswordStatus.success,
           resetResponse: result.data,
-          errorMsg: null,
         ));
         break;
       case ApiErrorResult<ResetPasswordResponseEntity>():
         emit(state.copyWith(
-          status: ForgetPasswordStatus.error,
-          errorMsg: result.failure.errorMessage,
-        ));
+            status: ForgetPasswordStatus.error,
+            failure: Failure(
+              errorMessage: result.failure.errorMessage,
+            )));
         break;
     }
   }
-
-
 }

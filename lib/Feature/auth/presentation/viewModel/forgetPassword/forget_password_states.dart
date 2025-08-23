@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import '../../../domain/entities/response/forget_password_response_entity.dart';
 import '../../../domain/entities/response/reset_password_response_entity.dart';
 import '../../../domain/entities/response/verify_reset_code_response_entity.dart';
@@ -10,7 +11,7 @@ enum ForgetPasswordStatus { initial, loading, success, error }
 class ForgetPasswordState extends Equatable {
   final ForgetPasswordStep step;
   final ForgetPasswordStatus status;
-  final String? errorMsg;
+  final Failure? failure;
   final bool isResendAvailable;
   final String? email;
   final ForgetPasswordResponseEntity? forgetResponse;
@@ -21,7 +22,7 @@ class ForgetPasswordState extends Equatable {
     this.step = ForgetPasswordStep.forget,
     this.status = ForgetPasswordStatus.initial,
     this.isResendAvailable = true,
-    this.errorMsg,
+    this.failure,
     this.email,
     this.forgetResponse,
     this.verifyResponse,
@@ -31,7 +32,7 @@ class ForgetPasswordState extends Equatable {
   ForgetPasswordState copyWith({
     ForgetPasswordStep? step,
     ForgetPasswordStatus? status,
-    String? errorMsg,
+    Failure? failure,
     bool? isResendAvailable,
     String? email,
     ForgetPasswordResponseEntity? forgetResponse,
@@ -41,7 +42,7 @@ class ForgetPasswordState extends Equatable {
     return ForgetPasswordState(
       step: step ?? this.step,
       status: status ?? this.status,
-      errorMsg: errorMsg ?? this.errorMsg,
+      failure: failure ??this.failure,
       email: email ?? this.email,
       forgetResponse: forgetResponse ?? this.forgetResponse,
       verifyResponse: verifyResponse ?? this.verifyResponse,
@@ -54,7 +55,7 @@ class ForgetPasswordState extends Equatable {
   List<Object?> get props => [
         step,
         status,
-        errorMsg,
+        failure,
         email,
         forgetResponse,
         verifyResponse,
