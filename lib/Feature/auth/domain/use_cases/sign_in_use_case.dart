@@ -1,8 +1,9 @@
-
-import 'package:flower_e_commerce_app/Feature/auth/domain/Entity/sign_in_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/request/sign_in_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/repositories/auth_repo.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
+
+import '../entity/response/sign_in_response_entity.dart';
 
 @injectable
 class SigninUseCase{
@@ -12,16 +13,14 @@ class SigninUseCase{
   });
 
   Future<ApiResult<SigninResponseEntity>> invoke({
-    required String email,
-    required String password,
+    required SigninRequestEntity request,
     bool? rememberMeChecked = false
   }) async {
 
 
-    return authRepo.signin(
-        email: email,
-        password: password,
-        rememberMeChecked: rememberMeChecked
+    return await authRepo.signin(
+        request: request,
+        rememberMeChecked: rememberMeChecked,
     );
   }
 }

@@ -1,15 +1,3 @@
-class SigninResponseEntity {
-  final String? message;
-  final UserEntity? user;
-  final String? token;
-
-  SigninResponseEntity ({
-    this.message,
-    this.user,
-    this.token,
-  });
-}
-
 class UserEntity {
   final String? Id;
   final String? firstName;

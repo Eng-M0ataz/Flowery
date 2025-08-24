@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/model/requests/sign_in_request_dto.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/Entity/sign_in_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../domain/entity/request/sign_in_request_entity.dart';
 
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -14,13 +15,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<ApiResult<SigninResponseEntity>> signin({
-    required String email,
-    required String password
+    required SigninRequestEntity request
   }) async {
     try{
-      final request = SigninRequestDto(email: email, password: password);
 
-      final response = await _apiServices.signIn(request: request);
+      final response = await _apiServices.signIn(request: request.toDto());
 
       return ApiSuccessResult<SigninResponseEntity>(data: response.toEntity());
     } on DioException catch(e) {

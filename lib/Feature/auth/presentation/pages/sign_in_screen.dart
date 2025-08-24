@@ -1,13 +1,12 @@
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
+import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
-import 'package:flower_e_commerce_app/core/helpers/regex.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-
 import '../../../../core/Di/di.dart';
 import '../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../core/Widgets/custom_elevated_button.dart';
@@ -22,10 +21,7 @@ class SigninScreen extends StatefulWidget {
 
 class _SigninScreenState extends State<SigninScreen> {
   final SigninViewModel _viewModel = getIt<SigninViewModel>();
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _rememberMe = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +37,16 @@ class _SigninScreenState extends State<SigninScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetwwenItems_16),
-                // Custom Back Button
                 const CustomBackButton(title: LocaleKeys.Login),
                 const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
-                // Login Form
                 Form(
-                  key: _formKey,
+                  key: _viewModel.formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Email
                       TextFormField(
-                        controller: _emailController,
+                        controller: _viewModel.emailController,
                         decoration: InputDecoration(
                           label: Text(
                               LocaleKeys.Email,
@@ -61,21 +54,12 @@ class _SigninScreenState extends State<SigninScreen> {
                           ),
                           hintText: LocaleKeys.EmailHint,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return LocaleKeys.EmailRequired;
-                          }
-                          if (!AppRegExp.isEmailValid(value)) {
-                            return LocaleKeys.EmailInvalid;
-                          }
-                          return null;
-                        },
+                        validator: (value) => Validations.validateEmail(value)
                       ),
                       const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
-                      // Password
                       TextFormField(
-                        controller: _passwordController,
+                        controller: _viewModel.passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           label: Text(
@@ -84,27 +68,20 @@ class _SigninScreenState extends State<SigninScreen> {
                           ),
                           hintText: LocaleKeys.PasswordHint,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return LocaleKeys.PasswordRequired;
-                          }
-                          return null;
-                        },
+                        validator: (value) => Validations.validatePassword(value)
                       ),
 
                       const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
-                      // Remember me & Forget password
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
                               Checkbox(
-                                value: _rememberMe,
+                                value: _viewModel.rememberMe,
                                 onChanged: (val) {
-                                    _rememberMe = val ?? false;
-                                  setState(() {});
+                                    _viewModel.rememberMe = val ?? false;
                                 },
                               ),
                               Text(LocaleKeys.Remember_me),
@@ -112,7 +89,6 @@ class _SigninScreenState extends State<SigninScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // Navigate to Forget Password
                               context.pushNamed(AppRoutes.forgetPasswordRoute);
                             },
                             child: Text(
@@ -130,11 +106,9 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
-                // Bloc Consumer for Login Action
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
-                    // Error State
                     if (state.failure != null) {
                       DialogueUtils.showMessage(
                         context: context,
@@ -143,9 +117,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         posActionName: LocaleKeys.OK,
                       );
                     }
-                    // Success State
                     if (state.response != null) {
-                      // Navigate to Home Screen or Dashboard
                       context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
                           predicate: (route) => false);
                     }
@@ -157,13 +129,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       title: LocaleKeys.Login,
                       isLoading: isLoading,
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          context.read<SigninViewModel>().signin(
-                            email: _emailController.text.trim(),
-                            password: _passwordController.text.trim(),
-                            rememberMeChecked: _rememberMe,
-                          );
-                        }
+                        _viewModel.signin();
                       },
                     );
                   },
@@ -171,13 +137,12 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
-                // Continue as guest button
                 OutlinedButton(
                   onPressed: () {
                     context.pushNamedAndRemoveUntil(
                         AppRoutes.mainLayoutRoute,
                         predicate: (route) => false
-                    ); // Navigate as guest
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),
@@ -187,7 +152,6 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 const SizedBox(height: AppSizes.spaceBetweenItems_8),
 
-                // Sign up link
                 Center(
                   child: GestureDetector(
                     onTap: () => context.pushNamed(AppRoutes.signUpRoute),
