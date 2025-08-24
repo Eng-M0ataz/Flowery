@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   @override
-  void initState() async {
+  void initState()  {
 
     super.initState();
   }
