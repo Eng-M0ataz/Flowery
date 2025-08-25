@@ -1,3 +1,4 @@
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,11 @@ class RouteGenerator {
       case AppRoutes.signUpRoute:
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.mainLayoutRoute:
+      case AppRoutes.categoriesRoute:
+        return MaterialPageRoute(
+          builder: (_) => const CategoryScreen(),
+          settings: settings,
+        );
       default:
         return unDefinedRoute();
     }

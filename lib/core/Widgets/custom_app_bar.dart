@@ -1,29 +1,59 @@
-import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key, this.onTap, required this.title});
-  final VoidCallback? onTap;
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
+    super.key,
+    required this.onPressed,
+    required this.isLoading,
+    required this.title,
+  });
+  final void Function()? onPressed;
+  final bool isLoading;
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    final thmeData = Theme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        GestureDetector(
-          onTap: onTap ?? context.pop,
-          child: Icon(Icons.arrow_back_ios, size: 20),
-        ),
-
-        Text(
-          title,
-          style: thmeData.textTheme.bodySmall!.copyWith(
-            color: thmeData.colorScheme.onSurface,
-          ),
-        ),
-      ],
+    return Center(
+      child: AnimatedContainer(
+        height: AppSizes.buttomHigh_48,
+        width: isLoading
+            ? AppSizes.buttonWidthSm_80
+            : MediaQuery.of(context).size.width,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+        child: isLoading
+            ? Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius:
+                      BorderRadius.circular(AppSizes.borderRadiusFull),
+                ),
+                child: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: Theme(
+                    data: ThemeData(
+                      progressIndicatorTheme: ProgressIndicatorThemeData(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                    ),
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              )
+            : ElevatedButton(
+                onPressed: onPressed,
+                child: Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                ),
+              ),
+      ),
     );
   }
 }
