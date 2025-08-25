@@ -25,9 +25,11 @@ import '../../Feature/auth/data/dataSources/auth_remote_data_source.dart'
     as _i896;
 import '../../Feature/auth/data/repositories/auth_repo_impl.dart' as _i923;
 import '../../Feature/auth/domain/repositories/auth_repo.dart' as _i466;
-import '../../Feature/auth/domain/useCases/login_use_case.dart' as _i198;
+import '../../Feature/auth/domain/useCases/guest_use_case.dart' as _i99;
 import '../../Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart'
     as _i787;
+import '../../Feature/mainLayout/viewModel/main_layout_view_model.dart'
+    as _i564;
 import '../Services/secure_storge.dart' as _i792;
 import '../Services/storge_interface.dart' as _i859;
 import 'dioModul/dio_modle.dart' as _i456;
@@ -44,6 +46,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final dioModule = _$DioModule();
+    gh.factory<_i564.NavigationViewModel>(() => _i564.NavigationViewModel());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => dioModule.providePrettyDioLogger());
     gh.lazySingleton<_i361.Dio>(() => dioModule.provideDio());
@@ -58,10 +61,10 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i859.Storage>(instanceName: 'secureStorge')));
     gh.factory<_i466.AuthRepo>(
         () => _i923.AuthRepoImpl(gh<_i901.AuthLocalDataSource>()));
-    gh.factory<_i198.SigninUseCase>(
-        () => _i198.SigninUseCase(gh<_i901.AuthLocalDataSource>()));
+    gh.factory<_i99.GuestUseCase>(
+        () => _i99.GuestUseCase(gh<_i466.AuthRepo>()));
     gh.factory<_i787.SigninViewModel>(
-        () => _i787.SigninViewModel(gh<_i198.SigninUseCase>()));
+        () => _i787.SigninViewModel(gh<_i99.GuestUseCase>()));
     return this;
   }
 }
