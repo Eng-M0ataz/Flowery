@@ -1,5 +1,5 @@
-import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signIn/sign_in_screen.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/pages/main_layout.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 

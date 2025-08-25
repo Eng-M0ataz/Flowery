@@ -43,10 +43,15 @@ abstract class AppSizes {
 
   // Image sizes
 
-  static const double imageHigh = 80.0;
-  static const double imageHighnNavBar_24 = 24.0;
-  static const double imageWidthnNavBar_24 = 24.0;
+  static const double imageHeigh = 80.0;
+  static const double imageHeightNavBar_43 = 43.0;
+  static const double imageHeightNavBarWidth_38 = 38.0;
+  static const double imageHeightNavBar_24 = 24.0;
+  static const double imageWidthNavBar_24 = 24.0;
 
+  // Navbar sizes
+
+  static const double imageHight_56 = 56.0;
 
   // Default Spacing Between items
 

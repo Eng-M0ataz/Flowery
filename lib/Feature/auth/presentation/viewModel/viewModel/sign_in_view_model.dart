@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 
 import 'package:flower_e_commerce_app/Feature/auth/domain/repositories/auth_repo.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/login_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/guest_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/event/signin_event.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
@@ -10,7 +10,7 @@ part 'sign_in_state.dart';
 
 @injectable
 class SigninViewModel extends Cubit<SignInState> {
- final SigninUseCase signinUseCase;
+ final GuestUseCase signinUseCase;
   SigninViewModel(this.signinUseCase) : super(SignInState());
 
 
