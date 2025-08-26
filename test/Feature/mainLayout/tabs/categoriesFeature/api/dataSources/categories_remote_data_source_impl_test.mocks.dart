@@ -3,12 +3,16 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/client/api_service.dart'
-    as _i3;
+    as _i4;
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart'
+    as _i6;
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/category_response_dto.dart'
     as _i2;
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/product_response_dto.dart'
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -36,21 +40,32 @@ class _FakeCategoryResponseDto_0 extends _i1.SmartFake
         );
 }
 
+class _FakeProductResponseDto_1 extends _i1.SmartFake
+    implements _i3.ProductResponseDto {
+  _FakeProductResponseDto_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [ApiServices].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiServices extends _i1.Mock implements _i3.ApiServices {
+class MockApiServices extends _i1.Mock implements _i4.ApiServices {
   MockApiServices() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.CategoryResponseDto> getAllCategories() => (super.noSuchMethod(
+  _i5.Future<_i2.CategoryResponseDto> getAllCategories() => (super.noSuchMethod(
         Invocation.method(
           #getAllCategories,
           [],
         ),
-        returnValue: _i4.Future<_i2.CategoryResponseDto>.value(
+        returnValue: _i5.Future<_i2.CategoryResponseDto>.value(
             _FakeCategoryResponseDto_0(
           this,
           Invocation.method(
@@ -58,5 +73,23 @@ class MockApiServices extends _i1.Mock implements _i3.ApiServices {
             [],
           ),
         )),
-      ) as _i4.Future<_i2.CategoryResponseDto>);
+      ) as _i5.Future<_i2.CategoryResponseDto>);
+
+  @override
+  _i5.Future<_i3.ProductResponseDto> getProducts(
+          _i6.GetCategoryProductsRequestModel? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getProducts,
+          [request],
+        ),
+        returnValue:
+            _i5.Future<_i3.ProductResponseDto>.value(_FakeProductResponseDto_1(
+          this,
+          Invocation.method(
+            #getProducts,
+            [request],
+          ),
+        )),
+      ) as _i5.Future<_i3.ProductResponseDto>);
 }

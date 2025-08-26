@@ -56,3 +56,5 @@ lib/Feature/auth/api/models/user_dto.g.dart
 lib/core/localization/codegen_loader.g.dart
 lib/core/localization/locale_keys.g.dart
 lib/Feature/auth/api/client/api_service.g.dart
+android/build/reports/problems/problems-report.html
+android/build/reports/problems/problems-report.html

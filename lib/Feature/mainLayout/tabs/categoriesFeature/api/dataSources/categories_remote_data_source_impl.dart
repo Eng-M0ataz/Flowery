@@ -1,8 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/mapper/category_response_dto_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/mapper/product_response_dto_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/dataSources/categories_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/resposneEntities/categories_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:injectable/injectable.dart';
@@ -26,6 +30,23 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
       return ApiErrorResult<CategoryResponseEntity>(failure: failure);
     } catch (e) {
       return ApiErrorResult<CategoryResponseEntity>(
+          failure: ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
+      GetCategoryProductsRequestEntity getCategoryProductsRequestEntity) async {
+    try {
+      final requestModel = GetCategoryProductsRequestModel.fromEntity(
+          getCategoryProductsRequestEntity);
+      var response = await _apiServices.getProducts(requestModel);
+      return ApiSuccessResult<ProductResponseEntity>(data: response.toEntity());
+    } on DioException catch (dioError) {
+      final failure = ServerFailure.fromDioError(dioException: dioError);
+      return ApiErrorResult<ProductResponseEntity>(failure: failure);
+    } catch (e) {
+      return ApiErrorResult<ProductResponseEntity>(
           failure: ServerFailure(errorMessage: e.toString()));
     }
   }

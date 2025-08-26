@@ -6,4 +6,6 @@ abstract class ApiConstants {
   static const String bearer = 'Bearer';
   static const String authorization = 'Authorization';
   static const String allCategories = 'categories';
+  static const String getProducts = 'products';
+  static const String categoryQuery = 'category';
 }

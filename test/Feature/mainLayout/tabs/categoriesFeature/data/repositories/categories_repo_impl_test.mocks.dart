@@ -8,8 +8,12 @@ import 'dart:async' as _i3;
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart' as _i4;
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/dataSources/categories_remote_data_source.dart'
     as _i2;
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/resposneEntities/categories_response_entity.dart'
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart'
+    as _i8;
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart'
     as _i5;
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart'
+    as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
 
@@ -53,4 +57,23 @@ class MockCategoriesRemoteDataSource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<_i5.CategoryResponseEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>> getCategoryProducts(
+          _i8.GetCategoryProductsRequestEntity?
+              getCategoryProductsRequestEntity) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCategoryProducts,
+          [getCategoryProductsRequestEntity],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>>.value(
+            _i6.dummyValue<_i4.ApiResult<_i7.ProductResponseEntity>>(
+          this,
+          Invocation.method(
+            #getCategoryProducts,
+            [getCategoryProductsRequestEntity],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>>);
 }
