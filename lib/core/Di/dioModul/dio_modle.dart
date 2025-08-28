@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+
+import 'package:flower_e_commerce_app/core/Services/storage_interface.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/api_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:injectable/injectable.dart';
@@ -27,8 +29,10 @@ abstract class DioModule {
           final String token = await getIt
               .get<Storage>(instanceName: AppConstants.secureStorage)
               .read(
+
               key: ApiConstants.token,
               );
+
 
           if (token.isNotEmpty) {
             options.headers[ApiConstants.authorization] =

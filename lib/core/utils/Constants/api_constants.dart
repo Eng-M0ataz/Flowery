@@ -8,9 +8,14 @@ abstract class ApiConstants {
   static const String authorization = 'Authorization';
 
 
+
   //Auth
   static const String signUp = 'auth/signup';
   static const String forgotPassword = 'auth/forgotPassword';
   static const String verifyResetCode = 'auth/verifyResetCode';
   static const String resetPassword = 'auth/resetPassword';
+  static const String allCategories = 'categories';
+  static const String getProducts = 'products';
+  static const String categoryQuery = 'category';
+
 }

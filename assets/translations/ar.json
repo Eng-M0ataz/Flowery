@@ -75,5 +75,13 @@
 
   "guest": "المتابعة كضيف",
   "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
-  "Sign_up": "سجل"
+ 
+
+  "search_label": "بحث",
+  "no_products": "'لا يوجد منتجات متاحة'",
+  "add_to_cart": "'اضافة للسلة'",
+  "no_categories": "'لا يوجد تصنيفات متاحة'",
+  "all": "All",
+  "filter": "تصفية",
+  "currency": "جنيه "
 }

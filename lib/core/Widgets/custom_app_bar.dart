@@ -1,10 +1,17 @@
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key, this.onTap, required this.title});
-  final VoidCallback? onTap;
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
+    super.key,
+    required this.onPressed,
+    required this.isLoading,
+    required this.title,
+  });
+  final void Function()? onPressed;
+  final bool isLoading;
   final String title;
 
   @override
@@ -14,7 +21,7 @@ class CustomBackButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
-          onTap: onTap ?? context.pop,
+          onTap: onPressed ?? context.pop,
           child: const Padding(
             padding: EdgeInsets.only(left: AppSizes.paddingMd_12),
             child: Icon(Icons.arrow_back_ios, size: 20),

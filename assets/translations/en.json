@@ -77,8 +77,17 @@
 
   "guest": "Continue as guest",
   "DoNotHaveAccount": "Don't have an account?",
-  "SignUp": "Sign up"
+  "SignUp": "Sign up",
+  "search_label": "Search",
+  "no_products":"No products found",
+  "add_to_cart":"Add to cart",
+  "no_categories":"No categories found",
+  "all":"All",
+  "filter":"Filter",
+  "currency":"EGP"
 }
+
+
 
 
 

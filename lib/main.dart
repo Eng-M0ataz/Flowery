@@ -17,14 +17,12 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await configureDependencies();
   Bloc.observer = MyBlocObserver();
-  runApp(
-    EasyLocalization(
-      supportedLocales: AppConstants.supportedLocales,
-      path: AppConstants.assetsPath,
-      fallbackLocale: const Locale(AppConstants.en),
-      child: const FlowerECommerceApp(),
-    ),
-  );
+  runApp(EasyLocalization(
+    supportedLocales: AppConstants.supportedLocales,
+    path: AppConstants.assetsPath,
+    fallbackLocale: const Locale(AppConstants.en),
+    child: const FlowerECommerceApp(),
+  ));
 }
 
 class FlowerECommerceApp extends StatelessWidget {
@@ -45,6 +43,7 @@ class FlowerECommerceApp extends StatelessWidget {
       theme: AppThemeLight.lightTheme,
       initialRoute: AppRoutes.signInRoute,
       onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: AppRoutes.categoriesRoute,
     );
   }
 }

@@ -47,4 +47,6 @@ class Assets {
   /// assets/images/shopping_cart_unselected.svg
   static const String assetsImagesShoppingCartUnselected =
       "assets/images/shopping_cart_unselected.svg";
+
+  static const String filterIcon = "assets/images/filter_icon.svg";
 }

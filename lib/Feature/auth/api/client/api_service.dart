@@ -22,6 +22,7 @@ abstract class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
 
+
   @POST(ApiConstants.signUp)
   Future<SignUpResponseDto> signUp(@Body() SignUpRequestModel signUpRequest);
 
@@ -37,4 +38,7 @@ abstract class ApiServices {
       @Body() ResetPasswordRequest resetPasswordRequest);
   @POST(ApiConstants.signIn)
   Future<SigninResponseDto> signIn(@Body() SigninRequestDto request);
+
+  
+
 }
