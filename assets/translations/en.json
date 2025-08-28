@@ -1,5 +1,4 @@
 {
-
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
@@ -63,7 +62,7 @@
   "category": "Category",
   "continues": "Continue as guest",
 
-    "Login": "Login",
+  "Login": "Login",
   "Email": "Email",
   "EmailHint": "Enter your email",
   "EmailRequired": "Email is required",
@@ -79,16 +78,12 @@
   "DoNotHaveAccount": "Don't have an account?",
   "SignUp": "Sign up",
   "search_label": "Search",
-  "no_products":"No products found",
-  "add_to_cart":"Add to cart",
-  "no_categories":"No categories found",
-  "all":"All",
-  "filter":"Filter",
-  "currency":"EGP"
+  "no_products": "No products found",
+  "add_to_cart": "Add to cart",
+  "no_categories": "No categories found",
+  "all": "All",
+  "filter": "Filter",
+  "currency": "EGP",
+  "Sign_up": "Sign up",
+  "OK": "OK"
 }
-
-
-
-
-
-

@@ -90,7 +90,15 @@ class CodegenLoader extends AssetLoader{
   "Error": "خطأ",
   "guest": "المتابعة كضيف",
   "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
-  "Sign_up": "سجل"
+  "search_label": "بحث",
+  "no_products": "'لا يوجد منتجات متاحة'",
+  "add_to_cart": "'اضافة للسلة'",
+  "no_categories": "'لا يوجد تصنيفات متاحة'",
+  "all": "All",
+  "filter": "تصفية",
+  "currency": "جنيه ",
+  "Sign_up": "انشاء حساب",
+  "OK": "موافق"
 };
 static const Map<String,dynamic> _en = {
   "sign_up": "Sign up",
@@ -168,7 +176,16 @@ static const Map<String,dynamic> _en = {
   "Error": "Error",
   "guest": "Continue as guest",
   "DoNotHaveAccount": "Don't have an account?",
-  "SignUp": "Sign up"
+  "SignUp": "Sign up",
+  "search_label": "Search",
+  "no_products": "No products found",
+  "add_to_cart": "Add to cart",
+  "no_categories": "No categories found",
+  "all": "All",
+  "filter": "Filter",
+  "currency": "EGP",
+  "Sign_up": "Sign up",
+  "OK": "OK"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

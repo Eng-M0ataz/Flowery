@@ -2,16 +2,20 @@ import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({
-    super.key,
-    required this.onPressed,
-    required this.isLoading,
-    required this.title,
-  });
-  final void Function()? onPressed;
+  const CustomElevatedButton(
+      {super.key,
+      required this.onPressed,
+      required this.isLoading,
+      required this.title,
+      this.loadingColor,
+      this.textColor,
+      this.containerColor});
+  final void Function() onPressed;
   final bool isLoading;
   final String title;
-
+  final Color? textColor;
+  final Color? loadingColor;
+  final Color? containerColor;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -26,7 +30,8 @@ class CustomElevatedButton extends StatelessWidget {
             ? Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
+                  color:
+                      containerColor ?? Theme.of(context).colorScheme.primary,
                   borderRadius:
                       BorderRadius.circular(AppSizes.borderRadiusFull),
                 ),
@@ -36,7 +41,8 @@ class CustomElevatedButton extends StatelessWidget {
                   child: Theme(
                     data: ThemeData(
                       progressIndicatorTheme: ProgressIndicatorThemeData(
-                        color: Theme.of(context).colorScheme.onPrimary,
+                        color: loadingColor ??
+                            Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                     child: CircularProgressIndicator(),
@@ -47,10 +53,9 @@ class CustomElevatedButton extends StatelessWidget {
                 onPressed: onPressed,
                 child: Text(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color:
+                          textColor ?? Theme.of(context).colorScheme.onPrimary),
                 ),
               ),
       ),

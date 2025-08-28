@@ -12,9 +12,9 @@ import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -129,7 +129,7 @@ class SignUpForm extends StatelessWidget {
                       const SizedBox(height: AppSizes.spacingBetweenItems_32),
                       CustomElevatedButton(
                         onPressed: state.isLoading
-                            ? null
+                            ? () {}
                             : () => viewModel.submitSignUpForm(),
                         isLoading: state.isLoading,
                         title: state.isLoading

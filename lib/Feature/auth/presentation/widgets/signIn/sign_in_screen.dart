@@ -4,11 +4,11 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
-import 'package:flower_e_commerce_app/core/Widgets/custom_elvated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,13 +51,11 @@ class _SigninScreenState extends State<SigninScreen> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: AppSizes.paddingSm_8,
                       vertical: AppSizes.paddingMd_16,
                     ),
                     child: CustomElevatedButton(
-                      loadingColor: Theme.of(context).colorScheme.primary,
-                      textColor: Theme.of(context).colorScheme.onSurface,
                       isLoading: state.isGuestLoading,
                       title: LocaleKeys.continueString.tr(),
                       onPressed: () {

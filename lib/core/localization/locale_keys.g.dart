@@ -76,9 +76,16 @@ abstract class  LocaleKeys {
   static const Remember_me = 'Remember_me';
   static const Forget_password = 'Forget_password';
   static const Error = 'Error';
-  static const OK = 'OK';
   static const guest = 'guest';
   static const Do_not_have_an_account = 'Do_not_have_an_account';
+  static const search_label = 'search_label';
+  static const no_products = 'no_products';
+  static const add_to_cart = 'add_to_cart';
+  static const no_categories = 'no_categories';
+  static const all = 'all';
+  static const filter = 'filter';
+  static const currency = 'currency';
   static const Sign_up = 'Sign_up';
+  static const OK = 'OK';
 
 }

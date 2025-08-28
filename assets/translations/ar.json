@@ -72,16 +72,15 @@
   "Remember_me": "تذكرني",
   "Forget_password": "هل نسيت كلمة المرور؟",
   "Error": "خطأ",
-
   "guest": "المتابعة كضيف",
   "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
- 
-
   "search_label": "بحث",
   "no_products": "'لا يوجد منتجات متاحة'",
   "add_to_cart": "'اضافة للسلة'",
   "no_categories": "'لا يوجد تصنيفات متاحة'",
   "all": "All",
   "filter": "تصفية",
-  "currency": "جنيه "
+  "currency": "جنيه ",
+  "Sign_up": "انشاء حساب",
+  "OK": "موافق"
 }

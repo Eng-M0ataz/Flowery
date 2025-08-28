@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cartFeature/cart_screen.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoryFeature/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/homeFeature/home_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profileFeature/profile_screen.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
@@ -33,9 +33,10 @@ class MainLayout extends StatelessWidget {
               data: Theme.of(context).copyWith(
                 navigationBarTheme: NavigationBarThemeData(
                   labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
-                        (states) {
+                    (states) {
                       if (states.contains(WidgetState.selected)) {
-                        return TextStyle(color: Theme.of(context).colorScheme.primary);
+                        return TextStyle(
+                            color: Theme.of(context).colorScheme.primary);
                       }
                       return const TextStyle(color: Colors.grey);
                     },
@@ -47,7 +48,8 @@ class MainLayout extends StatelessWidget {
                 elevation: 3,
                 indicatorColor: Colors.transparent,
                 height: AppSizes.appBarHigh,
-                labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+                labelBehavior:
+                    NavigationDestinationLabelBehavior.onlyShowSelected,
                 selectedIndex: state.selectedIndex,
                 onDestinationSelected: cubit.changeTab,
                 destinations: [
@@ -91,7 +93,7 @@ class MainLayout extends StatelessWidget {
     required bool isSelected,
   }) {
     final color =
-    isSelected ? Theme.of(context).colorScheme.primary : Colors.grey;
+        isSelected ? Theme.of(context).colorScheme.primary : Colors.grey;
 
     return NavigationDestination(
       icon: SvgPicture.asset(

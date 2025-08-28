@@ -1,8 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/forget_password_states.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/forgetPassword/handle_state.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
-import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../viewModel/viewModel/forget_password_view_model.dart';
