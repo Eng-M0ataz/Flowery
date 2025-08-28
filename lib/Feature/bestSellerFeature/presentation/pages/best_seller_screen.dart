@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/viewModel/best_seller_state.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
@@ -42,7 +43,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                   onTap: context.pop,
                   child: const Icon(Icons.arrow_back_ios),
                 ),
-                title: Text(LocaleKeys.bestSeller),
+                title: Text(LocaleKeys.bestSeller.tr()),
               ),
               body: Padding(
                 padding: const EdgeInsets.all(AppSizes.paddingMd_12),
