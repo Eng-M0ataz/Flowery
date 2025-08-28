@@ -47,8 +47,9 @@ abstract class AppSizes {
 
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-  static const double spacingBetweenItems_10 = 12.0;
+  static const double spacingBetweenItems_10 = 10.0;
   static const double spaceBetwwenItems_16 = 16.0;
+  static const double spaceBetwwenItems_24 = 24.0;
 
   // Default Spacing Between Sections
 
@@ -61,6 +62,7 @@ abstract class AppSizes {
   static const double borderRadiusMd_8 = 8.0;
   static const double borderRadiusLg_12 = 12.0;
   static const double borderRadiusXl_16 = 16.0;
+  static const double borderRadiusXl_20 = 20.0;
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
   static const double borderRadiusFull = 100.0;
@@ -101,4 +103,24 @@ abstract class AppSizes {
     Breakpoint(start: 1024, end: 1599, name: DeviceType.tablet),
     Breakpoint(start: 1600, end: double.infinity, name: DeviceType.desktop),
   ];
+
+  static const double homeBestSellerImageHigh = 151.0;
+  static const double homeBestSellerImageWidth = 131.0;
+  static const double homeBestSellerTextWidthConstrain = 131.0;
+  static const double homeBestSellerListViewHigh = 208.0;
+
+  static const double homeOccasionImageHigh = 151.0;
+  static const double homeOccasionImageWidth = 131.0;
+  static const double homeOccasionTextWidthConstrain = 131.0;
+  static const double homeOccasionListViewHigh = 185.0;
+
+  static const double homeCategoriesImageContainerHigh = 64.0;
+  static const double homeCategoriesImageContainerWidth = 64.0;
+  static const double homeCategoriesImageHigh = 24.0;
+  static const double homeCategoriesImageWidth = 24.0;
+  static const double homeCategoriesTextWidthConstrain = 131.0;
+  static const double homeCategoriesListViewHigh = 93.0;
+  static const int homeDummyShimmerListViewItemsLength = 6;
+  static const double homeDummyShimmerListViewTextWidth = 80.0;
+  static const double homeDummyShimmerListViewTextHigh = 12.0;
 }
