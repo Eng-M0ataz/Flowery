@@ -20,6 +20,7 @@ abstract class AppSizes {
 
   // font sizes
 
+  static const double xxsFont_10 = 10.0;
   static const double xsFont_12 = 12.0;
   static const double xsFont_13 = 13.0;
   static const double smFont_14 = 14.0;
@@ -31,9 +32,10 @@ abstract class AppSizes {
   // button sizes
 
   static const double buttomHigh = 56;
+  static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
   static const double buttonWidth = double.infinity;
-
+  static const double buttonWidthSm_80 = 80;
   // AppBar High
 
   static const double appBarHigh = 56.0;
@@ -41,14 +43,17 @@ abstract class AppSizes {
 
   // Image sizes
 
-  static const double imageHigh = 80.0;
+  static const double imageHigh_80 = 80.0;
+  static const double imageHigh_220 = 220.0;
+
 
   // Default Spacing Between items
 
+  static const double spaceBetweenItems_2 = 2.0;
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spacingBetweenItems_10 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
+  static const double spaceBetweenItems_16 = 16.0;
 
   // Default Spacing Between Sections
 
@@ -80,6 +85,16 @@ abstract class AppSizes {
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 4.0;
+  static const double cardHeight_229 = 229;
+  static const double cardElevation_0 = 0;
+
+  // clip sizes
+  static const double clipHeight_131 = 131;
+
+  // sizedBox sizes
+  static const double sizedBoxHeight_30 = 30;
+
+  static const int maxLines_1 = 1;
 
   // image carousel high
 

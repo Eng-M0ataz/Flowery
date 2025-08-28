@@ -19,7 +19,7 @@ abstract class AppColorsLight {
     90: Color(0xFF460a23),
     100: Color(0xFF2a0615),
   });
-  static const MaterialColor black = MaterialColor(0x0c1015, <int, Color>{
+  static const MaterialColor black = MaterialColor(0xFF0c1015, <int, Color>{
     0: Color(0xFF0c1015), // base color
     10: Color(0xFFcecfd0),
     20: Color(0xFFaeafb1),

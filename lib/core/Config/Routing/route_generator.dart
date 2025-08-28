@@ -1,3 +1,5 @@
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/product_details_screen.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +10,17 @@ class RouteGenerator {
       case AppRoutes.signUpRoute:
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.mainLayoutRoute:
+      case AppRoutes.bestSellerRoute:
+        return MaterialPageRoute(
+          builder: (_) => const BestSellerScreen(),
+          settings: settings
+        );
+      case AppRoutes.productDetailsRoute:
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetailsScreen(),
+          settings: settings
+        );
+
       default:
         return unDefinedRoute();
     }
