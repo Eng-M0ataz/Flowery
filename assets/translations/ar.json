@@ -1,3 +1,10 @@
 {
-  "sign_up": "إنشاء حساب"
+  "sign_up": "إنشاء حساب",
+  "search_label": "بحث",
+  "no_products": "'لا يوجد منتجات متاحة'",
+  "add_to_cart": "'اضافة للسلة'",
+  "no_categories": "'لا يوجد تصنيفات متاحة'",
+  "all": "All",
+  "filter": "تصفية",
+  "currency": "جنيه "
 }

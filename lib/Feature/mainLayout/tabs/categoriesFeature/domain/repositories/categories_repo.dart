@@ -5,6 +5,7 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 
 abstract interface class CategoriesRepo {
   Future<ApiResult<CategoryResponseEntity>> getAllCategories();
+  Future<ApiResult<ProductResponseEntity>> getAllProducts();
   Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
       GetCategoryProductsRequestEntity getCategoryProductsRequestEntity);
 }

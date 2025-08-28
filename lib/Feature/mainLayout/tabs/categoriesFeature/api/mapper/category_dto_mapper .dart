@@ -5,11 +5,8 @@ extension CategoryDtoMapper on CategoryDto {
   CategoryEntity toEntity() => CategoryEntity(
         id: id ?? "",
         name: name ?? "",
-        slug: slug ?? "",
         image: image ?? "",
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
-        isSuperAdmin: isSuperAdmin ?? false,
+        
         productsCount: productsCount ?? 0,
       );
 }

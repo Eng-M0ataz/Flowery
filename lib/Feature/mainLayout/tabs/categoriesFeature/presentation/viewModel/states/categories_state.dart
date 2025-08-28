@@ -1,19 +1,20 @@
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
 
-class CategoriesState {
+class CategoriesState extends Equatable {
   final bool isLoading;
   final String? errorMessage;
-  final CategoryResponseEntity? categoriesResponse;
-  final ProductResponseEntity? productsResponse;
+  final List<CategoryEntity>? categories;
+  final List<ProductEntity>? productsList;
   final bool isSuccess;
   final String? selectedCategoryId;
 
-  CategoriesState({
+  const CategoriesState({
     this.isLoading = false,
     this.errorMessage,
-    this.categoriesResponse,
-    this.productsResponse,
+    this.categories = const [],
+    this.productsList = const [],
     this.isSuccess = false,
     this.selectedCategoryId,
   });
@@ -21,18 +22,28 @@ class CategoriesState {
   CategoriesState copyWith({
     bool? isLoading,
     String? errorMessage,
-    CategoryResponseEntity? categoriesResponse,
-    ProductResponseEntity? productsResponse,
+    List<CategoryEntity>? categories,
+    List<ProductEntity>? productsList,
     bool? isSuccess,
     String? selectedCategoryId,
   }) {
     return CategoriesState(
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage ?? this.errorMessage,
-      categoriesResponse: categoriesResponse ?? this.categoriesResponse,
-      productsResponse: productsResponse ?? this.productsResponse,
+      categories: categories ?? this.categories,
+      productsList: productsList ?? this.productsList,
       isSuccess: isSuccess ?? this.isSuccess,
       selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        isLoading,
+        errorMessage,
+        categories,
+        productsList,
+        isSuccess,
+        selectedCategoryId,
+      ];
 }

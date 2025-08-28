@@ -15,14 +15,12 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await configureDependencies();
   Bloc.observer = MyBlocObserver();
-  runApp(
-    EasyLocalization(
-      supportedLocales: AppConstants.supportedLocales,
-      path: AppConstants.assetsPath,
-      fallbackLocale: const Locale(AppConstants.en),
-      child: const FlowerECommerceApp(),
-    ),
-  );
+  runApp(EasyLocalization(
+    supportedLocales: AppConstants.supportedLocales,
+    path: AppConstants.assetsPath,
+    fallbackLocale: const Locale(AppConstants.en),
+    child: const FlowerECommerceApp(),
+  ));
 }
 
 class FlowerECommerceApp extends StatelessWidget {

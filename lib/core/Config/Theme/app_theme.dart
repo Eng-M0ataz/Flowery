@@ -61,19 +61,19 @@ abstract class AppThemeLight {
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
           fontFamily: AppFonts.roboto,
-          color: AppColorsLight.gray,
+          color: AppColorsLight.grey,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
@@ -123,13 +123,11 @@ abstract class AppThemeLight {
           fontSize: AppSizes.mdFont_16,
           fontFamily: AppFonts.roboto,
         ),
-
         titleLarge: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.lgFont_18,
           fontFamily: AppFonts.roboto,
         ),
-
         displayMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.smFont_14,
