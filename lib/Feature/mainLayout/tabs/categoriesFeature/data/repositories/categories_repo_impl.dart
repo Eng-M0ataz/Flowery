@@ -23,4 +23,9 @@ class CategoriesRepoImpl implements CategoriesRepo {
     return _categoriesRemoteDataSource
         .getCategoryProducts(getCategoryProductsRequestEntity);
   }
+
+  @override
+  Future<ApiResult<ProductResponseEntity>> getAllProducts() {
+    return _categoriesRemoteDataSource.getAllProducts();
+  }
 }

@@ -10,9 +10,9 @@ class GetCategoryProductsUseCase {
   GetCategoryProductsUseCase({required CategoriesRepo categoriesRepo})
       : _categoriesRepo = categoriesRepo;
   Future<ApiResult<ProductResponseEntity>> invoke(
-      {required String categoryId, required int? page, required int? limit}) {
+      {required String? categoryId, required int? page, required int? limit}) {
     return _categoriesRepo.getCategoryProducts(GetCategoryProductsRequestEntity(
-      categoryId: categoryId,
+      categoryId: categoryId ?? '',
       page: page,
       limit: limit,
     ));

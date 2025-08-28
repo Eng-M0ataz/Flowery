@@ -8,4 +8,6 @@ abstract interface class CategoriesRemoteDataSource {
 
   Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
       GetCategoryProductsRequestEntity getCategoryProductsRequestEntity);
+
+  Future<ApiResult<ProductResponseEntity>> getAllProducts();
 }

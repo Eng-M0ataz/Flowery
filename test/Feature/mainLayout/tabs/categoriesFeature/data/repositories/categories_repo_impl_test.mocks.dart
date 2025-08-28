@@ -76,4 +76,21 @@ class MockCategoriesRemoteDataSource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>> getAllProducts() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllProducts,
+          [],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>>.value(
+            _i6.dummyValue<_i4.ApiResult<_i7.ProductResponseEntity>>(
+          this,
+          Invocation.method(
+            #getAllProducts,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i7.ProductResponseEntity>>);
 }

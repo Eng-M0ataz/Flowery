@@ -2,6 +2,8 @@ sealed class CategoriesEvent {}
 
 class GetAllCategoriesEvent extends CategoriesEvent {}
 
+class GetAllProductsEvent extends CategoriesEvent {}
+
 class GetCategoryProductsEvent extends CategoriesEvent {
   final String categoryId;
   final int? page;

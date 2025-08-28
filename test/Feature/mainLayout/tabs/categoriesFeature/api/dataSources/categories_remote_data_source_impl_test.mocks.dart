@@ -92,4 +92,20 @@ class MockApiServices extends _i1.Mock implements _i4.ApiServices {
           ),
         )),
       ) as _i5.Future<_i3.ProductResponseDto>);
+
+  @override
+  _i5.Future<_i3.ProductResponseDto> getAllProducts() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllProducts,
+          [],
+        ),
+        returnValue:
+            _i5.Future<_i3.ProductResponseDto>.value(_FakeProductResponseDto_1(
+          this,
+          Invocation.method(
+            #getAllProducts,
+            [],
+          ),
+        )),
+      ) as _i5.Future<_i3.ProductResponseDto>);
 }

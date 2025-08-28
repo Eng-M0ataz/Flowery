@@ -50,4 +50,18 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
           failure: ServerFailure(errorMessage: e.toString()));
     }
   }
+
+  @override
+  Future<ApiResult<ProductResponseEntity>> getAllProducts() async {
+    try {
+      var response = await _apiServices.getAllProducts();
+      return ApiSuccessResult<ProductResponseEntity>(data: response.toEntity());
+    } on DioException catch (dioError) {
+      final failure = ServerFailure.fromDioError(dioException: dioError);
+      return ApiErrorResult<ProductResponseEntity>(failure: failure);
+    } catch (e) {
+      return ApiErrorResult<ProductResponseEntity>(
+          failure: ServerFailure(errorMessage: e.toString()));
+    }
+  }
 }
