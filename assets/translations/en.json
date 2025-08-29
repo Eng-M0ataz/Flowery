@@ -3,5 +3,6 @@
   "best_sellers": "Bloom with our exquisite best sellers",
   "add_to_cart": "Add to cart",
   "currency_egp": "EGP",
-  "retry": "Retry"
+  "retry": "Retry",
+  "no_products": "No products available"
 }

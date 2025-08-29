@@ -19,7 +19,7 @@ abstract class AppSizes {
   static const double lgIcon_32 = 32.0;
 
   // font sizes
-
+  static const double xxsFont_10 = 10.0;
   static const double xsFont_12 = 12.0;
   static const double xsFont_13 = 13.0;
   static const double smFont_14 = 14.0;
@@ -33,6 +33,12 @@ abstract class AppSizes {
   static const double buttomHigh = 56;
   static const double buttomRadius = 8;
   static const double buttonWidth = double.infinity;
+  static const double buttonHigh_14 = 14;
+  static const double buttonHigh_36 = 36;
+  static const double buttonHigh_30 = 30;
+  static const double buttonRadius = 8;
+
+  static const double buttonWidth_80 = 80.0;
 
   // AppBar High
 
@@ -44,7 +50,7 @@ abstract class AppSizes {
   static const double imageHigh = 80.0;
 
   // Default Spacing Between items
-
+  static const double spaceBetweenItems_2 =2.0;
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spacingBetweenItems_10 = 12.0;
@@ -80,6 +86,7 @@ abstract class AppSizes {
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 4.0;
+  static const double cardHeight_229 = 229.0;
 
   // image carousel high
 
@@ -88,6 +95,38 @@ abstract class AppSizes {
   // grid view spacing
 
   static const double gridSpacing = 16.0;
+
+  //clip radius
+  static const double clipHeight_131 = 131;
+
+  //elevation
+  static const double cardElevation_0 = 0.0;
+
+  //max lines
+  static const int maxLines_1 = 1;
+  //size box sizes
+  static const double sizedBoxWidth_8 = 8.0;
+  static const double sizedBoxWidth_16 = 16.0;
+  static const double sizedBoxHeight_8 = 8.0;
+  static const double sizedBoxHeight_16 = 16.0;
+  static const double sizedBoxHeight_30 = 30.0;
+
+  // Tabs shimmer
+  static const double tabListHeight = 40.0;
+  static const double tabItemWidth = 80.0;
+  static const double tabItemHeight = 30.0;
+  static const double tabItemBorderRadius = 16.0;
+  static const double tabItemSpacing = 8.0;
+
+  // Product shimmer
+  static const double productImageHeight = 150.0;
+  static const double shimmerLineHeight = 12.0;
+  static const double shimmerLineWidthLarge = 100.0;
+  static const double shimmerLineWidthSmall = 60.0;
+  static const double shimmerCardRadius = 12.0;
+  static const double shimmerFullRadius = 100.0;
+  static const double shimmerSpacingSmall = 8.0;
+  static const double shimmerSpacingXSmall = 6.0;
 
   // break points
 
