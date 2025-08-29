@@ -3,5 +3,13 @@
   "cart": "منتجاتي",
   "profile": "بيانات المستخدم",
   "category": "الفئات",
-  "continue": "الدخول كضيف"
+  "continue": "الدخول كضيف",
+  "add_to_cart": "اضف الي العربه",
+  "inStock": "متاحة",
+  "outStock": "غير متاحة",
+  "Status": "الحالة",
+  "Description": "الوصف",
+  "All prices include tax": "السعر يشمل الضريبة"
+
+
 }

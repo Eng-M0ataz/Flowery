@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/event/signin_event.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/productDetails/presentatoin/pages/product_details.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elvated_button.dart';
@@ -10,6 +11,8 @@ import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
+
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});
 
@@ -42,7 +45,10 @@ class _SigninScreenState extends State<SigninScreen> {
                   data: ThemeData(
                     elevatedButtonTheme: ElevatedButtonThemeData(
                       style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Colors.black),
+                        side:  BorderSide(color:  Theme
+                            .of(context)
+                            .colorScheme
+                            .onSurface),
                         backgroundColor: Theme
                             .of(context)
                             .colorScheme

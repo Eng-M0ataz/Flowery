@@ -13,6 +13,13 @@ class Assets {
       "assets/images/category_unselected.svg";
 
 
+  /// Assets for assetsImagesCategoryUnselected
+  /// assets/images/category_unselected.svg
+  static const String flower =
+      "assets/images/flower.png";
+
+
+
 
   /// Assets for assetsImagesHomeSelected
   /// assets/images/home_selected.svg

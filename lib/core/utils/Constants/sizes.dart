@@ -43,7 +43,8 @@ abstract class AppSizes {
 
   // Image sizes
 
-  static const double imageHeigh = 80.0;
+  static const double imageHeight = 80.0;
+  static const double productImageHeight = 400.0;
   static const double imageHeightNavBar_43 = 43.0;
   static const double imageHeightNavBarWidth_38 = 38.0;
   static const double imageHeightNavBar_24 = 24.0;
@@ -57,11 +58,20 @@ abstract class AppSizes {
 
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-  static const double spacingBetweenItems_10 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
+  static const double spaceBetweenItems_10 = 12.0;
+  static const double spaceBetweenItems_16 = 16.0;
+
+
+  // Indectator Axis
+  static const double indectatorHeight = 10.0;
+  static const double indectatorWidth = 10.0;
+
 
   // Default Spacing Between Sections
 
+    static const double spaceBetweenSections_4 = 4.0;
+  static const double spaceBetweenSections_8 = 8.0;
+  static const double spaceBetweenSections_12 = 12.0;
   static const double spaceBetweenSections_16 = 16.0;
 
   // Border Radius

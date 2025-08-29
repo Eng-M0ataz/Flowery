@@ -1,13 +1,14 @@
-import 'package:flower_e_commerce_app/Feature/cart/cart_screen.dart';
-import 'package:flower_e_commerce_app/Feature/category/category_screen.dart';
-import 'package:flower_e_commerce_app/Feature/home/home_screen.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/viewModel/main_layout_states.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/viewModel/main_layout_view_model.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/widgets/nav_widgests.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/viewModel/main_layout_states.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/viewModel/main_layout_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/widgets/nav_widgests.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/cart_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/home_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/profile_screen.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../profile/profile_screen.dart';
+
 
 
 class MainLayout extends StatelessWidget {

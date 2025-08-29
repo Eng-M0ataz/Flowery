@@ -3,5 +3,11 @@
   "cart": "Cart",
   "profile": "Profile",
   "category": "Category",
-  "continue": "Continue as guest"
+  "continue": "Continue as guest",
+  "add_to_cart": "Add to cart",
+  "inStock": "in Stock",
+  "Status": "Status",
+  "outStock": "out Stock",
+  "Description": "Description",
+  "All prices include tax": "All prices include tax"
 }

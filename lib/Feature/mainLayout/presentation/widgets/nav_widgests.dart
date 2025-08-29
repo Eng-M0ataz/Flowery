@@ -1,13 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/viewModel/main_layout_intent.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/viewModel/main_layout_states.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/viewModel/main_layout_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/viewModel/main_layout_intent.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/viewModel/main_layout_states.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/presentation/viewModel/main_layout_view_model.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../core/utils/Constants/sizes.dart';
+
 
 
 class Nav_Widgets extends StatelessWidget {
