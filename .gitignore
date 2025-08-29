@@ -73,3 +73,4 @@ linux/flutter/generated_plugin_registrant.cc
 /lib/Feature/mainLayout/tabs/categoriesFeature/api/models/response/product_response_dto.g.dart
 /lib/Feature/auth/api/models/request/sign_in_request_dto.g.dart
 /lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
+/test/Feature/bestSellerTest/best_seller_feature_test.mocks.dart
