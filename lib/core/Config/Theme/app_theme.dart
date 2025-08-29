@@ -156,6 +156,11 @@ abstract class AppThemeLight {
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.mdFont_16,
         ),
+        titleSmall: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.inter,
+        ),
       ),
     );
   }

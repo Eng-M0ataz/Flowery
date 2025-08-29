@@ -1,4 +1,4 @@
-{
+}
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
@@ -61,7 +61,6 @@
   "profile": "Profile",
   "category": "Category",
   "continues": "Continue as guest",
-
   "Login": "Login",
   "Email": "Email",
   "EmailHint": "Enter your email",
@@ -73,7 +72,6 @@
   "RememberMe": "Remember me",
   "ForgetPassword": "Forget password?",
   "Error": "Error",
-
   "guest": "Continue as guest",
   "DoNotHaveAccount": "Don't have an account?",
   "SignUp": "Sign up",
@@ -85,5 +83,12 @@
   "filter": "Filter",
   "currency": "EGP",
   "Sign_up": "Sign up",
-  "OK": "OK"
+  "OK": "OK",
+  "egp":"EGP",
+  "view_all": "View All",
+  "categories": "Categories",
+  "best_seller": "Best Seller",
+  "occasions": "Occasions",
+  "search" : "Search"
 }
+
