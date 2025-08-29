@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import 'failure.dart';
 
 sealed class ApiResult<T> {}
 

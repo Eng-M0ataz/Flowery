@@ -1,0 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/Functions/validators.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
+import 'package:flutter/material.dart';
+
+class BuildEmailField extends StatelessWidget {
+  final TextEditingController controller;
+  const BuildEmailField({super.key, required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+      autofillHints: const [AutofillHints.email],
+      decoration: InputDecoration(
+        labelText: LocaleKeys.email_label.tr(),
+        labelStyle: Theme.of(context).textTheme.titleMedium,
+        hintText: LocaleKeys.email_hint.tr(),
+      
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+      ),
+      validator: Validations.validateEmail,
+    );
+  }
+}

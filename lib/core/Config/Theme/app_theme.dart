@@ -8,7 +8,7 @@ abstract class AppThemeLight {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColorsLight.white,
         foregroundColor: AppColorsLight.black,
         elevation: AppSizes.appBarElevation,
@@ -26,7 +26,7 @@ abstract class AppThemeLight {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusFull),
           ),
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: AppSizes.mdFont_16,
             fontFamily: AppFonts.inter,
@@ -36,7 +36,7 @@ abstract class AppThemeLight {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: AppSizes.mdFont_16,
             fontFamily: AppFonts.inter,
@@ -45,7 +45,7 @@ abstract class AppThemeLight {
       ),
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        errorStyle: TextStyle(
+        errorStyle: const TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
           fontFamily: AppFonts.roboto,
@@ -57,23 +57,23 @@ abstract class AppThemeLight {
           fontFamily: AppFonts.roboto,
           color: AppColorsLight.white[70],
         ),
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
           fontFamily: AppFonts.roboto,
-          color: AppColorsLight.gray,
+          color: AppColorsLight.grey,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
-          borderSide: const BorderSide(color: AppColorsLight.gray),
+          borderSide: const BorderSide(color: AppColorsLight.grey),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
@@ -85,8 +85,9 @@ abstract class AppThemeLight {
         ),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: AppColorsLight.pink[70],
+        color: AppColorsLight.pink,
       ),
+
       tabBarTheme: (
           TabBarThemeData(
             tabAlignment: TabAlignment.start,
@@ -111,6 +112,9 @@ abstract class AppThemeLight {
 
 
       textTheme: TextTheme(
+
+      textTheme: const TextTheme(
+
         bodySmall: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.xlFont_20,
@@ -146,13 +150,11 @@ abstract class AppThemeLight {
           fontSize: AppSizes.mdFont_16,
           fontFamily: AppFonts.roboto,
         ),
-
         titleLarge: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.lgFont_18,
           fontFamily: AppFonts.roboto,
         ),
-
         displayMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.smFont_14,
@@ -184,7 +186,13 @@ abstract class AppThemeLight {
         ),
         titleSmall: TextStyle(
           fontWeight: FontWeight.w500,
+
           fontSize: AppSizes.xsFont_13,
+        ),
+
+
+          fontSize: AppSizes.smFont_14,
+          fontFamily: AppFonts.inter,
         ),
 
       ),
