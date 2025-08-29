@@ -1,0 +1,15 @@
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/repositories/auth_repo.dart';
+import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
+import 'package:injectable/injectable.dart';
+
+@injectable
+class SignUpUseCase {
+  final AuthRepo _authRepo;
+  SignUpUseCase({required AuthRepo authRepo}) : _authRepo = authRepo;
+  Future<ApiResult<SignUpResponseEntity>> invoke(
+      SignUpRequestEntity signUpRequestEntity) {
+    return _authRepo.signUp(signUpRequestEntity);
+  }
+}
