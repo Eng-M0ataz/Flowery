@@ -8,6 +8,9 @@ abstract class ApiConstants {
   static const String authorization = 'Authorization';
 
 
+  static const String occasions = 'occasions';
+  static const String products = 'products';
+  static const String occasionQuery = 'occasion';
 
   //Auth
   static const String signUp = 'auth/signup';
@@ -17,5 +20,6 @@ abstract class ApiConstants {
   static const String allCategories = 'categories';
   static const String getProducts = 'products';
   static const String categoryQuery = 'category';
+
 
 }

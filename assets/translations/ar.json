@@ -1,3 +1,5 @@
+
+
 }
   "sign_up": "إنشاء حساب",
   "user_name_label": "اسم المستخدم",
@@ -88,6 +90,12 @@
   "categories": "الفئات",
   "best_seller": "الأكثر مبيعًا",
   "occasions": "مناسبات",
-  "search" : "ابحث"
+  "search" : "ابحث",
+ "occasion": "المناسبة",
+  "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
+  "add_to_cart": "أضف إلى السلة",
+  "currency_egp": "ج.م",
+  "retry": "إعادة المحاولة"
 }
+
 
