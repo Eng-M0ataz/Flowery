@@ -28,6 +28,7 @@ dependencies:
   responsive_framework: ^1.5.1
   easy_localization: ^3.0.8
   bloc_test: ^10.0.0
+  shimmer_animation: ^2.2.2
   
 
 dev_dependencies:

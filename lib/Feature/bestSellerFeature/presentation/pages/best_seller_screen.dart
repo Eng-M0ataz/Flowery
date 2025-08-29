@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/viewModel/best_seller_state.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
+import 'package:flower_e_commerce_app/core/Widgets/list_views_shimmer_widget.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
@@ -48,7 +49,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
               body: Padding(
                 padding: const EdgeInsets.all(AppSizes.paddingMd_12),
                 child: state.isLoading
-                    ? const Center(child: CircularProgressIndicator())
+                    ? ListViewsShimmerWidget(isCategorie: false,)
                     : state.bestSellers == null
                     ? const Center(child: Text('No products found'))
                     : GridView.builder(
@@ -59,9 +60,9 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                     crossAxisSpacing: AppSizes.spaceBetweenItems_8,
                     mainAxisSpacing: AppSizes.spaceBetweenItems_8,
                     childAspectRatio: 0.7, // Adjust for your card design
-                                      ),
-                                      itemCount: state.bestSellers!.bestSeller!.length,
-                                      itemBuilder: (context, index) {
+                    ),
+                    itemCount: state.bestSellers!.bestSeller!.length,
+                    itemBuilder: (context, index) {
                     final product = state.bestSellers!.bestSeller![index];
 
                     return ProductCard(
