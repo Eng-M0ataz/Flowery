@@ -1,40 +1,85 @@
-:sparkles: feat: implement Home ViewModel and Home UI with Unit Tests
-:pushpin: What type of PR is this?
-[x] :sparkles: Feature
-[ ] :bug: Bug Fix
-[ ] :broom: Refactor
-[ ] :books: Documentation Update
-:memo: Description
-This PR implements the Home screen with MVI architecture:
-Home ViewModel for business logic and state management
-Home UI with responsive design
-Unit Tests for ViewModel
-:house: What's Included
-[ ] HomeViewModel with Intent handling and State management
-[ ] Home screen UI components
-[ ] Loading and error states
-[ ] Navigation integration
-[ ] Unit tests for ViewModel
-:test_tube: QA Instructions
-Testing Steps:
-[ ] Test Home screen loads correctly
-[ ] Verify loading and error states
-[ ] Test user interactions and navigation
-[ ] Check responsive design on different screens
-[ ] Validate data fetching and display
-Test Coverage:
-[ ] ViewModel Intent handling tested
-[ ] State management tested
-:test_tube: Tests
-[x] Unit tests added for ViewModel
-[ ] Integration tests added
-[ ] No tests needed (explain why): _____________
-:clipboard: Pre-merge Checklist
-[ ] Code follows project style guidelines
-[ ] Self-review completed
-[ ] All tests pass locally
-[ ] No breaking changes introduced
-[ ] UI matches design specifications
-[ ] Navigation works correctly
-:camera_with_flash: Screenshots & Fun Stuff
-<!-- Add screenshots of Home screen implementation -->
+<!--
+  🛠️ For Work In Progress, please use Draft PRs:
+  https://github.blog/2019-02-14-introducing-draft-pull-requests/
+
+  ✅ Before submitting:
+  - Follow your project's contributing guide
+  - Ensure code compiles and passes all tests
+  - Use descriptive commit messages
+  - Keep PRs small and focused
+-->
+
+## 📌 What type of PR is this? (check all applicable)
+
+- [ ] ✨ Feature
+- [ ] 🐛 Bug Fix
+- [ ] 🧹 Refactor
+- [ ] 🚀 Performance Optimization
+- [ ] 🧾 Documentation Update
+- [ ] ♿ Accessibility Fix
+- [ ] 🔧 CI/CD or Config Change
+
+---
+
+## 📝 Description
+
+_Describe the goal of this PR and what was changed._
+
+---
+
+## 🧩 Related Issues / Tickets
+
+- Closes #
+- Fixes #
+- Related to #
+
+---
+
+## 🧪 QA Instructions
+
+_How to test the changes manually?_
+
+- [ ] Run the app on Android
+- [ ] Run the app on iOS
+- [ ] Check specific feature/page:
+  - [ ] ...
+- [ ] Verify responsiveness on different screen sizes
+
+---
+
+## 📸 Screenshots or Recordings (if UI changes)
+
+_Add screenshots or screen recordings to demonstrate your changes._
+
+---
+
+## ♿ UI Accessibility Checklist (if applicable)
+
+- [ ] Semantic widget structure used (`Semantics`, `Accessible`, etc.)
+- [ ] Supports screen readers
+- [ ] Good color contrast
+- [ ] Tested with TalkBack/VoiceOver
+
+---
+
+## 🧪 Tests
+
+- [ ] Unit tests added
+- [ ] Widget tests added
+- [ ] Integration tests added
+- [ ] No tests needed (explain why):
+
+---
+
+## 🛠 Post-Deployment Tasks (Optional)
+
+_Any migrations, scripts, or setup tasks?_
+
+---
+
+## 🎬 Fun GIF (Optional)
+
+_What GIF best represents this PR?_
+
+![fun gif](https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif)
+
