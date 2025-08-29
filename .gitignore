@@ -50,3 +50,8 @@ macos/Flutter/GeneratedPluginRegistrant.swift
 linux/flutter/generated_plugins.cmake
 linux/flutter/generated_plugin_registrant.h
 linux/flutter/generated_plugin_registrant.cc
+/lib/Feature/bestSellerFeature/api/client/api_service.g.dart
+/lib/Feature/bestSellerFeature/api/models/best_seller_dto.g.dart
+/lib/Feature/bestSellerFeature/api/models/response/best_seller_response_dto.g.dart
+/lib/core/Di/di.config.dart
+/lib/core/localization/locale_keys.g.dart
