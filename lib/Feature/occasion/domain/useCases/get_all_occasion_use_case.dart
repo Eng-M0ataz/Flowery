@@ -1,15 +1,15 @@
-import 'package:flower_e_commerce_app/Feature/mainLayout/domain/repositories/home_repo.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../core/Errors/api_results.dart';
 import '../entities/response/occasion_response_entity.dart';
+import '../repositories/occasion_repo.dart';
 
 @injectable
 class GetAllOccasionUseCase {
-  final HomeRepo _homeRepo;
+  final OccasionRepo _occasionRepo;
 
-  GetAllOccasionUseCase(this._homeRepo);
+  GetAllOccasionUseCase(this._occasionRepo);
 
   Future<ApiResult<OccasionResponseEntity>> invoke() {
-    return _homeRepo.getAllOccasions();
+    return _occasionRepo.getAllOccasions();
   }
 }

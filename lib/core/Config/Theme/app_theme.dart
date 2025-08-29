@@ -87,7 +87,34 @@ abstract class AppThemeLight {
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: AppColorsLight.pink,
       ),
+
+      tabBarTheme: (
+          TabBarThemeData(
+            tabAlignment: TabAlignment.start,
+        labelPadding: EdgeInsets.only(right: AppSizes.paddingLg_24),
+        labelColor: colorScheme.primary,
+            unselectedLabelColor: AppColorsLight.white[70],
+            indicatorColor: colorScheme.primary,
+            dividerColor: colorScheme.onPrimary,
+            labelStyle: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: AppSizes.mdFont_16,
+              fontFamily: AppFonts.inter,
+            ),
+            unselectedLabelStyle: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: AppSizes.mdFont_16,
+              fontFamily: AppFonts.inter,
+            ),
+
+          )
+      ),
+
+
+      textTheme: TextTheme(
+
       textTheme: const TextTheme(
+
         bodySmall: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.xlFont_20,
@@ -151,6 +178,7 @@ abstract class AppThemeLight {
         headlineSmall: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.inter,
         ),
         titleMedium: TextStyle(
           fontWeight: FontWeight.w400,
@@ -158,15 +186,21 @@ abstract class AppThemeLight {
         ),
         titleSmall: TextStyle(
           fontWeight: FontWeight.w500,
+
+          fontSize: AppSizes.xsFont_13,
+        ),
+
+
           fontSize: AppSizes.smFont_14,
           fontFamily: AppFonts.inter,
         ),
+
       ),
     );
   }
 
   static ThemeData lightTheme = getTheme(
-    const ColorScheme(
+    ColorScheme(
       brightness: Brightness.light,
       primary: AppColorsLight.pink,
       onPrimary: AppColorsLight.white,

@@ -4,7 +4,7 @@ part 'occasion_dto.g.dart';
 @JsonSerializable()
 class OccasionDto {
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "name")
   final String? name;
   @JsonKey(name: "slug")
@@ -21,7 +21,7 @@ class OccasionDto {
   final int? productsCount;
 
   OccasionDto ({
-    this.Id,
+    this.id,
     this.name,
     this.slug,
     this.image,
