@@ -3,13 +3,13 @@ import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class BestSallerListView extends StatelessWidget {
-  const BestSallerListView({
+class BestSellerListView extends StatelessWidget {
+  const BestSellerListView({
     super.key,
-    required this.bestSallerList,
+    required this.bestSellerList,
   });
 
-  final List<BestSellerEntity> bestSallerList;
+  final List<BestSellerEntity> bestSellerList;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,13 +19,13 @@ class BestSallerListView extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
           width: AppSizes.spaceBetwwenItems_16,
         ),
-        itemCount: bestSallerList.length,
+        itemCount: bestSellerList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () => context.pushNamed('routenameHere',
-              arguments: bestSallerList[index]),
+              arguments: bestSellerList[index]),
           child: BestSallerItem(
-            bestSellerEntity: bestSallerList[index],
+            bestSellerEntity: bestSellerList[index],
           ),
         ),
       ),

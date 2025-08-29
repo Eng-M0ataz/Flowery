@@ -22,7 +22,7 @@ class HomeViewModel extends Cubit<HomeState> {
 
   void doIntent(HomeEvents events) {
     switch (events) {
-      case GetAllHome():
+      case GetAllHomeEvent():
         _getAllHome();
     }
   }

@@ -118,7 +118,7 @@ abstract class AppSizes {
   static const double homeCategoriesImageContainerWidth = 64.0;
   static const double homeCategoriesImageHigh = 24.0;
   static const double homeCategoriesImageWidth = 24.0;
-  static const double homeCategoriesTextWidthConstrain = 131.0;
+  static const double homeCategoriesTextWidthConstrain = 64.0;
   static const double homeCategoriesListViewHigh = 93.0;
   static const int homeDummyShimmerListViewItemsLength = 6;
   static const double homeDummyShimmerListViewTextWidth = 80.0;

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
@@ -39,7 +40,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
                       BorderRadius.circular(AppSizes.borderRadiusXxl_24),
                   borderSide: BorderSide.none,
                 ),
-                hintText: LocaleKeys.search,
+                hintText: LocaleKeys.search.tr(),
                 prefixIcon: const Icon(
                   Icons.search,
                   color: AppColorsLight.gray,

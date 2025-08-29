@@ -22,8 +22,8 @@ class BestSellerListViewBlocBuilder extends StatelessWidget {
             child: Text(state.bestSallerFailure!.errorMessage),
           );
         }
-        return BestSallerListView(
-          bestSallerList: state.bestSallerList,
+        return BestSellerListView(
+          bestSellerList: state.bestSallerList,
         );
       },
     );

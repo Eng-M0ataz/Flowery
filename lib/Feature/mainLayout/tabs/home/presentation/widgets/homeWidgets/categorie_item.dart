@@ -31,7 +31,7 @@ class CategorieItem extends StatelessWidget {
           height: AppSizes.spaceBetweenItems_8,
         ),
         SizedBox(
-          width: 64,
+          width: AppSizes.homeCategoriesTextWidthConstrain,
           child: Text(
             categoryEntity.name,
             style: Theme.of(context).textTheme.displayMedium,

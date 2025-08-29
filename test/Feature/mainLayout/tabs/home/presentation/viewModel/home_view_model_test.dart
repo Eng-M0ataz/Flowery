@@ -156,7 +156,7 @@ void main() {
           provideDummy<ApiResult<OccasionResponseEntity>>(occasionResponse);
           when(getAllOccasionUseCase.invoke())
               .thenAnswer((_) async => occasionResponse);
-          homeViewModel.doIntent(GetAllHome());
+          homeViewModel.doIntent(GetAllHomeEvent());
         },
         skip: 2,
         expect: () => [
