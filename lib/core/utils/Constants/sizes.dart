@@ -5,7 +5,6 @@ abstract class AppSizes {
   // padding and margin sizes
   static const double paddingXs_4 = 4.0;
   static const double paddingSm_8 = 8.0;
-  static const double paddingSm_12 = 12.0;
   static const double paddingMd_10 = 10.0;
   static const double paddingMd_12 = 12.0;
   static const double paddingMd_16 = 16.0;
@@ -32,31 +31,14 @@ abstract class AppSizes {
 
   // button sizes
 
-  static const double buttomHigh_48 = 48;
   static const double buttonWidthSm_80 = 80;
-  static const double buttomHigh = 56;
-  static const double buttomRadius = 8;
+  static const double buttonRadius = 8;
   static const double buttonHigh = 56;
   static const double buttonHigh_48 = 48;
-
- 
   static const double buttonHigh_14 = 14;
-
- 
   static const double buttonHigh_36 = 36;
   static const double buttonHigh_30 = 30;
-
-  static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
-  static const double buttonHigh_14 = 14;
-  static const double buttonHigh_36 = 36;
-  static const double buttonHigh_30 = 30;
-  static const double buttonRadius = 8;
-
-  static const double buttonWidth_80 = 80.0;
-
-  static const double buttonWidth_80 = 80.0;
-
 
   // AppBar High
 
@@ -68,8 +50,10 @@ abstract class AppSizes {
   // Image sizes
 
   static const double imageHigh = 80.0;
+  static const double imageHigh_220 = 220.0;
   static const double imageHighnNavBar_24 = 24.0;
   static const double imageWidthnNavBar_24 = 24.0;
+
 
   // Default Spacing Between items
   static const double spaceBetweenItems_2 =2.0;
@@ -77,8 +61,8 @@ abstract class AppSizes {
   static const double spaceBetweenItems_8 = 8.0;
   static const double spaceBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
-  static const double spaceBetwwenItems_24 = 24.0;  
+  static const double spaceBetweenItems_16 = 16.0;
+  static const double spaceBetweenItems_24 = 24.0;
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_40 = 40.0;
@@ -116,7 +100,10 @@ abstract class AppSizes {
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 4.0;
-  static const double cardHeight_229 = 229.0;
+  static const double cardHeight_229 = 229;
+
+  // clip sizes
+  static const double clipHeight_131 = 131;
 
   //pin code
   static const int pinCodeLength_6 = 6;
@@ -126,12 +113,7 @@ abstract class AppSizes {
   static const double pinCodeBorderWidth_2 = 2;
 
   // grid view spacing
-
   static const double gridSpacing = 16.0;
-
-
-  //clip radius
-  static const double clipHeight_131 = 131;
 
   //elevation
   static const double cardElevation_0 = 0.0;

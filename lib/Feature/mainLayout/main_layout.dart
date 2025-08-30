@@ -47,7 +47,7 @@ class MainLayout extends StatelessWidget {
                 backgroundColor: Colors.white,
                 elevation: 3,
                 indicatorColor: Colors.transparent,
-                height: AppSizes.appBarHigh,
+                height: AppSizes.appBarHigh_24,
                 labelBehavior:
                     NavigationDestinationLabelBehavior.onlyShowSelected,
                 selectedIndex: state.selectedIndex,

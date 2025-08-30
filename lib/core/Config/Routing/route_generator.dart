@@ -1,8 +1,6 @@
-
-
-
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/product_details_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
@@ -22,12 +20,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
 
       case AppRoutes.forgetPasswordRoute:
-
         return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
 
 
       case AppRoutes.mainLayoutRoute:
-
         return MaterialPageRoute(builder: (_) => MainLayout());
         case AppRoutes.occasionRoute:
         return MaterialPageRoute(builder: (_) => OccasionScreen());
@@ -37,6 +33,17 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const CategoryScreen(),
           settings: settings,
+        );
+
+      case AppRoutes.bestSellerRoute:
+        return MaterialPageRoute(
+          builder: (_) => const BestSellerScreen(),
+          settings: settings
+        );
+      case AppRoutes.productDetailsRoute:
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetailsScreen(),
+          settings: settings
         );
 
       default:

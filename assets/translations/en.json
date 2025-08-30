@@ -1,6 +1,4 @@
-
-
-}
+{
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
@@ -94,13 +92,9 @@
   "search" : "Search",
   "occasion": "Occasion",
   "best_sellers": "Bloom with our exquisite best sellers",
-  "add_to_cart": "Add to cart",
   "currency_egp": "EGP",
-
   "retry": "Retry",
-  "no_products": "No products available"
+  "bestSeller": "Best Seller",
+  "subBestSeller": "Bloom with our exquisite best sellers",
+  "addToCart": "add to cart"
 }
-
-
-
-
