@@ -37,7 +37,7 @@ class CategoryScreenBody extends StatelessWidget {
                   child: Row(
                     children: [
                       const Expanded(child: SearchBarWidget()),
-                      const SizedBox(width: AppSizes.spacingBetweenItems_12),
+                      const SizedBox(width: AppSizes.spaceBetweenItems_12),
                       FilterIconButtonOfAppBar(onTap: () {
                         //todo open filter bottom sheet
                       }),
@@ -47,7 +47,7 @@ class CategoryScreenBody extends StatelessWidget {
               ),
               if (state.categoriesResponse != null)
                 CategoryTabs(
-                  categories: state.categoriesResponse!.categories ?? [],
+                  categories: state.categoriesResponse!.categories,
                   selectedCategoryId: state.selectedCategoryId,
                   onCategorySelected: (categoryId) {
                     context.read<CategoriesViewModel>().doIntent(

@@ -8,7 +8,7 @@ extension CategoryResponseDtoMapper on CategoryResponseDto {
   CategoryResponseEntity toEntity() => CategoryResponseEntity(
         message: message ?? "",
         metadata: metadata?.toEntity() ??
-            MetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
+            CatMetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
         categories: categories?.map((e) => e.toEntity()).toList() ?? [],
       );
 }

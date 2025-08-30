@@ -22,7 +22,7 @@ class OccasionScreen extends StatelessWidget {
             ..doIntent(GetAllOccasionsEvent(occasionId: '673b34c21159920171827ae0')),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(LocaleKeys.occasion.tr()),
+          title: Text(LocaleKeys.occasions.tr()),
         ),
         body: SafeArea(
           child: Padding(
@@ -33,17 +33,17 @@ class OccasionScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                    padding: EdgeInsets.only(left: AppSizes.paddingLg_24),
+                    padding: const EdgeInsets.only(left: AppSizes.paddingLg_24),
                     child: Text(
-                      LocaleKeys.best_sellers.tr(),
+                      LocaleKeys.best_seller.tr(),
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            color: AppColorsLight.gray,
+                            color: AppColorsLight.grey,
                           ),
                     )),
                 const SizedBox(height: AppSizes.paddingMd_16),
-                TabsBlocBuilder(),
+                const TabsBlocBuilder(),
                 const SizedBox(height: AppSizes.paddingXl_32),
-                Expanded(child: ProductBlocBuilder()),
+                const Expanded(child: ProductBlocBuilder()),
               ],
             ),
           ),

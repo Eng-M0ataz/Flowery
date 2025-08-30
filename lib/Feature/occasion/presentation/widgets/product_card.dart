@@ -63,7 +63,7 @@ class ProductCard extends StatelessWidget {
               const SizedBox(height: AppSizes.spaceBetweenItems_2),
               Row(children: [
                 Text(
-                  "${LocaleKeys.currency_egp.tr()} $priceAfterDiscount",
+                  "${LocaleKeys.currency.tr()} $priceAfterDiscount",
                   style: Theme.of(context).textTheme.displayLarge,
                   overflow: TextOverflow.ellipsis,
                 ),

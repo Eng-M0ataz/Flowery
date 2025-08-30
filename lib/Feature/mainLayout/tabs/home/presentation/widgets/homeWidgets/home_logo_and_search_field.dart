@@ -21,7 +21,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
             Assets.assetsImagesLogo,
           ),
           const SizedBox(
-            width: AppSizes.spaceBetwwenItems_16,
+            width: AppSizes.spaceBetweenItems_16,
           ),
           Expanded(
             child: TextField(
@@ -30,7 +30,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
                   borderRadius: BorderRadius.circular(
                     AppSizes.borderRadiusMd_8,
                   ),
-                  borderSide: const BorderSide(color: AppColorsLight.gray),
+                  borderSide:  const BorderSide(color: AppColorsLight.grey),
                 ),
                 isDense: true,
                 contentPadding: const EdgeInsets.all(0),
@@ -42,7 +42,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
                 hintText: LocaleKeys.search,
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: AppColorsLight.gray,
+                  color: AppColorsLight.grey,
                   size: AppSizes.mdIcon_24,
                 ),
               ),

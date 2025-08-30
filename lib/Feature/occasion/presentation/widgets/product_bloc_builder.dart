@@ -17,7 +17,7 @@ class ProductBlocBuilder extends StatelessWidget {
     return BlocBuilder<OccasionViewModel, OccasionState>(
       builder: (context, state) {
         if (state.isProductLoading) {
-          return OccasionProductsShimmer(isEnabled: true,);
+          return const OccasionProductsShimmer(isEnabled: true,);
         }
         if (state.productFailure != null) {
           return Center(
@@ -33,7 +33,7 @@ class ProductBlocBuilder extends StatelessWidget {
                               occasionId:
                                   state.occasionResponse!.occasions.first.id));
                     },
-                    child: Text(LocaleKeys.retry.tr())),
+                    child: Text(LocaleKeys.resend.tr())),
               ],
             ),
           );
@@ -44,10 +44,10 @@ class ProductBlocBuilder extends StatelessWidget {
         }
 
         return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            crossAxisSpacing: AppSizes.spaceBetwwenItems_16,
-            mainAxisSpacing: AppSizes.spaceBetwwenItems_16,
+            crossAxisSpacing: AppSizes.spaceBetweenItems_16,
+            mainAxisSpacing: AppSizes.spaceBetweenItems_16,
             childAspectRatio: 0.65,
           ),
           itemCount: state.productResponse!.products.length,

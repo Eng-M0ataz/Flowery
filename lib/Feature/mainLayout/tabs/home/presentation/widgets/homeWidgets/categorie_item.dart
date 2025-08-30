@@ -3,6 +3,8 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../categoriesFeature/domain/entities/category_entity.dart';
+
 class CategorieItem extends StatelessWidget {
   const CategorieItem({
     super.key,

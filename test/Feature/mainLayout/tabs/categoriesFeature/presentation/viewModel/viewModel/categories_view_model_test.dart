@@ -28,7 +28,7 @@ void main() {
     ApiSuccessResult<CategoryResponseEntity>(
       data: CategoryResponseEntity(
         message: "dummy",
-        metadata: MetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
+        metadata: CatMetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
         categories: [],
       ),
     ),
@@ -38,7 +38,7 @@ void main() {
     ApiSuccessResult<ProductResponseEntity>(
       data: ProductResponseEntity(
         message: "dummy",
-        metadata: MetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
+        metadata: CatMetadataEntity(currentPage: 0, limit: 0, totalPages: 0, totalItems: 0),
         products: [],
       ),
     ),
@@ -51,7 +51,7 @@ void main() {
   // Test data
   final categoriesResponse = CategoryResponseEntity(
     message: "Success",
-    metadata: MetadataEntity(currentPage: 1, limit: 10, totalPages: 1, totalItems: 2),
+    metadata: CatMetadataEntity(currentPage: 1, limit: 10, totalPages: 1, totalItems: 2),
     categories: [
       CategoryEntity(id: '1', name: 'Flowers', image: 'flower.jpg', productsCount: 5),
       CategoryEntity(id: '2', name: 'Plants', image: 'plant.jpg', productsCount: 3),
@@ -60,7 +60,7 @@ void main() {
 
   final productsResponse = ProductResponseEntity(
     message: "Success",
-    metadata: MetadataEntity(currentPage: 1, limit: 10, totalPages: 1, totalItems: 2),
+    metadata: CatMetadataEntity(currentPage: 1, limit: 10, totalPages: 1, totalItems: 2),
     products: [
       ProductEntity(
         id: '1',

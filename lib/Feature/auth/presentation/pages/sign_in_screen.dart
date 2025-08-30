@@ -40,7 +40,7 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                SizedBox(height: AppSizes.spaceBetweenItems_16),
                 const CustomBackButton(title: LocaleKeys.Login),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
@@ -170,7 +170,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         predicate: (route) => false); // Navigate as guest
                   },
                   style: OutlinedButton.styleFrom(
-                    minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),
+                    minimumSize: Size(double.infinity, AppSizes.buttonHigh_48),
                   ),
                   child: Text(LocaleKeys.guest),
                 ),

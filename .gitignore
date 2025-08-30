@@ -93,3 +93,4 @@ android/build/reports/problems/problems-report.html
 lib/Feature/auth/api/models/response/verify_reset_code_response_dto.g.dart
 lib/Feature/auth/api/models/response/forget_password_response_dto.g.dart
 lib/Feature/auth/api/models/request/reset_password_request.g.dart
+/test/Feature/mainLayout/tabs/home/presentation/viewModel/home_view_model_test.mocks.dart

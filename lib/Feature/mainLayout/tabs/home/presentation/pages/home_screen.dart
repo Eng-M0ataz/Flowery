@@ -8,6 +8,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/occasion_list_view_bloc_builder.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/section_header.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_16,
+                height: AppSizes.spaceBetweenItems_16,
               ),
               const HomeLogoAndSearchField(),
               const LocationWidget(),
@@ -36,11 +38,11 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {},
               ),
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_16,
+                height: AppSizes.spaceBetweenItems_16,
               ),
               const CategoriesListViewBlocBuilder(),
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_24,
+                height: AppSizes.spaceBetweenItems_24,
               ),
               Expanded(
                 child: ListView(
@@ -48,21 +50,23 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     SectionHeader(
                       title: LocaleKeys.best_seller.tr(),
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed(AppRoutes.bestSellerRoute);
+                      },
                     ),
                     const SizedBox(
-                      height: AppSizes.spaceBetwwenItems_16,
+                      height: AppSizes.spaceBetweenItems_16,
                     ),
                     const BestSellerListViewBlocBuilder(),
                     const SizedBox(
-                      height: AppSizes.spaceBetwwenItems_24,
+                      height: AppSizes.spaceBetweenItems_24,
                     ),
                     SectionHeader(
                       title: LocaleKeys.occasions.tr(),
                       onTap: () {},
                     ),
                     const SizedBox(
-                      height: AppSizes.spaceBetwwenItems_16,
+                      height: AppSizes.spaceBetweenItems_16,
                     ),
                     const OccasionListViewBlocBuilder(),
                   ],

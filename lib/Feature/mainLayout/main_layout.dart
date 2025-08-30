@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cartFeature/cart_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/homeFeature/home_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/pages/home_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profileFeature/profile_screen.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';

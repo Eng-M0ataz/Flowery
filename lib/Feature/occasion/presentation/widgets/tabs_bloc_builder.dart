@@ -17,7 +17,7 @@ class TabsBlocBuilder extends StatelessWidget {
     return BlocBuilder<OccasionViewModel, OccasionState>(
       builder: (context, state) {
         if (state.isOccasionLoading) {
-          return Center(child: OccasionTabsShimmer());
+          return const Center(child: OccasionTabsShimmer());
         } else if (state.occasionFailure != null) {
           return Center(
             child: Column(
@@ -31,14 +31,14 @@ class TabsBlocBuilder extends StatelessWidget {
                       //     GetAllOccasionsEvent(
                       //         occasionId: '673b34c21159920171827ae0'));
                     },
-                    child: Text(LocaleKeys.retry.tr())),
+                    child: Text(LocaleKeys.resend.tr())),
               ],
             ),
           );
         }
         if (state.occasionResponse == null ||
             state.occasionResponse!.occasions.isEmpty) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
         return BuildTabBar(
           tabsLength: state.occasionResponse!.occasions.length,

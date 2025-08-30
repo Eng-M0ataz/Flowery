@@ -2,6 +2,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../categoriesFeature/domain/entities/category_entity.dart';
+
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({
     super.key,
@@ -17,7 +19,7 @@ class CategoriesListView extends StatelessWidget {
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_16),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
         itemCount: categoriesList.length,
         scrollDirection: Axis.horizontal,

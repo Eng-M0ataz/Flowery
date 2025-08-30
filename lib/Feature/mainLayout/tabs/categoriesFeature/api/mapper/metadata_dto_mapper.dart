@@ -2,7 +2,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/metadata_entity.dart';
 
 extension MetadataDtoMapper on MetadataDto {
-  MetadataEntity toEntity() => MetadataEntity(
+  CatMetadataEntity toEntity() => CatMetadataEntity(
         currentPage: currentPage ?? 0,
         limit: limit ?? 0,
         totalPages: totalPages ?? 0,

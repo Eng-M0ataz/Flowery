@@ -76,21 +76,21 @@ class SignUpForm extends StatelessWidget {
                         secondNameController:
                             viewModel.signUpLastNameController,
                       ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_24),
                       BuildEmailField(
                         controller: viewModel.signUpEmailController,
                       ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_24),
                       BuildPasswordAndConfirmField(
                           passwordController:
                               viewModel.signUpPasswordController,
                           confirmController:
                               viewModel.signUpRePasswordController),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_24),
                       BuildPhoneField(
                         controller: viewModel.signUpPhoneController,
                       ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_24),
                       BuildGenderField(
                           selectedGender: viewModel.selectedGender,
                           onChanged: (String gender) {
@@ -126,7 +126,7 @@ class SignUpForm extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_32),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_32),
                       CustomElevatedButton(
                         onPressed: state.isLoading
                             ? () {}
@@ -136,7 +136,7 @@ class SignUpForm extends StatelessWidget {
                             ? LocaleKeys.loading.tr()
                             : LocaleKeys.sign_up_title.tr(),
                       ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
                       BuildNavigationText(
                           firstText:
                               LocaleKeys.already_have_account_prompt.tr(),

@@ -20,7 +20,7 @@ void main() {
     ApiSuccessResult<CategoryResponseEntity>(
       data: CategoryResponseEntity(
         message: "dummy",
-        metadata: MetadataEntity(
+        metadata: CatMetadataEntity(
           currentPage: 0,
           limit: 0,
           totalPages: 0,
@@ -35,7 +35,7 @@ void main() {
     ApiSuccessResult<ProductResponseEntity>(
       data: ProductResponseEntity(
         message: "dummy",
-        metadata: MetadataEntity(
+        metadata: CatMetadataEntity(
           currentPage: 0,
           limit: 0,
           totalPages: 0,
@@ -66,7 +66,7 @@ void main() {
   group('getAllCategories', () {
     final responseEntity = CategoryResponseEntity(
       message: "success",
-      metadata: MetadataEntity(
+      metadata: CatMetadataEntity(
         currentPage: 1,
         limit: 10,
         totalPages: 1,
@@ -134,7 +134,7 @@ void main() {
 
     final productResponseEntity = ProductResponseEntity(
       message: "success",
-      metadata: MetadataEntity(
+      metadata: CatMetadataEntity(
         currentPage: 1,
         limit: 10,
         totalPages: 1,
@@ -239,7 +239,7 @@ void main() {
   group('getAllProducts', () {
     final allProductsResponseEntity = ProductResponseEntity(
       message: "success",
-      metadata: MetadataEntity(
+      metadata: CatMetadataEntity(
         currentPage: 1,
         limit: 20,
         totalPages: 2,
@@ -334,7 +334,7 @@ void main() {
       // Arrange
       final emptyResponseEntity = ProductResponseEntity(
         message: "No products found",
-        metadata: MetadataEntity(
+        metadata: CatMetadataEntity(
           currentPage: 1,
           limit: 20,
           totalPages: 0,

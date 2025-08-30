@@ -1,11 +1,15 @@
 import 'package:flower_e_commerce_app/Feature/auth/data/repositories/auth_repo_impl.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
+import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_local_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/forget_password_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/reset_password_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/verify_reset_code_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forget_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart' hide UserEntity;
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:test/test.dart';
@@ -14,9 +18,10 @@ import 'package:mockito/mockito.dart';
 
 import 'auth_repo_impl_test.mocks.dart';
 
-@GenerateMocks([AuthRemoteDataSource])
+@GenerateMocks([AuthRemoteDataSource, AuthLocalDataSource])
 void main() {
   late MockAuthRemoteDataSource mockRemote;
+  late MockAuthLocalDataSource mockLocal;
   late AuthRepoImpl repo;
 
   setUpAll(() {
@@ -35,17 +40,50 @@ void main() {
         data: ResetPasswordResponseEntity(message: '', token: ''),
       ),
     );
+    provideDummy<ApiResult<SignUpResponseEntity>>(
+      ApiSuccessResult<SignUpResponseEntity>(
+        data: SignUpResponseEntity(message: '',
+            token: '',
+            user:
+              UserEntity(
+                id: 'id',
+                firstName: 'firstName',
+                lastName: 'lastName',
+                email: 'email',
+                gender: 'email',
+                phone: 'phone',
+                photo: 'photo',
+                role: 'role',
+                wishlist: [],
+                addresses: [],
+                createdAt: DateTime.now(),
+              ),
+        ),
+      ),
+    );
+    provideDummy<ApiResult<SigninResponseEntity>>(
+      ApiSuccessResult<SigninResponseEntity>(
+        data: SigninResponseEntity(message: '', user: null, token: ''),
+      ),
+    );
+    provideDummy<ApiResult<void>>(
+      ApiSuccessResult<void>(data: null),
+    );
   });
 
   setUp(() {
     mockRemote = MockAuthRemoteDataSource();
-    repo = AuthRepoImpl(authRemoteDataSource: mockRemote);
+    mockLocal = MockAuthLocalDataSource();
+    repo = AuthRepoImpl(
+      authRemoteDataSource: mockRemote,
+      authLocalDataSource: mockLocal,
+    );
   });
 
   group('forgetPassword', () {
     final request = ForgetPasswordRequestEntity(email: 'test@example.com');
     final responseEntity =
-        ForgetPasswordResponseEntity(message: 'Email sent', info: '');
+    ForgetPasswordResponseEntity(message: 'Email sent', info: '');
 
     test('delegates to data source and returns success', () async {
       when(mockRemote.forgetPassword(any)).thenAnswer((_) async =>
@@ -78,7 +116,7 @@ void main() {
   group('verifyResetCode', () {
     final request = VerifyResetCodeRequestEntity(resetCode: '123456');
     final responseEntity =
-        VerifyResetCodeResponseEntity(status: 'Code verified');
+    VerifyResetCodeResponseEntity(status: 'Code verified');
 
     test('delegates to data source and returns success', () async {
       when(mockRemote.verifyResetCode(any)).thenAnswer((_) async =>
@@ -140,6 +178,284 @@ void main() {
       expect(error.failure.errorMessage, 'ServerFailure');
 
       verify(mockRemote.resetPassword(request)).called(1);
+    });
+  });
+
+  group('signUp', () {
+    final request = SignUpRequestEntity(
+
+      firstName: 'Test First',
+      lastName: 'Test Second',
+      email: 'test@example.com',
+      password: 'password123',
+      rePassword: 'password123',
+      phone: '1234567890',
+      gender: 'Test Gender',
+    );
+    final responseEntity = SignUpResponseEntity(message: '',
+      token: '',
+      user:
+      UserEntity(
+        id: 'id',
+        firstName: 'firstName',
+        lastName: 'lastName',
+        email: 'email',
+        gender: 'email',
+        phone: 'phone',
+        photo: 'photo',
+        role: 'role',
+        wishlist: [],
+        addresses: [],
+        createdAt: DateTime.now(),
+      ),
+    );
+
+    test('delegates to data source and returns success', () async {
+      when(mockRemote.signup(any)).thenAnswer((_) async =>
+          ApiSuccessResult<SignUpResponseEntity>(data: responseEntity));
+
+      final result = await repo.signUp(request);
+
+      expect(result, isA<ApiSuccessResult<SignUpResponseEntity>>());
+      final success = result as ApiSuccessResult<SignUpResponseEntity>;
+      expect(success.data.message, responseEntity.message);
+
+      verify(mockRemote.signup(request)).called(1);
+    });
+
+    test('delegates to data source and returns error', () async {
+      final failure = Failure(errorMessage: 'Validation error');
+      when(mockRemote.signup(any)).thenAnswer((_) async =>
+          ApiErrorResult<SignUpResponseEntity>(failure: failure));
+
+      final result = await repo.signUp(request);
+
+      expect(result, isA<ApiErrorResult<SignUpResponseEntity>>());
+      final error = result as ApiErrorResult<SignUpResponseEntity>;
+      expect(error.failure.errorMessage, 'Validation error');
+
+      verify(mockRemote.signup(request)).called(1);
+    });
+  });
+
+  group('signIn', () {
+    const email = 'test@example.com';
+    const password = 'password123';
+    const token = 'auth_token_123';
+    final responseEntity = SigninResponseEntity(
+      message: 'Sign in successful',
+      user: null,
+      token: token,
+    );
+
+    test('delegates to remote data source and saves token locally on success', () async {
+      // Mock remote sign in
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
+
+      // Mock local token storage
+      when(mockLocal.writeToken(token: token))
+          .thenAnswer((_) async => ApiSuccessResult<void>(data: null));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
+      final success = result as ApiSuccessResult<SigninResponseEntity>;
+      expect(success.data.message, responseEntity.message);
+      expect(success.data.token, token);
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockLocal.writeToken(token: token)).called(1);
+    });
+
+    test('returns error when remote sign in fails', () async {
+      final failure = Failure(errorMessage: 'Invalid credentials');
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiErrorResult<SigninResponseEntity>(failure: failure));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
+      final error = result as ApiErrorResult<SigninResponseEntity>;
+      expect(error.failure.errorMessage, 'Invalid credentials');
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verifyNever(mockLocal.writeToken(token: anyNamed('token')));
+    });
+
+    test('returns error when local token storage fails', () async {
+      // Mock successful remote sign in
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
+
+      // Mock local storage failure
+      final localFailure = Failure(errorMessage: 'Storage error');
+      when(mockLocal.writeToken(token: token))
+          .thenAnswer((_) async => ApiErrorResult<void>(failure: localFailure));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
+      final error = result as ApiErrorResult<SigninResponseEntity>;
+      expect(error.failure.errorMessage, 'Storage error');
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockLocal.writeToken(token: token)).called(1);
+    });
+  });
+
+  group('signUp', () {
+    final request = SignUpRequestEntity(
+      firstName: 'Test First',
+      lastName: 'Test Second',
+      email: 'test@example.com',
+      password: 'password123',
+      rePassword: 'password123',
+      phone: '1234567890',
+      gender: 'Test Gender',
+    );
+    final responseEntity = SignUpResponseEntity(message: '',
+      token: '',
+      user:
+      UserEntity(
+        id: 'id',
+        firstName: 'firstName',
+        lastName: 'lastName',
+        email: 'email',
+        gender: 'email',
+        phone: 'phone',
+        photo: 'photo',
+        role: 'role',
+        wishlist: [],
+        addresses: [],
+        createdAt: DateTime.now(),
+      ),
+    );
+
+    test('delegates to data source and returns success', () async {
+      when(mockRemote.signup(any)).thenAnswer((_) async =>
+          ApiSuccessResult<SignUpResponseEntity>(data: responseEntity));
+
+      final result = await repo.signUp(request);
+
+      expect(result, isA<ApiSuccessResult<SignUpResponseEntity>>());
+      final success = result as ApiSuccessResult<SignUpResponseEntity>;
+      expect(success.data.message, responseEntity.message);
+
+      verify(mockRemote.signup(request)).called(1);
+    });
+
+    test('delegates to data source and returns error', () async {
+      final failure = Failure(errorMessage: 'Validation error');
+      when(mockRemote.signup(any)).thenAnswer((_) async =>
+          ApiErrorResult<SignUpResponseEntity>(failure: failure));
+
+      final result = await repo.signUp(request);
+
+      expect(result, isA<ApiErrorResult<SignUpResponseEntity>>());
+      final error = result as ApiErrorResult<SignUpResponseEntity>;
+      expect(error.failure.errorMessage, 'Validation error');
+
+      verify(mockRemote.signup(request)).called(1);
+    });
+  });
+
+  group('signIn', () {
+    const email = 'test@example.com';
+    const password = 'password123';
+    const token = 'auth_token_123';
+    final responseEntity = SigninResponseEntity(
+      message: 'Sign in successful',
+      user: null,
+      token: token,
+    );
+
+    test('delegates to remote data source and saves token locally on success', () async {
+      // Mock remote sign in
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
+
+      // Mock local token storage
+      when(mockLocal.writeToken(token: token))
+          .thenAnswer((_) async => ApiSuccessResult<void>(data: null));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
+      final success = result as ApiSuccessResult<SigninResponseEntity>;
+      expect(success.data.message, responseEntity.message);
+      expect(success.data.token, token);
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockLocal.writeToken(token: token)).called(1);
+    });
+
+    test('returns error when remote sign in fails', () async {
+      final failure = Failure(errorMessage: 'Invalid credentials');
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiErrorResult<SigninResponseEntity>(failure: failure));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
+      final error = result as ApiErrorResult<SigninResponseEntity>;
+      expect(error.failure.errorMessage, 'Invalid credentials');
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verifyNever(mockLocal.writeToken(token: anyNamed('token')));
+    });
+
+    test('still returns success when token is null or empty', () async {
+      final responseWithoutToken = SigninResponseEntity(
+        message: 'Sign in successful',
+        user: null,
+        token: null,
+      );
+
+      when(mockRemote.signin(email: email, password: password))
+          .thenAnswer((_) async =>
+          ApiSuccessResult<SigninResponseEntity>(data: responseWithoutToken));
+
+      final result = await repo.signin(email: email, password: password);
+
+      expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
+      final success = result as ApiSuccessResult<SigninResponseEntity>;
+      expect(success.data.message, responseWithoutToken.message);
+
+      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verifyNever(mockLocal.writeToken(token: anyNamed('token')));
+    });
+  });
+
+  group('isGuest', () {
+    test('delegates to local data source and returns success', () async {
+      when(mockLocal.isGuest()).thenAnswer((_) async =>
+          ApiSuccessResult<void>(data: null));
+
+      final result = await repo.isGuest();
+
+      expect(result, isA<ApiSuccessResult<void>>());
+
+      verify(mockLocal.isGuest()).called(1);
+    });
+
+    test('delegates to local data source and returns error', () async {
+      final failure = Failure(errorMessage: 'Storage error');
+      when(mockLocal.isGuest()).thenAnswer((_) async =>
+          ApiErrorResult<void>(failure: failure));
+
+      final result = await repo.isGuest();
+
+      expect(result, isA<ApiErrorResult<void>>());
+      final error = result as ApiErrorResult<void>;
+      expect(error.failure.errorMessage, 'Storage error');
+
+      verify(mockLocal.isGuest()).called(1);
     });
   });
 }

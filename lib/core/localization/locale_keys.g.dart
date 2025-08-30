@@ -2,7 +2,6 @@
 
 // ignore_for_file: constant_identifier_names
 
-
 abstract class  LocaleKeys {
   static const sign_up = 'sign_up';
   static const user_name_label = 'user_name_label';
@@ -85,7 +84,6 @@ abstract class  LocaleKeys {
   static const no_categories = 'no_categories';
   static const all = 'all';
   static const filter = 'filter';
-  static const currency = 'currency';
   static const Sign_up = 'Sign_up';
   static const OK = 'OK';
   static const egp = 'egp';
@@ -94,4 +92,11 @@ abstract class  LocaleKeys {
   static const best_seller = 'best_seller';
   static const occasions = 'occasions';
   static const search = 'search';
+  static const occasion = 'occasion';
+  static const best_sellers = 'best_sellers';
+  static const currency = 'currency';
+  static const retry = 'retry';
+  static const bestSeller = 'bestSeller';
+  static const subBestSeller = 'subBestSeller';
+  static const addToCart = 'addToCart';
 }

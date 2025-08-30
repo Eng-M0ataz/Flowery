@@ -1,11 +1,26 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/best_seller_entity.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/responseEntities/best_seller_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/useCases/best_seller_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/metadata_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/categories_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_events.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/meta_data_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/occasion_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/occasion_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/useCases/get_all_occasion_use_case.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
+
+import '../../../../../bestSellerTest/best_seller_feature_test.mocks.dart';
+import '../../../../../occasion/presentation/viewModels/occasion_view_model_test.mocks.dart';
+import '../../../categoriesFeature/presentation/viewModel/viewModel/categories_view_model_test.mocks.dart';
 
 @GenerateMocks([
   GetAllOccasionUseCase,
@@ -39,24 +54,16 @@ void main() {
       );
       categoryEntity = [
         CategoryEntity(
-          createdAt: DateTime.now(),
           id: '1',
           image: 'image1',
-          isSuperAdmin: true,
           name: 'name1',
           productsCount: 1,
-          slug: 'slug1',
-          updatedAt: DateTime.now(),
         ),
         CategoryEntity(
-          createdAt: DateTime.now(),
           id: '2',
           image: 'image2',
-          isSuperAdmin: true,
           name: 'name2',
           productsCount: 2,
-          slug: 'slug2',
-          updatedAt: DateTime.now(),
         ),
       ];
       categoryResponseEntity = CategoryResponseEntity(
@@ -74,46 +81,20 @@ void main() {
       );
       bestSallerEntity = [
         BestSellerEntity(
-          rateAvg: 1,
-          rateCount: 1,
           Id: '1',
           title: 'title1',
-          slug: 'slug1',
           description: 'description1',
           imgCover: 'imgCover1',
-          images: ['image1', 'image2', 'image3'],
           price: 10,
           priceAfterDiscount: 5,
-          quantity: 4,
-          category: 'category',
-          occasion: 'occasion',
-          createdAt: 'createdAt',
-          updatedAt: 'updatedAt',
-          V: 1,
-          isSuperAdmin: true,
-          sold: 3,
-          id: '1',
         ),
         BestSellerEntity(
-          rateAvg: 1,
-          rateCount: 1,
           Id: '1',
           title: 'title1',
-          slug: 'slug1',
           description: 'description1',
           imgCover: 'imgCover1',
-          images: ['image1', 'image2', 'image3'],
           price: 10,
           priceAfterDiscount: 5,
-          quantity: 4,
-          category: 'category',
-          occasion: 'occasion',
-          createdAt: 'createdAt',
-          updatedAt: 'updatedAt',
-          V: 1,
-          isSuperAdmin: true,
-          sold: 3,
-          id: '1',
         )
       ];
       bestSellerResponseEntity = BestSellerResponseEntity(

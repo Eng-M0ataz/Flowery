@@ -3,7 +3,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 
 class ProductResponseEntity {
   final String? message;
-  final MetadataEntity? metadata;
+  final CatMetadataEntity? metadata;
   final List<ProductEntity>? products;
 
   ProductResponseEntity({

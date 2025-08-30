@@ -2,6 +2,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../occasion/domain/entities/occasion_entity.dart';
+
 class OccasionItem extends StatelessWidget {
   const OccasionItem({
     super.key,

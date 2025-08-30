@@ -111,10 +111,7 @@ abstract class AppThemeLight {
       ),
 
 
-      textTheme: TextTheme(
-
       textTheme: const TextTheme(
-
         bodySmall: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.xlFont_20,
@@ -183,18 +180,13 @@ abstract class AppThemeLight {
         titleMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
         ),
         titleSmall: TextStyle(
           fontWeight: FontWeight.w500,
-
           fontSize: AppSizes.xsFont_13,
-        ),
-
-
-          fontSize: AppSizes.smFont_14,
           fontFamily: AppFonts.inter,
         ),
-
       ),
     );
   }

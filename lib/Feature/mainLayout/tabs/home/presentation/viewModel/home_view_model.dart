@@ -1,11 +1,11 @@
-import 'package:flower_e_commerce_app/Feature/bestSeller/domain/entities/responseEntities/best_seller_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/bestSeller/domain/useCases/best_seller_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/responseEntities/best_seller_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/useCases/best_seller_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/categories_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_events.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_state.dart';
-import 'package:flower_e_commerce_app/Feature/occasions/domain/entities/response/occasion_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/occasions/domain/useCases/get_all_occasion_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/occasion_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/useCases/get_all_occasion_use_case.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -27,7 +27,7 @@ class HomeViewModel extends Cubit<HomeState> {
     }
   }
 
-  _getAllHome() {
+  void _getAllHome() {
     _getAllBestSaller();
     _getAllOccasions();
     _getAllCategories();

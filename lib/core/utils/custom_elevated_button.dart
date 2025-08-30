@@ -20,7 +20,7 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedContainer(
-        height: AppSizes.buttomHigh_48,
+        height: AppSizes.buttonHigh_48,
         width: isLoading
             ? AppSizes.buttonWidthSm_80
             : MediaQuery.of(context).size.width,

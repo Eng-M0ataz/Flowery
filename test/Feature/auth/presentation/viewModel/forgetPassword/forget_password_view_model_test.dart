@@ -83,7 +83,7 @@ void main() {
 
     expect(emitted[0].status, ForgetPasswordStatus.loading);
     expect(emitted[1].status, ForgetPasswordStatus.error);
-    expect(emitted[1].errorMsg, 'err');
+    expect(emitted[1].failure!.errorMessage, 'err');
   });
 
   testWidgets('VerifyCodeIntent: loading -> success -> reset step', (tester) async {
@@ -122,7 +122,7 @@ void main() {
 
     expect(emitted[0].status, ForgetPasswordStatus.loading);
     expect(emitted[1].status, ForgetPasswordStatus.error);
-    expect(emitted[1].errorMsg, 'bad');
+    expect(emitted[1].failure!.errorMessage, 'bad');
   });
 
   testWidgets('ResendCodeIntent: loading -> success (disables resend)', (tester) async {
@@ -161,7 +161,7 @@ void main() {
 
     expect(emitted[0].status, ForgetPasswordStatus.loading);
     expect(emitted[1].status, ForgetPasswordStatus.error);
-    expect(emitted[1].errorMsg, 'network');
+    expect(emitted[1].failure!.errorMessage, 'network');
   });
 
   testWidgets('ResetPasswordIntent: loading -> success', (tester) async {
@@ -201,7 +201,7 @@ void main() {
 
     expect(emitted[0].status, ForgetPasswordStatus.loading);
     expect(emitted[1].status, ForgetPasswordStatus.error);
-    expect(emitted[1].errorMsg, 'server');
+    expect(emitted[1].failure!.errorMessage, 'server');
   });
 
   test('ResendTimerFinishedIntent sets resend available', () async {

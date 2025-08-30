@@ -54,19 +54,20 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                     ? const Center(child: Text('No products found'))
                     : GridView.builder(
                     physics: const BouncingScrollPhysics(),
-                    cacheExtent: 500,
+                    // cacheExtent: 500,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: AppSizes.spaceBetweenItems_8,
-                    mainAxisSpacing: AppSizes.spaceBetweenItems_8,
-                    childAspectRatio: 0.7, // Adjust for your card design
+                      childAspectRatio: 0.67,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                    // childAspectRatio: 1, // Adjust for your card design
                     ),
                     itemCount: state.bestSellers!.bestSeller!.length,
                     itemBuilder: (context, index) {
                     final product = state.bestSellers!.bestSeller![index];
 
                     return ProductCard(
-                      imgCover: product.imgCover ?? '',
+                      imgCover: product.imgCover!,
                       title: product.title ?? '[Title]',
                       price: product.price ?? 0,
                       priceAfterDiscount: product.priceAfterDiscount ?? 0,

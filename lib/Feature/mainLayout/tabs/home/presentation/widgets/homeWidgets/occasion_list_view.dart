@@ -4,6 +4,8 @@ import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../occasion/domain/entities/occasion_entity.dart';
+
 class OccasionListView extends StatelessWidget {
   const OccasionListView({
     super.key,
@@ -20,7 +22,7 @@ class OccasionListView extends StatelessWidget {
           horizontal: AppSizes.paddingMd_16,
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
         itemCount: occasionsList.length,
         scrollDirection: Axis.horizontal,
