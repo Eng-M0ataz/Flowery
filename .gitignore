@@ -95,3 +95,6 @@ lib/core/localization/codegen_loader.g.dart
 lib/Feature/auth/api/client/api_service.g.dart
 analysis_options.yaml
 
+lib/Feature/auth/api/client/api_service.g.dart
+lib/Feature/auth/api/client/api_service.g.dart
+lib/Feature/auth/api/models/user_dto.g.dart

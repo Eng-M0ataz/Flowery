@@ -40,9 +40,9 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenSections_16),
                 const CustomBackButton(title: LocaleKeys.Login),
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenSections_16),
 
                 Form(
                   key: _formKey,
@@ -67,7 +67,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetweenSections_16),
 
                       // Password
                       TextFormField(
@@ -86,7 +86,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         },
                       ),
 
-                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetweenSections_16),
 
                       // Remember me & Forget password
                       Row(
@@ -123,7 +123,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenSections_16),
 
                 // Bloc Consumer for Login Action
                 BlocConsumer<SigninViewModel, SignInState>(
@@ -161,7 +161,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   },
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetweenSections_16),
 
                 // Continue as guest button
                 OutlinedButton(

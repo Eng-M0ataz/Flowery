@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flower_e_commerce_app/Feature/occasion/api/mapper/occasion_response_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/api/mapper/occasion_response_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/domain/entities/response/occasion_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/api/mapper/product_by_occasion_mapper.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../core/Errors/failure.dart';
 import '../../data/dataSources/occasion_remote_data_source.dart';
-import '../../domain/entities/response/occasion_response_entity.dart';
 import '../../domain/entities/response/product_by_occasion_response_entity.dart';
 import '../client/occasion_api_service.dart';
 
