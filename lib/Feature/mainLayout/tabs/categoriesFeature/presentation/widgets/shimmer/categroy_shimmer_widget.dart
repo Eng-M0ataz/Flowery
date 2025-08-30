@@ -119,7 +119,7 @@ class CategoryTabs extends StatelessWidget {
               children: [
                 ShimmerWidget(
                   width: tabWidth,
-                  height: AppSizes.spaceBetweenItems_16,
+                  height: AppSizes.spaceBetwwenItems_16,
                   borderRadius:
                       BorderRadius.circular(AppSizes.borderRadiusSm_4),
                 ),
