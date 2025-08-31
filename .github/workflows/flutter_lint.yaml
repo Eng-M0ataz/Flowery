@@ -1,0 +1,95 @@
+name: Flutter Lint Check
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # Setup Flutter (latest stable)
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # Install dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Run analysis - block on errors, allow warnings
+      - name: Run Flutter Analyze
+        id: analyze
+        run: |
+          echo "Running Flutter analyze..."
+
+          # Capture analyze output
+          if flutter analyze --no-fatal-infos 2>&1 | tee analyze_output.txt; then
+            echo "Analysis completed successfully"
+            echo "has_errors=false" >> $GITHUB_OUTPUT
+          else
+            echo "Analysis found errors"
+            echo "has_errors=true" >> $GITHUB_OUTPUT
+            
+            # Check if there are actual errors (not just warnings)
+            if grep -q "error •" analyze_output.txt; then
+              echo "CRITICAL: Found actual errors that must be fixed!"
+              echo "blocking_errors=true" >> $GITHUB_OUTPUT
+              cat analyze_output.txt
+              exit 1
+            else
+              echo "Only warnings found - allowing to continue"
+              echo "blocking_errors=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Run Dart Analyzer (block on any issue)
+        run: flutter analyze --fatal-infos --fatal-warnings
+
+      # Auto-fix formatting
+      - name: Auto fix formatting
+        run: dart format .
+
+      # Check if formatting changed files
+      - name: Check formatting changes
+        id: format_check
+        run: |
+          if git diff --quiet; then
+            echo "No formatting changes needed"
+            echo "format_needed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Formatting changes were applied"
+            echo "format_needed=true" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            git diff --name-only
+          fi
+
+      # Summary
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Flutter Lint Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Flutter Version: $(flutter --version | head -n 1)" >> $GITHUB_STEP_SUMMARY
+
+          # Analysis results
+          if [ "${{ steps.analyze.outputs.blocking_errors }}" == "true" ]; then
+            echo "- Analysis: FAILED - Found blocking errors" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.analyze.outputs.has_errors }}" == "true" ]; then
+            echo "- Analysis: Found warnings (review recommended)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- Analysis: Passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # Formatting results  
+          if [ "${{ steps.format_check.outputs.format_needed }}" == "true" ]; then
+            echo "- Formatting: Auto-applied (commit these changes)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- Formatting: Already correct" >> $GITHUB_STEP_SUMMARY
+          fi

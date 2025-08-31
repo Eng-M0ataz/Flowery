@@ -16,7 +16,6 @@ class CustomBackButton extends StatelessWidget {
           onTap: onTap ?? context.pop,
           child: Icon(Icons.arrow_back_ios, size: 20),
         ),
-
         Text(
           title,
           style: thmeData.textTheme.bodySmall!.copyWith(
