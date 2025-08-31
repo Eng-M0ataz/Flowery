@@ -1,5 +1,4 @@
-import 'package:flower_e_commerce_app/Feature/mainLayout/domain/entities/meta_data_entity.dart';
-
+import '../meta_data_entity.dart';
 import '../product_entity.dart';
 
 class ProductByOccasionResponseEntity {

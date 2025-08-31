@@ -1,5 +1,5 @@
-import '../../domain/entities/product_entity.dart';
-import '../models/product_dto.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/api/models/product_dto.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/product_entity.dart';
 
 extension ProductDtoMapper on ProductDto {
   ProductEntity toEntity() {

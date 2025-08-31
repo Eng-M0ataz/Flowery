@@ -1,5 +1,5 @@
-import '../../domain/entities/meta_data_entity.dart';
-import '../models/meta_data_dto.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/api/models/meta_data_dto.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/meta_data_entity.dart';
 
 extension MetadataDtoMapper on MetadataDto {
   MetadataEntity toEntity() {
