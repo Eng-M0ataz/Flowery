@@ -18,7 +18,10 @@ jobs:
             echo "✅ Branch name '$GITHUB_REF_NAME' is allowed (exception)"
             exit 0
           fi
-
+          if [[ "$GITHUB_REF_NAME" =~ ^[0-9]+/merge$ ]]; then
+            echo "ℹ Ignoring merge branch $GITHUB_REF_NAME"
+            exit 0
+           fi
           # enforce regex rules
           if [[ ! "$GITHUB_REF_NAME" =~ ^(Feature|Hotfix|Release|Build|Test)/[a-zA-Z0-9_-]+/[A-Z]+-[0-9]+$ ]]; then
             echo "❌ Invalid branch name: $GITHUB_REF_NAME"
