@@ -9,6 +9,7 @@ import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/Widgets/custom_product_card.dart';
 import '../viewModel/best_seller_event.dart';
@@ -52,26 +53,34 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                     ? ListViewsShimmerWidget(isCategorie: false,)
                     : state.bestSellers == null
                     ? const Center(child: Text('No products found'))
-                    : GridView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    // cacheExtent: 500,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                      childAspectRatio: 0.67,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 16,
-                    // childAspectRatio: 1, // Adjust for your card design
+                    : ResponsiveGridView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate: ResponsiveGridDelegate(
+                        crossAxisExtent: 163,
+                        maxCrossAxisExtent: 6,
+                        minCrossAxisExtent: 2,
+                        crossAxisSpacing: 16,
+                        mainAxisSpacing: 16,
+                        childAspectRatio: 0.7117903930131004,
+
+                      // childAspectRatio: 1, // Adjust for your card design
                     ),
                     itemCount: state.bestSellers!.bestSeller!.length,
                     itemBuilder: (context, index) {
                     final product = state.bestSellers!.bestSeller![index];
+
+                    if(product.discount == null || product.discount == 0){
+                      product.priceAfterDiscount = product.price;
+                    } else {
+                      product.priceAfterDiscount = (product.price! - (product.price! * product.discount! / 100)) as int?;
+                    }
 
                     return ProductCard(
                       imgCover: product.imgCover!,
                       title: product.title ?? '[Title]',
                       price: product.price ?? 0,
                       priceAfterDiscount: product.priceAfterDiscount ?? 0,
-                      discountPercent: product.discountPercent,
+                      discountPercent: product.discount ?? 0,
                       onAddToCart: () {
                         showSnackBar(
                             message: 'added to cart!',
@@ -80,8 +89,8 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                         );
                       },
                     );
-                                      },
-                                    ),
+                  },
+                ),
               ),
             );
           },

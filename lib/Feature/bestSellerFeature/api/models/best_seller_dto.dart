@@ -1,14 +1,9 @@
-import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/best_seller_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'best_seller_dto.g.dart';
 
 @JsonSerializable()
 class BestSellerDto {
-  @JsonKey(name: "rateAvg")
-  final int? rateAvg;
-  @JsonKey(name: "rateCount")
-  final int? rateCount;
   @JsonKey(name: "_id")
   final String? Id;
   @JsonKey(name: "title")
@@ -25,28 +20,32 @@ class BestSellerDto {
   final int? price;
   @JsonKey(name: "priceAfterDiscount")
   final int? priceAfterDiscount;
+  @JsonKey(name: "discount")
+  final int? discount;
+  @JsonKey(name: "rateAvg")
+  final int? rateAvg;
+  @JsonKey(name: "rateCount")
+  final int? rateCount;
   @JsonKey(name: "quantity")
   final int? quantity;
   @JsonKey(name: "category")
   final String? category;
   @JsonKey(name: "occasion")
   final String? occasion;
+  @JsonKey(name: "isSuperAdmin")
+  final bool? isSuperAdmin;
   @JsonKey(name: "createdAt")
   final String? createdAt;
   @JsonKey(name: "updatedAt")
   final String? updatedAt;
   @JsonKey(name: "__v")
   final int? V;
-  @JsonKey(name: "isSuperAdmin")
-  final bool? isSuperAdmin;
   @JsonKey(name: "sold")
   final int? sold;
   @JsonKey(name: "id")
   final String? id;
 
   BestSellerDto ({
-    this.rateAvg,
-    this.rateCount,
     this.Id,
     this.title,
     this.slug,
@@ -55,13 +54,16 @@ class BestSellerDto {
     this.images,
     this.price,
     this.priceAfterDiscount,
+    this.discount,
+    this.rateAvg,
+    this.rateCount,
     this.quantity,
     this.category,
     this.occasion,
+    this.isSuperAdmin,
     this.createdAt,
     this.updatedAt,
     this.V,
-    this.isSuperAdmin,
     this.sold,
     this.id,
   });
@@ -73,15 +75,6 @@ class BestSellerDto {
   Map<String, dynamic> toJson() {
     return _$BestSellerDtoToJson(this);
   }
-
-  BestSellerEntity toEntity(){
-    return BestSellerEntity(
-      Id: Id,
-      title: title,
-      description: description,
-      imgCover: imgCover,
-      price: price,
-      priceAfterDiscount: priceAfterDiscount,
-    );
-  }
 }
+
+

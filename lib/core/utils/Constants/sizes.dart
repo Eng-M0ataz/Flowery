@@ -131,6 +131,7 @@ abstract class AppSizes {
   static const double sizedBoxWidth_16 = 16.0;
   static const double sizedBoxHeight_8 = 8.0;
   static const double sizedBoxHeight_16 = 16.0;
+  static const double sizedBoxHeight_25 = 25.0;
   static const double sizedBoxHeight_30 = 30.0;
 
   // Tabs shimmer
