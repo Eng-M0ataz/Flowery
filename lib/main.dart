@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Routing/route_generator.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Services/storage_interface.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
@@ -9,8 +10,6 @@ import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
-import 'core/Services/storge_interface.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +56,7 @@ class FlowerECommerceApp extends StatelessWidget {
         breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
       ),
       theme: AppThemeLight.lightTheme,
-      initialRoute: initialRoute, // ✅ FIXED HERE
+      initialRoute: initialRoute,
       onGenerateRoute: RouteGenerator.getRoute,
     );
   }
