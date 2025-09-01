@@ -46,7 +46,7 @@ abstract class AppSizes {
 
   // AppBar High
 
-  static const double appBarHigh = 56.0;
+  static const double appBarHigh = 48.0;
   static const double appBarElevation = 0.0;
   static const double appBarLeadingWidth = 120.0;
 

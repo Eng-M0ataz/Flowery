@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-      # Delete pubspec.lock if exists
+      # Delete pubspec.lock if exists on it
       - name: Delete pubspec.lock
         run: |
           if [ -f pubspec.lock ]; then
