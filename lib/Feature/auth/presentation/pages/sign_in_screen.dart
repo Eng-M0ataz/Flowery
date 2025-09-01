@@ -36,9 +36,9 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
                 const CustomBackButton(title: LocaleKeys.Login),
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
                 Form(
                   key: _viewModel.formKey,
@@ -56,7 +56,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         ),
                         validator: (value) => Validations.validateEmail(value)
                       ),
-                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
                       TextFormField(
                         controller: _viewModel.passwordController,
@@ -71,7 +71,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         validator: (value) => Validations.validatePassword(value)
                       ),
 
-                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                      const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +89,7 @@ class _SigninScreenState extends State<SigninScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // context.pushNamed(AppRoutes.forgetPasswordRoute);
+                              context.pushNamed(AppRoutes.forgetPasswordRoute);
                             },
                             child: Text(
                               LocaleKeys.Forget_password,
@@ -104,7 +104,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
@@ -135,14 +135,14 @@ class _SigninScreenState extends State<SigninScreen> {
                   },
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const SizedBox(height: AppSizes.spaceBetwwenItems_16),
 
                 OutlinedButton(
                   onPressed: () {
-                    // context.pushNamedAndRemoveUntil(
-                    //     AppRoutes.mainLayoutRoute,
-                    //     predicate: (route) => false
-                    // );
+                    context.pushNamedAndRemoveUntil(
+                        AppRoutes.mainLayoutRoute,
+                        predicate: (route) => false
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),
