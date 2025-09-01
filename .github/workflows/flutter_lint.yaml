@@ -45,7 +45,7 @@ jobs:
           else
             echo "Analysis found errors"
             echo "has_errors=true" >> $GITHUB_OUTPUT
-            
+          
             # Check if there are actual errors (not just warnings)
             if grep -q "error •" analyze_output.txt; then
               echo "CRITICAL: Found actual errors that must be fixed!"
