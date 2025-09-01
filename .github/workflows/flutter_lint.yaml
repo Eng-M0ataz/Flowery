@@ -12,7 +12,15 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-
+      # Delete pubspec.lock if exists on it
+      - name: Delete pubspec.lock
+        run: |
+          if [ -f pubspec.lock ]; then
+            echo "Deleting pubspec.lock..."
+            rm pubspec.lock
+          else
+            echo "pubspec.lock not found, skipping"
+          fi
       # Setup Flutter (latest stable)
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -37,7 +45,7 @@ jobs:
           else
             echo "Analysis found errors"
             echo "has_errors=true" >> $GITHUB_OUTPUT
-            
+          
             # Check if there are actual errors (not just warnings)
             if grep -q "error •" analyze_output.txt; then
               echo "CRITICAL: Found actual errors that must be fixed!"
