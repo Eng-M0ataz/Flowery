@@ -1,4 +1,5 @@
-import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
+import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -7,6 +8,8 @@ class RouteGenerator {
       case AppRoutes.signInRoute:
       case AppRoutes.signUpRoute:
       case AppRoutes.forgetPasswordRoute:
+      case AppRoutes.occasionRoute:
+        return MaterialPageRoute(builder: (_) => OccasionScreen());
       case AppRoutes.mainLayoutRoute:
       default:
         return unDefinedRoute();
