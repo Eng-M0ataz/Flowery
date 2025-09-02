@@ -22,7 +22,6 @@ class AuthRepoImpl implements AuthRepo {
     bool? rememberMeChecked = false
   }) async {
 
-    // final ApiSuccessResult result = ApiSuccessResult(data: data);
 
       ApiResult<SigninResponseEntity> result = await _authRemoteDataSource.signin(
           request: request
