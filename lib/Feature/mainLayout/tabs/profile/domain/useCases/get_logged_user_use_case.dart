@@ -5,7 +5,6 @@ import 'package:injectable/injectable.dart';
 @injectable
 class GetLoggedUserUseCase {
   final ProfileRepo _profileRepo;
-
   GetLoggedUserUseCase(this._profileRepo);
 
   Future<ApiResult<LoggedUserDataResponseEntity>> call() async {

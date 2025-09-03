@@ -21,9 +21,6 @@ class AuthRepoImpl implements AuthRepo {
     required SigninRequestEntity request,
     bool? rememberMeChecked = false
   }) async {
-
-    // final ApiSuccessResult result = ApiSuccessResult(data: data);
-
       ApiResult<SigninResponseEntity> result = await _authRemoteDataSource.signin(
           request: request
       );
@@ -32,8 +29,6 @@ class AuthRepoImpl implements AuthRepo {
         final String? token = result.data.token;
         if(token != null && token.isNotEmpty) {
           await _authLocalDataSource.writeToken(token: token);
-
-          // If user checked "Remember Me"
           if (rememberMeChecked!) {
             await _authLocalDataSource.setRememberMe(rememberMe: true);
           }

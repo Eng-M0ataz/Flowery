@@ -49,7 +49,6 @@ Future<String> _getInitialRoute() async {
 
 class FlowerECommerceApp extends StatelessWidget {
   final String initialRoute;
-
   const FlowerECommerceApp({super.key, required this.initialRoute});
 
   @override

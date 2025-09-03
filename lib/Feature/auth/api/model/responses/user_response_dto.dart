@@ -52,7 +52,7 @@ class UserDto {
 
   UserEntity toEntity() {
     return UserEntity(
-      Id: Id,
+      id: Id,
       firstName: firstName,
       lastName: lastName,
       email: email,

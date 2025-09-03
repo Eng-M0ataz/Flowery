@@ -18,9 +18,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required SigninRequestEntity request
   }) async {
     try{
-
       final response = await _apiServices.signIn(request: request.toDto());
-
       return ApiSuccessResult<SigninResponseEntity>(data: response.toEntity());
     } on DioException catch(e) {
       final failure = ServerFailure.fromDioError(dioException: e);

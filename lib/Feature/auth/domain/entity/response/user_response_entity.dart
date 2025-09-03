@@ -1,5 +1,5 @@
 class UserEntity {
-  final String? Id;
+  final String? id;
   final String? firstName;
   final String? lastName;
   final String? email;
@@ -12,7 +12,7 @@ class UserEntity {
   final String? createdAt;
 
   UserEntity ({
-    this.Id,
+    this.id,
     this.firstName,
     this.lastName,
     this.email,
