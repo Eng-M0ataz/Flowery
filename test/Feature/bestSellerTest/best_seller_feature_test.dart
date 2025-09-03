@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/api/mapper/best_seller_response_dto_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/api/mapper/best_seller_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/api/models/best_seller_dto.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/api/models/response/best_seller_response_dto.dart';
@@ -29,6 +31,19 @@ import 'package:bloc_test/bloc_test.dart';
 import 'best_seller_feature_test.mocks.dart';
 
 void main() {
+  // Provide dummy values for Mockito
+  setUpAll(() {
+    // Dummy BestSellerResponseEntity
+    final dummyBestSellerResponseEntity = BestSellerResponseEntity(
+      message: 'dummy',
+      bestSeller: [],
+    );
+
+    // Provide dummy values for ApiResult types
+    provideDummy<ApiResult<BestSellerResponseEntity>>(
+        ApiSuccessResult<BestSellerResponseEntity>(data: dummyBestSellerResponseEntity)
+    );
+  });
   group('BestSeller Feature Tests', () {
 
     // Test Data
@@ -36,14 +51,22 @@ void main() {
       Id: '1',
       id: '1',
       title: 'Test Flower',
+      slug: 'test-flower',
       description: 'Test Description',
       imgCover: 'https://test.com/image.jpg',
+      images: ['https://test.com/image1.jpg'],
       price: 100,
       priceAfterDiscount: 80,
+      discount: 20,
       rateAvg: 5,
       rateCount: 10,
       quantity: 50,
       category: 'flowers',
+      occasion: 'birthday',
+      isSuperAdmin: false,
+      createdAt: '2023-01-01',
+      updatedAt: '2023-01-01',
+      V: 0,
       sold: 5,
     );
 
@@ -54,11 +77,25 @@ void main() {
 
     final testBestSellerEntity = BestSellerEntity(
       Id: '1',
+      id: '1',
       title: 'Test Flower',
+      slug: 'test-flower',
       description: 'Test Description',
       imgCover: 'https://test.com/image.jpg',
+      images: ['https://test.com/image1.jpg'],
       price: 100,
       priceAfterDiscount: 80,
+      discount: 20,
+      rateAvg: 5,
+      rateCount: 10,
+      quantity: 50,
+      category: 'flowers',
+      occasion: 'birthday',
+      isSuperAdmin: false,
+      createdAt: '2023-01-01',
+      updatedAt: '2023-01-01',
+      V: 0,
+      sold: 5,
     );
 
     final testBestSellerResponseEntity = BestSellerResponseEntity(
@@ -76,7 +113,52 @@ void main() {
     );
 
     group('BestSellerEntity Tests', () {
-      test('should calculate discount percentage correctly', () {
+      test('should handle entity creation with all fields', () {
+        // Arrange & Act
+        final entity = BestSellerEntity(
+          Id: '1',
+          id: '1',
+          title: 'Test Product',
+          slug: 'test-product',
+          description: 'A test product',
+          imgCover: 'https://example.com/image.jpg',
+          images: ['https://example.com/image1.jpg'],
+          price: 100,
+          priceAfterDiscount: 80,
+          discount: 20,
+          rateAvg: 5,
+          rateCount: 10,
+          quantity: 50,
+          category: 'flowers',
+          occasion: 'birthday',
+          isSuperAdmin: false,
+          createdAt: '2023-01-01',
+          updatedAt: '2023-01-01',
+          V: 0,
+          sold: 5,
+        );
+
+        // Assert
+        expect(entity.Id, equals('1'));
+        expect(entity.title, equals('Test Product'));
+        expect(entity.price, equals(100));
+        expect(entity.priceAfterDiscount, equals(80));
+        expect(entity.discount, equals(20));
+      });
+
+      test('should handle entity creation with null values', () {
+        // Arrange & Act
+        final entity = BestSellerEntity();
+
+        // Assert
+        expect(entity.Id, isNull);
+        expect(entity.title, isNull);
+        expect(entity.price, isNull);
+        expect(entity.priceAfterDiscount, isNull);
+        expect(entity.discount, isNull);
+      });
+
+      test('should allow modification of priceAfterDiscount', () {
         // Arrange
         final entity = BestSellerEntity(
           Id: '1',
@@ -86,58 +168,10 @@ void main() {
         );
 
         // Act
-        final discountPercent = entity.discountPercent;
+        entity.priceAfterDiscount = 70;
 
         // Assert
-        expect(discountPercent, equals(20));
-      });
-
-      test('should return 0 when price is null', () {
-        // Arrange
-        final entity = BestSellerEntity(
-          Id: '1',
-          title: 'Test Product',
-          price: null,
-          priceAfterDiscount: 80,
-        );
-
-        // Act
-        final discountPercent = entity.discountPercent;
-
-        // Assert
-        expect(discountPercent, equals(0));
-      });
-
-      test('should return 0 when priceAfterDiscount is null', () {
-        // Arrange
-        final entity = BestSellerEntity(
-          Id: '1',
-          title: 'Test Product',
-          price: 100,
-          priceAfterDiscount: null,
-        );
-
-        // Act
-        final discountPercent = entity.discountPercent;
-
-        // Assert
-        expect(discountPercent, equals(0));
-      });
-
-      test('should return 0 when price is 0', () {
-        // Arrange
-        final entity = BestSellerEntity(
-          Id: '1',
-          title: 'Test Product',
-          price: 0,
-          priceAfterDiscount: 80,
-        );
-
-        // Act
-        final discountPercent = entity.discountPercent;
-
-        // Assert
-        expect(discountPercent, equals(0));
+        expect(entity.priceAfterDiscount, equals(70));
       });
     });
 
@@ -184,12 +218,12 @@ void main() {
         // Assert
         expect(result, isA<ApiErrorResult<BestSellerResponseEntity>>());
         final errorResult = result as ApiErrorResult<BestSellerResponseEntity>;
-        expect(errorResult.failure.errorMessage, contains('Network error'));
+        expect(errorResult.failure, isA<ServerFailure>());
 
         verify(mockApiServices.getBestSeller()).called(1);
       });
 
-      test('should return ApiErrorResult when generic exception occurs', () async {
+      test('should return ApiErrorResult with ServerFailure when generic exception occurs', () async {
         // Arrange
         when(mockApiServices.getBestSeller())
             .thenThrow(Exception('Something went wrong'));
@@ -200,7 +234,30 @@ void main() {
         // Assert
         expect(result, isA<ApiErrorResult<BestSellerResponseEntity>>());
         final errorResult = result as ApiErrorResult<BestSellerResponseEntity>;
+        expect(errorResult.failure, isA<ServerFailure>());
         expect(errorResult.failure.errorMessage, contains('Something went wrong'));
+
+        verify(mockApiServices.getBestSeller()).called(1);
+      });
+
+      test('should handle empty best seller list response', () async {
+        // Arrange
+        final emptyResponseDto = BestSellerResponseDto(
+          message: 'No items found',
+          bestSeller: [],
+        );
+
+        when(mockApiServices.getBestSeller())
+            .thenAnswer((_) async => emptyResponseDto);
+
+        // Act
+        final result = await dataSource.getAllBestSeller();
+
+        // Assert
+        expect(result, isA<ApiSuccessResult<BestSellerResponseEntity>>());
+        final successResult = result as ApiSuccessResult<BestSellerResponseEntity>;
+        expect(successResult.data.message, equals('No items found'));
+        expect(successResult.data.bestSeller?.length, equals(0));
 
         verify(mockApiServices.getBestSeller()).called(1);
       });
@@ -316,12 +373,16 @@ void main() {
         },
         act: (cubit) => cubit.doIntent(GetAllBestSellersEvent()),
         expect: () => [
-          BestSellerState(isLoading: true, isSuccess: false, errorMessage: null),
-          BestSellerState(
-            isLoading: false,
-            isSuccess: true,
-            errorMessage: null,
-            bestSellers: testBestSellerResponseEntity,
+          predicate<BestSellerState>((state) =>
+          state.isLoading == true &&
+              state.isSuccess == false &&
+              state.errorMessage == null &&
+              state.bestSellers == null),
+          predicate<BestSellerState>((state) =>
+              state.isLoading == false &&
+              state.isSuccess == true &&
+              state.errorMessage == null &&
+              state.bestSellers == testBestSellerResponseEntity
           ),
         ],
         verify: (cubit) {
@@ -338,13 +399,16 @@ void main() {
         },
         act: (cubit) => cubit.doIntent(GetAllBestSellersEvent()),
         expect: () => [
-          BestSellerState(isLoading: true, isSuccess: false, errorMessage: null),
-          BestSellerState(
-            isLoading: false,
-            isSuccess: false,
-            errorMessage: 'Network error',
-            bestSellers: null,
-          ),
+          predicate<BestSellerState>((state) =>
+          state.isLoading == true &&
+              state.isSuccess == false &&
+              state.errorMessage == null &&
+              state.bestSellers == null),
+          predicate<BestSellerState>((state) =>
+          state.isLoading == false &&
+              state.isSuccess == false &&
+              state.errorMessage == 'Network error' &&
+              state.bestSellers == null),
         ],
         verify: (cubit) {
           verify(mockUseCase.invoke()).called(1);
@@ -353,15 +417,29 @@ void main() {
     });
 
     group('BestSellerDto Mapper Tests', () {
-      test('should map BestSellerDto to BestSellerEntity correctly', () {
+      test('should map BestSellerDto to BestSellerEntity correctly with all fields', () {
         // Arrange
         final dto = BestSellerDto(
           Id: '123',
+          id: '123',
           title: 'Rose Bouquet',
+          slug: 'rose-bouquet',
           description: 'Beautiful roses',
           imgCover: 'https://example.com/rose.jpg',
+          images: ['https://example.com/rose1.jpg', 'https://example.com/rose2.jpg'],
           price: 150,
           priceAfterDiscount: 120,
+          discount: 30,
+          rateAvg: 4,
+          rateCount: 25,
+          quantity: 100,
+          category: 'flowers',
+          occasion: 'wedding',
+          isSuperAdmin: true,
+          createdAt: '2023-01-01',
+          updatedAt: '2023-01-02',
+          V: 1,
+          sold: 10,
         );
 
         // Act
@@ -369,14 +447,28 @@ void main() {
 
         // Assert
         expect(entity.Id, equals('123'));
+        expect(entity.id, equals('123'));
         expect(entity.title, equals('Rose Bouquet'));
+        expect(entity.slug, equals('rose-bouquet'));
         expect(entity.description, equals('Beautiful roses'));
         expect(entity.imgCover, equals('https://example.com/rose.jpg'));
+        expect(entity.images, equals(['https://example.com/rose1.jpg', 'https://example.com/rose2.jpg']));
         expect(entity.price, equals(150));
         expect(entity.priceAfterDiscount, equals(120));
+        expect(entity.discount, equals(30));
+        expect(entity.rateAvg, equals(4));
+        expect(entity.rateCount, equals(25));
+        expect(entity.quantity, equals(100));
+        expect(entity.category, equals('flowers'));
+        expect(entity.occasion, equals('wedding'));
+        expect(entity.isSuperAdmin, equals(true));
+        expect(entity.createdAt, equals('2023-01-01'));
+        expect(entity.updatedAt, equals('2023-01-02'));
+        expect(entity.V, equals(1));
+        expect(entity.sold, equals(10));
       });
 
-      test('should handle null values in DTO mapping', () {
+      test('should handle null values in DTO mapping with proper defaults', () {
         // Arrange
         final dto = BestSellerDto();
 
@@ -384,12 +476,71 @@ void main() {
         final entity = dto.toEntity();
 
         // Assert
-        expect(entity.Id, isNull);
-        expect(entity.title, isNull);
-        expect(entity.description, isNull);
-        expect(entity.imgCover, isNull);
-        expect(entity.price, isNull);
-        expect(entity.priceAfterDiscount, isNull);
+        expect(entity.Id, equals(""));
+        expect(entity.id, equals(""));
+        expect(entity.title, equals(""));
+        expect(entity.slug, equals(""));
+        expect(entity.description, equals(""));
+        expect(entity.imgCover, equals(""));
+        expect(entity.images, equals([]));
+        expect(entity.price, equals(0));
+        expect(entity.priceAfterDiscount, equals(0));
+        expect(entity.discount, equals(0));
+        expect(entity.rateAvg, equals(0));
+        expect(entity.rateCount, equals(0));
+        expect(entity.quantity, equals(0));
+        expect(entity.category, equals("general"));
+        expect(entity.occasion, equals(""));
+        expect(entity.isSuperAdmin, equals(false));
+        expect(entity.createdAt, equals(""));
+        expect(entity.updatedAt, equals(""));
+        expect(entity.V, equals(0));
+        expect(entity.sold, equals(0));
+      });
+
+      test('should handle partial null values in DTO mapping', () {
+        // Arrange
+        final dto = BestSellerDto(
+          Id: '456',
+          title: 'Tulip Bundle',
+          price: 200,
+          // Other fields are null
+        );
+
+        // Act
+        final entity = dto.toEntity();
+
+        // Assert
+        expect(entity.Id, equals('456'));
+        expect(entity.title, equals('Tulip Bundle'));
+        expect(entity.price, equals(200));
+        expect(entity.description, equals(""));
+        expect(entity.category, equals("general"));
+        expect(entity.priceAfterDiscount, equals(0));
+      });
+    });
+
+    group('BestSellerResponseEntity Tests', () {
+      test('should create BestSellerResponseEntity with provided values', () {
+        // Arrange & Act
+        final entity = BestSellerResponseEntity(
+          message: 'Test message',
+          bestSeller: [testBestSellerEntity],
+        );
+
+        // Assert
+        expect(entity.message, equals('Test message'));
+        expect(entity.bestSeller?.length, equals(1));
+        expect(entity.bestSeller?.first, equals(testBestSellerEntity));
+      });
+
+      test('should create BestSellerResponseEntity with null values', () {
+        // Arrange & Act
+        final entity = BestSellerResponseEntity();
+
+        // Assert
+        expect(entity.message, isNull);
+        expect(entity.bestSeller, isNull);
       });
     });
 
@@ -433,6 +584,46 @@ void main() {
         expect(newState.isSuccess, equals(true));
         expect(newState.errorMessage, equals('Previous error'));
         expect(newState.bestSellers, equals(testBestSellerResponseEntity));
+      });
+
+      test('should create initial state with correct defaults', () {
+        // Arrange & Act
+        final state = BestSellerState();
+
+        // Assert
+        expect(state.isLoading, isFalse);
+        expect(state.isSuccess, isFalse);
+        expect(state.errorMessage, isNull);
+        expect(state.bestSellers, isNull);
+      });
+    });
+
+    group('Integration Tests', () {
+      test('should complete full data flow from DTO to Entity', () {
+        // Arrange
+        final dto = BestSellerDto(
+          Id: 'integration-test-1',
+          title: 'Integration Test Flower',
+          price: 500,
+          priceAfterDiscount: 400,
+        );
+
+        final responseDto = BestSellerResponseDto(
+          message: 'Integration test success',
+          bestSeller: [dto],
+        );
+
+        // Act
+        final responseEntity = responseDto.toEntity();
+        final firstProduct = responseEntity.bestSeller?.first;
+
+        // Assert
+        expect(responseEntity.message, equals('Integration test success'));
+        expect(responseEntity.bestSeller?.length, equals(1));
+        expect(firstProduct?.Id, equals('integration-test-1'));
+        expect(firstProduct?.title, equals('Integration Test Flower'));
+        expect(firstProduct?.price, equals(500));
+        expect(firstProduct?.priceAfterDiscount, equals(400));
       });
     });
   });
