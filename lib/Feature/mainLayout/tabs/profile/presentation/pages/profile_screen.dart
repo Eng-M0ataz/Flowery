@@ -4,6 +4,9 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentati
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/widgets/profile_header_bloc_builder.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Services/secure_storage.dart';
+import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +19,7 @@ import '../widgets/profile_menu_item.dart';
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
+  final storage = SecureStorageImpl();
   final ProfileViewModel viewModel = getIt<ProfileViewModel>();
 
   @override
@@ -33,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
             _buildOrdersAndAddress(),
             _buildNotification(),
             _buildGeneralSettings(context),
-            _buildLogout(),
+            _buildLogout(context),
           ],
         ),
       ),
@@ -164,11 +168,15 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLogout() {
+  Widget _buildLogout(BuildContext context) {
     return ProfileMenuItem(
       leadingIcon: Icon(Icons.logout, size: AppSizes.smIcon_16),
       title: LocaleKeys.logout.tr(),
       trailing: Icon(Icons.logout),
+      onTap: () {
+        storage.delete(key: 'token');
+        context.pushReplacementNamed(AppRoutes.signInRoute);
+      },
     );
   }
 }
