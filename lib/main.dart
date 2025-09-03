@@ -3,9 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flower_e_commerce_app/core/Config/Routing/route_generator.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
-
 import 'package:flower_e_commerce_app/core/Functions/execute_navigation.dart';
-
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flower_e_commerce_app/firebase_options.dart';

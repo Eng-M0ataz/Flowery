@@ -92,5 +92,19 @@
   "ok": "موافق",
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
-  "female_label": "انثى"
+  "female_label": "انثى",
+  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
+  "Sign_up": "سجل",
+  "flowery": "فلوري",
+  "my_orders": "طلباتي",
+  "saved_address": "العناوين المحفوظة",
+  "notification": "الإشعارات",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "about_us": "من نحن",
+  "terms_conditions": "الأحكام والشروط",
+  "logout": "تسجيل الخروج",
+  "change_language": "تغيير اللغة",
+  "arabic": "العربية",
+  "no_user_data": "لا توجد بيانات مستخدم متاحة"
 }

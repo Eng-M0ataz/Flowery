@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
 import '../../models/product_details_model.dart';
+import '../../../Feature/mainLayout/tabs/profile/presentation/pages/profile_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -56,6 +57,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const SearchScreen(),
         );
+      case AppRoutes.profileRoute:
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
+
       default:
         return unDefinedRoute();
     }

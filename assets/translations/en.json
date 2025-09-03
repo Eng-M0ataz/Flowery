@@ -92,5 +92,22 @@
   "ok": "OK",
   "loading": "Loading...",
   "male_label": "Male",
-  "female_label": "Female"
+  "female_label": "Female",
+    "DoNotHaveAccount": "Don't have an account?",
+  "SignUp": "Sign up",
+  "flowery": "Flowery",
+  "my_orders": "My orders",
+  "saved_address": "Saved address",
+  "notification": "Notification",
+  "language": "Language",
+  "english": "English",
+  "about_us": "About us",
+  "terms_conditions": "Terms & conditions",
+  "logout": "Logout",
+  "change_language": "Change Language",
+  "arabic": "Arabic",
+  "no_user_data": "No user data available"
 }
+
+
+

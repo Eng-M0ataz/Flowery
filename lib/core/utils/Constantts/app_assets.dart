@@ -72,4 +72,10 @@ class Assets {
   /// assets/images/shopping_cart_unselected.svg
   static const String assetsImagesShoppingCartUnselected =
       "assets/images/shopping_cart_unselected.svg";
+
+  static const String assetsImagesFlower =
+      "assets/images/Flower.svg";
+
+  static const String assetsImagePen='assets/images/pen.svg';
+  static const String assetsImageSelectIcon='assets/images/icon.svg';
 }
