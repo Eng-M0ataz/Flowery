@@ -17,11 +17,11 @@ class BestSellerDto {
   @JsonKey(name: "images")
   final List<String>? images;
   @JsonKey(name: "price")
-  final int? price;
+  final double? price;
   @JsonKey(name: "priceAfterDiscount")
-  final int? priceAfterDiscount;
+  final double? priceAfterDiscount;
   @JsonKey(name: "discount")
-  final int? discount;
+  final double? discount;
   @JsonKey(name: "rateAvg")
   final int? rateAvg;
   @JsonKey(name: "rateCount")

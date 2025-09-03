@@ -72,7 +72,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                     if(product.discount == null || product.discount == 0){
                       product.priceAfterDiscount = product.price;
                     } else {
-                      product.priceAfterDiscount = (product.price! - (product.price! * product.discount! / 100)) as int?;
+                      product.priceAfterDiscount = (product.price! - (product.price! * product.discount! / 100)) as double?;
                     }
 
                     return ProductCard(

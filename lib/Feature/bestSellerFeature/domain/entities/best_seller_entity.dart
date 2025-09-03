@@ -6,9 +6,9 @@ class BestSellerEntity {
   final String? description;
   final String? imgCover;
   final List<String>? images;
-  final int? price;
-  int? priceAfterDiscount;
-  final int? discount;
+  final double? price;
+  double? priceAfterDiscount;
+  final double? discount;
   final int? rateAvg;
   final int? rateCount;
   final int? quantity;

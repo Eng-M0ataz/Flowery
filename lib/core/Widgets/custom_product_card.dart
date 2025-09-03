@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final String imgCover;
   final String title;
-  final int price;
-  final int priceAfterDiscount;
-  final int discountPercent;
+  final double price;
+  final double priceAfterDiscount;
+  final double discountPercent;
   final VoidCallback onAddToCart;
 
   const ProductCard({
