@@ -1,7 +1,8 @@
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
-import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
+import '../../../Feature/mainLayout/tabs/profile/presentation/pages/profile_screen.dart';
+import '../../utils/Constants/app_routes.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -14,6 +15,8 @@ class RouteGenerator {
         // return MaterialPageRoute(builder: (_) => const ForgetPassword());
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const MainLayout());
+        case AppRoutes.profileRoute:
+        return MaterialPageRoute(builder: (_) =>  ProfileScreen());
       default:
         return unDefinedRoute();
     }

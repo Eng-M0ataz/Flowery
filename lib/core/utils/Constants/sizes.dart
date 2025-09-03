@@ -19,6 +19,7 @@ abstract class AppSizes {
   static const double smIcon_16 = 16.0;
   static const double mdIcon_24 = 24.0;
   static const double lgIcon_32 = 32.0;
+  static const double lgIcon_36 = 36.0;
   static const double lgIcon_64 = 64.0;
 
   // font sizes
@@ -58,7 +59,7 @@ abstract class AppSizes {
   static const double imageHigh = 80.0;
 
   // Default Spacing Between items
-
+  static const double spaceBetweenItems_2 = 2.0;
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spacingBetweenItems_10 = 12.0;
@@ -67,6 +68,7 @@ abstract class AppSizes {
   static const double spacingBetweenItems_24 = 24.0;
   static const double spacingBetweenItems_32 = 32.0;
   static const double spacingBetweenItems_36 = 36.0;
+  static const double spacingBetweenItems_42 = 42.0;
   static const double spaceBetweenItems_16 = 16.0;
   static const double spaceBetweenItems_50 = 50.0;
 
@@ -79,10 +81,13 @@ abstract class AppSizes {
   static const double borderRadius0 = 0.0;
   static const double borderRadiusSm_4 = 4.0;
   static const double borderRadiusMd_8 = 8.0;
+  static const double borderRadius_10 = 10.0;
   static const double borderRadiusLg_12 = 12.0;
   static const double borderRadiusXl_16 = 16.0;
+  static const double borderRadius_20=20.0;
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
+  static const double borderRadius_40 = 40.0;
   static const double borderRadiusFull = 100.0;
 
   // Divider Height
@@ -108,6 +113,23 @@ abstract class AppSizes {
   // grid view spacing
 
   static const double gridSpacing = 16.0;
+
+  //switch
+  static const double switchWidth_42 = 42.0;
+  static const double switchHigh_30 = 30.0;
+
+  // svg pic
+  static const double photoHeight_32=32.0;
+  static const double photoWidth_32=32.0;
+  static const double photoHeight_20=20.0;
+  static const double photoWidth_20=20.0;
+
+ //container
+  static const double containerHeight_16=16.0;
+  static const double containerHeight_20=20.0;
+  static const double containerWidth_80=80.0;
+  static const double containerWidth_120=120.0;
+
 
   // break points
 
