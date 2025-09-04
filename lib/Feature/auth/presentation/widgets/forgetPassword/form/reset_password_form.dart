@@ -31,8 +31,8 @@ class ResetPasswordForm extends StatelessWidget {
               CustomBackButton(title: LocaleKeys.password.tr()),
               SizedBox(height: AppSizes.spaceBetweenItems_40),
               BuildTitleAndSub(
-                title: LocaleKeys.resetPassword.tr(),
-                subTitle: LocaleKeys.passwordValidation.tr(),
+                title: LocaleKeys.reset_password.tr(),
+                subTitle: LocaleKeys.password_validation.tr(),
               ),
               SizedBox(height: AppSizes.spaceBetweenItems_32),
               Form(

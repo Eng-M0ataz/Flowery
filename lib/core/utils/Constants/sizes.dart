@@ -19,6 +19,8 @@ abstract class AppSizes {
   static const double smIcon_16 = 16.0;
   static const double mdIcon_24 = 24.0;
   static const double lgIcon_32 = 32.0;
+  static const double lgIcon_36 = 36.0;
+  static const double lgIcon_64 = 64.0;
 
   // font sizes
   static const double xxsFont_10 = 10.0;
@@ -42,13 +44,9 @@ abstract class AppSizes {
   static const double buttonHigh_36 = 36;
   static const double buttonHigh_30 = 30;
 
-  static const double buttonWidth_80 = 80.0;
-
-
-
   // AppBar High
 
-  static const double appBarHigh = 56.0;
+  static const double appBarHigh = 48.0;
   static const double appBarHigh_24 = 24.0;
   static const double appBarElevation = 0.0;
   static const double appBarLeadingWidth = 120.0;
@@ -61,7 +59,7 @@ abstract class AppSizes {
   static const double imageWidthnNavBar_24 = 24.0;
 
   // Default Spacing Between items
-  static const double spaceBetweenItems_2 =2.0;
+  static const double spaceBetweenItems_2 = 2.0;
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spaceBetweenItems_10 = 10.0;
@@ -71,6 +69,7 @@ abstract class AppSizes {
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_40 = 40.0;
+  static const double spaceBetweenItems_42 = 42.0;
   static const double spaceBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_50 = 50.0;
 
@@ -83,11 +82,13 @@ abstract class AppSizes {
   static const double borderRadius0 = 0.0;
   static const double borderRadiusSm_4 = 4.0;
   static const double borderRadiusMd_8 = 8.0;
+  static const double borderRadius_10 = 10.0;
   static const double borderRadiusLg_12 = 12.0;
   static const double borderRadiusXl_16 = 16.0;
   static const double borderRadiusXl_20 = 20.0;
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
+  static const double borderRadius_40 = 40.0;
   static const double borderRadiusFull = 100.0;
 
   // Divider Height
@@ -157,6 +158,23 @@ abstract class AppSizes {
 
   //spacer
   static const double spacerWidth_0 = 0;
+
+  //switch
+  static const double switchWidth_42 = 42.0;
+  static const double switchHigh_30 = 30.0;
+
+  // svg pic
+  static const double photoHeight_32=32.0;
+  static const double photoWidth_32=32.0;
+  static const double photoHeight_20=20.0;
+  static const double photoWidth_20=20.0;
+
+ //container
+  static const double containerHeight_16=16.0;
+  static const double containerHeight_20=20.0;
+  static const double containerWidth_80=80.0;
+  static const double containerWidth_120=120.0;
+
 
   // break points
 

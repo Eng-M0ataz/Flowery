@@ -102,7 +102,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       const SizedBox(width: AppSizes.spaceBetweenItems_2),
                       Text(
-                        LocaleKeys.addToCart.tr(),
+                        LocaleKeys.add_to_cart.tr(),
                         style: Theme.of(context)
                             .textTheme
                             .labelSmall!

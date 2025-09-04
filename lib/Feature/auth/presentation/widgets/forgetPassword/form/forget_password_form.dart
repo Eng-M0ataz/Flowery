@@ -29,8 +29,8 @@ class ForgetPasswordForm extends StatelessWidget {
             CustomBackButton(title: LocaleKeys.password.tr()),
             SizedBox(height: AppSizes.spaceBetweenItems_40),
             BuildTitleAndSub(
-              title: LocaleKeys.forgetPassword.tr(),
-              subTitle: LocaleKeys.enterEmailInstruction.tr(),
+              title: LocaleKeys.forget_password.tr(),
+              subTitle: LocaleKeys.enter_email_instruction.tr(),
             ),
             SizedBox(height: AppSizes.spaceBetweenItems_32),
             Form(

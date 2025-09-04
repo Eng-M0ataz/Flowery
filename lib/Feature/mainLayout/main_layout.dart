@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/pages/home_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/pages/profile_screen.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/locale_keys.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
@@ -14,6 +16,8 @@ class MainLayout extends StatelessWidget {
   final List<Widget> tabs = [
     HomeScreen(),
     const CategoryScreen(),
+    BestSellerScreen(), // TODO: Change with CartScreen
+    ProfileScreen(),
   ];
 
   @override

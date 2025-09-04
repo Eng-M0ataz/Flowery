@@ -31,8 +31,8 @@ class VerificationCodeForm extends StatelessWidget {
               CustomBackButton(title: LocaleKeys.password.tr()),
               SizedBox(height: AppSizes.spaceBetweenItems_40),
               BuildTitleAndSub(
-                title: LocaleKeys.resetPassword.tr(),
-                subTitle: LocaleKeys.enterCodeInstruction.tr(),
+                title: LocaleKeys.reset_password.tr(),
+                subTitle: LocaleKeys.enter_code_instruction.tr(),
               ),
               SizedBox(height: AppSizes.spaceBetweenItems_32),
               Form(
@@ -56,7 +56,7 @@ class VerificationCodeForm extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  LocaleKeys.didNotReceiveCode.tr(),
+                                  LocaleKeys.did_not_receive_code.tr(),
                                   style:
                                       Theme.of(context).textTheme.headlineLarge,
                                 ),

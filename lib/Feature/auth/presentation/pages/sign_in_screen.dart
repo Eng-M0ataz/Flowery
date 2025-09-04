@@ -1,16 +1,16 @@
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_in_state.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
+import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
-import 'package:flower_e_commerce_app/core/helpers/regex.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import '../../../../core/Di/di.dart';
 import '../../../../core/Widgets/custom_app_bar.dart';
+import '../../../../core/Widgets/custom_elevated_button.dart';
 import '../../../../core/helpers/dialogue_utils.dart';
 
 class SigninScreen extends StatefulWidget {
@@ -22,10 +22,7 @@ class SigninScreen extends StatefulWidget {
 
 class _SigninScreenState extends State<SigninScreen> {
   final SigninViewModel _viewModel = getIt<SigninViewModel>();
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _rememberMe = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,78 +37,63 @@ class _SigninScreenState extends State<SigninScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: AppSizes.spaceBetweenSections_16),
-                const CustomBackButton(title: LocaleKeys.Login),
-                const SizedBox(height: AppSizes.spaceBetweenSections_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                const CustomBackButton(title: LocaleKeys.login),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 Form(
-                  key: _formKey,
+                  key: _viewModel.formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Email
                       TextFormField(
-                        controller: _emailController,
+                        controller: _viewModel.emailController,
                         decoration: InputDecoration(
-                          label: Text(LocaleKeys.Email,
-                              style: theme.textTheme.bodyMedium),
-                          hintText: LocaleKeys.EmailHint,
+                          label: Text(
+                              LocaleKeys.email,
+                              style: theme.textTheme.bodyMedium
+                          ),
+                          hintText: LocaleKeys.email_hint,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return LocaleKeys.EmailRequired;
-                          }
-                          if (!AppRegExp.isEmailValid(value)) {
-                            return LocaleKeys.EmailInvalid;
-                          }
-                          return null;
-                        },
+                        validator: (value) => Validations.validateEmail(value)
                       ),
-                      const SizedBox(height: AppSizes.spaceBetweenSections_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
-                      // Password
                       TextFormField(
-                        controller: _passwordController,
+                        controller: _viewModel.passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
-                          label: Text(LocaleKeys.Password,
-                              style: theme.textTheme.bodyMedium),
-                          hintText: LocaleKeys.PasswordHint,
+                          label: Text(
+                              LocaleKeys.password,
+                              style: theme.textTheme.bodyMedium
+                          ),
+                          hintText: LocaleKeys.password_hint,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return LocaleKeys.PasswordRequired;
-                          }
-                          return null;
-                        },
+                        validator: (value) => Validations.validatePassword(value)
                       ),
 
-                      const SizedBox(height: AppSizes.spaceBetweenSections_16),
+                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
-                      // Remember me & Forget password
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
                               Checkbox(
-                                value: _rememberMe,
+                                value: _viewModel.rememberMe,
                                 onChanged: (val) {
-                                  setState(() {
-                                    _rememberMe = val ?? false;
-                                  });
+                                    _viewModel.rememberMe = val ?? false;
                                 },
                               ),
-                              Text(LocaleKeys.Remember_me),
+                              Text(LocaleKeys.remember_me),
                             ],
                           ),
                           GestureDetector(
                             onTap: () {
-                              // Navigate to Forget Password
                               context.pushNamed(AppRoutes.forgetPasswordRoute);
                             },
                             child: Text(
-                              LocaleKeys.Forget_password,
+                              LocaleKeys.forget_password,
                               style: theme.textTheme.bodyMedium!.copyWith(
                                 decoration: TextDecoration.underline,
                               ),
@@ -123,22 +105,20 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenSections_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
-                // Bloc Consumer for Login Action
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
                     if (state.failure != null) {
                       DialogueUtils.showMessage(
                         context: context,
-                        title: LocaleKeys.Error,
+                        title: LocaleKeys.error,
                         message: state.failure?.errorMessage ?? "error",
-                        posActionName: LocaleKeys.OK,
+                        posActionName: LocaleKeys.ok,
                       );
                     }
                     if (state.response != null) {
-                      // Navigate to Home Screen or Dashboard
                       context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
                           predicate: (route) => false);
                     }
@@ -147,27 +127,23 @@ class _SigninScreenState extends State<SigninScreen> {
                     final isLoading = state.isLoading;
 
                     return CustomElevatedButton(
-                      title: LocaleKeys.Login,
+                      title: LocaleKeys.login,
                       isLoading: isLoading,
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          context.read<SigninViewModel>().signin(
-                                email: _emailController.text.trim(),
-                                password: _passwordController.text.trim(),
-                              );
-                        }
+                        _viewModel.signin();
                       },
                     );
                   },
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenSections_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
-                // Continue as guest button
                 OutlinedButton(
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
-                        predicate: (route) => false); // Navigate as guest
+                    context.pushNamedAndRemoveUntil(
+                        AppRoutes.mainLayoutRoute,
+                        predicate: (route) => false
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttonHigh_48),
@@ -177,17 +153,16 @@ class _SigninScreenState extends State<SigninScreen> {
 
                 const SizedBox(height: AppSizes.spaceBetweenItems_8),
 
-                // Sign up link
                 Center(
                   child: GestureDetector(
                     onTap: () => context.pushNamed(AppRoutes.signUpRoute),
                     child: RichText(
                       text: TextSpan(
-                        text: LocaleKeys.Do_not_have_an_account,
+                        text: LocaleKeys.dont_have_account,
                         style: theme.textTheme.bodyMedium,
                         children: [
                           TextSpan(
-                            text: LocaleKeys.Sign_up,
+                            text: LocaleKeys.sign_up,
                             style: theme.textTheme.bodyMedium!.copyWith(
                               color: theme.colorScheme.primary,
                               decoration: TextDecoration.underline,

@@ -45,7 +45,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                   onTap: context.pop,
                   child: const Icon(Icons.arrow_back_ios),
                 ),
-                title: Text(LocaleKeys.bestSeller.tr()),
+                title: Text(LocaleKeys.best_seller.tr()),
               ),
               body: Padding(
                 padding: const EdgeInsets.all(AppSizes.paddingMd_12),

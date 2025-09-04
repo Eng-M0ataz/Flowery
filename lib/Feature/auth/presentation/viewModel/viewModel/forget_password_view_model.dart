@@ -51,17 +51,17 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   String getSuccessMessage(ForgetPasswordState state) {
     switch (state.step) {
       case ForgetPasswordStep.verify:
-        return LocaleKeys.otpSentSuccess.tr();
+        return LocaleKeys.otp_sent_success.tr();
       case ForgetPasswordStep.resend:
-        return LocaleKeys.otpSentSuccess.tr();
+        return LocaleKeys.otp_sent_success.tr();
       case ForgetPasswordStep.reset:
         if (state.resetResponse != null) {
-          return LocaleKeys.passwordResetSuccess.tr();
+          return LocaleKeys.password_reset_success.tr();
         } else {
-          return LocaleKeys.codeVerifiedSuccess.tr();
+          return LocaleKeys.code_verified_success.tr();
         }
       case ForgetPasswordStep.forget:
-        return LocaleKeys.operationCompleted.tr();
+        return LocaleKeys.operation_completed.tr();
     }
   }
 

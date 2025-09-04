@@ -17,7 +17,7 @@ class BuildEmailField extends StatelessWidget {
       autofillHints: const [AutofillHints.email],
       decoration: InputDecoration(
         labelText: LocaleKeys.email.tr(),
-        hintText: LocaleKeys.enterEmail.tr(),
+        hintText: LocaleKeys.enter_email_instruction.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: Validations.validateEmail,

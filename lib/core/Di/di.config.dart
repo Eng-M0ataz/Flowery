@@ -73,6 +73,20 @@ import '../../Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/v
     as _i1057;
 import '../../Feature/mainLayout/tabs/home/presentation/viewModel/home_view_model.dart'
     as _i1060;
+import '../../Feature/mainLayout/tabs/profile/api/client/profile_api_service.dart'
+    as _i602;
+import '../../Feature/mainLayout/tabs/profile/api/dataSources/profile_remote_data_source_impl.dart'
+    as _i156;
+import '../../Feature/mainLayout/tabs/profile/data/dataSources/profile_remote_data_source.dart'
+    as _i394;
+import '../../Feature/mainLayout/tabs/profile/data/repositories/profile_repo_impl.dart'
+    as _i1026;
+import '../../Feature/mainLayout/tabs/profile/domain/repositories/profile_repo.dart'
+    as _i992;
+import '../../Feature/mainLayout/tabs/profile/domain/useCases/get_logged_user_use_case.dart'
+    as _i548;
+import '../../Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_view_model.dart'
+    as _i152;
 import '../../Feature/occasion/api/client/occasion_api_service.dart' as _i713;
 import '../../Feature/occasion/api/dataSources/occasion_remote_data_source_impl.dart'
     as _i108;
@@ -111,6 +125,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i996.ApiServices>(() => _i996.ApiServices.new(gh<_i361.Dio>()));
     gh.factory<_i713.OccasionApiService>(
         () => _i713.OccasionApiService.new(gh<_i361.Dio>()));
+    gh.factory<_i602.ProfileApiService>(
+        () => _i602.ProfileApiService.new(gh<_i361.Dio>()));
     gh.factory<_i245.OccasionRemoteDataSource>(() =>
         _i108.OccasionRemoteDataSourceImpl(gh<_i713.OccasionApiService>()));
     gh.lazySingleton<_i456.Storage>(
@@ -122,11 +138,15 @@ extension GetItInjectableX on _i174.GetIt {
             apiServicest: gh<_i996.ApiServices>()));
     gh.factory<_i691.CategoriesRepo>(() => _i1066.CategoriesRepoImpl(
         categoriesRemoteDataSource: gh<_i341.CategoriesRemoteDataSource>()));
+    gh.factory<_i394.ProfileRemoteDataSource>(
+        () => _i156.ProfileRemoteDataSourceImpl(gh<_i602.ProfileApiService>()));
     gh.factory<_i806.BestSellerRemoteDataSource>(() =>
         _i320.BestSellerRemoteDataSourceImpl(
             apiServices: gh<_i776.ApiServices>()));
     gh.factory<_i896.AuthRemoteDataSource>(() =>
         _i515.AuthRemoteDataSourceImpl(apiServices: gh<_i500.ApiServices>()));
+    gh.factory<_i992.ProfileRepo>(
+        () => _i1026.ProfileRepoImpl(gh<_i394.ProfileRemoteDataSource>()));
     gh.factory<_i901.AuthLocalDataSource>(() => _i608.AuthLocalDataSourceImpl(
         gh<_i456.Storage>(instanceName: 'secureStorage')));
     gh.factory<_i66.CategoriesUseCase>(() =>
@@ -169,6 +189,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i576.ResetPasswordUseCase(gh<_i466.AuthRepo>()));
     gh.factory<_i136.VerifyResetCodeUseCase>(
         () => _i136.VerifyResetCodeUseCase(gh<_i466.AuthRepo>()));
+    gh.factory<_i548.GetLoggedUserUseCase>(
+        () => _i548.GetLoggedUserUseCase(gh<_i992.ProfileRepo>()));
     gh.factory<_i1057.CategoriesViewModel>(() => _i1057.CategoriesViewModel(
           gh<_i66.CategoriesUseCase>(),
           gh<_i214.GetCategoryProductsUseCase>(),
@@ -184,6 +206,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i375.SigninUseCase(authRepo: gh<_i466.AuthRepo>()));
     gh.factory<_i630.SignUpUseCase>(
         () => _i630.SignUpUseCase(authRepo: gh<_i466.AuthRepo>()));
+    gh.factory<_i152.ProfileViewModel>(
+        () => _i152.ProfileViewModel(gh<_i548.GetLoggedUserUseCase>()));
     gh.factory<_i248.SignupViewModel>(
         () => _i248.SignupViewModel(gh<_i630.SignUpUseCase>()));
     gh.factory<_i787.SigninViewModel>(() => _i787.SigninViewModel(

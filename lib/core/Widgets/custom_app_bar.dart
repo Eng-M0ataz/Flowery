@@ -9,24 +9,21 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final thmeData = Theme.of(context);
+    final theme = Theme.of(context);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
           onTap: onTap ?? context.pop,
-          child: const Padding(
-            padding: EdgeInsets.only(left: AppSizes.paddingMd_12),
-            child: Icon(Icons.arrow_back_ios, size: 20),
-          ),
+          child: Icon(Icons.arrow_back_ios, size: 20),
         ),
         Text(
           title,
-          style: thmeData.textTheme.bodySmall!.copyWith(
-            color: thmeData.colorScheme.onSurface,
-          ),
+          style: theme.textTheme.bodySmall,
         ),
       ],
     );
   }
+
+  Size get preferredSize => const Size.fromHeight(AppSizes.appBarHigh);
 }

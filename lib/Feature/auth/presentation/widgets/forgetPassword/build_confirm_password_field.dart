@@ -20,8 +20,8 @@ class BuildConfirmPasswordField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       autofillHints: const [AutofillHints.password],
       decoration: InputDecoration(
-        labelText: LocaleKeys.confirmPassword.tr(),
-        hintText: LocaleKeys.confirmPassword.tr(),
+        labelText: LocaleKeys.confirm_password_label.tr(),
+        hintText: LocaleKeys.confirm_password_hint.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: (val) =>

@@ -1,8 +1,8 @@
+import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_local_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/sign_up_request_entity.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_local_data_source.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/request/sign_in_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/repositories/auth_repo.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
@@ -12,6 +12,7 @@ import '../../domain/entities/request/verify_reset_code_request_entity.dart';
 import '../../domain/entities/response/forget_password_response_entity.dart';
 import '../../domain/entities/response/reset_password_response_entity.dart';
 import '../../domain/entities/response/verify_reset_code_response_entity.dart';
+import '../../domain/entity/response/sign_in_response_entity.dart';
 
 @Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
@@ -51,24 +52,30 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<ApiResult<void>> isGuest() async {
-    return await _authLocalDataSource.isGuest();
-  }
+  Future<ApiResult<SigninResponseEntity>> signin({
+    required SigninRequestEntity request,
+    bool? rememberMeChecked = false
+  }) async {
 
-  @override
-  Future<ApiResult<SigninResponseEntity>> signin(
-      {required String email, required String password}) async {
-    // final ApiSuccessResult result = ApiSuccessResult(data: data);
+    ApiResult<SigninResponseEntity> result = await _authRemoteDataSource.signin(
+        request: request
+    );
 
-    ApiResult<SigninResponseEntity> result =
-        await _authRemoteDataSource.signin(email: email, password: password);
-
-    if (result is ApiSuccessResult<SigninResponseEntity>) {
+    if(result is ApiSuccessResult<SigninResponseEntity>) {
       final String? token = result.data.token;
-      if (token != null && token.isNotEmpty) {
+      if(token != null && token.isNotEmpty) {
         await _authLocalDataSource.writeToken(token: token);
+
+        if (rememberMeChecked!) {
+          await _authLocalDataSource.setRememberMe(rememberMe: true);
+        }
       }
     }
     return result;
+  }
+
+  @override
+  Future<ApiResult<void>> isGuest() async {
+    return await _authLocalDataSource.isGuest();
   }
 }

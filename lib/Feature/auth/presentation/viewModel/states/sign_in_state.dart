@@ -1,5 +1,4 @@
-
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 class SignInState {
   SigninResponseEntity? response;

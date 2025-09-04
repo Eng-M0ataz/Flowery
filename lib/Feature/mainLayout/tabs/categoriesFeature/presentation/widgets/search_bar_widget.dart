@@ -19,7 +19,7 @@ class SearchBarWidget extends StatelessWidget {
       child: TextField(
         style: TextStyle(color: AppColorsLight.black[80]),
         decoration: InputDecoration(
-          hintText: LocaleKeys.search_label.tr(),
+          hintText: LocaleKeys.search.tr(),
           hintStyle: TextStyle(color: AppColorsLight.white[70]),
           prefixIcon: Icon(Icons.search, color: AppColorsLight.white[70]),
           border: InputBorder.none,

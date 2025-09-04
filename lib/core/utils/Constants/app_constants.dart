@@ -21,4 +21,6 @@ abstract class AppConstants {
   static const int mainDuration = 10;
   static const int resendDuration = 3;
   static const String token = 'token';
+  static const String rememberMe = 'remember_me';
+  static const String languageCode = "language_code";
 }

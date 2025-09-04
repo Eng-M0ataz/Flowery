@@ -15,7 +15,7 @@ class BuildPasswordField extends StatelessWidget {
       keyboardType: TextInputType.visiblePassword,
       decoration: InputDecoration(
         labelText: LocaleKeys.password.tr(),
-        hintText: LocaleKeys.enterPassword.tr(),
+        hintText: LocaleKeys.enter_password.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: Validations.validatePassword,

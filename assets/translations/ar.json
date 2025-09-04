@@ -77,5 +77,19 @@
   "currency": "ج.م",
   "retry": "إعادة المحاولة",
   "sub_best_seller": "ازدهر مع أفضل مبيعاتنا الرائعة",
-  "add_to_cart_button": "أضف إلى العربة"
+  "add_to_cart_button": "أضف إلى العربة",
+  "flowery": "فلوري",
+  "my_orders": "طلباتي",
+  "saved_address": "العناوين المحفوظة",
+  "notification": "الإشعارات",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "about_us": "من نحن",
+  "terms_conditions": "الأحكام والشروط",
+  "logout": "تسجيل الخروج",
+  "change_language": "تغيير اللغة",
+  "arabic": "العربية",
+  "no_user_data": "لا توجد بيانات مستخدم متاحة",
+  "enter_password": "أدخل كلمة السر",
+  "egp": "ج.م"
 }

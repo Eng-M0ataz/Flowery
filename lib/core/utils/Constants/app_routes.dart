@@ -12,4 +12,5 @@ abstract class AppRoutes {
 
   static const String categoriesRoute = '/categoryScreenRoute';
 
+  static const String profileRoute = '/profileRoute';
 }

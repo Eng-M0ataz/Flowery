@@ -22,7 +22,7 @@ class MainTimer extends StatelessWidget {
       onEnd: () {
         DialogueUtils.showMessage(
           context: context,
-          message: LocaleKeys.resetCodeInvalidOrExpired.tr(),
+          message: LocaleKeys.reset_code_invalid_or_expired.tr(),
           posActionName: LocaleKeys.ok.tr(),
           title: LocaleKeys.error.tr(),
         );

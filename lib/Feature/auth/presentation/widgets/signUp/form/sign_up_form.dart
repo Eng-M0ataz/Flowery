@@ -139,7 +139,7 @@ class SignUpForm extends StatelessWidget {
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
                       BuildNavigationText(
                           firstText:
-                              LocaleKeys.already_have_account_prompt.tr(),
+                              LocaleKeys.already_have_account.tr(),
                           secondText: LocaleKeys.login_title.tr(),
                           routeName: AppRoutes.signInRoute)
                     ],

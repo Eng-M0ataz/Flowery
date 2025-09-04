@@ -9,10 +9,11 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forg
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart' hide UserEntity;
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/request/sign_in_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -250,7 +251,12 @@ void main() {
 
     test('delegates to remote data source and saves token locally on success', () async {
       // Mock remote sign in
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+          request: SigninRequestEntity(
+              email: email,
+              password: password
+          )
+      ))
           .thenAnswer((_) async =>
           ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
 
@@ -258,36 +264,53 @@ void main() {
       when(mockLocal.writeToken(token: token))
           .thenAnswer((_) async => ApiSuccessResult<void>(data: null));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+          request: SigninRequestEntity(
+              email: email,
+              password: password
+          ),
+        rememberMeChecked: await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
       final success = result as ApiSuccessResult<SigninResponseEntity>;
       expect(success.data.message, responseEntity.message);
       expect(success.data.token, token);
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verify(mockLocal.writeToken(token: token)).called(1);
     });
 
     test('returns error when remote sign in fails', () async {
       final failure = Failure(errorMessage: 'Invalid credentials');
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      ))
           .thenAnswer((_) async =>
           ApiErrorResult<SigninResponseEntity>(failure: failure));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+        request: SigninRequestEntity(email: email, password: password),
+        rememberMeChecked:  await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
       final error = result as ApiErrorResult<SigninResponseEntity>;
       expect(error.failure.errorMessage, 'Invalid credentials');
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verifyNever(mockLocal.writeToken(token: anyNamed('token')));
     });
 
     test('returns error when local token storage fails', () async {
       // Mock successful remote sign in
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      ))
           .thenAnswer((_) async =>
           ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
 
@@ -296,13 +319,18 @@ void main() {
       when(mockLocal.writeToken(token: token))
           .thenAnswer((_) async => ApiErrorResult<void>(failure: localFailure));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+        request: SigninRequestEntity(email: email, password: password),
+            rememberMeChecked: await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
       final error = result as ApiErrorResult<SigninResponseEntity>;
       expect(error.failure.errorMessage, 'Storage error');
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verify(mockLocal.writeToken(token: token)).called(1);
     });
   });
@@ -375,7 +403,9 @@ void main() {
 
     test('delegates to remote data source and saves token locally on success', () async {
       // Mock remote sign in
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      ))
           .thenAnswer((_) async =>
           ApiSuccessResult<SigninResponseEntity>(data: responseEntity));
 
@@ -383,30 +413,42 @@ void main() {
       when(mockLocal.writeToken(token: token))
           .thenAnswer((_) async => ApiSuccessResult<void>(data: null));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+        request:  SigninRequestEntity(email: email, password: password),
+        rememberMeChecked: await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
       final success = result as ApiSuccessResult<SigninResponseEntity>;
       expect(success.data.message, responseEntity.message);
       expect(success.data.token, token);
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verify(mockLocal.writeToken(token: token)).called(1);
     });
 
     test('returns error when remote sign in fails', () async {
       final failure = Failure(errorMessage: 'Invalid credentials');
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+        request: SigninRequestEntity(email: email, password: password)
+      ))
           .thenAnswer((_) async =>
           ApiErrorResult<SigninResponseEntity>(failure: failure));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+        request: SigninRequestEntity(email: email, password: password),
+        rememberMeChecked: await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiErrorResult<SigninResponseEntity>>());
       final error = result as ApiErrorResult<SigninResponseEntity>;
       expect(error.failure.errorMessage, 'Invalid credentials');
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+          request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verifyNever(mockLocal.writeToken(token: anyNamed('token')));
     });
 
@@ -417,17 +459,24 @@ void main() {
         token: null,
       );
 
-      when(mockRemote.signin(email: email, password: password))
+      when(mockRemote.signin(
+          request: SigninRequestEntity(email: email, password: password)
+      ))
           .thenAnswer((_) async =>
           ApiSuccessResult<SigninResponseEntity>(data: responseWithoutToken));
 
-      final result = await repo.signin(email: email, password: password);
+      final result = await repo.signin(
+          request: SigninRequestEntity(email: email, password: password),
+          rememberMeChecked: await mockLocal.getRememberMe()
+      );
 
       expect(result, isA<ApiSuccessResult<SigninResponseEntity>>());
       final success = result as ApiSuccessResult<SigninResponseEntity>;
       expect(success.data.message, responseWithoutToken.message);
 
-      verify(mockRemote.signin(email: email, password: password)).called(1);
+      verify(mockRemote.signin(
+          request: SigninRequestEntity(email: email, password: password)
+      )).called(1);
       verifyNever(mockLocal.writeToken(token: anyNamed('token')));
     });
   });

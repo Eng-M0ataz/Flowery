@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flower_e_commerce_app/Feature/auth/api/models/request/sign_in_request_dto.dart';
-import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
@@ -20,8 +18,10 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forget_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import '../../domain/entity/request/sign_in_request_entity.dart';
 
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -30,6 +30,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   AuthRemoteDataSourceImpl({
     required ApiServices apiServices,
   }) : _apiServices = apiServices;
+
   @override
   Future<ApiResult<SignUpResponseEntity>> signup(
       SignUpRequestEntity signUpRequest) async {
@@ -110,12 +111,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<ApiResult<SigninResponseEntity>> signin(
-      {required String email, required String password}) async {
-    try {
-      final request = SigninRequestDto(email: email, password: password);
+  Future<ApiResult<SigninResponseEntity>> signin({
+    required SigninRequestEntity request
+  }) async {
+    try{
 
-      final response = await _apiServices.signIn(request);
+      final response = await _apiServices.signIn(request.toDto());
 
       return ApiSuccessResult<SigninResponseEntity>(data: response.toEntity());
     } on DioException catch (e) {

@@ -21,5 +21,6 @@ abstract class ApiConstants {
   static const String getProducts = 'products';
   static const String categoryQuery = 'category';
 
-
+  //Profile
+  static const String getLoggedUserData = 'auth/profile-data';
 }
