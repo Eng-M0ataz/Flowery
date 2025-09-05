@@ -7,7 +7,7 @@ import 'dart:async' as _i3;
 
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart' as _i4;
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_local_data_source.dart'
-    as _i16;
+    as _i15;
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart'
     as _i2;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/request/forget_password_request_entity.dart'
@@ -22,14 +22,12 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/forg
     as _i8;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/reset_password_response_entity.dart'
     as _i12;
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_in_entity.dart'
+    as _i14;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/sign_up_response_entity.dart'
     as _i5;
 import 'package:flower_e_commerce_app/Feature/auth/domain/entities/response/verify_reset_code_response_entity.dart'
     as _i10;
-import 'package:flower_e_commerce_app/Feature/auth/domain/entity/request/sign_in_request_entity.dart'
-    as _i15;
-import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart'
-    as _i14;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
 
@@ -132,13 +130,18 @@ class MockAuthRemoteDataSource extends _i1.Mock
       ) as _i3.Future<_i4.ApiResult<_i12.ResetPasswordResponseEntity>>);
 
   @override
-  _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>> signin(
-          {required _i15.SigninRequestEntity? request}) =>
+  _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>> signin({
+    required String? email,
+    required String? password,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #signin,
           [],
-          {#request: request},
+          {
+            #email: email,
+            #password: password,
+          },
         ),
         returnValue: _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>>.value(
             _i7.dummyValue<_i4.ApiResult<_i14.SigninResponseEntity>>(
@@ -146,7 +149,10 @@ class MockAuthRemoteDataSource extends _i1.Mock
           Invocation.method(
             #signin,
             [],
-            {#request: request},
+            {
+              #email: email,
+              #password: password,
+            },
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<_i14.SigninResponseEntity>>);
@@ -156,7 +162,7 @@ class MockAuthRemoteDataSource extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthLocalDataSource extends _i1.Mock
-    implements _i16.AuthLocalDataSource {
+    implements _i15.AuthLocalDataSource {
   MockAuthLocalDataSource() {
     _i1.throwOnMissingStub(this);
   }
@@ -195,32 +201,4 @@ class MockAuthLocalDataSource extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<void>>);
-
-  @override
-  _i3.Future<_i4.ApiResult<void>> setRememberMe({required bool? rememberMe}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #setRememberMe,
-          [],
-          {#rememberMe: rememberMe},
-        ),
-        returnValue: _i3.Future<_i4.ApiResult<void>>.value(
-            _i7.dummyValue<_i4.ApiResult<void>>(
-          this,
-          Invocation.method(
-            #setRememberMe,
-            [],
-            {#rememberMe: rememberMe},
-          ),
-        )),
-      ) as _i3.Future<_i4.ApiResult<void>>);
-
-  @override
-  _i3.Future<bool> getRememberMe() => (super.noSuchMethod(
-        Invocation.method(
-          #getRememberMe,
-          [],
-        ),
-        returnValue: _i3.Future<bool>.value(false),
-      ) as _i3.Future<bool>);
 }
