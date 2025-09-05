@@ -21,7 +21,14 @@ jobs:
           else
             echo "pubspec.lock not found, skipping"
           fi
-
+      - name: Delete pubspec.lock
+        run: |
+          if [ -f pubspec.lock ]; then
+            echo "Deleting pubspec.lock..."
+            rm pubspec.lock
+          else
+            echo "pubspec.lock not found, skipping"
+            fi
       # Setup Flutter (latest stable)
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
