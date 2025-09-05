@@ -1,5 +1,5 @@
 class UserEntity {
-  final String? Id;
+  final String? id;
   final String? firstName;
   final String? lastName;
   final String? email;
@@ -11,8 +11,8 @@ class UserEntity {
   final List<dynamic>? addresses;
   final String? createdAt;
 
-  UserEntity ({
-    this.Id,
+  UserEntity({
+    this.id,
     this.firstName,
     this.lastName,
     this.email,
@@ -22,6 +22,6 @@ class UserEntity {
     this.role,
     this.wishlist,
     this.addresses,
-    this.createdAt,
+    this.createdAt, String? Id,
   });
 }

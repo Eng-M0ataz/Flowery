@@ -6,6 +6,7 @@ part 'user_response_dto.g.dart';
 @JsonSerializable()
 class UserDto {
   @JsonKey(name: "_id")
+  // ignore: non_constant_identifier_names
   final String? Id;
   @JsonKey(name: "firstName")
   final String? firstName;
