@@ -1,4 +1,4 @@
-import '../../domain/entities/logged_user_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_entity.dart';
 import '../models/logged_user_dto.dart';
 
 extension LoggedUserDtoMapper on LoggedUserDto {

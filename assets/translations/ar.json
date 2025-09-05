@@ -62,6 +62,7 @@
   "password_required": "كلمة المرور مطلوبة",
   "remember_me": "تذكرني",
   "guest": "المتابعة كضيف",
+
   "no_products": "لا توجد منتجات متاحة",
   "add_to_cart": "أضف إلى السلة",
   "no_categories": "لا توجد تصنيفات متاحة",
@@ -91,5 +92,34 @@
   "arabic": "العربية",
   "no_user_data": "لا توجد بيانات مستخدم متاحة",
   "enter_password": "أدخل كلمة السر",
-  "egp": "ج.م"
+  "egp": "ج.م",
+
+  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
+  "Sign_up": "سجل",
+  "first_name_label": "الاسم الأول",
+  "first_name_hint": "أدخل الاسم الأول",
+  "last_name_label": "اسم العائلة",
+  "last_name_hint": "أدخل اسم العائلة",
+  "email_label": "البريد الإلكتروني",
+  "email_hint": "أدخل البريد الإلكتروني",
+  "phone_number_label": "رقم الهاتف",
+  "phone_number_hint": "أدخل رقم الهاتف",
+  "gender": "النوع",
+  "success": "تم بنجاح",
+  "ok": "حسناً",
+  "loading": "جارٍ التحميل...",
+  "male_label": "ذكر",
+  "female_label": "أنثى",
+  "password_label": "كلمة المرور",
+  "edit_profile": "تعديل الملف ",
+  "select_profile_picture": "حدد صورة الملف الشخصية",
+  "camera": "الكاميرا",
+  "gallery": "المعرض",
+  "remove": "حذف",
+  "error": "خطاء",
+  "change": "تغيير",
+  "profile_updated": "تم تحديث الملف الشخصي بنجاح",
+  "update": "تحديث",
+  "failed_to_pick_image": "فشل في اختيار الصورة:"
+
 }

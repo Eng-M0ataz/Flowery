@@ -53,6 +53,7 @@ class FlowerECommerceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<AppConfigCubit, Locale>(
       builder: (context, locale) {
         return MaterialApp(
@@ -70,6 +71,8 @@ class FlowerECommerceApp extends StatelessWidget {
           onGenerateRoute: RouteGenerator.getRoute,
         );
       },
+
+
     );
   }
 }

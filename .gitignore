@@ -43,7 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-<<<<<<< Updated upstream
 windows/flutter/generated_plugins.cmake
 windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugin_registrant.cc
@@ -51,11 +50,10 @@ macos/Flutter/GeneratedPluginRegistrant.swift
 linux/flutter/generated_plugins.cmake
 linux/flutter/generated_plugin_registrant.h
 linux/flutter/generated_plugin_registrant.cc
-=======
-android/build/reports/problems/problems-report.html
+d/reports/problems/problems-report.html
 lib/core/Di/di.config.dart
 lib/Feature/auth/api/client/api_service.g.dart
->>>>>>> Stashed changes
+
 lib/Feature/auth/api/models/request/sign_in_request_dto.g.dart
 lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
 *.g.dart
@@ -67,6 +65,7 @@ lib/Feature/auth/api/models/user_dto.g.dart
 lib/core/localization/codegen_loader.g.dart
 lib/core/localization/locale_keys.g.dart
 pubspec.lock
+
 
 /lib/Feature/bestSellerFeature/api/client/api_service.g.dart
 /lib/Feature/bestSellerFeature/api/models/best_seller_dto.g.dart
@@ -97,3 +96,23 @@ lib/Feature/auth/api/models/response/verify_reset_code_response_dto.g.dart
 lib/Feature/auth/api/models/response/forget_password_response_dto.g.dart
 lib/Feature/auth/api/models/request/reset_password_request.g.dart
 /test/Feature/mainLayout/tabs/home/presentation/viewModel/home_view_model_test.mocks.dart
+
+pubspec.lock
+pubspec.lock
+pubspec.lock
+.gitignore
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugin_registrant.cc
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugins.cmake
+windows/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugins.cmake
+devtools_options.yaml
+linux/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugin_registrant.cc
+pubspec.lock
+analysis_options.yaml

@@ -17,9 +17,15 @@ abstract class AppSizes {
   static const double xxsIcon_8 = 8.0;
   static const double xsIcon_12 = 12.0;
   static const double smIcon_16 = 16.0;
+  static const double smIcon_18 = 18.0;
   static const double mdIcon_24 = 24.0;
+  static const double mdIcon_30 = 30.0;
   static const double lgIcon_32 = 32.0;
   static const double lgIcon_36 = 36.0;
+
+
+  static const double lgIcon_60 = 60.0;
+
   static const double lgIcon_64 = 64.0;
 
   // font sizes
@@ -62,8 +68,18 @@ abstract class AppSizes {
   static const double spaceBetweenItems_2 = 2.0;
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
+
   static const double spaceBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
+
+  static const double spacingBetweenItems_10 = 12.0;
+  static const double spacingBetweenItems_12 = 12.0;
+  static const double spacingBetweenItems_16 = 16.0;
+  static const double spacingBetweenItems_20 = 20.0;
+  static const double spacingBetweenItems_24 = 24.0;
+  static const double spacingBetweenItems_32 = 32.0;
+  static const double spacingBetweenItems_36 = 36.0;
+
   static const double spaceBetweenItems_16 = 16.0;
   static const double spaceBetweenItems_24 = 24.0;
   static const double spaceBetweenItems_32 = 32.0;
@@ -80,6 +96,7 @@ abstract class AppSizes {
   // Border Radius
 
   static const double borderRadius0 = 0.0;
+  static const double borderRadiusXs_2 = 2.0;
   static const double borderRadiusSm_4 = 4.0;
   static const double borderRadiusMd_8 = 8.0;
   static const double borderRadius_10 = 10.0;
@@ -90,6 +107,12 @@ abstract class AppSizes {
   static const double borderRadiusXxxl_32 = 32.0;
   static const double borderRadius_40 = 40.0;
   static const double borderRadiusFull = 100.0;
+
+  //Border Width
+  static const double borderWidth_1 = 1.0;
+  static const double borderWidth_2 = 2.0;
+  static const double borderWidth_3 = 3.0;
+  static const double borderWidth_4 = 4.0;
 
   // Divider Height
 
@@ -117,6 +140,7 @@ abstract class AppSizes {
 
   // grid view spacing
   static const double gridSpacing = 16.0;
+
 
 
   //clip radius
@@ -175,6 +199,9 @@ abstract class AppSizes {
   static const double containerWidth_80=80.0;
   static const double containerWidth_120=120.0;
 
+  //image handler bar
+  static const double imageHandlerBarWidth = 40.0;
+  static const double imageHandlerBarHeight = 4.0;
 
   // break points
 

@@ -43,6 +43,7 @@ class Assets {
   /// assets/images/shopping_cart_selected.svg
   static const String assetsImagesShoppingCartSelected = "assets/images/shopping_cart_selected.svg";
 
+
   static const String assetsImagesShoppingCartUnselected = "assets/images/shopping_cart_unselected.svg";
 
   static const String filterIcon = "assets/images/filter_icon.svg";
@@ -52,5 +53,14 @@ class Assets {
 
   static const String assetsImagePen='assets/images/pen.svg';
   static const String assetsImageSelectIcon='assets/images/icon.svg';
+
+  /// Assets for assetsImagesShoppingCartUnselected
+  /// assets/images/shopping_cart_unselected.svg
+  static const String assetsImagesShoppingCartUnselected =
+      "assets/images/shopping_cart_unselected.svg";
+
+  static const String assetsImagesNotificationBill =
+      "assets/images/notification_bill.svg";
+
 }
 
