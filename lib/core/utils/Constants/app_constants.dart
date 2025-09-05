@@ -25,8 +25,6 @@ abstract class AppConstants {
 
   static const String languageCode = "language_code";
 
-  static const String female = 'female';
-  static const String male = 'male';
   static const String passwordCharacters = "★★★★★★";
 
 }

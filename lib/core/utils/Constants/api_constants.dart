@@ -26,7 +26,6 @@ abstract class ApiConstants {
   static const String getLoggedUserData = 'auth/profile-data';
 
   static const String editProfile = 'auth/editProfile';
-  static const String getLoggedUserData = 'auth/profile-data';
   static const String uploadPhoto = '/auth/upload-photo';
 
 }

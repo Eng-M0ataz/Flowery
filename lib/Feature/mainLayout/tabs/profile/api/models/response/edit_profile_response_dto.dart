@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/Feature/auth/api/model/responses/user_response_dto.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/response/user_response_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'edit_profile_response_dto.g.dart';

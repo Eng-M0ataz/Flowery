@@ -66,7 +66,7 @@ Widget buildCameraIcon() {
     child: const Icon(
       Icons.camera_alt,
       size: AppSizes.smIcon_18,
-      color: AppColorsLight.gray,
+      color: AppColorsLight.grey,
     ),
   );
 }
