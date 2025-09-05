@@ -23,7 +23,6 @@ abstract class AppSizes {
   static const double lgIcon_32 = 32.0;
   static const double lgIcon_36 = 36.0;
 
-
   static const double lgIcon_60 = 60.0;
 
   static const double lgIcon_64 = 64.0;
@@ -55,7 +54,7 @@ abstract class AppSizes {
   static const double appBarHigh = 48.0;
   static const double appBarHigh_24 = 24.0;
   static const double appBarElevation = 0.0;
-  static const double appBarLeadingWidth = 120.0;
+  static const double appBarLeadingWidth = 200.0;
 
   // Image sizes
 
@@ -141,8 +140,6 @@ abstract class AppSizes {
   // grid view spacing
   static const double gridSpacing = 16.0;
 
-
-
   //clip radius
   static const double clipHeight_131 = 131;
 
@@ -188,16 +185,16 @@ abstract class AppSizes {
   static const double switchHigh_30 = 30.0;
 
   // svg pic
-  static const double photoHeight_32=32.0;
-  static const double photoWidth_32=32.0;
-  static const double photoHeight_20=20.0;
-  static const double photoWidth_20=20.0;
+  static const double photoHeight_32 = 32.0;
+  static const double photoWidth_32 = 32.0;
+  static const double photoHeight_20 = 20.0;
+  static const double photoWidth_20 = 20.0;
 
- //container
-  static const double containerHeight_16=16.0;
-  static const double containerHeight_20=20.0;
-  static const double containerWidth_80=80.0;
-  static const double containerWidth_120=120.0;
+  //container
+  static const double containerHeight_16 = 16.0;
+  static const double containerHeight_20 = 20.0;
+  static const double containerWidth_80 = 80.0;
+  static const double containerWidth_120 = 120.0;
 
   //image handler bar
   static const double imageHandlerBarWidth = 40.0;

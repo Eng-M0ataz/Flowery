@@ -1,3 +1,5 @@
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -50,11 +52,16 @@ class ProfileHeaderBlocBuilder extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(width: AppSizes.paddingXs_4),
-                SvgPicture.asset(
-                  Assets.assetsImagePen,
-                  height: AppSizes.photoHeight_32,
-                  width: AppSizes.photoWidth_32,
-                  fit: BoxFit.contain,
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamed(AppRoutes.editProfileRoute);
+                  },
+                  child: SvgPicture.asset(
+                    Assets.assetsImagesEditProfilePin,
+                    height: AppSizes.photoHeight_32,
+                    width: AppSizes.photoWidth_32,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ],
             ),

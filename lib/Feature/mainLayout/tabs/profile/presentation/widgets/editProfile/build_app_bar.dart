@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
+import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
@@ -21,18 +22,17 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        LocaleKeys.edit_profile.tr(),
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-      centerTitle: false,
-      elevation: 0,
-      backgroundColor: AppColorsLight.white,
-      foregroundColor: AppColorsLight.black,
+      leadingWidth: AppSizes.appBarLeadingWidth,
       actions: [
         _buildNotificationButton(),
         const SizedBox(width: AppSizes.paddingSm_12),
       ],
+      leading: Padding(
+        padding: const EdgeInsets.only(left: AppSizes.paddingMd_16),
+        child: CustomBackButton(
+          title: LocaleKeys.edit_profile.tr(),
+        ),
+      ),
     );
   }
 

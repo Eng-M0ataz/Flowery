@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_view_model.dart';
@@ -47,22 +46,11 @@ class ProfileScreen extends StatelessWidget {
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Row(
-        children: [
-          SvgPicture.asset(
-            Assets.assetsImagesFlower,
-            height: AppSizes.photoHeight_32,
-            width: AppSizes.photoWidth_32,
-            fit: BoxFit.contain,
-          ),
-          Text(
-            LocaleKeys.flowery.tr(),
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Theme.of(context).colorScheme.primary),
-          ),
-        ],
+      title: SvgPicture.asset(
+        Assets.assetsImagesLogo,
+        height: AppSizes.photoHeight_32,
+        width: AppSizes.photoWidth_32,
+        fit: BoxFit.contain,
       ),
       actionsPadding: const EdgeInsets.only(right: AppSizes.paddingMd_16),
       actions: [

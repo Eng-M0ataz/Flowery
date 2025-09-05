@@ -55,8 +55,11 @@ class SignUpForm extends StatelessWidget {
       return Scaffold(
           appBar: AppBar(
             leadingWidth: AppSizes.appBarLeadingWidth,
-            leading: CustomBackButton(
-              title: LocaleKeys.sign_up.tr(),
+            leading: Padding(
+              padding: const EdgeInsets.only(left: AppSizes.paddingMd_16),
+              child: CustomBackButton(
+                title: LocaleKeys.sign_up.tr(),
+              ),
             ),
           ),
           body: SafeArea(
@@ -65,7 +68,7 @@ class SignUpForm extends StatelessWidget {
                 key: viewModel.formKey,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: AppSizes.paddingMd_20),
+                      horizontal: AppSizes.paddingMd_16),
                   child: AutofillGroup(
                       child: Column(
                     children: [
@@ -138,8 +141,7 @@ class SignUpForm extends StatelessWidget {
                       ),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
                       BuildNavigationText(
-                          firstText:
-                              LocaleKeys.already_have_account.tr(),
+                          firstText: LocaleKeys.already_have_account.tr(),
                           secondText: LocaleKeys.login_title.tr(),
                           routeName: AppRoutes.signInRoute)
                     ],
