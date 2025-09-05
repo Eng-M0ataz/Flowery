@@ -57,6 +57,10 @@ abstract class AppSizes {
 
   static const double imageHigh = 80.0;
 
+  // Text Field Thickness
+
+  static const double textFieldThickness = 0.5;
+
   // Default Spacing Between items
 
   static const double spaceBetweenItems_4 = 4.0;

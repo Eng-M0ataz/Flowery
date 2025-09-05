@@ -36,6 +36,7 @@ Future<String> _getInitialRoute() async {
 
   if (rememberMeValue.toLowerCase() == 'true') {
     return AppRoutes.mainLayoutRoute;
+
   }
   return AppRoutes.signInRoute;
 }

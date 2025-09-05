@@ -2,7 +2,7 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
-import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
+import 'package:flower_e_commerce_app/generated/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
