@@ -1,4 +1,10 @@
 {
+  "egp":"EGP",
+  "view_all": "View All",
+  "categories": "Categories",
+  "best_seller": "Best Seller",
+  "occasions": "Occasions",
+  "search" : "Search"
   "Login": "Login",
   "Email": "Email",
   "EmailHint": "Enter your email",
