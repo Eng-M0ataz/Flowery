@@ -9,13 +9,13 @@ import '../../data/dataSource/best_seller_remote_data_source.dart';
 
 @Injectable(as: BestSellerRemoteDataSource)
 class BestSellerRemoteDataSourceImpl implements BestSellerRemoteDataSource {
-  final ApiServices apiServices;
-  BestSellerRemoteDataSourceImpl({required this.apiServices});
+  final ApiServices _apiServices;
+  BestSellerRemoteDataSourceImpl(this._apiServices);
 
   @override
   Future<ApiResult<BestSellerResponseEntity>> getAllBestSeller() async {
     try{
-      var response = await apiServices.getBestSeller();
+      var response = await _apiServices.getBestSeller();
       return ApiSuccessResult<BestSellerResponseEntity>(
           data: response.toEntity());
     }on DioException catch (dioError){

@@ -5,10 +5,10 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class BestSellerUseCase{
-  final BestSellerRepo repo;
-  BestSellerUseCase({required this.repo});
+  final BestSellerRepo _repo;
+  BestSellerUseCase(this._repo);
 
   Future<ApiResult<BestSellerResponseEntity>> invoke(){
-    return repo.getBestSellers();
+    return _repo.getBestSellers();
   }
 }

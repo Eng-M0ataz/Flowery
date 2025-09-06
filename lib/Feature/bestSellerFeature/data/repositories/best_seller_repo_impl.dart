@@ -6,12 +6,12 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: BestSellerRepo)
 class BestSellerRepoImpl implements BestSellerRepo {
-  final BestSellerRemoteDataSource dataSource;
-  BestSellerRepoImpl({required this.dataSource});
+  final BestSellerRemoteDataSource _dataSource;
+  BestSellerRepoImpl(this._dataSource);
 
   @override
   Future<ApiResult<BestSellerResponseEntity>> getBestSellers() async {
-    ApiResult<BestSellerResponseEntity> result = await dataSource.getAllBestSeller();
+    ApiResult<BestSellerResponseEntity> result = await _dataSource.getAllBestSeller();
     return result;
   }
 }
