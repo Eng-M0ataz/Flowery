@@ -40,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Generate code (json_serializable, retrofit, mockito)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
       # Run analysis - block on errors, allow warnings
       - name: Run Flutter Analyze
         id: analyze
