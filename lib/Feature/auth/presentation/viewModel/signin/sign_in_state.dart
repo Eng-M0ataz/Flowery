@@ -5,11 +5,7 @@ class SignInState {
   Failure? failure;
   bool isLoading;
 
-  SignInState({
-    this.response,
-    this.failure,
-    this.isLoading = false
-  });
+  SignInState({this.response, this.failure, this.isLoading = false});
 
   SignInState copyWith({
     SigninResponseEntity? response,
@@ -19,7 +15,6 @@ class SignInState {
     return SignInState(
         response: response ?? this.response,
         failure: failure ?? this.failure,
-        isLoading: isLoading ?? this.isLoading
-    );
+        isLoading: isLoading ?? this.isLoading);
   }
 }

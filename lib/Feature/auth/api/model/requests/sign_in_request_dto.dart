@@ -8,7 +8,7 @@ class SigninRequestDto {
   @JsonKey(name: "password")
   final String password;
 
-  SigninRequestDto ({
+  SigninRequestDto({
     required this.email,
     required this.password,
   });
@@ -21,5 +21,3 @@ class SigninRequestDto {
     return _$SigninRequestDtoToJson(this);
   }
 }
-
-

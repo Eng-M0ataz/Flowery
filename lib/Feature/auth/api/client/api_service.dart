@@ -14,8 +14,6 @@ abstract class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
 
-@POST(ApiConstants.signIn)
-  Future<SigninResponseDto> signIn({
-    @Body() required SigninRequestDto request
-  });
+  @POST(ApiConstants.signIn)
+  Future<SigninResponseDto> signIn({@Body() required SigninRequestDto request});
 }

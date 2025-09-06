@@ -4,17 +4,12 @@ class SigninRequestEntity {
   final String email;
   final String password;
 
-  SigninRequestEntity ({
+  SigninRequestEntity({
     required this.email,
     required this.password,
   });
 
-  SigninRequestDto toDto(){
-    return SigninRequestDto(
-      email: email,
-      password: password
-    );
+  SigninRequestDto toDto() {
+    return SigninRequestDto(email: email, password: password);
   }
 }
-
-

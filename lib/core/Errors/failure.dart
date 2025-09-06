@@ -58,7 +58,7 @@ class ServerFailure extends Failure {
         );
       default:
         return ServerFailure(
-          errorMessage: response.data["message"]?? response.data["error"],
+          errorMessage: response.data["message"] ?? response.data["error"],
           code: response.data["code"].toString(),
         );
     }

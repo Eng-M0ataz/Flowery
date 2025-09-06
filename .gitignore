@@ -76,3 +76,22 @@ android/build/reports/problems/problems-report.html
 pubspec.lock
 
 >>>>>>> Stashed changes
+pubspec.lock
+pubspec.lock
+pubspec.lock
+.gitignore
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugin_registrant.cc
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugins.cmake
+windows/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugins.cmake
+devtools_options.yaml
+linux/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugins.cmake
+linux/flutter/generated_plugin_registrant.cc
+pubspec.lock
+analysis_options.yaml

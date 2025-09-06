@@ -14,18 +14,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   AuthRemoteDataSourceImpl(this._apiServices);
 
   @override
-  Future<ApiResult<SigninResponseEntity>> signin({
-    required SigninRequestEntity request
-  }) async {
-    try{
-
+  Future<ApiResult<SigninResponseEntity>> signin(
+      {required SigninRequestEntity request}) async {
+    try {
       final response = await _apiServices.signIn(request: request.toDto());
 
       return ApiSuccessResult<SigninResponseEntity>(data: response.toEntity());
-    } on DioException catch(e) {
+    } on DioException catch (e) {
       final failure = ServerFailure.fromDioError(dioException: e);
       return ApiErrorResult<SigninResponseEntity>(failure: failure);
-    } catch(e) {
+    } catch (e) {
       final failure = Failure(errorMessage: e.toString());
       return ApiErrorResult<SigninResponseEntity>(failure: failure);
     }

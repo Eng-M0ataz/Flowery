@@ -11,33 +11,26 @@ import '../../domain/entity/response/sign_in_response_entity.dart';
 class AuthRepoImpl implements AuthRepo {
   final AuthRemoteDataSource _authRemoteDataSource;
   final AuthLocalDataSource _authLocalDataSource;
-  AuthRepoImpl(
-      this._authRemoteDataSource,
-      this._authLocalDataSource
-      );
+  AuthRepoImpl(this._authRemoteDataSource, this._authLocalDataSource);
 
   @override
-  Future<ApiResult<SigninResponseEntity>> signin({
-    required SigninRequestEntity request,
-    bool? rememberMeChecked = false
-  }) async {
+  Future<ApiResult<SigninResponseEntity>> signin(
+      {required SigninRequestEntity request,
+      bool? rememberMeChecked = false}) async {
+    ApiResult<SigninResponseEntity> result =
+        await _authRemoteDataSource.signin(request: request);
 
+    if (result is ApiSuccessResult<SigninResponseEntity>) {
+      final String? token = result.data.token;
+      if (token != null && token.isNotEmpty) {
+        await _authLocalDataSource.writeToken(token: token);
 
-      ApiResult<SigninResponseEntity> result = await _authRemoteDataSource.signin(
-          request: request
-      );
-
-      if(result is ApiSuccessResult<SigninResponseEntity>) {
-        final String? token = result.data.token;
-        if(token != null && token.isNotEmpty) {
-          await _authLocalDataSource.writeToken(token: token);
-
-          // If user checked "Remember Me"
-          if (rememberMeChecked!) {
-            await _authLocalDataSource.setRememberMe(rememberMe: true);
-          }
+        // If user checked "Remember Me"
+        if (rememberMeChecked!) {
+          await _authLocalDataSource.setRememberMe(rememberMe: true);
         }
       }
-      return result;
+    }
+    return result;
   }
 }

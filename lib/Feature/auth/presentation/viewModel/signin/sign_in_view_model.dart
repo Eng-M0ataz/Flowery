@@ -20,18 +20,14 @@ class SigninViewModel extends Cubit<SignInState> {
   bool rememberMe = false;
 
   Future<void> signin() async {
-    if(formKey.currentState!.validate()){
-      emit(state.copyWith(
-          isLoading: true
-      ));
+    if (formKey.currentState!.validate()) {
+      emit(state.copyWith(isLoading: true));
       final result = await _useCase.invoke(
         request: SigninRequestEntity(
-            email: emailController.text,
-            password: passwordController.text
-        ),
+            email: emailController.text, password: passwordController.text),
         rememberMeChecked: rememberMe,
       );
-      switch(result){
+      switch (result) {
         case ApiSuccessResult<SigninResponseEntity>():
           emit(state.copyWith(
             response: result.data,
@@ -40,8 +36,7 @@ class SigninViewModel extends Cubit<SignInState> {
         case ApiErrorResult<SigninResponseEntity>():
           emit(state.copyWith(
               failure: Failure(errorMessage: result.failure.errorMessage),
-              isLoading: false
-          ));
+              isLoading: false));
       }
     }
   }

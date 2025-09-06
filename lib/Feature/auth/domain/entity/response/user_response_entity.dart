@@ -11,7 +11,7 @@ class UserEntity {
   final List<dynamic>? addresses;
   final String? createdAt;
 
-  UserEntity ({
+  UserEntity({
     this.Id,
     this.firstName,
     this.lastName,

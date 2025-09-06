@@ -5,7 +5,7 @@ class SigninResponseEntity {
   final UserEntity? user;
   final String? token;
 
-  SigninResponseEntity ({
+  SigninResponseEntity({
     this.message,
     this.user,
     this.token,

@@ -13,7 +13,7 @@ class SigninResponseDto {
   @JsonKey(name: "token")
   final String? token;
 
-  SigninResponseDto ({
+  SigninResponseDto({
     this.message,
     this.user,
     this.token,

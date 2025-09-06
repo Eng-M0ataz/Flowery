@@ -123,13 +123,11 @@ abstract class AppThemeLight {
           fontSize: AppSizes.mdFont_16,
           fontFamily: AppFonts.roboto,
         ),
-
         titleLarge: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.lgFont_18,
           fontFamily: AppFonts.roboto,
         ),
-
         displayMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.smFont_14,

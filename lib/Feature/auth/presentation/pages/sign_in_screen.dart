@@ -22,7 +22,6 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   final SigninViewModel _viewModel = getIt<SigninViewModel>();
 
-
   @override
   Widget build(BuildContext context) {
     final theme = AppThemeLight.lightTheme;
@@ -31,48 +30,40 @@ class _SigninScreenState extends State<SigninScreen> {
       child: Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppSizes.paddingMd_12),
+            padding:
+                const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 const CustomBackButton(title: LocaleKeys.Login),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 Form(
                   key: _viewModel.formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
-                        controller: _viewModel.emailController,
-                        decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.Email,
-                              style: theme.textTheme.bodyMedium
+                          controller: _viewModel.emailController,
+                          decoration: InputDecoration(
+                            label: Text(LocaleKeys.Email,
+                                style: theme.textTheme.bodyMedium),
+                            hintText: LocaleKeys.EmailHint,
                           ),
-                          hintText: LocaleKeys.EmailHint,
-                        ),
-                        validator: (value) => Validations.validateEmail(value)
-                      ),
+                          validator: (value) =>
+                              Validations.validateEmail(value)),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                       TextFormField(
-                        controller: _viewModel.passwordController,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.Password,
-                              style: theme.textTheme.bodyMedium
+                          controller: _viewModel.passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            label: Text(LocaleKeys.Password,
+                                style: theme.textTheme.bodyMedium),
+                            hintText: LocaleKeys.PasswordHint,
                           ),
-                          hintText: LocaleKeys.PasswordHint,
-                        ),
-                        validator: (value) => Validations.validatePassword(value)
-                      ),
-
+                          validator: (value) =>
+                              Validations.validatePassword(value)),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -81,7 +72,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               Checkbox(
                                 value: _viewModel.rememberMe,
                                 onChanged: (val) {
-                                    _viewModel.rememberMe = val ?? false;
+                                  _viewModel.rememberMe = val ?? false;
                                 },
                               ),
                               Text(LocaleKeys.Remember_me),
@@ -103,9 +94,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
@@ -134,24 +123,18 @@ class _SigninScreenState extends State<SigninScreen> {
                     );
                   },
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 OutlinedButton(
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(
-                        AppRoutes.mainLayoutRoute,
-                        predicate: (route) => false
-                    );
+                    context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
+                        predicate: (route) => false);
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),
                   ),
                   child: Text(LocaleKeys.guest),
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_8),
-
                 Center(
                   child: GestureDetector(
                     onTap: () => context.pushNamed(AppRoutes.signUpRoute),
