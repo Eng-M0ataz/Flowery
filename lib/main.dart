@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -57,7 +56,7 @@ class FlowerECommerceApp extends StatelessWidget {
         breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
       ),
       theme: AppThemeLight.lightTheme,
-      initialRoute: initialRoute, // ✅ FIXED HERE
+      initialRoute: AppRoutes.editProfileRoute,
       onGenerateRoute: RouteGenerator.getRoute,
     );
   }
