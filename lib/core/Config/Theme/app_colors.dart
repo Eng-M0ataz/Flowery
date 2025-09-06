@@ -6,8 +6,10 @@ abstract class AppColorsLight {
   static const Color grey = Color(0xff535353);
   static const Color green = Color(0xff0CB359);
 
+
   static const Color shimmerColor = Color(0xffebebf4);
   static const Color shimmerColorSecondary = Color(0x4Da6a6a6);
+
 
 
 
@@ -52,18 +54,23 @@ abstract class AppColorsLight {
   });
   static const MaterialColor blue = MaterialColor(0xFF2196F3, <int, Color>{
 
+
     0: Color(0xFFE3F2FD), // lightest
+
+
+  
 
     10: Color(0xFFBBDEFB),
     20: Color(0xFF90CAF9),
     30: Color(0xFF64B5F6),
     40: Color(0xFF42A5F5),
-
     50: Color(0xFF2196F3), // base color (primary)
     60: Color(0xFF1E88E5),
     70: Color(0xFF1976D2),
     80: Color(0xFF1565C0),
     90: Color(0xFF0D47A1), // darkest
+
+
 
   });
 }
