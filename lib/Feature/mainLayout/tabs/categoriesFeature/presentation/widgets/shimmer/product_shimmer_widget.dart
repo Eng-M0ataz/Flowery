@@ -40,8 +40,9 @@ class ProductCardShimmer extends StatelessWidget {
                 children: [
                   ShimmerWidget(
                     width: double.infinity,
-                    height: 18,
-                    borderRadius: BorderRadius.circular(4),
+                    height: AppSizes.shimmerHeight_16,
+                    borderRadius:
+                        BorderRadius.circular(AppSizes.borderRadiusSm_4),
                   ),
                   const SizedBox(height: AppSizes.spaceBetweenItems_4),
                   Row(
@@ -56,15 +57,15 @@ class ProductCardShimmer extends StatelessWidget {
                       ),
                       const SizedBox(width: AppSizes.spaceBetweenItems_8),
                       ShimmerWidget(
-                        width: 40,
-                        height: 12,
+                        width: AppSizes.shimmerWidth_40,
+                        height: AppSizes.shimmerProductPriceHeight_12,
                         borderRadius:
                             BorderRadius.circular(AppSizes.borderRadiusSm_4),
                       ),
                       const SizedBox(width: AppSizes.spaceBetweenItems_8),
                       ShimmerWidget(
-                        width: 30,
-                        height: 12,
+                        width: AppSizes.shimmerWidth_30,
+                        height: AppSizes.shimmerProductPriceHeight_12,
                         borderRadius:
                             BorderRadius.circular(AppSizes.borderRadiusSm_4),
                       ),
@@ -73,7 +74,7 @@ class ProductCardShimmer extends StatelessWidget {
                   const Spacer(),
                   ShimmerWidget(
                     width: double.infinity,
-                    height: AppSizes.buttonHigh_30,
+                    height: AppSizes.shimmerHeight_30,
                     borderRadius:
                         BorderRadius.circular(AppSizes.borderRadiusSm_4),
                   ),

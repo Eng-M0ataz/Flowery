@@ -90,7 +90,7 @@ void main() {
   });
 
   group('getCategoryProducts', () {
-    final requestModal = GetCategoryProductsRequestModel(
+    final requestModal = GetProductsByCategoryRequestModel(
       categoryId: 'category123',
       page: 1,
       limit: 10,
@@ -147,12 +147,12 @@ void main() {
 
     test("should return success with Api Call ", () async {
       // Arrange
-      when(mockApiServices.getProducts(any))
+      when(mockApiServices.getCategoryProductsCategory(any))
           .thenAnswer((_) async => responseDto);
 
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestModal);
+          .getProductsByCategory(requestModal);
 
       //Assert
       expect(result, isA<ApiSuccessResult<ProductResponseEntity>>());
@@ -167,10 +167,11 @@ void main() {
           statusCode: 500,
         ),
       );
-      when(mockApiServices.getProducts(any)).thenThrow(dioException);
+      when(mockApiServices.getCategoryProductsCategory(any))
+          .thenThrow(dioException);
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestModal);
+          .getProductsByCategory(requestModal);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());
@@ -178,12 +179,12 @@ void main() {
 
     test("should return error when other exception occurs", () async {
       // Arrange
-      when(mockApiServices.getProducts(any))
+      when(mockApiServices.getCategoryProductsCategory(any))
           .thenThrow(Exception('Network error'));
 
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestModal);
+          .getProductsByCategory(requestModal);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());

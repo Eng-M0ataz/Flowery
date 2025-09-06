@@ -1,6 +1,7 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/category_screen_body.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/filter_button.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,9 +12,15 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CategoriesViewModel>(
-      create: (context) =>
-          getIt<CategoriesViewModel>()..doIntent(const GetAllCategoriesEvent()),
-      child: const CategoryScreenBody(),
-    );
+        create: (context) => getIt<CategoriesViewModel>()
+          ..doIntent(const GetAllCategoriesEvent()),
+        child: const Scaffold(
+          body: SafeArea(
+            child: CategoryScreenBody(),
+          ),
+          floatingActionButton: FilterButton(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+        ));
   }
 }

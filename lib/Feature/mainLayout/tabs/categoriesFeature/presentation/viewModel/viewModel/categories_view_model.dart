@@ -1,8 +1,9 @@
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/categories_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_all_products_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_category_products_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_products_by_category_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
@@ -13,7 +14,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class CategoriesViewModel extends Cubit<CategoriesState> {
   final CategoriesUseCase _categoriesUseCase;
-  final GetCategoryProductsUseCase _getCategoryProductsUseCase;
+  final GetProductsByCategoryUseCase _getCategoryProductsUseCase;
   final GetAllProductsUseCase _getAllProductsUseCase;
 
   CategoriesViewModel(
@@ -24,20 +25,20 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
 
   Future<void> doIntent(CategoriesEvent event) async {
     switch (event) {
-      case GetAllProductsEvent():
-        await _getAllProducts();
-        break;
-
       case GetAllCategoriesEvent():
         await _getAllCategories();
         break;
 
-      case GetCategoryProductsEvent():
-        if (event.categoryId == AppConstants.allId) {
-          await _getAllProducts();
-        } else {
-          await _getCategoryProducts(event.categoryId, event.page, event.limit);
-        }
+      case GetAllProductsEvent():
+        await _getAllProducts();
+        break;
+
+      case GetProductsByCategoryEvent():
+        await _getCategoryProducts(GetProductsByCategoryRequestModel(
+          categoryId: event.categoryId,
+          page: event.page ?? 1,
+          limit: event.limit ?? 10,
+        ));
         break;
     }
   }
@@ -100,15 +101,19 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   }
 
   Future<void> _getCategoryProducts(
-      String categoryId, int? page, int? limit) async {
+      GetProductsByCategoryRequestModel requestModel) async {
     emit(state.copyWith(
-        isSuccess: false,
-        isLoading: true,
-        errorMessage: null,
-        selectedCategoryId: categoryId));
+      isSuccess: false,
+      isLoading: true,
+      errorMessage: null,
+      selectedCategoryId: requestModel.categoryId,
+    ));
 
     final result = await _getCategoryProductsUseCase.invoke(
-        categoryId: categoryId, page: page, limit: limit);
+      categoryId: requestModel.categoryId,
+      page: requestModel.page,
+      limit: requestModel.limit,
+    );
 
     switch (result) {
       case ApiSuccessResult<ProductResponseEntity>():
@@ -117,9 +122,10 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           errorMessage: null,
           productsList: result.data.products,
           isSuccess: true,
-          selectedCategoryId: categoryId,
+          selectedCategoryId: requestModel.categoryId,
         ));
         break;
+
       case ApiErrorResult<ProductResponseEntity>():
         emit(state.copyWith(
           isLoading: false,

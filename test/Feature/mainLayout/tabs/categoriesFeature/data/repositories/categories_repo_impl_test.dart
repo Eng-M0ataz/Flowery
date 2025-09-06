@@ -46,8 +46,8 @@ void main() {
     ),
   );
 
-  provideDummy<GetCategoryProductsRequestModel>(
-    GetCategoryProductsRequestModel(
+  provideDummy<GetProductsByCategoryRequestModel>(
+    GetProductsByCategoryRequestModel(
       categoryId: "dummy",
       page: 1,
       limit: 10,
@@ -120,13 +120,13 @@ void main() {
       expect(result, equals(successResult));
       final successCast = result as ApiSuccessResult<CategoryResponseEntity>;
       expect(successCast.data.message, responseEntity.message);
-      expect(successCast.data.categories.length, 1);
-      expect(successCast.data.categories[0].name, 'Flowers');
+      expect(successCast.data.categories!.length, 1);
+      expect(successCast.data.categories![0].name, 'Flowers');
     });
   });
 
   group('getCategoryProducts', () {
-    final requestModel = GetCategoryProductsRequestModel(
+    final requestModel = GetProductsByCategoryRequestModel(
       categoryId: '1',
       page: 1,
       limit: 10,
@@ -168,42 +168,45 @@ void main() {
 
     test("should return success when data source returns success", () async {
       // Arrange
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      when(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .thenAnswer(
               (_) async => ApiSuccessResult(data: productResponseEntity));
 
       //Act
-      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
+      final result =
+          await categoriesRepoImpl.getProductsByCategory(requestModel);
 
       //Assert
       expect(result, isA<ApiSuccessResult<ProductResponseEntity>>());
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      verify(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .called(1);
     });
 
     test("should return error when data source returns error", () async {
       // Arrange
       final failure = ServerFailure(errorMessage: 'Failed to fetch products');
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      when(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .thenAnswer((_) async => ApiErrorResult(failure: failure));
 
       //Act
-      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
+      final result =
+          await categoriesRepoImpl.getProductsByCategory(requestModel);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      verify(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .called(1);
     });
 
     test("should pass through the exact result from data source", () async {
       // Arrange
       final successResult = ApiSuccessResult(data: productResponseEntity);
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      when(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .thenAnswer((_) async => successResult);
 
       //Act
-      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
+      final result =
+          await categoriesRepoImpl.getProductsByCategory(requestModel);
 
       //Assert
       expect(result, equals(successResult));
@@ -213,21 +216,22 @@ void main() {
       expect(successCast.data.products![0].title, 'Rose Bouquet');
       expect(successCast.data.products![0].category, '1');
       expect(successCast.data.products![1].title, 'Tulip Bundle');
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
+      verify(mockCategoriesRemoteDataSource.getProductsByCategory(requestModel))
           .called(1);
     });
 
     test("should pass correct request parameters to data source", () async {
       // Arrange
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(any)).thenAnswer(
-          (_) async => ApiSuccessResult(data: productResponseEntity));
+      when(mockCategoriesRemoteDataSource.getProductsByCategory(any))
+          .thenAnswer(
+              (_) async => ApiSuccessResult(data: productResponseEntity));
 
       //Act
-      await categoriesRepoImpl.getCategoryProducts(requestModel);
+      await categoriesRepoImpl.getProductsByCategory(requestModel);
 
       //Assert
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(argThat(
-              predicate<GetCategoryProductsRequestModel>((req) =>
+      verify(mockCategoriesRemoteDataSource.getProductsByCategory(argThat(
+              predicate<GetProductsByCategoryRequestModel>((req) =>
                   req.categoryId == '1' && req.page == 1 && req.limit == 10))))
           .called(1);
     });

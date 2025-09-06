@@ -15,12 +15,12 @@ class GetAllProductsEvent extends CategoriesEvent {
   const GetAllProductsEvent();
 }
 
-class GetCategoryProductsEvent extends CategoriesEvent {
+class GetProductsByCategoryEvent extends CategoriesEvent {
   final String categoryId;
   final int? page;
   final int? limit;
 
-  const GetCategoryProductsEvent({
+  const GetProductsByCategoryEvent({
     required this.categoryId,
     this.page,
     this.limit,

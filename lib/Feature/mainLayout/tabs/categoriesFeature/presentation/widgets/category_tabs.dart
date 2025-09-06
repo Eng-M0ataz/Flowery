@@ -35,7 +35,7 @@ class CategoryTabs extends StatelessWidget {
 
     return Container(
       height: AppSizes.spaceBetweenItems_50,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_16),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length + 1,
@@ -53,8 +53,8 @@ class CategoryTabs extends StatelessWidget {
           final isSelected = selectedCategoryId == category.id;
 
           return _buildCategoryTab(
-            categoryId: category.id,
-            categoryName: category.name,
+            categoryId: category.id ?? '',
+            categoryName: category.name ?? '',
             isSelected: isSelected,
             context: context,
           );
@@ -78,11 +78,11 @@ class CategoryTabs extends StatelessWidget {
           children: [
             Text(categoryName,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      fontSize: 16,
+                      fontSize: AppSizes.mdFont_16,
                       fontWeight:
                           isSelected ? FontWeight.w600 : FontWeight.normal,
                       color: isSelected
-                          ? AppColorsLight.pink
+                          ? Theme.of(context).colorScheme.primary
                           : AppColorsLight.white[70],
                     )),
             const SizedBox(height: AppSizes.spaceBetweenItems_8),
@@ -90,8 +90,9 @@ class CategoryTabs extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8), topRight: Radius.circular(8)),
-                color:
-                    isSelected ? AppColorsLight.pink : AppColorsLight.white[70],
+                color: isSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : AppColorsLight.white[70],
               ),
               height: 3,
               width: (categoryName.length * 8).toDouble(),

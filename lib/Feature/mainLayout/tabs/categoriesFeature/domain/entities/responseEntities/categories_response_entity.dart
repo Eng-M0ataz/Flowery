@@ -2,9 +2,9 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/metadata_entity.dart';
 
 class CategoryResponseEntity {
-  final String message;
-  final MetadataEntity metadata;
-  final List<CategoryEntity> categories;
+  final String? message;
+  final MetadataEntity? metadata;
+  final List<CategoryEntity>? categories;
 
   CategoryResponseEntity({
     required this.message,

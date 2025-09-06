@@ -6,8 +6,8 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 abstract interface class CategoriesRemoteDataSource {
   Future<ApiResult<CategoryResponseEntity>> getAllCategories();
 
-  Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
-      GetCategoryProductsRequestModel getCategoryProductsRequestModel);
+  Future<ApiResult<ProductResponseEntity>> getProductsByCategory(
+      GetProductsByCategoryRequestModel getCategoryProductsRequestModel);
 
   Future<ApiResult<ProductResponseEntity>> getAllProducts();
 }

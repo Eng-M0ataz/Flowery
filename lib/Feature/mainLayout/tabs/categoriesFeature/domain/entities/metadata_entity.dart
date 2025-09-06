@@ -1,8 +1,8 @@
 class MetadataEntity {
-  final int currentPage;
-  final int limit;
-  final int totalPages;
-  final int totalItems;
+  final int? currentPage;
+  final int? limit;
+  final int? totalPages;
+  final int? totalItems;
 
   MetadataEntity({
     required this.currentPage,

@@ -1,8 +1,8 @@
 class CategoryEntity {
-  final String id;
-  final String name;
-  final String image;
-  final int productsCount;
+  final String? id;
+  final String? name;
+  final String? image;
+  final int? productsCount;
 
   CategoryEntity({
     required this.id,

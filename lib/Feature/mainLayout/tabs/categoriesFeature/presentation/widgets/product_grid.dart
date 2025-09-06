@@ -28,10 +28,10 @@ class ProductGrid extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.shopping_bag_outlined,
               size: AppSizes.lgIcon_64,
-              color: AppColorsLight.grey,
+              color: Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(height: AppSizes.spaceBetweenSections_16),
             Text(

@@ -6,11 +6,12 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/categories_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_all_products_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_category_products_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_products_by_category_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
@@ -19,12 +20,12 @@ import 'categories_view_model_test.mocks.dart';
 
 @GenerateMocks([
   CategoriesUseCase,
-  GetCategoryProductsUseCase,
+  GetProductsByCategoryUseCase,
   GetAllProductsUseCase,
 ])
 void main() {
   late MockCategoriesUseCase mockCategoriesUseCase;
-  late MockGetCategoryProductsUseCase mockGetCategoryProductsUseCase;
+  late MockGetProductsByCategoryUseCase mockGetProductsByCategoryUseCase;
   late MockGetAllProductsUseCase mockGetAllProductsUseCase;
 
   late List<CategoryEntity> categoryEntityList;
@@ -37,7 +38,7 @@ void main() {
 
   setUpAll(() {
     mockCategoriesUseCase = MockCategoriesUseCase();
-    mockGetCategoryProductsUseCase = MockGetCategoryProductsUseCase();
+    mockGetProductsByCategoryUseCase = MockGetProductsByCategoryUseCase();
     mockGetAllProductsUseCase = MockGetAllProductsUseCase();
 
     /// Categories
@@ -114,7 +115,7 @@ void main() {
       "should load categories and then all products",
       build: () => CategoriesViewModel(
         mockCategoriesUseCase,
-        mockGetCategoryProductsUseCase,
+        mockGetProductsByCategoryUseCase,
         mockGetAllProductsUseCase,
       ),
       act: (viewModel) async {
@@ -127,15 +128,30 @@ void main() {
 
         await viewModel.doIntent(const GetAllCategoriesEvent());
       },
-      skip: 2,
       expect: () => [
+        const CategoriesState(
+          isLoading: true,
+          isSuccess: false,
+          errorMessage: null,
+          categories: [],
+          productsList: [],
+          selectedCategoryId: null,
+        ),
+        CategoriesState(
+          isLoading: false,
+          isSuccess: true,
+          errorMessage: null,
+          categories: categoryEntityList,
+          productsList: const [],
+          selectedCategoryId: AppConstants.allId,
+        ),
         CategoriesState(
           isLoading: true,
           isSuccess: false,
           errorMessage: null,
           categories: categoryEntityList,
           productsList: const [],
-          selectedCategoryId: "all",
+          selectedCategoryId: AppConstants.allId,
         ),
         CategoriesState(
           isLoading: false,
@@ -143,7 +159,7 @@ void main() {
           errorMessage: null,
           categories: categoryEntityList,
           productsList: productList,
-          selectedCategoryId: "all",
+          selectedCategoryId: AppConstants.allId,
         ),
       ],
       verify: (viewModel) {
@@ -156,23 +172,27 @@ void main() {
       "should load products by category",
       build: () => CategoriesViewModel(
         mockCategoriesUseCase,
-        mockGetCategoryProductsUseCase,
+        mockGetProductsByCategoryUseCase,
         mockGetAllProductsUseCase,
       ),
       act: (viewModel) async {
         provideDummy<ApiResult<ProductResponseEntity>>(productResult);
-        when(mockGetCategoryProductsUseCase.invoke(
+        when(mockGetProductsByCategoryUseCase.invoke(
           categoryId: "1",
           page: 1,
           limit: 10,
         )).thenAnswer((_) async => productResult);
 
         await viewModel.doIntent(
-          const GetCategoryProductsEvent(categoryId: "1", page: 1, limit: 10),
+          const GetProductsByCategoryEvent(categoryId: "1", page: 1, limit: 10),
         );
       },
-      skip: 1,
       expect: () => [
+        const CategoriesState(
+          isLoading: true,
+          isSuccess: false,
+          selectedCategoryId: "1",
+        ),
         CategoriesState(
           isLoading: false,
           isSuccess: true,
@@ -183,7 +203,7 @@ void main() {
         ),
       ],
       verify: (viewModel) {
-        verify(mockGetCategoryProductsUseCase.invoke(
+        verify(mockGetProductsByCategoryUseCase.invoke(
           categoryId: "1",
           page: 1,
           limit: 10,
@@ -195,7 +215,7 @@ void main() {
       "should load all products",
       build: () => CategoriesViewModel(
         mockCategoriesUseCase,
-        mockGetCategoryProductsUseCase,
+        mockGetProductsByCategoryUseCase,
         mockGetAllProductsUseCase,
       ),
       act: (viewModel) async {
@@ -205,15 +225,19 @@ void main() {
 
         await viewModel.doIntent(const GetAllProductsEvent());
       },
-      skip: 1,
       expect: () => [
+        const CategoriesState(
+          isLoading: true,
+          isSuccess: false,
+          selectedCategoryId: AppConstants.allId,
+        ),
         CategoriesState(
           isLoading: false,
           isSuccess: true,
           errorMessage: null,
           categories: const [],
           productsList: productList,
-          selectedCategoryId: "all",
+          selectedCategoryId: AppConstants.allId,
         ),
       ],
       verify: (viewModel) {

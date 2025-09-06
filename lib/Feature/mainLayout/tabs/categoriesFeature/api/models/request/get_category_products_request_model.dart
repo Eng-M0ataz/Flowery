@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'get_category_products_request_model.g.dart';
 
 @JsonSerializable()
-class GetCategoryProductsRequestModel {
+class GetProductsByCategoryRequestModel {
   @JsonKey(name: 'category')
   final String categoryId;
 
@@ -12,15 +12,16 @@ class GetCategoryProductsRequestModel {
   @JsonKey(name: 'limit')
   final int? limit;
 
-  GetCategoryProductsRequestModel({
+  GetProductsByCategoryRequestModel({
     required this.categoryId,
     this.page,
     this.limit,
   });
 
-  factory GetCategoryProductsRequestModel.fromJson(Map<String, dynamic> json) =>
-      _$GetCategoryProductsRequestModelFromJson(json);
+  factory GetProductsByCategoryRequestModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$GetProductsByCategoryRequestModelFromJson(json);
 
   Map<String, dynamic> toJson() =>
-      _$GetCategoryProductsRequestModelToJson(this);
+      _$GetProductsByCategoryRequestModelToJson(this);
 }

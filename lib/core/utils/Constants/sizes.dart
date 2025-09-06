@@ -106,6 +106,23 @@ abstract class AppSizes {
 
   static const double gridSpacing = 16.0;
 
+  //Shimmer sizes
+  static const double shimmerHeight_16 = 16.0;
+  static const double shimmerWidth_40 = 40.0;
+  static const double shimmerWidth_30 = 30.0;
+  static const double shimmerBorderRadius_4 = 4.0;
+  static const double shimmerCategoryHeight_3 = 3.0;
+  static const double shimmerCategoryWidth_40 = 40.0;
+  static const double shimmerCategoryBorderRadius_4 = 4.0;
+  static const double shimmerProductImageHeight_100 = 100.0;
+  static const double shimmerProductImageWidthDoubleInfinity = double.infinity;
+  static const double shimmerProductImageBorderRadius_8 = 8.0;
+  static const double shimmerProductTitleHeight_16 = 16.0;
+  static const double shimmerHeight_30 = 30.0;
+
+  static const double shimmerProductTitleBorderRadius_4 = 4.0;
+  static const double shimmerProductPriceHeight_12 = 12.0;
+
   // break points
 
   static const List<Breakpoint> appBreakPoints = [

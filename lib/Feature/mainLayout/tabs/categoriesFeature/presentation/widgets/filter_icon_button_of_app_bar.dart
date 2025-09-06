@@ -17,9 +17,8 @@ class FilterIconButtonOfAppBar extends StatelessWidget {
           height: AppSizes.spaceBetweenItems_50,
           width: AppSizes.spaceBetweenItems_50,
           decoration: BoxDecoration(
-              color: AppColorsLight.white,
-              border: Border.all(
-                  color: AppColorsLight.white[70] ?? Colors.transparent),
+              color: Theme.of(context).colorScheme.onPrimary,
+              border: Border.all(color: AppColorsLight.white[70]!, width: 1),
               borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd_8)),
           child: SizedBox(
             width: AppSizes.smIcon_16,

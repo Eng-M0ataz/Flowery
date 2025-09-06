@@ -18,8 +18,8 @@ abstract class ApiServices {
   Future<CategoryResponseDto> getAllCategories();
 
   @GET(ApiConstants.getProducts)
-  Future<ProductResponseDto> getProducts(
-    @Queries() GetCategoryProductsRequestModel requestModel,
+  Future<ProductResponseDto> getCategoryProductsCategory(
+    @Queries() GetProductsByCategoryRequestModel requestModel,
   );
 
   @GET(ApiConstants.getProducts)

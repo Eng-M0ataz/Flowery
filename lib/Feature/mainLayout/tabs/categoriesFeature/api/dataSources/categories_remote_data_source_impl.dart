@@ -22,25 +22,25 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
   @override
   Future<ApiResult<CategoryResponseEntity>> getAllCategories() async {
     return executeApi<CategoryResponseDto, CategoryResponseEntity>(
-      () => _apiServices.getAllCategories(),
-      (dto) => dto.toEntity(),
+      request: () => _apiServices.getAllCategories(),
+      mapper: (dto) => dto.toEntity(),
     );
   }
 
   @override
-  Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
-      GetCategoryProductsRequestModel requestModel) async {
+  Future<ApiResult<ProductResponseEntity>> getProductsByCategory(
+      GetProductsByCategoryRequestModel requestModel) async {
     return executeApi<ProductResponseDto, ProductResponseEntity>(
-      () => _apiServices.getProducts(requestModel),
-      (dto) => dto.toEntity(),
+      request: () => _apiServices.getCategoryProductsCategory(requestModel),
+      mapper: (dto) => dto.toEntity(),
     );
   }
 
   @override
   Future<ApiResult<ProductResponseEntity>> getAllProducts() async {
     return executeApi<ProductResponseDto, ProductResponseEntity>(
-      () => _apiServices.getAllProducts(),
-      (dto) => dto.toEntity(),
+      request: () => _apiServices.getAllProducts(),
+      mapper: (dto) => dto.toEntity(),
     );
   }
 }

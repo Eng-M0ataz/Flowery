@@ -18,10 +18,10 @@ class CategoriesRepoImpl implements CategoriesRepo {
   }
 
   @override
-  Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
-      GetCategoryProductsRequestModel getCategoryProductsRequestModel) {
+  Future<ApiResult<ProductResponseEntity>> getProductsByCategory(
+      GetProductsByCategoryRequestModel getCategoryProductsRequestModel) {
     return _categoriesRemoteDataSource
-        .getCategoryProducts(getCategoryProductsRequestModel);
+        .getProductsByCategory(getCategoryProductsRequestModel);
   }
 
   @override

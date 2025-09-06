@@ -31,7 +31,7 @@ class CategoryShimmerWidget extends StatelessWidget {
                 const SizedBox(height: AppSizes.spaceBetweenItems_8),
                 ShimmerWidget(
                   width: tabWidth,
-                  height: 3,
+                  height: AppSizes.shimmerCategoryHeight_3,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(AppSizes.borderRadiusMd_8),
                     topRight: Radius.circular(AppSizes.borderRadiusMd_8),

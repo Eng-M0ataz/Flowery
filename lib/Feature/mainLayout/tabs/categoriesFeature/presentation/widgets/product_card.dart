@@ -69,17 +69,19 @@ class ProductCard extends StatelessWidget {
                     height: AppSizes.buttonHigh_30,
                     child: ElevatedButton.icon(
                       onPressed: () => _handleAddToCart(context),
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.shopping_cart,
                         size: AppSizes.smIcon_16,
-                        color: AppColorsLight.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                       label: Text(
                         LocaleKeys.add_to_cart.tr(),
-                        style:
-                            Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  color: AppColorsLight.white,
-                                ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            ),
                       ),
                     ),
                   ),
@@ -101,9 +103,9 @@ class ProductCard extends StatelessWidget {
         fit: BoxFit.cover,
         placeholder: (context, url) => Container(
           color: AppColorsLight.white[50],
-          child: const Center(
+          child: Center(
             child: CircularProgressIndicator(
-              color: AppColorsLight.pink,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ),
@@ -173,7 +175,7 @@ class ProductCard extends StatelessWidget {
             '$discountPercentage%',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontSize: 12,
-                  color: Colors.green,
+                  color: AppColorsLight.green,
                   fontWeight: FontWeight.w600,
                 ),
           ),
