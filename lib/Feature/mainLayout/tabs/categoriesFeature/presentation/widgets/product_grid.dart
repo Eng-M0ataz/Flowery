@@ -64,20 +64,8 @@ class ProductGrid extends StatelessWidget {
   }
 
   Widget _buildShimmerGrid() {
-    return Padding(
-      padding: const EdgeInsets.all(AppSizes.paddingMd_16),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.67,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-        ),
-        itemCount: 6,
-        itemBuilder: (context, index) {
-          return const ProductCardShimmer();
-        },
-      ),
+    return const ProductShimmerWidget(
+      isEnabled: true,
     );
   }
 }
