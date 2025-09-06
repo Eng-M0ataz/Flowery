@@ -1,5 +1,5 @@
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/dataSources/categories_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/repositories/categories_repo.dart';
@@ -19,9 +19,9 @@ class CategoriesRepoImpl implements CategoriesRepo {
 
   @override
   Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
-      GetCategoryProductsRequestEntity getCategoryProductsRequestEntity) {
+      GetCategoryProductsRequestModel getCategoryProductsRequestModel) {
     return _categoriesRemoteDataSource
-        .getCategoryProducts(getCategoryProductsRequestEntity);
+        .getCategoryProducts(getCategoryProductsRequestModel);
   }
 
   @override

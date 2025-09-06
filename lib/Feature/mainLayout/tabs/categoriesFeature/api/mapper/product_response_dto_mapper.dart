@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 
 extension ProductResponseDtoMapper on ProductResponseDto {
   ProductResponseEntity toEntity() => ProductResponseEntity(
-        message: message ?? "",
+        message: message ?? "message is null",
         metadata: metadata?.toEntity(),
         products: products?.map((e) => e.toEntity()).toList() ?? [],
       );

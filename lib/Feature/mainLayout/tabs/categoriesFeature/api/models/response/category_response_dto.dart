@@ -2,6 +2,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/metadata_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'category_response_dto.g.dart';
+
 @JsonSerializable()
 class CategoryResponseDto {
   @JsonKey(name: 'message')

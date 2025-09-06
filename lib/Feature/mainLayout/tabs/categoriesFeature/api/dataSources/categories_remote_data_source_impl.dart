@@ -1,14 +1,14 @@
-import 'package:dio/dio.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/mapper/category_response_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/mapper/product_response_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/category_response_dto.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/product_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/dataSources/categories_remote_data_source.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import 'package:flower_e_commerce_app/core/Errors/execute_api.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoriesRemoteDataSource)
@@ -21,47 +21,26 @@ class CategoriesRemoteDataSourceImpl implements CategoriesRemoteDataSource {
 
   @override
   Future<ApiResult<CategoryResponseEntity>> getAllCategories() async {
-    try {
-      var response = await _apiServices.getAllCategories();
-      return ApiSuccessResult<CategoryResponseEntity>(
-          data: response.toEntity());
-    } on DioException catch (dioError) {
-      final failure = ServerFailure.fromDioError(dioException: dioError);
-      return ApiErrorResult<CategoryResponseEntity>(failure: failure);
-    } catch (e) {
-      return ApiErrorResult<CategoryResponseEntity>(
-          failure: ServerFailure(errorMessage: e.toString()));
-    }
+    return executeApi<CategoryResponseDto, CategoryResponseEntity>(
+      () => _apiServices.getAllCategories(),
+      (dto) => dto.toEntity(),
+    );
   }
 
   @override
   Future<ApiResult<ProductResponseEntity>> getCategoryProducts(
-      GetCategoryProductsRequestEntity getCategoryProductsRequestEntity) async {
-    try {
-      final requestModel = GetCategoryProductsRequestModel.fromEntity(
-          getCategoryProductsRequestEntity);
-      var response = await _apiServices.getProducts(requestModel);
-      return ApiSuccessResult<ProductResponseEntity>(data: response.toEntity());
-    } on DioException catch (dioError) {
-      final failure = ServerFailure.fromDioError(dioException: dioError);
-      return ApiErrorResult<ProductResponseEntity>(failure: failure);
-    } catch (e) {
-      return ApiErrorResult<ProductResponseEntity>(
-          failure: ServerFailure(errorMessage: e.toString()));
-    }
+      GetCategoryProductsRequestModel requestModel) async {
+    return executeApi<ProductResponseDto, ProductResponseEntity>(
+      () => _apiServices.getProducts(requestModel),
+      (dto) => dto.toEntity(),
+    );
   }
 
   @override
   Future<ApiResult<ProductResponseEntity>> getAllProducts() async {
-    try {
-      var response = await _apiServices.getAllProducts();
-      return ApiSuccessResult<ProductResponseEntity>(data: response.toEntity());
-    } on DioException catch (dioError) {
-      final failure = ServerFailure.fromDioError(dioException: dioError);
-      return ApiErrorResult<ProductResponseEntity>(failure: failure);
-    } catch (e) {
-      return ApiErrorResult<ProductResponseEntity>(
-          failure: ServerFailure(errorMessage: e.toString()));
-    }
+    return executeApi<ProductResponseDto, ProductResponseEntity>(
+      () => _apiServices.getAllProducts(),
+      (dto) => dto.toEntity(),
+    );
   }
 }

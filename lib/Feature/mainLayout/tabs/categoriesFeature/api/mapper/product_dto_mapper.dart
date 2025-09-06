@@ -3,7 +3,6 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 
 extension ProductDtoMapper on ProductDto {
   ProductEntity toEntity() => ProductEntity(
-    
         id: id ?? "",
         title: title ?? "",
         description: description ?? "",

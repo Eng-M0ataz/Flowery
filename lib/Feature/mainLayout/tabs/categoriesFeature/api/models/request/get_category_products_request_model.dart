@@ -1,8 +1,15 @@
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'get_category_products_request_model.g.dart';
 
+@JsonSerializable()
 class GetCategoryProductsRequestModel {
+  @JsonKey(name: 'category')
   final String categoryId;
+
+  @JsonKey(name: 'page')
   final int? page;
+
+  @JsonKey(name: 'limit')
   final int? limit;
 
   GetCategoryProductsRequestModel({
@@ -11,20 +18,9 @@ class GetCategoryProductsRequestModel {
     this.limit,
   });
 
-  factory GetCategoryProductsRequestModel.fromEntity(
-      GetCategoryProductsRequestEntity entity) {
-    return GetCategoryProductsRequestModel(
-      categoryId: entity.categoryId,
-      page: entity.page,
-      limit: entity.limit,
-    );
-  }
+  factory GetCategoryProductsRequestModel.fromJson(Map<String, dynamic> json) =>
+      _$GetCategoryProductsRequestModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    return {
-      "category": categoryId,
-      if (page != null) "page": page,
-      if (limit != null) "limit": limit,
-    };
-  }
+  Map<String, dynamic> toJson() =>
+      _$GetCategoryProductsRequestModelToJson(this);
 }

@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: Storage)
 @Named(AppConstants.secureStorage)
 class SecureStorageImpl implements Storage {
-  final FlutterSecureStorage _storage = FlutterSecureStorage();
+  static const FlutterSecureStorage _storage = FlutterSecureStorage();
   @override
   Future<void> write({required String key, required String value}) async {
     await _storage.write(key: key, value: value);

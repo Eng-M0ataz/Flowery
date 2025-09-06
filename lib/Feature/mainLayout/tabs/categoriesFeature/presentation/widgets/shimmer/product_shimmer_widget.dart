@@ -4,7 +4,7 @@ import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class ProductCardShimmer extends StatelessWidget {
-  const ProductCardShimmer({Key? key}) : super(key: key);
+  const ProductCardShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {

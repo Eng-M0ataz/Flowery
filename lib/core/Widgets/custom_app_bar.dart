@@ -39,7 +39,7 @@ class CustomElevatedButton extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
-                    child: CircularProgressIndicator(),
+                    child: const CircularProgressIndicator(),
                   ),
                 ),
               )

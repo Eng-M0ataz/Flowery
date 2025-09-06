@@ -12,7 +12,7 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<CategoriesViewModel>(
       create: (context) =>
-          getIt<CategoriesViewModel>()..doIntent(GetAllCategoriesEvent()),
+          getIt<CategoriesViewModel>()..doIntent(const GetAllCategoriesEvent()),
       child: const CategoryScreenBody(),
     );
   }

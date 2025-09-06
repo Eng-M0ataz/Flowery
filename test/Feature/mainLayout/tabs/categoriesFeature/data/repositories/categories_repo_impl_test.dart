@@ -1,7 +1,7 @@
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/dataSources/categories_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/data/repositories/categories_repo_impl.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/metadata_entity.dart';
@@ -46,8 +46,8 @@ void main() {
     ),
   );
 
-  provideDummy<GetCategoryProductsRequestEntity>(
-    GetCategoryProductsRequestEntity(
+  provideDummy<GetCategoryProductsRequestModel>(
+    GetCategoryProductsRequestModel(
       categoryId: "dummy",
       page: 1,
       limit: 10,
@@ -126,7 +126,7 @@ void main() {
   });
 
   group('getCategoryProducts', () {
-    final requestEntity = GetCategoryProductsRequestEntity(
+    final requestModel = GetCategoryProductsRequestModel(
       categoryId: '1',
       page: 1,
       limit: 10,
@@ -168,45 +168,42 @@ void main() {
 
     test("should return success when data source returns success", () async {
       // Arrange
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .thenAnswer(
               (_) async => ApiSuccessResult(data: productResponseEntity));
 
       //Act
-      final result =
-          await categoriesRepoImpl.getCategoryProducts(requestEntity);
+      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
 
       //Assert
       expect(result, isA<ApiSuccessResult<ProductResponseEntity>>());
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .called(1);
     });
 
     test("should return error when data source returns error", () async {
       // Arrange
       final failure = ServerFailure(errorMessage: 'Failed to fetch products');
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .thenAnswer((_) async => ApiErrorResult(failure: failure));
 
       //Act
-      final result =
-          await categoriesRepoImpl.getCategoryProducts(requestEntity);
+      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .called(1);
     });
 
     test("should pass through the exact result from data source", () async {
       // Arrange
       final successResult = ApiSuccessResult(data: productResponseEntity);
-      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      when(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .thenAnswer((_) async => successResult);
 
       //Act
-      final result =
-          await categoriesRepoImpl.getCategoryProducts(requestEntity);
+      final result = await categoriesRepoImpl.getCategoryProducts(requestModel);
 
       //Assert
       expect(result, equals(successResult));
@@ -216,7 +213,7 @@ void main() {
       expect(successCast.data.products![0].title, 'Rose Bouquet');
       expect(successCast.data.products![0].category, '1');
       expect(successCast.data.products![1].title, 'Tulip Bundle');
-      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestEntity))
+      verify(mockCategoriesRemoteDataSource.getCategoryProducts(requestModel))
           .called(1);
     });
 
@@ -226,11 +223,11 @@ void main() {
           (_) async => ApiSuccessResult(data: productResponseEntity));
 
       //Act
-      await categoriesRepoImpl.getCategoryProducts(requestEntity);
+      await categoriesRepoImpl.getCategoryProducts(requestModel);
 
       //Assert
       verify(mockCategoriesRemoteDataSource.getCategoryProducts(argThat(
-              predicate<GetCategoryProductsRequestEntity>((req) =>
+              predicate<GetCategoryProductsRequestModel>((req) =>
                   req.categoryId == '1' && req.page == 1 && req.limit == 10))))
           .called(1);
     });

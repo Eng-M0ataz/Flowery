@@ -6,6 +6,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -19,7 +20,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     this._categoriesUseCase,
     this._getCategoryProductsUseCase,
     this._getAllProductsUseCase,
-  ) : super(CategoriesState());
+  ) : super(const CategoriesState());
 
   Future<void> doIntent(CategoriesEvent event) async {
     switch (event) {
@@ -32,7 +33,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         break;
 
       case GetCategoryProductsEvent():
-        if (event.categoryId == 'all') {
+        if (event.categoryId == AppConstants.allId) {
           await _getAllProducts();
         } else {
           await _getCategoryProducts(event.categoryId, event.page, event.limit);
@@ -52,7 +53,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           errorMessage: null,
           categories: result.data.categories,
           isSuccess: true,
-          selectedCategoryId: 'all',
+          selectedCategoryId: AppConstants.allId,
         ));
         await _getAllProducts();
         break;
@@ -72,7 +73,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
       isSuccess: false,
       isLoading: true,
       errorMessage: null,
-      selectedCategoryId: 'all',
+      selectedCategoryId: AppConstants.allId,
     ));
 
     final result = await _getAllProductsUseCase.invoke();
@@ -83,7 +84,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           errorMessage: null,
           productsList: result.data.products,
           isSuccess: true,
-          selectedCategoryId: 'all',
+          selectedCategoryId: AppConstants.allId,
         ));
         break;
       case ApiErrorResult<ProductResponseEntity>():
@@ -92,7 +93,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           errorMessage: result.failure.errorMessage,
           productsList: null,
           isSuccess: false,
-          selectedCategoryId: 'all',
+          selectedCategoryId: AppConstants.allId,
         ));
         break;
     }

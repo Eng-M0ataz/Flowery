@@ -23,7 +23,6 @@ import 'categories_view_model_test.mocks.dart';
   GetAllProductsUseCase,
 ])
 void main() {
-  late CategoriesViewModel categoriesViewModel;
   late MockCategoriesUseCase mockCategoriesUseCase;
   late MockGetCategoryProductsUseCase mockGetCategoryProductsUseCase;
   late MockGetAllProductsUseCase mockGetAllProductsUseCase;
@@ -40,12 +39,6 @@ void main() {
     mockCategoriesUseCase = MockCategoriesUseCase();
     mockGetCategoryProductsUseCase = MockGetCategoryProductsUseCase();
     mockGetAllProductsUseCase = MockGetAllProductsUseCase();
-
-    categoriesViewModel = CategoriesViewModel(
-      mockCategoriesUseCase,
-      mockGetCategoryProductsUseCase,
-      mockGetAllProductsUseCase,
-    );
 
     /// Categories
     categoryEntityList = [
@@ -132,9 +125,9 @@ void main() {
         when(mockGetAllProductsUseCase.invoke())
             .thenAnswer((_) async => productResult);
 
-        await viewModel.doIntent(GetAllCategoriesEvent());
+        await viewModel.doIntent(const GetAllCategoriesEvent());
       },
-      skip: 2, 
+      skip: 2,
       expect: () => [
         CategoriesState(
           isLoading: true,
@@ -175,7 +168,7 @@ void main() {
         )).thenAnswer((_) async => productResult);
 
         await viewModel.doIntent(
-          GetCategoryProductsEvent(categoryId: "1", page: 1, limit: 10),
+          const GetCategoryProductsEvent(categoryId: "1", page: 1, limit: 10),
         );
       },
       skip: 1,
@@ -210,7 +203,7 @@ void main() {
         when(mockGetAllProductsUseCase.invoke())
             .thenAnswer((_) async => productResult);
 
-        await viewModel.doIntent(GetAllProductsEvent());
+        await viewModel.doIntent(const GetAllProductsEvent());
       },
       skip: 1,
       expect: () => [

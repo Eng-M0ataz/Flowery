@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -169,7 +170,7 @@ class ProductCard extends StatelessWidget {
           ),
           const SizedBox(width: AppSizes.spaceBetweenItems_8),
           Text(
-            '${discountPercentage}%',
+            '$discountPercentage%',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontSize: 12,
                   color: Colors.green,
@@ -182,7 +183,7 @@ class ProductCard extends StatelessWidget {
   }
 
   void _handleAddToCart(BuildContext context) {
-    final productName = product.title ?? 'Product';
+    final productName = product.title ?? AppConstants.noProduct;
     showSnackBar(
       message: '$productName ${LocaleKeys.add_to_cart.tr()}',
       context: context,
@@ -190,7 +191,7 @@ class ProductCard extends StatelessWidget {
           .textTheme
           .headlineSmall!
           .copyWith(color: AppColorsLight.white),
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       backgroundColor: AppColorsLight.green,
     );
   }

@@ -1,11 +1,11 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/client/api_service.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/dataSources/categories_remote_data_source_impl.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/product_dto.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/request/get_category_products_request_model.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/category_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/category_dto.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/metadata_dto.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/api/models/response/product_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/requestEntities/get_category_products_request_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/product_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
@@ -90,7 +90,7 @@ void main() {
   });
 
   group('getCategoryProducts', () {
-    const requestEntity = GetCategoryProductsRequestEntity(
+    final requestModal = GetCategoryProductsRequestModel(
       categoryId: 'category123',
       page: 1,
       limit: 10,
@@ -152,7 +152,7 @@ void main() {
 
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestEntity);
+          .getCategoryProducts(requestModal);
 
       //Assert
       expect(result, isA<ApiSuccessResult<ProductResponseEntity>>());
@@ -170,7 +170,7 @@ void main() {
       when(mockApiServices.getProducts(any)).thenThrow(dioException);
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestEntity);
+          .getCategoryProducts(requestModal);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());
@@ -183,7 +183,7 @@ void main() {
 
       //Act
       final result = await categoriesRemoteDataSourceImpl
-          .getCategoryProducts(requestEntity);
+          .getCategoryProducts(requestModal);
 
       //Assert
       expect(result, isA<ApiErrorResult<ProductResponseEntity>>());

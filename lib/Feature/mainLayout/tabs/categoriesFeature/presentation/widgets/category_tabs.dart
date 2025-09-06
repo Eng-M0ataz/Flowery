@@ -3,6 +3,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/shimmer/category_shimmer_widget.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -13,17 +14,17 @@ class CategoryTabs extends StatelessWidget {
   final bool isLoading;
 
   const CategoryTabs({
-    Key? key,
+    super.key,
     required this.categories,
     required this.selectedCategoryId,
     required this.onCategorySelected,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     if (isLoading && categories.isEmpty) {
-      return CategoryShimmerWidget();
+      return const CategoryShimmerWidget();
     }
 
     if (categories.isEmpty) {
@@ -40,9 +41,9 @@ class CategoryTabs extends StatelessWidget {
         itemCount: categories.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
-            final isSelected = selectedCategoryId == 'all';
+            final isSelected = selectedCategoryId == AppConstants.allId;
             return _buildCategoryTab(
-                categoryId: 'all',
+                categoryId: AppConstants.allId,
                 categoryName: LocaleKeys.all.tr(),
                 isSelected: isSelected,
                 context: context);
