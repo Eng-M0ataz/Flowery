@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flower_e_commerce_app/Feature/bestSeller/domain/entities/best_seller_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/occasion_entity.dart';
 import 'package:flower_e_commerce_app/Feature/occasions/domain/entities/occasion_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 

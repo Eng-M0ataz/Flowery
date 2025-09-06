@@ -20,8 +20,7 @@ class OccasionScreen extends StatelessWidget {
     return BlocProvider<OccasionViewModel>(
       create: (context) => occasionViewModel
         ..doIntent(
-          occasionId:  '673b34c21159920171827ae0',
-            GetAllOccasionsEvent()),
+            occasionId: '673b34c21159920171827ae0', GetAllOccasionsEvent()),
       child: Scaffold(
         appBar: AppBar(
           title: Text(LocaleKeys.occasion.tr()),
@@ -39,7 +38,7 @@ class OccasionScreen extends StatelessWidget {
                     child: Text(
                       LocaleKeys.best_sellers.tr(),
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            color: AppColorsLight.gray,
+                            color: AppColorsLight.grey,
                           ),
                     )),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),

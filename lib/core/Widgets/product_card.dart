@@ -4,7 +4,7 @@ import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/Config/Theme/app_colors.dart';
+import '../Config/Theme/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
   final String imgCover;

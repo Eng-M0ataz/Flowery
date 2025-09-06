@@ -11,7 +11,8 @@ class GetCategoryProductsUseCase {
       : _categoriesRepo = categoriesRepo;
   Future<ApiResult<ProductResponseEntity>> invoke(
       {required String? categoryId, required int? page, required int? limit}) {
-    return _categoriesRepo.getCategoryProducts(GetCategoryProductsRequestModel(
+    return _categoriesRepo
+        .getProductsByCategory(GetProductsByCategoryRequestModel(
       categoryId: categoryId ?? '',
       page: page,
       limit: limit,

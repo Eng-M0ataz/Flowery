@@ -31,7 +31,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
                   borderRadius: BorderRadius.circular(
                     AppSizes.borderRadiusMd_8,
                   ),
-                  borderSide: const BorderSide(color: AppColorsLight.gray),
+                  borderSide: const BorderSide(color: AppColorsLight.grey),
                 ),
                 isDense: true,
                 contentPadding: const EdgeInsets.all(0),
@@ -43,7 +43,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
                 hintText: LocaleKeys.search.tr(),
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: AppColorsLight.gray,
+                  color: AppColorsLight.grey,
                   size: AppSizes.mdIcon_24,
                 ),
               ),

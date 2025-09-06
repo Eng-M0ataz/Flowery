@@ -1,11 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/shimmer/product_shimmer_widget.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
+import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
+import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
+import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'product_card.dart';
 
 class ProductGrid extends StatelessWidget {
   final List<ProductEntity> products;
@@ -57,14 +58,42 @@ class ProductGrid extends StatelessWidget {
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {
-          return ProductCard(product: products[index]);
+          final product = products[index];
+          final discountPercent = (product.price != null && product.price! > 0)
+              ? ((1 - ((product.priceAfterDiscount ?? 0) / product.price!)) *
+                      100)
+                  .round()
+              : 0;
+          return ProductCard(
+            imgCover: product.imgCover ?? '',
+            title: product.title ?? '',
+            price: product.price?.toInt() ?? 0,
+            priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
+            discountPercent: discountPercent,
+            onAddToCart: () {
+              _handleAddToCart(context, product.title ?? '');
+            },
+          );
         },
       ),
     );
   }
 
+  void _handleAddToCart(BuildContext context, String productName) {
+    showSnackBar(
+      message: '$productName ${LocaleKeys.add_to_cart.tr()}',
+      context: context,
+      textStyle: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: AppColorsLight.white),
+      duration: const Duration(seconds: 2),
+      backgroundColor: AppColorsLight.green,
+    );
+  }
+
   Widget _buildShimmerGrid() {
-    return const ProductShimmerWidget(
+    return const ProductsShimmer(
       isEnabled: true,
     );
   }

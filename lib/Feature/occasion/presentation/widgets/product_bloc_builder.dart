@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flower_e_commerce_app/Feature/occasion/presentation/widgets/product_card.dart';
+import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../../../../core/localization/locale_keys.g.dart';
@@ -7,7 +7,7 @@ import '../../../../core/utils/Constants/sizes.dart';
 import '../viewModels/occasion_event.dart';
 import '../viewModels/occasion_state.dart';
 import '../viewModels/occasion_view_model.dart';
-import 'shimmer/occasion_products_shimmer.dart';
+import '../../../../core/Widgets/products_shimmer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductBlocBuilder extends StatelessWidget {
@@ -18,7 +18,7 @@ class ProductBlocBuilder extends StatelessWidget {
     return BlocBuilder<OccasionViewModel, OccasionState>(
       builder: (context, state) {
         if (state.isProductLoading) {
-          return OccasionProductsShimmer(
+          return ProductsShimmer(
             isEnabled: true,
           );
         }
