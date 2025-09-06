@@ -40,6 +40,10 @@ class Assets {
 
   /// Assets for assetsImagesShoppingCartUnselected
   /// assets/images/shopping_cart_unselected.svg
+
   static const String assetsImagesShoppingCartUnselected = "assets/images/shopping_cart_unselected.svg";
+  
+  static const String filterIcon = "assets/images/filter_icon.svg";
+  static const String noImage = "assets/images/no_image.png";
 }
 

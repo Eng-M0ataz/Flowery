@@ -1,12 +1,16 @@
 name: flower_e_commerce_app
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+publish_to: 'none' 
+
 
 version: 1.0.0+1
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
+
   flutter: ">=1.17.0"
+
 
 
 dependencies:
@@ -25,17 +29,20 @@ dependencies:
   injectable: ^2.5.1
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
-  retrofit: ^4.7.1
-  mockito: ^5.5.0
+  retrofit: ^4.4.0
+  mockito: ^5.4.4
   responsive_framework: ^1.5.1
   easy_localization: ^3.0.8
+
   shimmer_animation: ^2.2.2
   equatable: ^2.0.7
   bloc_test: ^10.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   flutter_lints: ^5.0.0
   build_runner: ^2.6.0
@@ -43,8 +50,11 @@ dev_dependencies:
   json_serializable: ^6.10.0
   retrofit_generator: ^10.0.2
   injectable_generator: ^2.8.1
+  bloc_test: ^10.0.0
+
 
 flutter:
+
 
   uses-material-design: true
   generate: true
@@ -52,6 +62,7 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
+
 
   fonts:
     - family: Inter

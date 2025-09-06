@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const String signUpRoute = '/registerRoute';
   static const String forgetPasswordRoute = '/forgetPasswordRoute';
   static const String occasionRoute = '/occasionRoute';
+  static const String categoriesRoute = '/categoryScreenRoute';
 }

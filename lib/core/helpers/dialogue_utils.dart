@@ -40,7 +40,13 @@ abstract class DialogueUtils {
       builder: (context) {
         return AlertDialog(
           actions: actions,
-          content: Text(message, style: Theme.of(context).textTheme.labelLarge),
+          content: Text(
+            message,
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge!
+                .copyWith(color: Colors.black),
+          ),
           title: Text(
             title ?? "",
             style: Theme.of(context).textTheme.bodySmall,

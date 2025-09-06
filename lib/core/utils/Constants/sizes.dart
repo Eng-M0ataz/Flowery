@@ -33,9 +33,6 @@ abstract class AppSizes {
 
   // button sizes
 
-  static const double buttomHigh = 56;
-  static const double buttomRadius = 8;
-  static const double buttonWidth = double.infinity;
   static const double buttonHigh = 56;
   static const double buttonHigh_14 = 14;
 
@@ -45,13 +42,18 @@ abstract class AppSizes {
   static const double buttonWidthSm_80 = 80;
 
   static const double buttonRadius = 8;
+  static const double buttonWidth = double.infinity;
+
+
+
+
 
   static const double buttonWidth_80 = 80.0;
 
   static const double buttomHigh = 56;
   static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
-  static const double buttonWidth = double.infinity;
+
 
 
   // AppBar High
@@ -72,6 +74,7 @@ abstract class AppSizes {
 
 
 
+
   static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetwwenItems_16 = 16.0;
@@ -79,6 +82,16 @@ abstract class AppSizes {
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_50 = 50.0;
+
+
+
+  static const double spacingBetweenItems_10 = 12.0;
+  static const double spacingBetweenItems_12 = 12.0;
+  static const double spacingBetweenItems_16 = 16.0;
+  static const double spacingBetweenItems_24 = 24.0;
+  static const double spacingBetweenItems_32 = 32.0;
+  static const double spacingBetweenItems_36 = 36.0;
+  static const double spaceBetweenItems_16 = 16.0;
 
 
 
@@ -154,6 +167,24 @@ abstract class AppSizes {
   static const double shimmerFullRadius = 100.0;
   static const double shimmerSpacingSmall = 8.0;
   static const double shimmerSpacingXSmall = 6.0;
+
+  //Shimmer sizes
+  static const double shimmerHeight_16 = 16.0;
+  static const double shimmerWidth_40 = 40.0;
+  static const double shimmerWidth_30 = 30.0;
+  static const double shimmerBorderRadius_4 = 4.0;
+  static const double shimmerCategoryHeight_3 = 3.0;
+  static const double shimmerCategoryWidth_40 = 40.0;
+  static const double shimmerCategoryBorderRadius_4 = 4.0;
+  static const double shimmerProductImageHeight_100 = 100.0;
+  static const double shimmerProductImageWidthDoubleInfinity = double.infinity;
+  static const double shimmerProductImageBorderRadius_8 = 8.0;
+  static const double shimmerProductTitleHeight_16 = 16.0;
+  static const double shimmerHeight_30 = 30.0;
+
+  static const double shimmerProductTitleBorderRadius_4 = 4.0;
+  static const double shimmerProductPriceHeight_12 = 12.0;
+
 
   // break points
 

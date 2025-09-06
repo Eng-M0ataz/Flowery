@@ -43,6 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
 windows/flutter/generated_plugins.cmake
 windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugin_registrant.cc
@@ -61,6 +62,7 @@ analysis_options.yaml
 android/build/reports/problems/problems-report.html
 lib/core/Di/di.config.dart
 lib/Feature/auth/api/client/api_service.g.dart
+
 lib/Feature/auth/api/models/request/sign_in_request_dto.g.dart
 lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
 *.g.dart
@@ -77,5 +79,3 @@ lib/Feature/auth/api/client/api_service.g.dart
 android/build/reports/problems/problems-report.html
 android/build/reports/problems/problems-report.html
 pubspec.lock
-
-

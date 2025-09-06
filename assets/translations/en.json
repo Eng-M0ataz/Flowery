@@ -5,12 +5,12 @@
   "currency_egp": "EGP",
   "retry": "Retry",
   "no_products": "No products available",
-  "egp":"EGP",
+  "egp": "EGP",
   "view_all": "View All",
   "categories": "Categories",
   "best_seller": "Best Seller",
   "occasions": "Occasions",
-  "search" : "Search"
+  "search": "Search",
   "Login": "Login",
   "Email": "Email",
   "EmailHint": "Enter your email",
@@ -25,5 +25,13 @@
   "OK": "OK",
   "guest": "Continue as guest",
   "DoNotHaveAccount": "Don't have an account?",
-  "SignUp": "Sign up"
+  "SignUp": "Sign up",
+  "sign_up": "Sign up",
+  "search_label": "Search",
+  "no_products": "No products found",
+  "add_to_cart": "Add to cart",
+  "no_categories": "No categories found",
+  "all": "All",
+  "filter": "Filter",
+  "currency": "EGP"
 }
