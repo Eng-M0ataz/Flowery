@@ -31,7 +31,7 @@ abstract class DioModule {
               );
           if (token.isNotEmpty) {
             options.headers[ApiConstants.authorization] =
-            '${ApiConstants.bearer} $token';
+                '${ApiConstants.bearer} $token';
           }
           return handler.next(options);
         },
