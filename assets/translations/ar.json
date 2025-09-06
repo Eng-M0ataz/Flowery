@@ -1,4 +1,5 @@
 {
+
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -64,6 +65,7 @@
   "user_name_label": "اسم المستخدم",
   "user_name_hint": "أدخل اسم المستخدم",
 
+
   "Login": "تسجيل الدخول",
   "Email": "البريد الإلكتروني",
   "EmailHint": "أدخل بريدك الإلكتروني",
@@ -86,6 +88,7 @@
   "last_name_hint": "أدخل اسم العائلة",
   "email_label": "البريد الإلكتروني",
   "email_hint": "أدخل البريد الإلكتروني",
+
 
   "password_label": "كلمة المرور",
   "password_hint": "أدخل كلمة المرور",
@@ -111,11 +114,17 @@
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
 
+
+ 
+  "female_label": "أنثى",
+
+
   "edit_profile": "تعديل الملف ",
   "select_profile_picture": "حدد صورة الملف الشخصية",
   "camera": "الكاميرا",
   "gallery": "المعرض",
   "remove": "حذف",
+
 
   "change": "تغيير",
   "profile_updated": "تم تحديث الملف الشخصي بنجاح",

@@ -3,10 +3,14 @@ import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/n
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
+
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/pages/edit_profile_screen.dart';
+
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
@@ -20,6 +24,7 @@ class RouteGenerator {
       case AppRoutes.bestSellerRoute:
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
+
 
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
 
@@ -38,6 +43,7 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.editProfileRoute:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
+
 
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
