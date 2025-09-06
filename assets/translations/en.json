@@ -1,8 +1,23 @@
 {
-    "egp":"EGP",
-    "view_all": "View All",
-    "categories": "Categories",
-    "best_seller": "Best Seller",
-    "occasions": "Occasions",
-    "search" : "Search"
+  "egp":"EGP",
+  "view_all": "View All",
+  "categories": "Categories",
+  "best_seller": "Best Seller",
+  "occasions": "Occasions",
+  "search" : "Search"
+  "Login": "Login",
+  "Email": "Email",
+  "EmailHint": "Enter your email",
+  "EmailRequired": "Email is required",
+  "EmailInvalid": "Enter a valid email",
+  "Password": "Password",
+  "PasswordHint": "Enter your password",
+  "PasswordRequired": "Password is required",
+  "RememberMe": "Remember me",
+  "ForgetPassword": "Forget password?",
+  "Error": "Error",
+  "OK": "OK",
+  "guest": "Continue as guest",
+  "DoNotHaveAccount": "Don't have an account?",
+  "SignUp": "Sign up"
 }

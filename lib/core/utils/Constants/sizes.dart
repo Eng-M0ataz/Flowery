@@ -5,9 +5,11 @@ abstract class AppSizes {
   // padding and margin sizes
   static const double paddingXs_4 = 4.0;
   static const double paddingSm_8 = 8.0;
+  static const double paddingSm_12 = 12.0;
   static const double paddingMd_10 = 10.0;
   static const double paddingMd_12 = 12.0;
   static const double paddingMd_16 = 16.0;
+  static const double paddingMd_20 = 20.0;
   static const double paddingLg_24 = 24.0;
   static const double paddingXl_32 = 32.0;
 
@@ -17,6 +19,7 @@ abstract class AppSizes {
   static const double smIcon_16 = 16.0;
   static const double mdIcon_24 = 24.0;
   static const double lgIcon_32 = 32.0;
+  static const double lgIcon_64 = 64.0;
 
   // font sizes
 
@@ -30,14 +33,25 @@ abstract class AppSizes {
 
   // button sizes
 
+  static const double buttonHigh = 56;
+  static const double buttonHigh_14 = 14;
+
+  static const double buttonHigh_48 = 48;
+  static const double buttonHigh_36 = 36;
+  static const double buttonHigh_30 = 30;
+  static const double buttonWidthSm_80 = 80;
+
+  static const double buttonRadius = 8;
   static const double buttomHigh = 56;
+  static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
   static const double buttonWidth = double.infinity;
 
   // AppBar High
 
-  static const double appBarHigh = 56.0;
+  static const double appBarHigh = 48.0;
   static const double appBarElevation = 0.0;
+  static const double appBarLeadingWidth = 120.0;
 
   // Image sizes
 
@@ -47,9 +61,14 @@ abstract class AppSizes {
 
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-  static const double spacingBetweenItems_10 = 10.0;
+  static const double spacegBetweenItems_10 = 10.0;
+  static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetwwenItems_16 = 16.0;
   static const double spaceBetwwenItems_24 = 24.0;
+  static const double spaceBetweenItems_32 = 32.0;
+  static const double spaceBetweenItems_36 = 36.0;
+  static const double spaceBetweenItems_50 = 50.0;
+
 
   // Default Spacing Between Sections
 
