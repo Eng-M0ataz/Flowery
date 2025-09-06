@@ -6,4 +6,8 @@ abstract class ApiConstants {
   static const String applicationJson = 'application/json';
   static const String bearer = 'Bearer';
   static const String authorization = 'Authorization';
+  static const String occasions = 'occasions';
+  static const String products = 'products';
+  static const String occasionQuery = 'occasion';
+
 }

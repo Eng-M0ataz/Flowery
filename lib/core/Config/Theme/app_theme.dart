@@ -8,7 +8,29 @@ abstract class AppThemeLight {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
+
+      tabBarTheme: (TabBarThemeData(
+        tabAlignment: TabAlignment.start,
+        labelPadding: EdgeInsets.only(right: AppSizes.paddingLg_24),
+        labelColor: colorScheme.primary,
+        unselectedLabelColor: AppColorsLight.white[70],
+        indicatorColor: colorScheme.primary,
+        dividerColor: colorScheme.onPrimary,
+        labelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+      )),
+      appBarTheme: AppBarTheme(
+
       appBarTheme: const AppBarTheme(
+
         backgroundColor: AppColorsLight.white,
         foregroundColor: AppColorsLight.black,
         elevation: AppSizes.appBarElevation,

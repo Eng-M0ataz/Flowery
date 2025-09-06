@@ -6,16 +6,18 @@ class CustomElevatedButton extends StatelessWidget {
       {super.key,
       required this.onPressed,
       required this.isLoading,
-      required this.title,
+      required this.widget,
       this.loadingColor,
       this.textColor,
       this.containerColor});
+
   final void Function() onPressed;
   final bool isLoading;
-  final String title;
+  final Widget widget;
   final Color? textColor;
   final Color? loadingColor;
   final Color? containerColor;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -49,15 +51,7 @@ class CustomElevatedButton extends StatelessWidget {
                   ),
                 ),
               )
-            : ElevatedButton(
-                onPressed: onPressed,
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color:
-                          textColor ?? Theme.of(context).colorScheme.onPrimary),
-                ),
-              ),
+            : ElevatedButton(onPressed: onPressed, child: widget),
       ),
     );
   }

@@ -1,4 +1,10 @@
 {
+  "occasion": "Occasion",
+  "best_sellers": "Bloom with our exquisite best sellers",
+  "add_to_cart": "Add to cart",
+  "currency_egp": "EGP",
+  "retry": "Retry",
+  "no_products": "No products available",
   "egp":"EGP",
   "view_all": "View All",
   "categories": "Categories",
