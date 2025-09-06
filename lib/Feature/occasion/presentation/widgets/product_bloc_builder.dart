@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 import '../../../../core/utils/Constants/sizes.dart';
 import '../viewModels/occasion_event.dart';
@@ -35,7 +36,8 @@ class ProductBlocBuilder extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       context.read<OccasionViewModel>().doIntent(
-                          LoadProductsByOccasionEvent(occasionId: occasionId));
+                          occasionId: occasionId,
+                          LoadProductsByOccasionEvent());
                     },
                     child: Text(LocaleKeys.retry.tr())),
               ],
@@ -50,12 +52,14 @@ class ProductBlocBuilder extends StatelessWidget {
         }
         final products = state.productResponse!.products!;
 
-        return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: AppSizes.spaceBetwwenItems_16,
-            mainAxisSpacing: AppSizes.spaceBetwwenItems_16,
-            childAspectRatio: 0.65,
+        return ResponsiveGridView.builder(
+          gridDelegate: ResponsiveGridDelegate(
+            crossAxisExtent: 171,
+            crossAxisSpacing: AppSizes.spaceBetweenItems_16,
+            mainAxisSpacing: AppSizes.spaceBetweenItems_16,
+            childAspectRatio: 0.74,
+            maxCrossAxisExtent: 4,
+            minCrossAxisExtent: 2,
           ),
           itemCount: products.length,
           itemBuilder: (context, index) {

@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,7 @@ void main() async {
       path: AppConstants.assetsPath,
       fallbackLocale: const Locale(AppConstants.en),
       child: const FlowerECommerceApp(),
+
     ),
   );
 }
@@ -41,6 +43,7 @@ class FlowerECommerceApp extends StatelessWidget {
       ),
       theme: AppThemeLight.lightTheme,
       onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: AppRoutes.occasionRoute,
     );
   }
 }

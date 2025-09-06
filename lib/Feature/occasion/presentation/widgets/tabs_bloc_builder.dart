@@ -24,12 +24,12 @@ class TabsBlocBuilder extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(state.occasionFailure?.errorMessage ?? ''),
-                const SizedBox(height: AppSizes.paddingMd_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 TextButton(
                     onPressed: () {
                       context.read<OccasionViewModel>().doIntent(
-                          GetAllOccasionsEvent(
-                              occasionId: '673b34c21159920171827ae0'));
+                          occasionId: '673b34c21159920171827ae0',
+                          GetAllOccasionsEvent());
                     },
                     child: Text(LocaleKeys.retry.tr())),
               ],
@@ -45,9 +45,9 @@ class TabsBlocBuilder extends StatelessWidget {
           tabsLength: occasions.length,
           taps: occasions.map((occasion) => Tab(text: occasion.name)).toList(),
           onTap: (index) {
-            final occasionId = occasions[index].id;
-            context.read<OccasionViewModel>().doIntent(
-                  LoadProductsByOccasionEvent(occasionId: occasionId ?? ''),
+
+            context.read<OccasionViewModel>().doIntent(occasionId: occasions[index].id??'',
+                  LoadProductsByOccasionEvent(),
                 );
           },
         );

@@ -20,7 +20,8 @@ class OccasionScreen extends StatelessWidget {
     return BlocProvider<OccasionViewModel>(
       create: (context) => occasionViewModel
         ..doIntent(
-            GetAllOccasionsEvent(occasionId: '673b34c21159920171827ae0')),
+          occasionId:  '673b34c21159920171827ae0',
+            GetAllOccasionsEvent()),
       child: Scaffold(
         appBar: AppBar(
           title: Text(LocaleKeys.occasion.tr()),
@@ -41,9 +42,9 @@ class OccasionScreen extends StatelessWidget {
                             color: AppColorsLight.gray,
                           ),
                     )),
-                const SizedBox(height: AppSizes.paddingMd_16),
+                const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 TabsBlocBuilder(),
-                const SizedBox(height: AppSizes.paddingXl_32),
+                const SizedBox(height: AppSizes.spaceBetweenItems_32),
                 Expanded(child: ProductBlocBuilder()),
               ],
             ),

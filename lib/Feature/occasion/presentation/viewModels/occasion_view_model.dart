@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+  import 'package:bloc/bloc.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
 import '../../domain/entities/response/occasion_response_entity.dart';
@@ -18,12 +18,12 @@ class OccasionViewModel extends Cubit<OccasionState> {
     this._getProductsByOccasionUseCase,
   ) : super(OccasionState());
 
-  Future<void> doIntent(OccasionEvent event) async {
+  Future<void> doIntent(OccasionEvent event, {required String occasionId}) async {
     switch (event) {
-      case LoadProductsByOccasionEvent(occasionId: final occasionId):
+      case LoadProductsByOccasionEvent():
         await _getProductsByOccasion(occasionId);
         break;
-      case GetAllOccasionsEvent(occasionId: final occasionId):
+      case GetAllOccasionsEvent():
         _getAllOccasionData(occasionId);
         break;
     }
