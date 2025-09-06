@@ -8,4 +8,8 @@ abstract class AppConstants {
   static const String assetsPath = 'assets/translations';
   static const String token = 'token';
   static const String rememberMe = 'remember_me';
+  static const String female = 'female';
+  static const String male = 'male';
+  static const String passwordCharacters = "★★★★★★";
+  static const String notificationCountExceeded = '9+';
 }
