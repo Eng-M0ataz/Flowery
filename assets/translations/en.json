@@ -1,4 +1,5 @@
 {
+
   "occasion": "Occasion",
   "best_sellers": "Bloom with our exquisite best sellers",
   "add_to_cart": "Add to cart",
@@ -63,6 +64,20 @@
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
+  "Login": "Login",
+  "Email": "Email",
+  "EmailHint": "Enter your email",
+  "EmailRequired": "Email is required",
+  "EmailInvalid": "Enter a valid email",
+  "Password": "Password",
+  "PasswordHint": "Enter your password",
+  "PasswordRequired": "Password is required",
+  "RememberMe": "Remember me",
+  "ForgetPassword": "Forget password?",
+  "Error": "Error",
+  "OK": "OK",
+  "DoNotHaveAccount": "Don't have an account?",
+  "SignUp": "Sign up",
   "first_name_label": "First name",
   "first_name_hint": "Enter first name",
   "last_name_label": "Last name",
@@ -92,5 +107,14 @@
   "ok": "OK",
   "loading": "Loading...",
   "male_label": "Male",
-  "female_label": "Female"
+  "edit_profile": "Edit profile",
+  "select_profile_picture": "Select profile picture",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "remove": "Remove",
+  "change":"Change",
+  "profile_updated":"Profile updated successfully",
+  "update":"Update",
+  "failed_to_pick_image":"Failed to pick image:"
+
 }

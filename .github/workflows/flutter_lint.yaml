@@ -21,6 +21,14 @@ jobs:
           else
             echo "pubspec.lock not found, skipping"
           fi
+      - name: Delete pubspec.lock
+        run: |
+          if [ -f pubspec.lock ]; then
+            echo "Deleting pubspec.lock..."
+            rm pubspec.lock
+          else
+            echo "pubspec.lock not found, skipping"
+            fi
       # Setup Flutter (latest stable)
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -31,6 +39,17 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Generate code (json_serializable, retrofit, mockito)
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+
+      # Generate localization
+      - name: Generate localization files
+        run: |
+          flutter pub run easy_localization:generate -S assets/translations -O lib/core/localization
+          flutter pub run easy_localization:generate -S assets/translations -O lib/core/localization -f keys -o locale_keys.g.dart
+
 
       # Run analysis - block on errors, allow warnings
       - name: Run Flutter Analyze

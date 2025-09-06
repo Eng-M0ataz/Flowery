@@ -7,7 +7,6 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
-import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
@@ -21,7 +20,9 @@ class RouteGenerator {
       case AppRoutes.bestSellerRoute:
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
+
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
+
       case AppRoutes.occasionRoute:
         final args = settings.arguments as OccasionInputModel;
         return MaterialPageRoute(
@@ -33,6 +34,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => ForgetPasswordScreen(),
         );
+
+      // return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case AppRoutes.editProfileRoute:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
           builder: (_) => const MainLayout(initialIndex: 0),
