@@ -1,5 +1,6 @@
 {
 
+
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -70,12 +71,30 @@
   "sign_up": "إنشاء حساب",
   "user_name_label": "اسم المستخدم",
   "user_name_hint": "أدخل اسم المستخدم",
+
+  "Login": "تسجيل الدخول",
+  "Email": "البريد الإلكتروني",
+  "EmailHint": "أدخل بريدك الإلكتروني",
+  "EmailRequired": "البريد الإلكتروني مطلوب",
+  "EmailInvalid": "أدخل بريدًا إلكترونيًا صالحًا",
+  "Password": "كلمة المرور",
+  "PasswordHint": "أدخل كلمة المرور",
+  "PasswordRequired": "كلمة المرور مطلوبة",
+  "Remember_me": "تذكرني",
+  "Forget_password": "هل نسيت كلمة المرور؟",
+  "Error": "خطأ",
+  "OK": "موافق",
+  "guest": "المتابعة كضيف",
+  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
+  "Sign_up": "سجل",
+
   "first_name_label": "الاسم الأول",
   "first_name_hint": "أدخل الاسم الأول",
   "last_name_label": "اسم العائلة",
   "last_name_hint": "أدخل اسم العائلة",
   "email_label": "البريد الإلكتروني",
   "email_hint": "أدخل البريد الإلكتروني",
+
   "password_label": "كلمة المرور",
   "password_hint": "أدخل كلمة المرور",
   "confirm_password_label": "تأكيد كلمة المرور",
@@ -99,6 +118,27 @@
   "ok": "موافق",
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
-  "female_label": "انثى"
+  "female_label": "انثى",
+
+
+  "phone_number_label": "رقم الهاتف",
+  "phone_number_hint": "أدخل رقم الهاتف",
+  "gender": "النوع",
+  "success": "تم بنجاح",
+  "ok": "حسناً",
+  "loading": "جارٍ التحميل...",
+  "male_label": "ذكر",
+  "female_label": "أنثى",
+  "password_label": "كلمة المرور",
+  "edit_profile": "تعديل الملف ",
+  "select_profile_picture": "حدد صورة الملف الشخصية",
+  "camera": "الكاميرا",
+  "gallery": "المعرض",
+  "remove": "حذف",
+  "error": "خطاء",
+  "change": "تغيير",
+  "profile_updated": "تم تحديث الملف الشخصي بنجاح",
+  "update": "تحديث",
+  "failed_to_pick_image": "فشل في اختيار الصورة:"
 
 }
