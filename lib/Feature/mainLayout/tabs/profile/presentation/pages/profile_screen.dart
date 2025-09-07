@@ -8,6 +8,7 @@ import 'package:flower_e_commerce_app/core/Services/secure_storage.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -174,8 +175,52 @@ class ProfileScreen extends StatelessWidget {
       title: LocaleKeys.logout.tr(),
       trailing: Icon(Icons.logout),
       onTap: () {
-        storage.delete(key: 'token');
-        context.pushReplacementNamed(AppRoutes.signInRoute);
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Center(
+
+                child: Text(
+                    LocaleKeys.logout_title.tr(),
+                    style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
+              content: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: double.minPositive,
+                children: [
+                  Text(
+                      LocaleKeys.logout_message.tr(),
+                      style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+              actions: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                        onPressed: (){
+                          Navigator.of(context).pop(false);
+                        },
+                        child: Text(LocaleKeys.cancel.tr())
+                    ),
+                    ElevatedButton(
+                        onPressed: (){
+                          context.pushNamedAndRemoveUntil(
+                            AppRoutes.signInRoute,
+                            predicate: (route) => false,
+                          );
+                          storage.delete(key: AppConstants.token);
+                          storage.write(key: AppConstants.rememberMe, value: 'false');
+                        },
+                        child: Text(LocaleKeys.logout.tr())
+                    )
+                  ],
+                ),
+              ],
+            )
+        );
       },
     );
   }

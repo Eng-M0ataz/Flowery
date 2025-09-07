@@ -23,7 +23,10 @@
   "about_us": "About us",
   "terms_conditions": "Terms & conditions",
   "logout": "Logout",
+  "logout_title": "LOGOUT",
+  "logout_message": "Confirm logout!!",
   "change_language": "Change Language",
   "arabic": "Arabic",
-  "no_user_data": "No user data available"
+  "no_user_data": "No user data available",
+  "cancel": "cancel"
 }

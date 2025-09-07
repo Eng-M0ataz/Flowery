@@ -23,7 +23,10 @@
   "about_us": "من نحن",
   "terms_conditions": "الأحكام والشروط",
   "logout": "تسجيل الخروج",
+  "logout_title": "تسجيل الخروج",
+  "logout_message": "تأكيد الخروج!!",
   "change_language": "تغيير اللغة",
   "arabic": "العربية",
-  "no_user_data": "لا توجد بيانات مستخدم متاحة"
+  "no_user_data": "لا توجد بيانات مستخدم متاحة",
+  "cancel": "إلغاء"
 }
