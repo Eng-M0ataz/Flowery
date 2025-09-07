@@ -23,7 +23,7 @@ class CategorieItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusXl_20),
           ),
           child: CustomCachedNetworkImage(
-            image: categoryEntity.image,
+            image: categoryEntity.image ?? '',
             imageWidth: AppSizes.homeCategoriesImageWidth,
             imageHigh: AppSizes.homeCategoriesImageHigh,
           ),
@@ -34,7 +34,7 @@ class CategorieItem extends StatelessWidget {
         SizedBox(
           width: AppSizes.homeCategoriesTextWidthConstrain,
           child: Text(
-            categoryEntity.name,
+            categoryEntity.name ?? '',
             style: Theme.of(context).textTheme.displayMedium,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

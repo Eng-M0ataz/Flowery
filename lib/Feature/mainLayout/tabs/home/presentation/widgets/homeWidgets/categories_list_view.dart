@@ -1,5 +1,7 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/categorie_item.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +24,14 @@ class CategoriesListView extends StatelessWidget {
         ),
         itemCount: categoriesList.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => CategorieItem(
-          categoryEntity: categoriesList[index],
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            context.pushNamed(AppRoutes.categoriesRoute,
+                arguments: categoriesList[index].id);
+          },
+          child: CategorieItem(
+            categoryEntity: categoriesList[index],
+          ),
         ),
       ),
     );

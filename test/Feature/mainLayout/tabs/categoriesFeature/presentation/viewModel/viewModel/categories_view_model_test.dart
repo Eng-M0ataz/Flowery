@@ -110,139 +110,139 @@ void main() {
     );
   });
 
-  group("CategoriesViewModel Tests", () {
-    blocTest<CategoriesViewModel, CategoriesState>(
-      "should load categories and then all products",
-      build: () => CategoriesViewModel(
-        mockCategoriesUseCase,
-        mockGetProductsByCategoryUseCase,
-        mockGetAllProductsUseCase,
+  blocTest<CategoriesViewModel, CategoriesState>(
+    "should load categories and then all products",
+    build: () => CategoriesViewModel(
+      mockCategoriesUseCase,
+      mockGetProductsByCategoryUseCase,
+      mockGetAllProductsUseCase,
+    ),
+    act: (viewModel) async {
+      provideDummy<ApiResult<CategoryResponseEntity>>(catResult);
+      provideDummy<ApiResult<ProductResponseEntity>>(productResult);
+
+      when(mockCategoriesUseCase.invoke()).thenAnswer((_) async => catResult);
+      when(mockGetAllProductsUseCase.invoke())
+          .thenAnswer((_) async => productResult);
+
+      await viewModel.doIntent(const GetAllCategoriesEvent());
+
+      await viewModel.doIntent(const GetAllProductsEvent());
+    },
+    expect: () => [
+      const CategoriesState(
+        isLoading: true,
+        isSuccess: false,
+        errorMessage: null,
+        categories: [],
+        productsList: [],
+        selectedCategoryId: null,
       ),
-      act: (viewModel) async {
-        provideDummy<ApiResult<CategoryResponseEntity>>(catResult);
-        provideDummy<ApiResult<ProductResponseEntity>>(productResult);
-
-        when(mockCategoriesUseCase.invoke()).thenAnswer((_) async => catResult);
-        when(mockGetAllProductsUseCase.invoke())
-            .thenAnswer((_) async => productResult);
-
-        await viewModel.doIntent(const GetAllCategoriesEvent());
-      },
-      expect: () => [
-        const CategoriesState(
-          isLoading: true,
-          isSuccess: false,
-          errorMessage: null,
-          categories: [],
-          productsList: [],
-          selectedCategoryId: null,
-        ),
-        CategoriesState(
-          isLoading: false,
-          isSuccess: true,
-          errorMessage: null,
-          categories: categoryEntityList,
-          productsList: const [],
-          selectedCategoryId: AppConstants.allId,
-        ),
-        CategoriesState(
-          isLoading: true,
-          isSuccess: false,
-          errorMessage: null,
-          categories: categoryEntityList,
-          productsList: const [],
-          selectedCategoryId: AppConstants.allId,
-        ),
-        CategoriesState(
-          isLoading: false,
-          isSuccess: true,
-          errorMessage: null,
-          categories: categoryEntityList,
-          productsList: productList,
-          selectedCategoryId: AppConstants.allId,
-        ),
-      ],
-      verify: (viewModel) {
-        verify(mockCategoriesUseCase.invoke()).called(1);
-        verify(mockGetAllProductsUseCase.invoke()).called(1);
-      },
-    );
-
-    blocTest<CategoriesViewModel, CategoriesState>(
-      "should load products by category",
-      build: () => CategoriesViewModel(
-        mockCategoriesUseCase,
-        mockGetProductsByCategoryUseCase,
-        mockGetAllProductsUseCase,
+      CategoriesState(
+        isLoading: false,
+        isSuccess: true,
+        errorMessage: null,
+        categories: categoryEntityList,
+        productsList: [],
+        selectedCategoryId: AppConstants.allId,
       ),
-      act: (viewModel) async {
-        provideDummy<ApiResult<ProductResponseEntity>>(productResult);
-        when(mockGetProductsByCategoryUseCase.invoke(
-          categoryId: "1",
-          page: 1,
-          limit: 10,
-        )).thenAnswer((_) async => productResult);
-
-        await viewModel.doIntent(
-          const GetProductsByCategoryEvent(categoryId: "1", page: 1, limit: 10),
-        );
-      },
-      expect: () => [
-        const CategoriesState(
-          isLoading: true,
-          isSuccess: false,
-          selectedCategoryId: "1",
-        ),
-        CategoriesState(
-          isLoading: false,
-          isSuccess: true,
-          errorMessage: null,
-          categories: const [],
-          productsList: productList,
-          selectedCategoryId: "1",
-        ),
-      ],
-      verify: (viewModel) {
-        verify(mockGetProductsByCategoryUseCase.invoke(
-          categoryId: "1",
-          page: 1,
-          limit: 10,
-        )).called(1);
-      },
-    );
-
-    blocTest<CategoriesViewModel, CategoriesState>(
-      "should load all products",
-      build: () => CategoriesViewModel(
-        mockCategoriesUseCase,
-        mockGetProductsByCategoryUseCase,
-        mockGetAllProductsUseCase,
+      CategoriesState(
+        isLoading: true,
+        isSuccess: false,
+        errorMessage: null,
+        categories: categoryEntityList,
+        productsList: const [],
+        selectedCategoryId: AppConstants.allId,
       ),
-      act: (viewModel) async {
-        provideDummy<ApiResult<ProductResponseEntity>>(productResult);
-        when(mockGetAllProductsUseCase.invoke())
-            .thenAnswer((_) async => productResult);
+      // State 4: Successfully  all products
+      CategoriesState(
+        isLoading: false,
+        isSuccess: true,
+        errorMessage: null,
+        categories: categoryEntityList,
+        productsList: productList,
+        selectedCategoryId: AppConstants.allId,
+      ),
+    ],
+    verify: (viewModel) {
+      verify(mockCategoriesUseCase.invoke()).called(1);
+      verify(mockGetAllProductsUseCase.invoke()).called(1);
+    },
+  );
+  blocTest<CategoriesViewModel, CategoriesState>(
+    "should load products by category",
+    build: () => CategoriesViewModel(
+      mockCategoriesUseCase,
+      mockGetProductsByCategoryUseCase,
+      mockGetAllProductsUseCase,
+    ),
+    act: (viewModel) async {
+      provideDummy<ApiResult<ProductResponseEntity>>(productResult);
+      when(mockGetProductsByCategoryUseCase.invoke(
+        categoryId: "1",
+        page: 1,
+        limit: 10,
+      )).thenAnswer((_) async => productResult);
 
-        await viewModel.doIntent(const GetAllProductsEvent());
-      },
-      expect: () => [
-        const CategoriesState(
-          isLoading: true,
-          isSuccess: false,
-          selectedCategoryId: AppConstants.allId,
-        ),
-        CategoriesState(
-          isLoading: false,
-          isSuccess: true,
-          errorMessage: null,
-          categories: const [],
-          productsList: productList,
-          selectedCategoryId: AppConstants.allId,
-        ),
-      ],
-      verify: (viewModel) {
-        verify(mockGetAllProductsUseCase.invoke()).called(1);
-      },
-    );
-  });
+      await viewModel.doIntent(
+        const GetProductsByCategoryEvent(categoryId: "1", page: 1, limit: 10),
+      );
+    },
+    expect: () => [
+      const CategoriesState(
+        isLoading: true,
+        isSuccess: false,
+        selectedCategoryId: "1",
+      ),
+      CategoriesState(
+        isLoading: false,
+        isSuccess: true,
+        errorMessage: null,
+        categories: const [],
+        productsList: productList,
+        selectedCategoryId: "1",
+      ),
+    ],
+    verify: (viewModel) {
+      verify(mockGetProductsByCategoryUseCase.invoke(
+        categoryId: "1",
+        page: 1,
+        limit: 10,
+      )).called(1);
+    },
+  );
+
+  blocTest<CategoriesViewModel, CategoriesState>(
+    "should load all products",
+    build: () => CategoriesViewModel(
+      mockCategoriesUseCase,
+      mockGetProductsByCategoryUseCase,
+      mockGetAllProductsUseCase,
+    ),
+    act: (viewModel) async {
+      provideDummy<ApiResult<ProductResponseEntity>>(productResult);
+      when(mockGetAllProductsUseCase.invoke())
+          .thenAnswer((_) async => productResult);
+
+      await viewModel.doIntent(const GetAllProductsEvent());
+    },
+    expect: () => [
+      const CategoriesState(
+        isLoading: true,
+        isSuccess: false,
+        selectedCategoryId: AppConstants.allId,
+      ),
+      CategoriesState(
+        isLoading: false,
+        isSuccess: true,
+        errorMessage: null,
+        categories: const [],
+        productsList: productList,
+        selectedCategoryId: AppConstants.allId,
+      ),
+    ],
+    verify: (viewModel) {
+      verify(mockGetAllProductsUseCase.invoke()).called(1);
+    },
+  );
 }
