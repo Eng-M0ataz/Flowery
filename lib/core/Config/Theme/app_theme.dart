@@ -19,6 +19,46 @@ abstract class AppThemeLight {
           color: AppColorsLight.black,
         ),
       ),
+      bottomNavigationBarTheme:BottomNavigationBarThemeData(
+
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.inter,
+          color: AppColorsLight.pink,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.xsFont_12,
+          fontFamily: AppFonts.inter,
+          color: AppColorsLight.white[80],
+        ),
+
+      ) ,
+      dividerTheme: const DividerThemeData(
+        color: AppColorsLight.red,
+        thickness: 1,
+      ),
+      tabBarTheme: (TabBarThemeData(
+        tabAlignment: TabAlignment.start,
+        labelPadding: EdgeInsets.only(right: AppSizes.paddingLg_24),
+        labelColor: colorScheme.primary,
+        unselectedLabelColor: AppColorsLight.white[70],
+        indicatorColor: colorScheme.primary,
+        dividerColor: colorScheme.onPrimary,
+        labelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: AppSizes.mdFont_16,
+          fontFamily: AppFonts.inter,
+        ),
+      )),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColorsLight.pink,

@@ -4,12 +4,14 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class CategorieItem extends StatelessWidget {
-  const CategorieItem({
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({
     super.key,
     required this.categoryEntity,
+    required this.itemIndex
   });
   final CategoryEntity categoryEntity;
+  final int itemIndex;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +25,7 @@ class CategorieItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusXl_20),
           ),
           child: CustomCachedNetworkImage(
-            image: categoryEntity.image,
+            image: categoryEntity.image!,
             imageWidth: AppSizes.homeCategoriesImageWidth,
             imageHigh: AppSizes.homeCategoriesImageHigh,
           ),
@@ -34,7 +36,7 @@ class CategorieItem extends StatelessWidget {
         SizedBox(
           width: AppSizes.homeCategoriesTextWidthConstrain,
           child: Text(
-            categoryEntity.name,
+            categoryEntity.name!,
             style: Theme.of(context).textTheme.displayMedium,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

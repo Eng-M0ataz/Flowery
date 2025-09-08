@@ -1,22 +1,22 @@
-import 'package:flower_e_commerce_app/Feature/bestSeller/domain/entities/responseEntities/best_seller_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/bestSeller/domain/useCases/best_seller_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/responseEntities/categories_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/categories_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_events.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/viewModel/home_state.dart';
-import 'package:flower_e_commerce_app/Feature/occasions/domain/entities/response/occasion_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/occasions/domain/useCases/get_all_occasion_use_case.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import '../../../../../bestSellerFeature/domain/entities/responseEntities/best_seller_response_entity.dart';
+import '../../../../../bestSellerFeature/domain/useCases/best_seller_use_case.dart';
+import '../../../../../occasion/domain/entities/response/occasion_response_entity.dart';
+import '../../../../../occasion/domain/useCases/get_all_occasion_use_case.dart';
 
 @injectable
 class HomeViewModel extends Cubit<HomeState> {
   final GetAllOccasionUseCase getAllOccasionUseCase;
-  final BestSellerUseCase getBestSallerUseCase;
+  final BestSellerUseCase getBestSellerUseCase;
   final CategoriesUseCase categoriesUseCase;
 
-  HomeViewModel(this.getAllOccasionUseCase, this.getBestSallerUseCase,
+  HomeViewModel(this.getAllOccasionUseCase, this.getBestSellerUseCase,
       this.categoriesUseCase)
       : super(const HomeState());
 
@@ -28,7 +28,7 @@ class HomeViewModel extends Cubit<HomeState> {
   }
 
   _getAllHome() {
-    _getAllBestSaller();
+    _getAllBestSeller();
     _getAllOccasions();
     _getAllCategories();
   }
@@ -54,21 +54,21 @@ class HomeViewModel extends Cubit<HomeState> {
     }
   }
 
-  Future<void> _getAllBestSaller() async {
-    final result = await getBestSallerUseCase.invoke();
+  Future<void> _getAllBestSeller() async {
+    final result = await getBestSellerUseCase.invoke();
     switch (result) {
       case ApiSuccessResult<BestSellerResponseEntity>():
         emit(
           state.copyWith(
-            isBestSallerLoading: false,
-            bestSallerList: result.data.bestSeller,
+            isBestSellerLoading: false,
+            bestSellerList: result.data.bestSeller,
           ),
         );
       case ApiErrorResult<BestSellerResponseEntity>():
         emit(
           state.copyWith(
-            isBestSallerLoading: false,
-            bestSallerFailure: result.failure,
+            isBestSellerLoading: false,
+            bestSellerFailure: result.failure,
           ),
         );
     }

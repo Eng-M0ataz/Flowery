@@ -4,8 +4,10 @@ import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class BestSallerItem extends StatelessWidget {
-  const BestSallerItem({
+import '../../../../../../bestSellerFeature/domain/entities/best_seller_entity.dart';
+
+class BestSellerItem extends StatelessWidget {
+  const BestSellerItem({
     super.key,
     required this.bestSellerEntity,
   });
@@ -16,7 +18,7 @@ class BestSallerItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomCachedNetworkImage(
-          image: bestSellerEntity.imgCover,
+          image: bestSellerEntity.imgCover!,
           imageHigh: AppSizes.homeBestSellerImageHigh,
           imageWidth: AppSizes.homeBestSellerImageWidth,
         ),
@@ -26,7 +28,7 @@ class BestSallerItem extends StatelessWidget {
         SizedBox(
           width: AppSizes.homeBestSellerTextWidthConstrain,
           child: Text(
-            bestSellerEntity.title,
+            bestSellerEntity.title!,
             style: Theme.of(context).textTheme.labelMedium,
             overflow: TextOverflow.ellipsis,
           ),

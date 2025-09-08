@@ -52,14 +52,12 @@ class ProductBlocBuilder extends StatelessWidget {
         }
         final products = state.productResponse!.products!;
 
-        return ResponsiveGridView.builder(
-          gridDelegate: ResponsiveGridDelegate(
-            crossAxisExtent: 171,
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
             crossAxisSpacing: AppSizes.spaceBetweenItems_16,
             mainAxisSpacing: AppSizes.spaceBetweenItems_16,
-            childAspectRatio: 0.74,
-            maxCrossAxisExtent: 4,
-            minCrossAxisExtent: 2,
+            childAspectRatio: 0.65,
           ),
           itemCount: products.length,
           itemBuilder: (context, index) {

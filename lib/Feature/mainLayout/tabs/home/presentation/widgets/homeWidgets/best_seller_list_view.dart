@@ -1,7 +1,11 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/best_seller_item.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../../bestSellerFeature/domain/entities/best_seller_entity.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({
@@ -10,6 +14,7 @@ class BestSellerListView extends StatelessWidget {
   });
 
   final List<BestSellerEntity> bestSellerList;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,9 +27,21 @@ class BestSellerListView extends StatelessWidget {
         itemCount: bestSellerList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () => context.pushNamed('routenameHere',
-              arguments: bestSellerList[index]),
-          child: BestSallerItem(
+          onTap: () {
+            final BestSellerEntity bestSeller = bestSellerList[index];
+            context.pushNamed(
+              AppRoutes.productDetailsRoute,
+              arguments: ProductDetailsModel(
+                quantity: bestSeller.quantity,
+                id: bestSeller.Id,
+                images: bestSeller.images,
+                price: bestSeller.price,
+                title: bestSeller.title,
+                description: bestSeller.description,
+              ),
+            );
+          },
+          child: BestSellerItem(
             bestSellerEntity: bestSellerList[index],
           ),
         ),

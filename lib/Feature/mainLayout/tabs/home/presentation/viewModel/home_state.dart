@@ -1,18 +1,17 @@
 import 'package:equatable/equatable.dart';
-import 'package:flower_e_commerce_app/Feature/bestSeller/domain/entities/best_seller_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/occasion_entity.dart';
-import 'package:flower_e_commerce_app/Feature/occasions/domain/entities/occasion_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import '../../../../../bestSellerFeature/domain/entities/best_seller_entity.dart';
 
 class HomeState extends Equatable {
   final bool isCategoriesLoading;
   final List<CategoryEntity> categoriesList;
   final Failure? categoriesFailure;
 
-  final bool isBestSallerLoading;
-  final List<BestSellerEntity> bestSallerList;
-  final Failure? bestSallerFailure;
+  final bool isBestSellerLoading;
+  final List<BestSellerEntity> bestSellerList;
+  final Failure? bestSellerFailure;
 
   final bool isOccasionLoading;
   final List<OccasionEntity> occasionsList;
@@ -22,21 +21,21 @@ class HomeState extends Equatable {
     this.isCategoriesLoading = true,
     this.categoriesList = const [],
     this.categoriesFailure,
-    this.bestSallerList = const [],
-    this.bestSallerFailure,
+    this.bestSellerList = const [],
+    this.bestSellerFailure,
     this.isOccasionLoading = true,
     this.occasionsList = const [],
     this.occasionFailure,
-    this.isBestSallerLoading = true,
+    this.isBestSellerLoading = true,
   });
 
   HomeState copyWith({
     bool? isCategoriesLoading,
     List<CategoryEntity>? categoriesList,
     Failure? categoriesFailure,
-    bool? isBestSallerLoading,
-    List<BestSellerEntity>? bestSallerList,
-    Failure? bestSallerFailure,
+    bool? isBestSellerLoading,
+    List<BestSellerEntity>? bestSellerList,
+    Failure? bestSellerFailure,
     bool? isOccasionLoading,
     List<OccasionEntity>? occasionsList,
     Failure? occasionFailure,
@@ -45,9 +44,9 @@ class HomeState extends Equatable {
       isCategoriesLoading: isCategoriesLoading ?? this.isCategoriesLoading,
       categoriesList: categoriesList ?? this.categoriesList,
       categoriesFailure: categoriesFailure ?? this.categoriesFailure,
-      isBestSallerLoading: isBestSallerLoading ?? this.isBestSallerLoading,
-      bestSallerList: bestSallerList ?? this.bestSallerList,
-      bestSallerFailure: bestSallerFailure ?? this.bestSallerFailure,
+      isBestSellerLoading: isBestSellerLoading ?? this.isBestSellerLoading,
+      bestSellerList: bestSellerList ?? this.bestSellerList,
+      bestSellerFailure: bestSellerFailure ?? this.bestSellerFailure,
       isOccasionLoading: isOccasionLoading ?? this.isOccasionLoading,
       occasionsList: occasionsList ?? this.occasionsList,
       occasionFailure: occasionFailure ?? this.occasionFailure,
@@ -56,9 +55,9 @@ class HomeState extends Equatable {
 
   @override
   List<Object?> get props => [
-        isBestSallerLoading,
-        bestSallerList,
-        bestSallerFailure,
+        isBestSellerLoading,
+        bestSellerList,
+        bestSellerFailure,
         isCategoriesLoading,
         categoriesList,
         categoriesFailure,

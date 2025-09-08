@@ -10,7 +10,8 @@ import 'build_tab_bar.dart';
 import 'shimmer/occasion_tabs_shimmer.dart';
 
 class TabsBlocBuilder extends StatelessWidget {
-  const TabsBlocBuilder({super.key});
+  final int initialIndex;
+  const TabsBlocBuilder({super.key,required this.initialIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,7 @@ class TabsBlocBuilder extends StatelessWidget {
         }
         final occasions = state.occasionResponse!.occasions!;
         return BuildTabBar(
+          initialIndex:initialIndex ,
           tabsLength: occasions.length,
           taps: occasions.map((occasion) => Tab(text: occasion.name)).toList(),
           onTap: (index) {

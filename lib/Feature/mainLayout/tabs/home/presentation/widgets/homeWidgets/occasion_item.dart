@@ -15,7 +15,7 @@ class OccasionItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomCachedNetworkImage(
-          image: occasionEntity.image,
+          image: occasionEntity.image!,
           imageHigh: AppSizes.homeOccasionImageHigh,
           imageWidth: AppSizes.homeOccasionImageWidth,
         ),
@@ -25,7 +25,7 @@ class OccasionItem extends StatelessWidget {
         SizedBox(
           width: AppSizes.homeOccasionTextWidthConstrain,
           child: Text(
-            occasionEntity.name,
+            occasionEntity.name!,
             style: Theme.of(context).textTheme.titleSmall,
             overflow: TextOverflow.ellipsis,
           ),

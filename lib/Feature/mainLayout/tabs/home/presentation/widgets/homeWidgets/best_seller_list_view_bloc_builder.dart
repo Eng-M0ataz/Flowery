@@ -14,16 +14,16 @@ class BestSellerListViewBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeViewModel, HomeState>(
       builder: (context, state) {
-        if (state.isBestSallerLoading) {
+        if (state.isBestSellerLoading) {
           return const ListViewsShimmerWidget();
         }
-        if (state.bestSallerFailure != null) {
+        if (state.bestSellerFailure != null) {
           return Center(
-            child: Text(state.bestSallerFailure!.errorMessage),
+            child: Text(state.bestSellerFailure!.errorMessage),
           );
         }
         return BestSellerListView(
-          bestSellerList: state.bestSallerList,
+          bestSellerList: state.bestSellerList,
         );
       },
     );

@@ -50,11 +50,11 @@ class ProductGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppSizes.paddingMd_16),
       child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.67,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
+          crossAxisSpacing: AppSizes.spaceBetweenItems_16,
+          mainAxisSpacing: AppSizes.spaceBetweenItems_16,
+          childAspectRatio: 0.65,
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {

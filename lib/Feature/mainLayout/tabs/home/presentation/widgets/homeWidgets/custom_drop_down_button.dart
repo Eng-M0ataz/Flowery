@@ -16,6 +16,9 @@ class CustomDropDownButton extends StatelessWidget {
       ),
       underline: const SizedBox(),
       hint: const Text("Deliver to 2XVP+XC - Sheikh Zayed"),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+        overflow: TextOverflow.ellipsis,
+      ),
       items: const [
         DropdownMenuItem(
           value: "Deliver to 2XVP+XC - Sheikh Zayed ",

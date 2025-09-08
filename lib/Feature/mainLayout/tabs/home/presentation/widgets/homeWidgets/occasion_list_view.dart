@@ -5,6 +5,8 @@ import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../../core/models/occasion_input_model.dart';
+
 class OccasionListView extends StatelessWidget {
   const OccasionListView({
     super.key,
@@ -12,6 +14,7 @@ class OccasionListView extends StatelessWidget {
   });
 
   final List<OccasionEntity> occasionsList;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,8 +29,11 @@ class OccasionListView extends StatelessWidget {
         itemCount: occasionsList.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () => context.pushNamed(AppRoutes.occasionRoute,
-              arguments: occasionsList[index].id),
+          onTap: () => context.pushNamed(
+            AppRoutes.occasionRoute,
+            arguments: OccasionInputModel(
+                occasionId: occasionsList[index].id!, index: index),
+          ),
           child: OccasionItem(
             occasionEntity: occasionsList[index],
           ),

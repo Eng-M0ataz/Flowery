@@ -12,6 +12,7 @@ abstract class AppSizes {
   static const double paddingMd_20 = 20.0;
   static const double paddingLg_24 = 24.0;
   static const double paddingXl_32 = 32.0;
+  static const double paddingXl_64 = 64.0;
 
   // icon sizes
   static const double xxsIcon_8 = 8.0;
