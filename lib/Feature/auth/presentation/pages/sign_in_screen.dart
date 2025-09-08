@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
@@ -37,7 +38,7 @@ class _SigninScreenState extends State<SigninScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                const CustomBackButton(title: LocaleKeys.Login),
+                 CustomBackButton(title: LocaleKeys.login.tr()),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 Form(
@@ -49,10 +50,10 @@ class _SigninScreenState extends State<SigninScreen> {
                         controller: _viewModel.emailController,
                         decoration: InputDecoration(
                           label: Text(
-                              LocaleKeys.Email,
+                              LocaleKeys.email.tr(),
                               style: theme.textTheme.bodyMedium
                           ),
-                          hintText: LocaleKeys.EmailHint,
+                          hintText: LocaleKeys.email_hint.tr(),
                         ),
                         validator: (value) => Validations.validateEmail(value)
                       ),
@@ -63,10 +64,10 @@ class _SigninScreenState extends State<SigninScreen> {
                         obscureText: true,
                         decoration: InputDecoration(
                           label: Text(
-                              LocaleKeys.Password,
+                              LocaleKeys.password.tr(),
                               style: theme.textTheme.bodyMedium
                           ),
-                          hintText: LocaleKeys.PasswordHint,
+                          hintText: LocaleKeys.password_hint.tr(),
                         ),
                         validator: (value) => Validations.validatePassword(value)
                       ),
@@ -84,7 +85,7 @@ class _SigninScreenState extends State<SigninScreen> {
                                     _viewModel.rememberMe = val ?? false;
                                 },
                               ),
-                              Text(LocaleKeys.Remember_me),
+                              Text(LocaleKeys.remember_me.tr()),
                             ],
                           ),
                           GestureDetector(
@@ -92,7 +93,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               context.pushNamed(AppRoutes.forgetPasswordRoute);
                             },
                             child: Text(
-                              LocaleKeys.Forget_password,
+                              LocaleKeys.forget_password.tr(),
                               style: theme.textTheme.bodyMedium!.copyWith(
                                 decoration: TextDecoration.underline,
                               ),
@@ -112,9 +113,9 @@ class _SigninScreenState extends State<SigninScreen> {
                     if (state.failure != null) {
                       DialogueUtils.showMessage(
                         context: context,
-                        title: LocaleKeys.Error,
+                        title: LocaleKeys.error.tr(),
                         message: state.failure?.errorMessage ?? "error",
-                        posActionName: LocaleKeys.OK,
+                        posActionName: LocaleKeys.ok.tr(),
                       );
                     }
                     if (state.response != null) {
@@ -126,7 +127,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     final isLoading = state.isLoading;
 
                     return CustomElevatedButton(
-                      title: LocaleKeys.Login,
+                      widget:Text(LocaleKeys.login.tr()) ,
                       isLoading: isLoading,
                       onPressed: () {
                         _viewModel.signin();
@@ -157,11 +158,11 @@ class _SigninScreenState extends State<SigninScreen> {
                     onTap: () => context.pushNamed(AppRoutes.signUpRoute),
                     child: RichText(
                       text: TextSpan(
-                        text: LocaleKeys.Do_not_have_an_account,
+                        text: LocaleKeys.do_not_have_an_account.tr(),
                         style: theme.textTheme.bodyMedium,
                         children: [
                           TextSpan(
-                            text: LocaleKeys.Sign_up,
+                            text: LocaleKeys.sign_up.tr(),
                             style: theme.textTheme.bodyMedium!.copyWith(
                               color: theme.colorScheme.primary,
                               decoration: TextDecoration.underline,

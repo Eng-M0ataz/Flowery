@@ -13,7 +13,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.signInRoute:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+        return MaterialPageRoute(builder: (_) => const SigninScreen());
       case AppRoutes.bestSellerRoute:
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
