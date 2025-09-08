@@ -52,7 +52,7 @@ class ProductCard extends StatelessWidget {
           ),
           const SizedBox(height: AppSizes.spaceBetweenItems_8),
           Align(
-            alignment: AlignmentGeometry.centerLeft,
+            alignment: Alignment.centerLeft,
             child: Text(
               title,
               style: Theme.of(context).textTheme.headlineSmall,
@@ -64,7 +64,7 @@ class ProductCard extends StatelessWidget {
           SizedBox(
             width: 147,
             child: Align(
-              alignment: AlignmentGeometry.centerLeft,
+              alignment: Alignment.centerLeft,
               child: Row(children: [
                 Text(
                   "${LocaleKeys.currency_egp.tr()} $priceAfterDiscount",
