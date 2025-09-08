@@ -1,18 +1,31 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/category_tabs.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/filter_icon_button_of_app_bar.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
+
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/search_bar_widget.dart';
+
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
+
 import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryScreenBody extends StatelessWidget {
-  const CategoryScreenBody({super.key});
+  final String? initialCategoryId;
+
+  const CategoryScreenBody({super.key, this.initialCategoryId});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +39,14 @@ class CategoryScreenBody extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        if (initialCategoryId != null &&
+            state.productsList == null &&
+            !state.isLoading) {
+          context.read<CategoriesViewModel>().doIntent(
+                GetProductsByCategoryEvent(categoryId: initialCategoryId!),
+              );
+        }
+
         return Column(
           children: [
             Padding(

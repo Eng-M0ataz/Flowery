@@ -54,9 +54,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           errorMessage: null,
           categories: result.data.categories,
           isSuccess: true,
-          selectedCategoryId: AppConstants.allId,
+          selectedCategoryId: state.selectedCategoryId ?? AppConstants.allId,
         ));
-        await _getAllProducts();
         break;
       case ApiErrorResult<CategoryResponseEntity>():
         emit(state.copyWith(

@@ -89,12 +89,13 @@ class CategoryTabs extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+                    topLeft: Radius.circular(AppSizes.borderRadiusMd_8),
+                    topRight: Radius.circular(AppSizes.borderRadiusMd_8)),
                 color: isSelected
                     ? Theme.of(context).colorScheme.primary
                     : AppColorsLight.white[70],
               ),
-              height: 3,
+              height: AppSizes.shimmerCategoryHeight_3,
               width: (categoryName.length * 8).toDouble(),
             ),
           ],
