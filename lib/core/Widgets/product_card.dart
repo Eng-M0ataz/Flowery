@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import '../Config/Theme/app_colors.dart';
 
@@ -27,8 +27,6 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 163,
-      height: 245,
       padding: EdgeInsets.all(AppSizes.paddingSm_8),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimary,
@@ -39,16 +37,13 @@ class ProductCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd_8),
-            child: CachedNetworkImage(
-              imageUrl: imgCover,
-              height: AppSizes.clipHeight_131,
-              width: 147,
-              fit: BoxFit.cover,
-              errorWidget: (context, url, error) => Icon(Icons.error,
-                  color: Theme.of(context).colorScheme.primary),
-            ),
+          CachedNetworkImage(
+            imageUrl: imgCover,
+            height: AppSizes.clipHeight_155,
+            width: AppSizes.clipWidth_163,
+            fit: BoxFit.cover,
+            errorWidget: (context, url, error) =>
+                Icon(Icons.error, color: Theme.of(context).colorScheme.primary),
           ),
           const SizedBox(height: AppSizes.spaceBetweenItems_8),
           Align(
@@ -95,7 +90,7 @@ class ProductCard extends StatelessWidget {
           SizedBox(
             height: AppSizes.sizedBoxHeight_30,
             child: CustomElevatedButton(
-              onPressed: () {},
+              onPressed: onAddToCart,
               isLoading: false,
               widget: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

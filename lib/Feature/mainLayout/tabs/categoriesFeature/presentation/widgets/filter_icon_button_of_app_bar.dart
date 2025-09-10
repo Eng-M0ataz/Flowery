@@ -24,7 +24,7 @@ class FilterIconButtonOfAppBar extends StatelessWidget {
             width: AppSizes.smIcon_16,
             height: AppSizes.smIcon_16,
             child: SvgPicture.asset(
-              Assets.filterIcon,
+              Assets.assetsImagesFilterIcon,
               fit: BoxFit.contain,
             ),
           ),
