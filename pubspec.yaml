@@ -96,5 +96,5 @@ flutter:
           weight: 600
 flutter_assets:
   assets_path: assets/images/
-  output_path: F:\real_projects\flower_e_commerce_app\lib\core\utils\Constants\
+  output_path: lib\core\utils\constants\
   filename: app_assets.dart

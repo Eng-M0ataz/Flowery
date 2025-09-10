@@ -40,5 +40,7 @@
   "out_stock": "غير متاحة",
   "status": "الحالة",
   "description": "الوصف",
-  "all_prices_include_tax": "السعر يشمل الضريبة"
+  "all_prices_include_tax": "السعر يشمل الضريبة",
+  "search_for_any_product_you_want" : "ابحث عن أي منتج تريد",
+  "no_products_found_for_your_search" : "لا يوجد منتجات مطابقة للبحث الذي أدخلته"
 }
