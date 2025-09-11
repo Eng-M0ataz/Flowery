@@ -7,6 +7,7 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_sc
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/pages/orders_screen.dart';
 import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/pages/profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
@@ -34,6 +35,8 @@ class RouteGenerator {
             builder: (_) => OccasionScreen(
                   occasionInputModel: args,
                 ));
+      case AppRoutes.ordersRoute:
+        return MaterialPageRoute(builder: (_) => const OrdersScreen());
       case AppRoutes.addAddressScreenRoute:
         return MaterialPageRoute(builder: (_) => const AddAddressScreen());
       case AppRoutes.savedAddressScreenRoute:

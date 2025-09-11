@@ -212,4 +212,15 @@
   "discount": "Discount",
   "search_for_any_product_you_want": "Search For Any Product You Want",
   "no_products_found_for_your_search": "No products found for your search"
+  "all_prices_include_tax": "All prices include tax",
+  "my_orders": "My orders",
+  "active": "Active",
+  "completed": "Completed",
+  "no_orders": "No orders registered",
+  "no_active_orders": "No active orders registered",
+  "no_completed_orders": "No completed orders registered",
+  "delivered_on": "Delivered on",
+  "order_number": "Order number",
+  "reorder": "Reorder",
+  "track_order": "Track order"
 }

@@ -218,5 +218,17 @@
   "old_product": "الأقدم",
   "discount": "خصومات",
   "search_for_any_product_you_want": "ابحث عن أي منتج تريد",
-  "no_products_found_for_your_search": "لا يوجد منتجات مطابقة للبحث الذي أدخلته"
+  "no_products_found_for_your_search": "لا يوجد منتجات مطابقة للبحث الذي أدخلته",
+  "all_prices_include_tax": "السعر يشمل الضريبة",
+  "my_orders": "طلبياتي",
+  "active": "نشيط",
+  "completed": "مكتمل",
+  "no_orders": "لا يوجد طلبيات مسجلة",
+  "no_active_orders": "لا يوجد طلبيات نشطة",
+  "no_completed_orders": "لا يود طلبيات مكتملة",
+  "delivered_on": "تم التسليم فى",
+  "order_number": "رقم الطلب",
+  "reorder": "إعادة طلب",
+  "track_order": "تتبع الطلب"
+
 }
