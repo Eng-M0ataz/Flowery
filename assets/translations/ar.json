@@ -7,11 +7,17 @@
   "Password": "كلمة المرور",
   "PasswordHint": "أدخل كلمة المرور",
   "PasswordRequired": "كلمة المرور مطلوبة",
-  "Remember_me": "تذكرني",
-  "Forget_password": "هل نسيت كلمة المرور؟",
+  "RememberMe": "تذكرني",
+  "ForgetPassword": "هل نسيت كلمة المرور؟",
   "Error": "خطأ",
   "OK": "موافق",
   "guest": "المتابعة كضيف",
-  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
-  "Sign_up": "سجل"
+  "DoNotHaveAccount": "ليس لديك حساب؟",
+  "SignUp": "سجل",
+  "Current Password": "كلمة المرور الحالية",
+  "Reset Password": "إعادة تعيين كلمة المرور",
+  "New Password": "كلمة المرور الجديدة",
+  "Confirm Password": "تأكيد كلمة المرور",
+  "Update": "تحديث",
+  "Password is changed": "تم تغيير كلمه المرور"
 }

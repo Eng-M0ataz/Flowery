@@ -13,5 +13,11 @@
   "OK": "OK",
   "guest": "Continue as guest",
   "DoNotHaveAccount": "Don't have an account?",
-  "SignUp": "Sign up"
+  "SignUp": "Sign up",
+  "Current Password": "Current password",
+  "Reset Password": "Reset password",
+  "New Password": "New password",
+  "Confirm Password": "Confirm password",
+  "Update": "Update" ,
+  "Password is changed": "Password is changed"
 }

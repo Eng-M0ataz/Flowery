@@ -2,7 +2,7 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
-import 'package:flower_e_commerce_app/generated/locale_keys.g.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
@@ -37,7 +37,7 @@ class _SigninScreenState extends State<SigninScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                const CustomBackButton(title: LocaleKeys.Login),
+                 CustomBackButton(title: LocaleKeys.Login),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 Form(
@@ -161,7 +161,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         style: theme.textTheme.bodyMedium,
                         children: [
                           TextSpan(
-                            text: LocaleKeys.Sign_up,
+                            text: LocaleKeys.SignUp,
                             style: theme.textTheme.bodyMedium!.copyWith(
                               color: theme.colorScheme.primary,
                               decoration: TextDecoration.underline,

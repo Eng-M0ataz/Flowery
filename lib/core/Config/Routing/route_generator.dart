@@ -14,7 +14,8 @@ class RouteGenerator {
       // case AppRoutes.forgetPasswordRoute:
       //   return MaterialPageRoute(builder: (_) => const ForgetPassword());
       case AppRoutes.mainLayoutRoute:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+        // return MaterialPageRoute(builder: (_) => const MainLayout());
+        return MaterialPageRoute(builder: (_) =>  ResetPasswordScreen());
       case AppRoutes.resetPasswordRoute:
         return MaterialPageRoute(builder: (_) =>  ResetPasswordScreen());
       default:

@@ -10,8 +10,8 @@ import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-import 'package:flower_e_commerce_app/generated/locale_keys.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,20 +31,20 @@ class ResetPasswordScreen extends StatelessWidget {
             DialogueUtils.showMessage(
               context: context,
               message: state.failure!.errorMessage,
-              posActionName: "ok",
+              posActionName: LocaleKeys.ok.tr(),
               posAction: () {
                 viewModel.resetPasswordSuccessState();
-                context.pop();
+                // context.pop();
               },
             );
           } else if (state.resetPasswordSuccess && !state.isLoading) {
             DialogueUtils.showMessage(
               context: context,
               message: "Password is changed",
-              posActionName: "ok",
+              posActionName: LocaleKeys.ok.tr(),
               posAction: () {
                 viewModel.resetPasswordSuccessState();
-                context.pop();
+                // context.pop();
               },
             );
           }
@@ -55,10 +55,10 @@ class ResetPasswordScreen extends StatelessWidget {
             appBar: AppBar(
               leading: CupertinoNavigationBarBackButton(
                 color: AppColorsLight.black,
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => context.pop(),
               ),
               title: Text(
-                "Reset Password",
+                LocaleKeys.resetPassword.tr(),
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               centerTitle: false,
@@ -70,6 +70,7 @@ class ResetPasswordScreen extends StatelessWidget {
               child: Form(
                 key: viewModel.resetPasswordFormKey,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     PasswordTextField(
                       lableText:LocaleKeys.currentPassword.tr(),
@@ -80,17 +81,17 @@ class ResetPasswordScreen extends StatelessWidget {
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_8),
                     PasswordTextField(
-                      lableText: "New Password",
+                      lableText: LocaleKeys.newPassword.tr(),
                       isPassword: true,
-                      hintText: "New Password",
+                      hintText: LocaleKeys.newPassword.tr(),
                       validator: Validations.validatePassword,
                       controller: viewModel.newPasswordController,
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_8),
                     PasswordTextField(
-                      lableText: "Confirm Password",
+                      lableText: LocaleKeys.confirmPassword.tr(),
                       isPassword: true,
-                      hintText: "Confirm Password",
+                      hintText: LocaleKeys.confirmPassword.tr(),
                       validator: (val) => Validations.validateConfirmPassword(
                         val,
                         viewModel.newPasswordController.text,
@@ -100,7 +101,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(AppSizes.spaceBetweenItems_16),
                       child: CustomElevatedButton(
-                        title: "Update",
+                        title: LocaleKeys.update.tr(),
                         onPressed: () {
                           if (viewModel.resetPasswordFormKey.currentState!
                               .validate()) {
