@@ -1,4 +1,5 @@
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
+import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
 import '../../models/product_details_model.dart';
-import '../../utils/constants/app_routes.dart';
+import '../../utils/Constants/app_routes.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -20,19 +21,22 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.occasionRoute:
-      final args = settings.arguments as OccasionInputModel;
-        return MaterialPageRoute(builder: (_) => OccasionScreen(
-           occasionInputModel: args,
-        ));
+        final args = settings.arguments as OccasionInputModel;
+        return MaterialPageRoute(
+            builder: (_) => OccasionScreen(
+                  occasionInputModel: args,
+                ));
 
       // return MaterialPageRoute(builder: (_) => const ForgetPassword());
 
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
-            builder: (_) => const MainLayout(
-                  initialIndex: 0,
-                ));
-
+          builder: (_) => const MainLayout(initialIndex: 0),
+        );
+      case AppRoutes.notificationRoute:
+        return MaterialPageRoute(
+          builder: (_) => const NotificationScreen(),
+        );
       case AppRoutes.categoriesRoute:
         return MaterialPageRoute(
           builder: (_) => const CategoryScreen(),
@@ -46,7 +50,6 @@ class RouteGenerator {
           ),
           settings: settings,
         );
-
 
       default:
         return unDefinedRoute();

@@ -19,8 +19,7 @@ abstract class AppThemeLight {
           color: AppColorsLight.black,
         ),
       ),
-      bottomNavigationBarTheme:BottomNavigationBarThemeData(
-
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
           fontWeight: FontWeight.w400,
@@ -34,10 +33,9 @@ abstract class AppThemeLight {
           fontFamily: AppFonts.inter,
           color: AppColorsLight.white[80],
         ),
-
-      ) ,
-      dividerTheme: const DividerThemeData(
-        color: AppColorsLight.red,
+      ),
+      dividerTheme: DividerThemeData(
+        color: AppColorsLight.white[70],
         thickness: 1,
       ),
       tabBarTheme: (TabBarThemeData(
@@ -58,7 +56,6 @@ abstract class AppThemeLight {
           fontFamily: AppFonts.inter,
         ),
       )),
-
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColorsLight.pink,
