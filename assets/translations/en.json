@@ -40,5 +40,15 @@
   "out_stock": "Status: Out Stock",
   "status": "Status",
   "description": "Description",
-  "all_prices_include_tax": "All prices include tax"
+  "all_prices_include_tax": "All prices include tax",
+  "my_orders": "My orders",
+  "active": "Active",
+  "completed": "Completed",
+  "no_orders": "No orders registered",
+  "no_active_orders": "No active orders registered",
+  "no_completed_orders": "No completed orders registered",
+  "delivered_on": "Delivered on",
+  "order_number": "Order number",
+  "reorder": "Reorder",
+  "track_order": "Track order"
 }

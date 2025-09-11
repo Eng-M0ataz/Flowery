@@ -40,5 +40,16 @@
   "out_stock": "غير متاحة",
   "status": "الحالة",
   "description": "الوصف",
-  "all_prices_include_tax": "السعر يشمل الضريبة"
+  "all_prices_include_tax": "السعر يشمل الضريبة",
+  "my_orders": "طلبياتي",
+  "active": "نشيط",
+  "completed": "مكتمل",
+  "no_orders": "لا يوجد طلبيات مسجلة",
+  "no_active_orders": "لا يوجد طلبيات نشطة",
+  "no_completed_orders": "لا يود طلبيات مكتملة",
+  "delivered_on": "تم التسليم فى",
+  "order_number": "رقم الطلب",
+  "reorder": "إعادة طلب",
+  "track_order": "تتبع الطلب"
+
 }

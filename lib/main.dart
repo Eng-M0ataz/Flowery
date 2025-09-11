@@ -46,7 +46,7 @@ class FlowerECommerceApp extends StatelessWidget {
       ),
       theme: AppThemeLight.lightTheme,
       onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: AppRoutes.signInRoute,
+      initialRoute: AppRoutes.ordersRoute,
     );
   }
 }
