@@ -13,4 +13,8 @@ abstract class ApiConstants {
   static const String getProducts = 'products';
   static const String categoryQuery = 'category';
   static const String mostSelling='best-seller';
+  static const String cashOrder='orders';
+  static const String visaOrder='orders/checkout?url=http://localhost:3000';
+  static const String addresses='addresses';
+
 }

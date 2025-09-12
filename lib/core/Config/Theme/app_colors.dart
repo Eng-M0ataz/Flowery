@@ -7,6 +7,7 @@ abstract class AppColorsLight {
   static const Color green = Color(0xff0CB359);
   static const Color shimmerColor = Color(0xffebebf4);
   static const Color shimmerColorSecondary = Color(0x4Da6a6a6);
+  static const Color whiteGrey=Color(0xFFEAEAEA);
 
 
   static const MaterialColor pink = MaterialColor(0xFFD21E6A, <int, Color>{

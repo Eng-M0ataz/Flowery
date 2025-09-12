@@ -38,6 +38,7 @@ dependencies:
   equatable: ^2.0.7
   bloc_test: ^10.0.0
   flutter_image_slideshow: ^0.1.6
+  webview_flutter: ^4.13.0
 
 
 dev_dependencies:

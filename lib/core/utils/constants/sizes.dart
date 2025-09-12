@@ -115,6 +115,9 @@ abstract class AppSizes {
   // Divider Height
 
   static const double dividerHeight = 1.0;
+  static const double dividerHeight_24=24.0;
+  static const double dividerThickness_24=24.0;
+
 
   // input field
 
@@ -219,4 +222,6 @@ abstract class AppSizes {
   static const int homeDummyShimmerListViewItemsLength = 6;
   static const double homeDummyShimmerListViewTextWidth = 80.0;
   static const double homeDummyShimmerListViewTextHigh = 12.0;
+
+
 }
