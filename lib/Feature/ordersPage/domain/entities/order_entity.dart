@@ -3,7 +3,7 @@ import 'order_items.dart';
 class OrdersEntity {
   final String? id;
   final String? user;
-  final List<OrderItems>? orderItems;
+  final List<OrderItemsEntity>? orderItems;
   final int? totalPrice;
   final String? paymentType;
   final bool? isPaid;

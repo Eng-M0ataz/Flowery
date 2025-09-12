@@ -1,6 +1,9 @@
 name: flower_e_commerce_app
 description: "A new Flutter project."
-publish_to: "none"
+
+publish_to: 'none' 
+
+
 version: 1.0.0+1
 
 environment:
@@ -47,6 +50,7 @@ dev_dependencies:
   json_serializable: ^6.10.0
   retrofit_generator: ^10.0.4
   injectable_generator: ^2.8.1
+  bloc_test: ^10.0.0
   mockito: ^5.5.0
 
 flutter:
@@ -88,7 +92,6 @@ flutter:
           weight: 400
         - asset: assets/fonts/Roboto-SemiBold.ttf
           weight: 600
-
 flutter_assets:
   assets_path: assets/images/
   output_path: lib\core\utils\Constantts\

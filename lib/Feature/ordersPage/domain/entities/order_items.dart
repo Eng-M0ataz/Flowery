@@ -1,12 +1,12 @@
 import '../../../../core/models/product_details_model.dart';
 
-class OrderItems {
+class OrderItemsEntity {
   final ProductDetailsModel? product;
   final int? price;
   final int? quantity;
   final String? id;
 
-  OrderItems ({
+  OrderItemsEntity ({
     this.product,
     this.price,
     this.quantity,
