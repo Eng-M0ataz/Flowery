@@ -8,7 +8,7 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/execute_api.dart';
 import 'package:injectable/injectable.dart';
 
-@injectable
+@Injectable(as: OrdersRemoteDataSource)
 class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
   final OrdersService _apiService;
   OrdersRemoteDataSourceImpl(this._apiService);

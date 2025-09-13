@@ -180,7 +180,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
 }
 
 class OrderItemWithOrderInfo {
-  final OrderItems orderItem;
+  final OrderItemsEntity orderItem;
   final OrdersEntity order;
 
   OrderItemWithOrderInfo({

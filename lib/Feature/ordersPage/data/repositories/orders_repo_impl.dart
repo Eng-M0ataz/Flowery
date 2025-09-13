@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/Feature/ordersPage/domain/repositories/ord
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
 
-@injectable
+@Injectable(as: OrdersRepo)
 class OrdersRepoImpl implements OrdersRepo {
   final OrdersRemoteDataSource _dataSource;
   OrdersRepoImpl(this._dataSource);

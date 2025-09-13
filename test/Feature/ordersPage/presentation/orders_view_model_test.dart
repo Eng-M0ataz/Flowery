@@ -42,7 +42,7 @@ void main() {
     );
 
     final testOrderItems = [
-      OrderItems(
+      OrderItemsEntity(
         id: "item_1",
         quantity: 2,
         price: 100,
