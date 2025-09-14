@@ -5,6 +5,8 @@ part 'product_dto.g.dart';
 @JsonSerializable()
 class ProductDto {
   @JsonKey(name: "_id")
+  final String? Id;
+  @JsonKey(name: "id")
   final String? id;
   @JsonKey(name: "title")
   final String? title;
@@ -20,8 +22,6 @@ class ProductDto {
   final int? price;
   @JsonKey(name: "priceAfterDiscount")
   final int? priceAfterDiscount;
-  @JsonKey(name: "discount")
-  final int? discount;
   @JsonKey(name: "quantity")
   final int? quantity;
   @JsonKey(name: "category")
@@ -40,8 +40,11 @@ class ProductDto {
   final int? rateAvg;
   @JsonKey(name: "rateCount")
   final int? rateCount;
+  @JsonKey(name: "__v")
+  final int? v;
 
   ProductDto ({
+    this.Id,
     this.id,
     this.title,
     this.slug,
@@ -50,7 +53,6 @@ class ProductDto {
     this.images,
     this.price,
     this.priceAfterDiscount,
-    this.discount,
     this.quantity,
     this.category,
     this.occasion,
@@ -60,6 +62,7 @@ class ProductDto {
     this.sold,
     this.rateAvg,
     this.rateCount,
+    this.v
   });
 
   factory ProductDto.fromJson(Map<String, dynamic> json) {

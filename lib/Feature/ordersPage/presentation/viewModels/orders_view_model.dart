@@ -27,30 +27,29 @@ class OrdersViewModel extends Cubit<OrdersState> {
   Future<void> _getAllOrders() async {
     emit(state.copyWith(
       isLoading: true,
+      isSuccess: false,
       orderFailure: null,
       orders: null,
-      isSuccess: false,
     ));
     final result = await _useCase.invoke();
     switch(result) {
       case ApiSuccessResult<OrdersResponseEntity>():
         emit(state.copyWith(
           isLoading: false,
+          isSuccess: true,
           orderFailure: null,
           orders: result.data,
-          isSuccess: true,
         ));
         break;
 
       case ApiErrorResult<OrdersResponseEntity>():
         emit(state.copyWith(
           isLoading: false,
+          isSuccess: false,
           orderFailure: result.failure,
           orders: null,
-          isSuccess: false,
         ));
         break;
     }
   }
-
 }

@@ -50,7 +50,7 @@ class OrderCard extends StatelessWidget {
                 height: AppSizes.clipHeight_131,
                 width: AppSizes.clipWidth_127,
                 child: CachedNetworkImage(
-                    imageUrl: imgCover!,
+                    imageUrl: imgCover ?? '',
                     fit: BoxFit.fill,
                     errorWidget: (context, url, error) => Icon(Icons.error,
                       color: Theme.of(context).colorScheme.primary),

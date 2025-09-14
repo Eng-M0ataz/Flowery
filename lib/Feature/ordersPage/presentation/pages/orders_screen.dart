@@ -37,7 +37,16 @@ class _OrdersScreenState extends State<OrdersScreen> {
         },
         builder: (context, state) {
           if (state.isLoading == true) {
-            return ProductsShimmer(isEnabled: state.isLoading);
+            return Scaffold(
+              appBar: CustomBackButton(
+                  title: LocaleKeys.my_orders.tr()
+              ),
+              body: Column(
+                children: [
+                  ProductsShimmer(isEnabled: state.isLoading),
+                ],
+              ),
+            );
           }
           if (state.orders != null && state.orders!.orders!.isNotEmpty) {
             final orders = state.orders!.orders;
@@ -128,7 +137,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                               return Padding(
                                 padding: const EdgeInsets.only(bottom: AppSizes.spaceBetweenItems_16),
                                 child: OrderCard(
-                                  imgCover: product?.imageCover,
+                                  imgCover: product?.imageCover ?? '',
                                   isDelivered: order.isDelivered!,
                                   title: product?.title ?? 'Unknown Product',
                                   price: itemPrice.toDouble(),

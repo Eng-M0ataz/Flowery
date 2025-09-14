@@ -90,9 +90,9 @@ void main() {
               .having((s) => s.isLoading, 'isLoading', true),
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', false)
+              .having((s) => s.isSuccess, 'isSuccess', true)
               .having((s) => s.orderFailure?.errorMessage, 'failure message', null)
               .having((s) => s.orders, 'orders', testOrdersResponseEntity)
-              .having((s) => s.isSuccess, 'isSuccess', true)
         ],
         verify: (cubit) {
           verify(mockOrdersUseCase.invoke()).called(1);
@@ -112,14 +112,14 @@ void main() {
         expect: () => [
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', true)
+              .having((s) => s.isSuccess, 'isSuccess', false)
               .having((s) => s.orderFailure, 'failure', null)
-              .having((s) => s.orders, 'orders', null)
-              .having((s) => s.isSuccess, 'isSuccess', false),
+              .having((s) => s.orders, 'orders', null),
           isA<OrdersState>()
             .having((s) => s.isLoading, 'isLoading', false)
+            .having((s) => s.isSuccess, 'isSuccess', false)
             .having((s) => s.orderFailure?.errorMessage, 'failure message', "Network error")
             .having((s) => s.orders, 'orders', null)
-            .having((s) => s.isSuccess, 'isSuccess', false)
         ],
         verify: (cubit) {
           verify(mockOrdersUseCase.invoke()).called(1);
@@ -144,9 +144,9 @@ void main() {
               .having((s) => s.isLoading, 'isLoading', true),
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', false)
+              .having((s) => s.isSuccess, 'isSuccess', true)
               .having((s) => s.orders?.message, 'orders.message', "success")
               .having((s) => s.orders?.orders, 'orders.orders', isEmpty)
-              .having((s) => s.isSuccess, 'isSuccess', true)
               .having((s) => s.orderFailure, 'orderFailure', null),
         ],
         verify: (cubit) {
@@ -187,18 +187,16 @@ void main() {
         },
         act: (cubit) => cubit.doIntent(GetAllOrdersEvent()),
         expect: () => [
-          // First: loading
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', true)
+              .having((s) => s.isSuccess, 'isSuccess', false)
               .having((s) => s.orderFailure, 'failure', null)
-              .having((s) => s.orders, 'orders', null)
-              .having((s) => s.isSuccess, 'isSuccess', false),
+              .having((s) => s.orders, 'orders', null),
 
-          // Second: success with 2 orders
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', false)
-              .having((s) => s.orderFailure, 'failure', null)
               .having((s) => s.isSuccess, 'isSuccess', true)
+              .having((s) => s.orderFailure, 'failure', null)
               .having((s) => s.orders?.orders!.length, 'orders length', 2)
               .having((s) => s.orders?.orders![0].id, 'first order id', "order_1")
               .having((s) => s.orders?.orders![1].id, 'second order id', "order_2"),
@@ -239,15 +237,15 @@ void main() {
         expect: () => [
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', true)
+              .having((s) => s.isSuccess, 'isSuccess', false)
               .having((s) => s.orderFailure, 'failure', null)
-              .having((s) => s.orders, 'orders', null)
-              .having((s) => s.isSuccess, 'isSuccess', false),
+              .having((s) => s.orders, 'orders', null),
           isA<OrdersState>()
               .having((s) => s.isLoading, 'isLoading', false)
+              .having((s) => s.isSuccess, 'isSuccess', false)
               .having((s) => s.orderFailure?.errorMessage, 'failure message', "No internet connection")
               .having((s) => s.orderFailure?.code, 'failure code', "500")
-              .having((s) => s.orders, 'orders', null)
-              .having((s) => s.isSuccess, 'isSuccess', false),
+              .having((s) => s.orders, 'orders', null),
         ],
         verify: (cubit) {
           verify(mockOrdersUseCase.invoke()).called(1);
