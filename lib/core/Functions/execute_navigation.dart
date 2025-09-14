@@ -1,7 +1,7 @@
-import '../Di/di.dart';
-import '../Services/storage_interface.dart';
-import '../Utils/constants/app_routes.dart';
-import '../utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Services/storage_interface.dart';
+import 'package:flower_e_commerce_app/core/utils/constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
 
 Future<String> getInitialRoute() async {
   final storage = getIt<Storage>(instanceName: AppConstants.secureStorage);

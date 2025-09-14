@@ -45,17 +45,11 @@ abstract class AppSizes {
   static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
 
-
-
-
-
   static const double buttonWidth_80 = 80.0;
 
   static const double buttomHigh = 56;
   static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
-
-
 
   // AppBar High
 
@@ -68,13 +62,10 @@ abstract class AppSizes {
   static const double imageHigh = 80.0;
 
   // Default Spacing Between items
-  static const double spaceBetweenItems_2 =2.0;
+  static const double spaceBetweenItems_2 = 2.0;
 
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-
-
-
 
   static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
@@ -84,8 +75,6 @@ abstract class AppSizes {
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_50 = 50.0;
 
-
-
   static const double spacingBetweenItems_10 = 12.0;
   static const double spacingBetweenItems_12 = 12.0;
   static const double spacingBetweenItems_16 = 16.0;
@@ -93,8 +82,6 @@ abstract class AppSizes {
   static const double spacingBetweenItems_32 = 32.0;
   static const double spacingBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_16 = 16.0;
-
-
 
   // Default Spacing Between Sections
 
@@ -142,6 +129,9 @@ abstract class AppSizes {
   //clip radius
   static const double clipHeight_131 = 131;
   static const double clipWidth_127 = 127;
+  static const double clipHeight_155 = 155;
+  static const double clipWidth_163 = 163;
+
   //elevation
   static const double cardElevation_0 = 0.0;
 
@@ -187,7 +177,6 @@ abstract class AppSizes {
 
   static const double shimmerProductTitleBorderRadius_4 = 4.0;
   static const double shimmerProductPriceHeight_12 = 12.0;
-
 
   // break points
 

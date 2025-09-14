@@ -38,7 +38,7 @@ class _SigninScreenState extends State<SigninScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                const CustomBackButton(title: LocaleKeys.login),
+                 CustomBackButton(title: LocaleKeys.login.tr()),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
 
                 Form(

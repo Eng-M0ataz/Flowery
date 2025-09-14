@@ -51,7 +51,7 @@ dev_dependencies:
   json_serializable: ^6.10.0
   retrofit_generator: ^10.0.2
   injectable_generator: ^2.8.1
-  bloc_test: ^10.0.0
+
 
 
 flutter:
