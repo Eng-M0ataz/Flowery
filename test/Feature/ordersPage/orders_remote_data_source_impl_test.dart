@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flower_e_commerce_app/Feature/ordersPage/api/dataSources/orders_remote_data_source_impl.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/api/mappers/response/order_response_mapper.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,7 +12,7 @@ import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 
 import 'orders_remote_data_source_impl_test.mocks.dart';
 
-@GenerateMocks([OrdersService, OrdersResponseDto])
+@GenerateMocks([OrdersApiService, OrdersResponseDto])
 void main() {
   late OrdersRemoteDataSourceImpl dataSource;
   late MockOrdersService mockOrdersService;

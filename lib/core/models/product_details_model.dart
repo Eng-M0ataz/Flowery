@@ -4,7 +4,6 @@ class ProductDetailsModel {
   final String? description;
   final int? price;
   final double? priceAfterDiscount;
-  final double? discount;
   final String? imageCover;
   final List<String>? images;
   final int? quantity;
@@ -15,7 +14,6 @@ class ProductDetailsModel {
     required this.title,
     required this.description,
     this.priceAfterDiscount,
-    this.discount,
     this.imageCover,
     required this.images,
     required this.quantity

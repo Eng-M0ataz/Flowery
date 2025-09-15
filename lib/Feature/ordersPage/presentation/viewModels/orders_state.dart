@@ -19,14 +19,13 @@ class OrdersState extends Equatable {
     bool? isSuccess,
     Failure? orderFailure,
     OrdersResponseEntity? orders,
-    bool clearFailure = false,
-    bool clearOrders = false,
   }) {
     return OrdersState(
       isLoading: isLoading ?? this.isLoading,
       isSuccess: isSuccess ?? this.isSuccess,
-      orderFailure: clearFailure ? null : (orderFailure ?? this.orderFailure),
-      orders: clearOrders ? null : (orders ?? this.orders),
+
+      orderFailure: orderFailure ?? this.orderFailure,
+      orders: orders ?? this.orders,
     );
   }
 

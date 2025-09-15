@@ -3,13 +3,11 @@ import 'package:flower_e_commerce_app/Feature/ordersPage/domain/entities/order_e
 import 'package:flower_e_commerce_app/Feature/ordersPage/domain/entities/order_items.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_event.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_view_model.dart';
-import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/widgets/order_card.dart';
-import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
+import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/widgets/show_orders.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/Di/di.dart';
@@ -73,111 +71,9 @@ class _OrdersScreenState extends State<OrdersScreen> {
 
             return DefaultTabController(
               length: 2,
-              child: Scaffold(
-                appBar: CustomBackButton(
-                  title: LocaleKeys.my_orders.tr(),
-                ),
-                body: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: AppSizes.spaceBetweenItems_16),
-                        child: TabBar(
-                          isScrollable: true,
-                          indicator: UnderlineTabIndicator(
-                            borderSide: BorderSide(
-                                width: 3, color: AppColorsLight.pink),
-                          ),
-                          labelColor: AppColorsLight.pink,
-                          unselectedLabelColor: AppColorsLight.grey,
-                          indicatorSize: TabBarIndicatorSize.tab,
-                          tabs: [
-                            Tab(
-                              child: SizedBox(
-                                width: MediaQuery
-                                    .of(context)
-                                    .size
-                                    .width / 2 - 25,
-                                child: Center(
-                                    child: Text(LocaleKeys.active.tr())),
-                              ),
-                            ),
-                            Tab(
-                              child: SizedBox(
-                                width: MediaQuery
-                                    .of(context)
-                                    .size
-                                    .width / 2 - 25,
-                                child: Center(
-                                    child: Text(LocaleKeys.completed.tr())),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          allActiveOrderItems.isEmpty
-                              ? Center(child: Text(LocaleKeys.no_active_orders.tr()))
-                              : ListView.builder(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppSizes.spaceBetweenItems_16),
-                            itemCount: allActiveOrderItems.length,
-                            itemBuilder: (context, index) {
-                              final orderItemWithInfo = allActiveOrderItems[index];
-                              final item = orderItemWithInfo.orderItem;
-                              final order = orderItemWithInfo.order;
-                              final product = item.product;
-                              final itemPrice = (item.price! * item.quantity!);
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: AppSizes.spaceBetweenItems_16),
-                                child: OrderCard(
-                                  imgCover: product?.imageCover ?? '',
-                                  isDelivered: order.isDelivered!,
-                                  title: product?.title ?? 'Unknown Product',
-                                  price: itemPrice.toDouble(),
-                                  orderNumber: order.orderNumber,
-                                  date: order.updatedAt ?? order.createdAt ?? DateTime.now().toIso8601String(),
-                                ),
-                              );
-                            },
-                          ),
-
-                          allCompletedOrderItems.isEmpty
-                              ? Center(child: Text(LocaleKeys.no_completed_orders.tr()))
-                              : ListView.builder(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppSizes.spaceBetweenItems_16),
-                            itemCount: allCompletedOrderItems.length,
-                            itemBuilder: (context, index) {
-                              final orderItemWithInfo = allCompletedOrderItems[index];
-                              final item = orderItemWithInfo.orderItem;
-                              final order = orderItemWithInfo.order;
-                              final product = item.product;
-                              final itemPrice = (item.price! * item.quantity!);
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: AppSizes.spaceBetweenItems_16),
-                                child: OrderCard(
-                                  imgCover: product?.imageCover,
-                                  isDelivered: order.isDelivered!,
-                                  title: product?.title ?? "Unknown Product",
-                                  price: itemPrice.toDouble(),
-                                  orderNumber: order.orderNumber,
-                                  date: order.updatedAt ?? order.createdAt ?? DateTime.now().toIso8601String(),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+              child: ShowOrders(
+                  allActiveOrderItems: allActiveOrderItems,
+                  allCompletedOrderItems: allCompletedOrderItems
               ),
             );
           }

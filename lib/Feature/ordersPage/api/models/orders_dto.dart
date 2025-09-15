@@ -1,6 +1,5 @@
 import 'package:flower_e_commerce_app/Feature/ordersPage/api/models/order_items_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'orders_dto.g.dart';
 
 @JsonSerializable()

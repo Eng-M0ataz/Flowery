@@ -4,7 +4,6 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/Constants/sizes.dart';
 
 class OrderCard extends StatelessWidget {

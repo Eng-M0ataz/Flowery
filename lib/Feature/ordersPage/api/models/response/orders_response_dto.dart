@@ -1,7 +1,6 @@
 import 'package:flower_e_commerce_app/Feature/ordersPage/api/models/metadata_dto.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/api/models/orders_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'orders_response_dto.g.dart';
 
 @JsonSerializable()

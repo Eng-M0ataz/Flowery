@@ -1,5 +1,4 @@
 import 'order_items.dart';
-
 class OrdersEntity {
   final String? id;
   final String? user;
