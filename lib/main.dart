@@ -32,12 +32,12 @@ void main() async {
 
 Future<String> _getInitialRoute() async {
   final storage = getIt<Storage>(instanceName: AppConstants.secureStorage);
-  // final rememberMeValue = await storage.read(key: AppConstants.rememberMe);
-  //
-  // if (rememberMeValue.toLowerCase() == 'true') {
-  //   return AppRoutes.mainLayoutRoute;
-  //
-  // }
+  final rememberMeValue = await storage.read(key: AppConstants.rememberMe);
+
+  if (rememberMeValue.toLowerCase() == 'true') {
+    return AppRoutes.mainLayoutRoute;
+
+  }
   return AppRoutes.signInRoute;
 }
 

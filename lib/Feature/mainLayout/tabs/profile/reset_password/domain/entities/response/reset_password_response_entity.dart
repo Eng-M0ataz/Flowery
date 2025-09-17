@@ -5,5 +5,4 @@ class ResetPasswordResponseEntity{
     this.message,
     this.token
 });
-
 }

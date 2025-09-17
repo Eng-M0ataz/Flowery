@@ -1,3 +1,2 @@
-sealed class ProfileEvent{}
-
-class ResetPasswordEvent extends ProfileEvent {}
+sealed class ResetPasswordEvent{}
+class ResetPasswordSubmitEvent extends ResetPasswordEvent{}

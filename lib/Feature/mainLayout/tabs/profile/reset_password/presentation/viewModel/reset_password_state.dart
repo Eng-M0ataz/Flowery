@@ -29,5 +29,4 @@ class ResetPasswordState extends Equatable{
       resetPasswordSuccess: resetPasswordSuccess??this.resetPasswordSuccess
     );
   }
-
 }

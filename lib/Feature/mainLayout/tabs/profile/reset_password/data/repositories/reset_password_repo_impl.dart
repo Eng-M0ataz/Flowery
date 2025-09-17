@@ -5,18 +5,15 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/reset_pass
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
 
-
 @Injectable(as: ResetPasswordRepo)
-class ResetPasswordRepoImpl implements ResetPasswordRepo{
+class ResetPasswordRepoImpl implements ResetPasswordRepo {
   final ResetPasswordDataSource _resetPasswordDataSource;
 
-  ResetPasswordRepoImpl({
-    required ResetPasswordDataSource resetPasswordDataSource
-}):_resetPasswordDataSource=resetPasswordDataSource;
+  ResetPasswordRepoImpl(this._resetPasswordDataSource);
 
   @override
-  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(ResetPasswordRequestEntity resetPasswordRequestEntity) {
+  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(
+      ResetPasswordRequestEntity resetPasswordRequestEntity) {
     return _resetPasswordDataSource.resetPassword(resetPasswordRequestEntity);
   }
-
 }

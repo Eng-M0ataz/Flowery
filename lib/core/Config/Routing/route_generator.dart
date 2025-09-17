@@ -9,13 +9,12 @@ class RouteGenerator {
     switch (settings.name) {
       case AppRoutes.signInRoute:
         return MaterialPageRoute(builder: (_) => const SigninScreen());
-      // case AppRoutes.signUpRoute:
-      //   return MaterialPageRoute(builder: (_) => const SignUpScreen());
-      // case AppRoutes.forgetPasswordRoute:
-      //   return MaterialPageRoute(builder: (_) => const ForgetPassword());
+      case AppRoutes.signUpRoute:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case AppRoutes.forgetPasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ForgetPassword());
       case AppRoutes.mainLayoutRoute:
-        // return MaterialPageRoute(builder: (_) => const MainLayout());
-        return MaterialPageRoute(builder: (_) =>  ResetPasswordScreen());
+        return MaterialPageRoute(builder: (_) => const MainLayout());
       case AppRoutes.resetPasswordRoute:
         return MaterialPageRoute(builder: (_) =>  ResetPasswordScreen());
       default:

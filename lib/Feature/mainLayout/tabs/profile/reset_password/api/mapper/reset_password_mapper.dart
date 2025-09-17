@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/reset_pass
 
 extension ResetPasswordMapper on ResetPasswordResponseDto {
   ResetPasswordResponseEntity toEntity() {
-    return ResetPasswordResponseEntity(token: token, message: message);
+    return ResetPasswordResponseEntity(token: token??" ", message: message);
   }
 }
 

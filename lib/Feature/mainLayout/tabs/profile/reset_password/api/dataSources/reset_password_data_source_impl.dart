@@ -9,21 +9,20 @@ import 'package:flower_e_commerce_app/core/Functions/execute_api.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ResetPasswordDataSource)
-class ResetPasswordDataSourceImpl implements ResetPasswordDataSource{
-
+class ResetPasswordDataSourceImpl implements ResetPasswordDataSource {
   final ResetPasswordApiService _resetPasswordApiService;
-
   ResetPasswordDataSourceImpl({
     required ResetPasswordApiService resetPasswordApiService
-}):_resetPasswordApiService=resetPasswordApiService;
+  }) :_resetPasswordApiService=resetPasswordApiService;
 
   @override
-  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(ResetPasswordRequestEntity resetPasswordRequestEntity) {
-   return executeApi<ResetPasswordResponseDto,ResetPasswordResponseEntity>(
-       ()=>_resetPasswordApiService.resetPassword(resetPasswordRequestEntity.toModel()
-       ),(dto)=>dto.toEntity()
-   );
+  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(
+      ResetPasswordRequestEntity resetPasswordRequestEntity) {
+    return executeApi<ResetPasswordResponseDto, ResetPasswordResponseEntity>(
+            () =>
+            _resetPasswordApiService.resetPassword(
+                resetPasswordRequestEntity.toModel()
+            ), (dto) => dto.toEntity()
+    );
   }
-
-
 }

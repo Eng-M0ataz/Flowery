@@ -6,7 +6,6 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/reset_pass
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
-import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
@@ -25,26 +24,20 @@ class ResetPasswordScreen extends StatelessWidget {
       create: (_) => getIt<ResetPasswordViewModel>(),
       child: BlocConsumer<ResetPasswordViewModel, ResetPasswordState>(
         listener: (context, state) {
-          final viewModel = context.read<ResetPasswordViewModel>();
-
           if (state.failure != null && !state.isLoading) {
             DialogueUtils.showMessage(
               context: context,
               message: state.failure!.errorMessage,
               posActionName: LocaleKeys.ok.tr(),
               posAction: () {
-                viewModel.resetPasswordSuccessState();
-                // context.pop();
               },
             );
           } else if (state.resetPasswordSuccess && !state.isLoading) {
             DialogueUtils.showMessage(
               context: context,
-              message: "Password is changed",
+              message: LocaleKeys.password_is_changed.tr(),
               posActionName: LocaleKeys.ok.tr(),
               posAction: () {
-                viewModel.resetPasswordSuccessState();
-                // context.pop();
               },
             );
           }
@@ -58,7 +51,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 onPressed: () => context.pop(),
               ),
               title: Text(
-                LocaleKeys.resetPassword.tr(),
+                LocaleKeys.reset_password.tr(),
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               centerTitle: false,
@@ -73,25 +66,25 @@ class ResetPasswordScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     PasswordTextField(
-                      lableText:LocaleKeys.currentPassword.tr(),
+                      lableText:LocaleKeys.current_password.tr(),
                       isPassword: true,
-                      hintText: LocaleKeys.currentPassword.tr(),
+                      hintText: LocaleKeys.current_password.tr(),
                       validator: Validations.validatePassword,
                       controller: viewModel.currentPasswordController,
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_8),
                     PasswordTextField(
-                      lableText: LocaleKeys.newPassword.tr(),
+                      lableText: LocaleKeys.new_password.tr(),
                       isPassword: true,
-                      hintText: LocaleKeys.newPassword.tr(),
+                      hintText: LocaleKeys.new_password.tr(),
                       validator: Validations.validatePassword,
                       controller: viewModel.newPasswordController,
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_8),
                     PasswordTextField(
-                      lableText: LocaleKeys.confirmPassword.tr(),
+                      lableText: LocaleKeys.confirm_password.tr(),
                       isPassword: true,
-                      hintText: LocaleKeys.confirmPassword.tr(),
+                      hintText: LocaleKeys.confirm_password.tr(),
                       validator: (val) => Validations.validateConfirmPassword(
                         val,
                         viewModel.newPasswordController.text,
@@ -105,7 +98,7 @@ class ResetPasswordScreen extends StatelessWidget {
                         onPressed: () {
                           if (viewModel.resetPasswordFormKey.currentState!
                               .validate()) {
-                            viewModel.doIntent(ResetPasswordEvent());
+                            viewModel.doIntent(ResetPasswordSubmitEvent());
                           }
                         },
                         isLoading: state.isLoading,
