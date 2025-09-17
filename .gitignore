@@ -79,3 +79,5 @@ lib/Feature/auth/api/client/api_service.g.dart
 android/build/reports/problems/problems-report.html
 android/build/reports/problems/problems-report.html
 pubspec.lock
+test/Feature/searchFeature/search_remote_data_source_impl_test.mocks.dart
+*.mocks.dart
