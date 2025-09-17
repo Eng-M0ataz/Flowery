@@ -23,7 +23,9 @@
 
 ## 📝 Description
 
+
 Added **Search Feature** that allows users to search for products with debounce to reduce API calls.
+
 
 ---
 
@@ -39,17 +41,21 @@ _How to test the changes manually?_
 
 - [ ] Run the app on Android
 - [ ] Run the app on iOS
+
 - [ ] Go to the products page
 - [ ] Try searching for a product (e.g. "Rose")
 - [ ] Verify that results are shown correctly
 - [ ] Verify "No products found" message when nothing matches
 
+
 ---
 
 ## 📸 Screenshots or Recordings (if UI changes)
 
+
 _Add screenshots or screen recordings to demonstrate your changes._
 *(Optional – e.g., showing search results and empty state)*
+
 
 ---
 
@@ -73,7 +79,11 @@ _Add screenshots or screen recordings to demonstrate your changes._
 
 ## 🛠 Post-Deployment Tasks (Optional)
 
+
+
+
 _No extra tasks needed._
+
 
 ---
 
