@@ -30,7 +30,6 @@
   "no_categories": "No categories found",
   "all": "All",
   "filter": "Filter",
-  "currency": "EGP",
   "home": "Home",
   "cart": "Cart",
   "profile": "Profile",
@@ -40,5 +39,19 @@
   "out_stock": "Status: Out Stock",
   "status": "Status",
   "description": "Description",
-  "all_prices_include_tax": "All prices include tax"
+  "all_prices_include_tax": "All prices include tax", 
+  "DoNotHaveAccount": "Don't have an account?",
+  "SignUp": "Sign up",
+  "items" : "items",
+  "currency" : "EGP",
+  "empty_cart" : "Opps Your Cart Is Empty",
+  "sub_total" : "sub total",
+  "delivery_fee" : "Delivery fee",
+  "total" : "Total",
+  "checkout" : "Checkout",
+  "remove_all_cart_items" : "Remove all cart items"
 }
+
+ 
+
+

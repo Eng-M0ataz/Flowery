@@ -15,12 +15,21 @@ abstract class AppSizes {
   static const double paddingXl_64 = 64.0;
 
   // icon sizes
-  static const double xxsIcon_8 = 8.0;
-  static const double xsIcon_12 = 12.0;
-  static const double smIcon_16 = 16.0;
-  static const double mdIcon_24 = 24.0;
-  static const double lgIcon_32 = 32.0;
-  static const double lgIcon_64 = 64.0;
+  static const double icon_8 = 8.0;
+  static const double icon_12 = 12.0;
+  static const double icon_16 = 16.0;
+  static const double icon_24 = 24.0;
+  static const double icon_32 = 32.0;
+  static const double icon_40 = 40.0;
+  static const double icon_48 = 48.0;
+  static const double icon_56 = 56.0;
+  static const double icon_60 = 60.0;
+  static const double icon_64 = 64.0;
+  static const double icon_72 = 72.0;
+  static const double icon_80 = 80.0;
+  static const double icon_96 = 96.0;
+  static const double icon_100 = 100.0;
+  static const double icon_120 = 120.0;
 
   // font sizes
   static const double xxsFont_10 = 10.0;
@@ -63,25 +72,15 @@ abstract class AppSizes {
 
   // Default Spacing Between items
   static const double spaceBetweenItems_2 = 2.0;
-
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-
-  static const double spacegBetweenItems_10 = 10.0;
+  static const double spaceBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
-  static const double spaceBetwwenItems_24 = 24.0;
+  static const double spaceBetweenItems_16 = 16.0;
+  static const double spaceBetweenItems_24 = 24.0;
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_50 = 50.0;
-
-  static const double spacingBetweenItems_10 = 12.0;
-  static const double spacingBetweenItems_12 = 12.0;
-  static const double spacingBetweenItems_16 = 16.0;
-  static const double spacingBetweenItems_24 = 24.0;
-  static const double spacingBetweenItems_32 = 32.0;
-  static const double spacingBetweenItems_36 = 36.0;
-  static const double spaceBetweenItems_16 = 16.0;
 
   // Default Spacing Between Sections
 
@@ -170,7 +169,6 @@ abstract class AppSizes {
   static const double shimmerProductImageBorderRadius_8 = 8.0;
   static const double shimmerProductTitleHeight_16 = 16.0;
   static const double shimmerHeight_30 = 30.0;
-
   static const double shimmerProductTitleBorderRadius_4 = 4.0;
   static const double shimmerProductPriceHeight_12 = 12.0;
 
@@ -191,12 +189,10 @@ abstract class AppSizes {
   static const double homeBestSellerImageWidth = 131.0;
   static const double homeBestSellerTextWidthConstrain = 131.0;
   static const double homeBestSellerListViewHigh = 208.0;
-
   static const double homeOccasionImageHigh = 151.0;
   static const double homeOccasionImageWidth = 131.0;
   static const double homeOccasionTextWidthConstrain = 131.0;
   static const double homeOccasionListViewHigh = 185.0;
-
   static const double homeCategoriesImageContainerHigh = 64.0;
   static const double homeCategoriesImageContainerWidth = 64.0;
   static const double homeCategoriesImageHigh = 24.0;
@@ -206,4 +202,12 @@ abstract class AppSizes {
   static const int homeDummyShimmerListViewItemsLength = 6;
   static const double homeDummyShimmerListViewTextWidth = 80.0;
   static const double homeDummyShimmerListViewTextHigh = 12.0;
+  static const double cartImageHigh = 101.0;
+  static const double cartImageWidth = 96.0;
+  static const double cartProductNameWidth = 230.0;
+  static const double cartProductNameHigh = 20;
+  static const double cartProductPluseAndNegetiveButtonHighWidth = 16;
+  static const double cartAddAndRemoveCircleLoadingIndicatorWidth = 10.0;
+  static const double cartAddAndRemoveCircleLoadingIndicatorHigh = 10.0;
+  static const double cartAddAndRemoveCircleLoadingIndicatorStrokeWidth = 3.0;
 }

@@ -19,8 +19,7 @@ abstract class AppThemeLight {
           color: AppColorsLight.black,
         ),
       ),
-      bottomNavigationBarTheme:BottomNavigationBarThemeData(
-
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
           fontWeight: FontWeight.w400,
@@ -34,11 +33,6 @@ abstract class AppThemeLight {
           fontFamily: AppFonts.inter,
           color: AppColorsLight.white[80],
         ),
-
-      ) ,
-      dividerTheme: const DividerThemeData(
-        color: AppColorsLight.red,
-        thickness: 1,
       ),
       tabBarTheme: (TabBarThemeData(
         tabAlignment: TabAlignment.start,
@@ -127,6 +121,7 @@ abstract class AppThemeLight {
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: AppColorsLight.pink[70],
       ),
+      dividerTheme: DividerThemeData(color: AppColorsLight.grey),
       textTheme: const TextTheme(
         bodySmall: TextStyle(
           fontWeight: FontWeight.w500,

@@ -1,12 +1,11 @@
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/pages/home_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/widgets/button_nav_bar.dart';
 import 'package:flutter/material.dart';
 
-
 class MainLayout extends StatefulWidget {
-  const MainLayout({super.key, required this.initialIndex});
-  final int? initialIndex;
+  const MainLayout({super.key});
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -27,11 +26,7 @@ class _MainLayoutState extends State<MainLayout> {
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: [
-         HomeScreen(),
-          CategoryScreen(),
-
-        ],
+        children: [HomeScreen(), CategoryScreen(), CartScreen()],
       ),
     );
   }

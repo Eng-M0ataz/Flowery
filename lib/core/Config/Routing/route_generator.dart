@@ -3,11 +3,12 @@ import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasi
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
 import '../../models/product_details_model.dart';
-import '../../utils/constants/app_routes.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -20,19 +21,15 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.occasionRoute:
-      final args = settings.arguments as OccasionInputModel;
-        return MaterialPageRoute(builder: (_) => OccasionScreen(
-           occasionInputModel: args,
-        ));
-
+        final args = settings.arguments as OccasionInputModel;
+        return MaterialPageRoute(
+          builder: (_) => OccasionScreen(occasionInputModel: args),
+        );
       // return MaterialPageRoute(builder: (_) => const ForgetPassword());
-
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
-            builder: (_) => const MainLayout(
-                  initialIndex: 0,
-                ));
-
+          builder: (_) => const MainLayout(),
+        );
       case AppRoutes.categoriesRoute:
         return MaterialPageRoute(
           builder: (_) => const CategoryScreen(),
@@ -41,12 +38,12 @@ class RouteGenerator {
       case AppRoutes.productDetailsRoute:
         final args = settings.arguments as ProductDetailsModel;
         return MaterialPageRoute(
-          builder: (_) => ProductDetailsScreen(
-            productDetailsModel: args,
-          ),
+          builder: (_) => ProductDetailsScreen(productDetailsModel: args),
           settings: settings,
         );
 
+      case AppRoutes.cartRoute:
+        return MaterialPageRoute(builder: (context) => const CartScreen());
 
       default:
         return unDefinedRoute();

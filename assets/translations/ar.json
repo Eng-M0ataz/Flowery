@@ -40,5 +40,18 @@
   "out_stock": "غير متاحة",
   "status": "الحالة",
   "description": "الوصف",
-  "all_prices_include_tax": "السعر يشمل الضريبة"
+  "all_prices_include_tax": "السعر يشمل الضريبة",
+  "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
+  "Sign_up": "سجل",
+  "items" : "العناصر",
+  "empty_cart" : "السلة الخاصة بك فارغة",
+  "sub_total" : "المجموع الفرعى",
+  "delivery_fee" : "خدمة النوصيل",
+  "total" : "المجموع",
+  "checkout" : "الذهاب الى صفحة الدفع",
+  "remove_all_cart_items" : "ازالة جميع العناصر من السلة"
 }
+
+ 
+
+
