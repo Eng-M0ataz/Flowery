@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/Functions/validators.dart';
 import '../../../../core/localization/locale_keys.g.dart';
@@ -12,7 +13,8 @@ class GiftSection extends StatefulWidget {
 }
 
 class _GiftSectionState extends State<GiftSection> {
-  bool isGift=true;
+  bool isGift = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,14 +27,18 @@ class _GiftSectionState extends State<GiftSection> {
             ),
             child: Column(
               children: [
+                SizedBox(
+                  height: AppSizes.spaceBetwwenItems_24,
+                ),
                 Row(
                   children: [
-                    Switch(value: isGift, onChanged: (value) {
-                      setState(() {
-                        isGift=!isGift;
-                      });
-
-                    }),
+                    Switch(
+                        value: isGift,
+                        onChanged: (value) {
+                          setState(() {
+                            isGift = !isGift;
+                          });
+                        }),
                     const SizedBox(width: AppSizes.spaceBetweenItems_8),
                     Text(
                       LocaleKeys.it_is_a_gift.tr(),
@@ -42,7 +48,7 @@ class _GiftSectionState extends State<GiftSection> {
                 ),
                 const SizedBox(height: AppSizes.spaceBetwwenItems_16),
                 Visibility(
-                  visible:isGift ,
+                  visible: isGift,
                   child: Column(
                     children: [
                       TextFormField(
@@ -71,7 +77,6 @@ class _GiftSectionState extends State<GiftSection> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetwwenItems_24),
               ],
             ),

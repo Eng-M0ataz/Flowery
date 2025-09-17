@@ -23,6 +23,9 @@ class AddressSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: AppSizes.spaceBetwwenItems_24,
+            ),
             Text(
               LocaleKeys.delivery_address.tr(),
               style: Theme.of(context).textTheme.displaySmall,

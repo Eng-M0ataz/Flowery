@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import '../../../../core/Errors/failure.dart';
 import '../../domain/entities/response/user_address_response_entity.dart';
-import '../../domain/entities/response/cash_order_entity.dart';
 import '../../domain/entities/response/visa_order_entity.dart';
 
 class CheckoutState extends Equatable {
@@ -17,7 +16,8 @@ class CheckoutState extends Equatable {
   final Failure? validationFailure;
 
   final UserAddressResponseEntity? userAddressResponse;
-  final CashOrderEntity? cashOrderResponse;
+  final String? cashOrderSuccessMessage;
+
   final VisaOrderEntity? visaOrderResponse;
 
   const CheckoutState({
@@ -31,8 +31,8 @@ class CheckoutState extends Equatable {
     this.visaOrderFailure,
     this.validationFailure,
     this.userAddressResponse,
-    this.cashOrderResponse,
     this.visaOrderResponse,
+    this.cashOrderSuccessMessage,
   });
 
   CheckoutState copyWith({
@@ -45,9 +45,9 @@ class CheckoutState extends Equatable {
     Failure? visaOrderFailure,
     Failure? validationFailure,
     UserAddressResponseEntity? userAddressResponse,
-    CashOrderEntity? cashOrderResponse,
     VisaOrderEntity? visaOrderResponse,
     String? selectedAddressId,
+    String? cashOrderSuccessMessage,
   }) {
     return CheckoutState(
       isAddressLoading: isAddressLoading ?? this.isAddressLoading,
@@ -58,10 +58,10 @@ class CheckoutState extends Equatable {
       visaOrderFailure: visaOrderFailure ?? this.visaOrderFailure,
       validationFailure: validationFailure,
       userAddressResponse: userAddressResponse ?? this.userAddressResponse,
-      cashOrderResponse: cashOrderResponse ?? this.cashOrderResponse,
       visaOrderResponse: visaOrderResponse ?? this.visaOrderResponse,
       selectedAddressId: selectedAddressId ?? this.selectedAddressId,
       isCash: isCash ?? this.isCash,
+      cashOrderSuccessMessage: cashOrderSuccessMessage,
     );
   }
 
@@ -75,9 +75,9 @@ class CheckoutState extends Equatable {
         visaOrderFailure,
         validationFailure,
         userAddressResponse,
-        cashOrderResponse,
         visaOrderResponse,
         selectedAddressId,
         isCash,
+        cashOrderSuccessMessage,
       ];
 }

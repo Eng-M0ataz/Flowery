@@ -11,16 +11,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/Constants/sizes.dart';
 import '../viewModels/checkout_event.dart';
+import '../viewModels/checkout_state.dart';
 import '../widgets/order_button_with_feedback.dart';
 
-class CheckoutScreen extends StatelessWidget {
-  const CheckoutScreen({super.key});
+class CheckoutScreen extends StatefulWidget {
+  final double totalPrice;
+
+  const CheckoutScreen({super.key, required this.totalPrice});
+
+  @override
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  late final CheckoutViewModel _viewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _viewModel = getIt<CheckoutViewModel>();
+    _viewModel.doIntent(event: LoadUserAddressEvent());
+  }
+
+  @override
+  void dispose() {
+    _viewModel.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CheckoutViewModel>(
-      create: (context) =>
-          getIt<CheckoutViewModel>()..doIntent(event: LoadUserAddressEvent()),
+    return BlocProvider.value(
+      value: _viewModel,
       child: Scaffold(
         backgroundColor: AppColorsLight.whiteGrey,
         body: SafeArea(
@@ -32,8 +54,20 @@ class CheckoutScreen extends StatelessWidget {
                 AddressSection(),
                 const SizedBox(height: AppSizes.spaceBetwwenItems_24),
                 PaymentSection(),
-                const SizedBox(height: AppSizes.spaceBetwwenItems_24),
-                GiftSection(),
+                BlocBuilder<CheckoutViewModel, CheckoutState>(
+                  builder: (context, state) {
+                    if (state.isCash) {
+                      return const SizedBox.shrink();
+                    } else {
+                      return Column(
+                        children: [
+                          const SizedBox(height: AppSizes.spaceBetwwenItems_24),
+                          const GiftSection(),
+                        ],
+                      );
+                    }
+                  },
+                ),
                 const SizedBox(height: AppSizes.spaceBetwwenItems_24),
                 Container(
                   color: Theme.of(context).colorScheme.onPrimary,
@@ -44,16 +78,16 @@ class CheckoutScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(height: AppSizes.spaceBetwwenItems_24),
-                        customPriceRow(LocaleKeys.sub_total.tr(), 10, context),
+                        customPriceRow(LocaleKeys.sub_total.tr(),
+                            widget.totalPrice, context),
                         const SizedBox(height: AppSizes.spaceBetweenItems_8),
                         customPriceRow(
                             LocaleKeys.delivery_fee.tr(), 10, context),
                         const SizedBox(height: AppSizes.spaceBetweenItems_8),
-                        Divider(
-                          color: AppColorsLight.grey,
-                        ),
+                        Divider(color: AppColorsLight.grey),
                         const SizedBox(height: AppSizes.spaceBetweenItems_8),
-                        customPriceRow(LocaleKeys.total.tr(), 10, context),
+                        customPriceRow(LocaleKeys.total.tr(),
+                            widget.totalPrice + 10, context),
                         const SizedBox(height: AppSizes.spaceBetweenItems_50),
                         OrderButtonWithFeedback(),
                         const SizedBox(height: AppSizes.spaceBetweenItems_50),
@@ -70,15 +104,17 @@ class CheckoutScreen extends StatelessWidget {
   }
 }
 
-Widget customPriceRow(String title, int price, BuildContext context) {
+Widget customPriceRow(String title, double price, BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Text(title,
-          style: Theme.of(context)
-              .textTheme
-              .headlineLarge!
-              .copyWith(color: AppColorsLight.grey)),
+      Text(
+        title,
+        style: Theme.of(context)
+            .textTheme
+            .headlineLarge!
+            .copyWith(color: AppColorsLight.grey),
+      ),
       Text(
         '$price\$',
         style: Theme.of(context)

@@ -1,5 +1,4 @@
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/request/shipping_address_entity.dart';
-import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/repositories/checkout_repo.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../core/Errors/api_results.dart';
@@ -10,7 +9,7 @@ class CreateCashOrderUseCase {
 
   CreateCashOrderUseCase(this._checkoutRepo);
 
-  Future<ApiResult<CashOrderEntity>> call({required ShippingAddressEntity addressRequest}) {
+  Future<ApiResult<void>> call({required ShippingAddressEntity addressRequest}) {
     return _checkoutRepo.createCashOrder(addressRequest: addressRequest);
   }
 }

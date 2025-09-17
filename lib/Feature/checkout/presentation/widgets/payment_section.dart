@@ -22,6 +22,9 @@ class PaymentSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: AppSizes.spaceBetwwenItems_24,
+            ),
             Text(
               LocaleKeys.payment_method.tr(),
               style: Theme.of(context).textTheme.displaySmall,
@@ -29,32 +32,31 @@ class PaymentSection extends StatelessWidget {
             const SizedBox(height: AppSizes.spaceBetwwenItems_16),
             BlocBuilder<CheckoutViewModel, CheckoutState>(
                 builder: (context, state) {
-                  return Column(
-                    children: [
-                      PaymentMethodItem(
-                        isSelected: state.isCash,
-                        onSelect: () {
-                          context.read<CheckoutViewModel>().doIntent(
-                              event: SelectPaymentMethodEvent(isCash: true));
-                        },
-                        title: LocaleKeys.cash_on_delivery.tr(),
-                      ),
-                      const SizedBox(
-                          height: AppSizes.spaceBetweenItems_8),
-                      PaymentMethodItem(
-                        isSelected: !state.isCash,
-                        onSelect: () {
-                          context.read<CheckoutViewModel>().doIntent(
-                              event: SelectPaymentMethodEvent(isCash: false));
-                        },
-                        title: LocaleKeys.credit_card.tr(),
-                      ),
-                      SizedBox(
-                        height: AppSizes.spaceBetweenItems_16,
-                      ),
-                    ],
-                  );
-                }),
+              return Column(
+                children: [
+                  PaymentMethodItem(
+                    isSelected: state.isCash,
+                    onSelect: () {
+                      context.read<CheckoutViewModel>().doIntent(
+                          event: SelectPaymentMethodEvent(isCash: true));
+                    },
+                    title: LocaleKeys.cash_on_delivery.tr(),
+                  ),
+                  const SizedBox(height: AppSizes.spaceBetweenItems_8),
+                  PaymentMethodItem(
+                    isSelected: !state.isCash,
+                    onSelect: () {
+                      context.read<CheckoutViewModel>().doIntent(
+                          event: SelectPaymentMethodEvent(isCash: false));
+                    },
+                    title: LocaleKeys.credit_card.tr(),
+                  ),
+                  SizedBox(
+                    height: AppSizes.spaceBetweenItems_16,
+                  ),
+                ],
+              );
+            }),
           ],
         ),
       ),

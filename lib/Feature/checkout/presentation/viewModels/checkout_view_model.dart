@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/address_entity_to_shipping.dart';
+import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import '../../../../core/Errors/failure.dart';
 import '../../domain/entities/response/user_address_response_entity.dart';
-import '../../domain/entities/response/cash_order_entity.dart';
 import '../../domain/entities/response/visa_order_entity.dart';
 import '../../domain/useCases/create_cash_order_use_case.dart';
 import '../../domain/useCases/create_visa_order_use_case.dart';
@@ -51,14 +52,15 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
 
     if (selectedId == null) {
       emit(state.copyWith(
-        validationFailure: Failure(errorMessage: 'Please select an address'),
+        validationFailure:
+            Failure(errorMessage: LocaleKeys.please_select_address.tr()),
       ));
       return;
     }
 
     final selectedAddress = addresses.firstWhere(
       (a) => a.id == selectedId,
-      orElse: () => throw Exception("No address selected"),
+      orElse: () => throw Exception(LocaleKeys.no_address_selected.tr()),
     );
     final shippingAddress = selectedAddress.toShippingAddress();
 
@@ -76,7 +78,6 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
   void _selectPaymentMethod(bool isCash) {
     emit(state.copyWith(
       isCash: isCash,
-      cashOrderResponse: null,
       cashOrderFailure: null,
       visaOrderResponse: null,
       visaOrderFailure: null,
@@ -109,17 +110,18 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
     final result = await _createCashOrderUseCase.call(addressRequest: address);
 
     switch (result) {
-      case ApiSuccessResult<CashOrderEntity>():
+      case ApiSuccessResult<void>():
         emit(state.copyWith(
           isCashOrderLoading: false,
-          cashOrderResponse: result.data,
+          cashOrderSuccessMessage: LocaleKeys.success.tr(),
         ));
         break;
 
-      case ApiErrorResult<CashOrderEntity>():
+      case ApiErrorResult<void>():
         emit(state.copyWith(
           isCashOrderLoading: false,
           cashOrderFailure: result.failure,
+          cashOrderSuccessMessage: null,
         ));
         break;
     }

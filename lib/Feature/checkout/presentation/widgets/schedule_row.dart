@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/localization/locale_keys.g.dart';
 
 class ScheduleRow extends StatefulWidget {
@@ -15,7 +14,6 @@ class _ScheduleRowState extends State<ScheduleRow> {
   DateTime? _scheduledDateTime;
 
   Future<void> _pickDateTime(BuildContext context) async {
-    // Pick Date
     final date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -24,7 +22,6 @@ class _ScheduleRowState extends State<ScheduleRow> {
     );
     if (date == null) return;
 
-    // Pick Time
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),

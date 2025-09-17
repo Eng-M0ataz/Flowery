@@ -16,8 +16,8 @@ class OrderButtonWithFeedback extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CheckoutViewModel, CheckoutState>(
       listenWhen: (previous, current) {
-        return previous.cashOrderResponse != current.cashOrderResponse ||
-            previous.visaOrderResponse != current.visaOrderResponse ||
+        return previous.visaOrderResponse != current.visaOrderResponse ||
+            previous.cashOrderSuccessMessage != current.cashOrderSuccessMessage ||
             previous.cashOrderFailure != current.cashOrderFailure ||
             previous.visaOrderFailure != current.visaOrderFailure ||
             previous.validationFailure != current.validationFailure;
@@ -34,8 +34,7 @@ class OrderButtonWithFeedback extends StatelessWidget {
                 LocaleKeys.something_went_wrong.tr(),
             posActionName: LocaleKeys.ok.tr(),
           );
-        } else if (!state.isCashOrderLoading &&
-            state.cashOrderResponse != null) {
+        } else if (state.cashOrderSuccessMessage != null) {
           DialogueUtils.showMessage(
             context: context,
             posActionName: LocaleKeys.ok.tr(),
@@ -45,7 +44,6 @@ class OrderButtonWithFeedback extends StatelessWidget {
             state.visaOrderResponse != null) {
           final url = state.visaOrderResponse!.url;
           if (url != null && url.isNotEmpty) {
-
             DialogueUtils.showMessage(
               context: context,
               posActionName: LocaleKeys.ok.tr(),

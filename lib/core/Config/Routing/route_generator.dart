@@ -18,7 +18,10 @@ class RouteGenerator {
       case AppRoutes.bestSellerRoute:
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.checkoutRoute:
-        return MaterialPageRoute(builder: (_) => CheckoutScreen());
+        final args=settings.arguments as double;
+        return MaterialPageRoute(builder: (_) => CheckoutScreen(
+          totalPrice:args ,
+        ));
       case AppRoutes.signUpRoute:
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.forgetPasswordRoute:

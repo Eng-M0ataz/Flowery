@@ -64,5 +64,8 @@
   "something_went_wrong": "حدث خطأ ما، برجاء المحاولة مرة أخرى",
   "cashOrderSuccessMessage": "تم تقديم طلبك النقدي بنجاح! 🎉",
   "visaOrderSuccessMessage": "تم إنشاء طلبك بنجاح! الرجاء إكمال الدفع في صفحة الفيزا 💳",
-  "unableToLoadPaymentPage": "تعذر تحميل صفحة الدفع."
+  "unableToLoadPaymentPage": "تعذر تحميل صفحة الدفع.",
+  "please_select_address": "من فضلك اختر عنوانًا",
+  "no_address_selected": "لم يتم اختيار عنوان",
+  "success": "تم بنجاح"
 }

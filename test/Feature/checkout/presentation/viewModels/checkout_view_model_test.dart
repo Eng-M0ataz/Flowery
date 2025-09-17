@@ -6,7 +6,6 @@ import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/address_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/user_address_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/visa_order_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/useCases/get_user_address_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/useCases/create_cash_order_use_case.dart';
@@ -14,6 +13,7 @@ import 'package:flower_e_commerce_app/Feature/checkout/domain/useCases/create_vi
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/viewModels/checkout_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/viewModels/checkout_state.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/viewModels/checkout_event.dart';
+
 import 'checkout_view_model_test.mocks.dart';
 
 @GenerateMocks([
@@ -28,7 +28,6 @@ void main() {
 
   final testFailure = ServerFailure(errorMessage: 'Server Error');
 
-
   final testAddress = AddressEntity(
     id: "1",
     city: "Cairo",
@@ -36,10 +35,9 @@ void main() {
     phone: "01010101010",
   );
 
+  final testUserAddressResponse =
+  UserAddressResponseEntity('success', [testAddress]);
 
-  final testUserAddressResponse = UserAddressResponseEntity('success', [testAddress]);
-
-  final testCashOrder = CashOrderEntity(message: 'success');
   final testVisaOrder = VisaOrderEntity(
     message: 'success',
     url: "https://payment.test",
@@ -53,8 +51,8 @@ void main() {
     provideDummy<ApiResult<UserAddressResponseEntity>>(
       ApiSuccessResult(data: testUserAddressResponse),
     );
-    provideDummy<ApiResult<CashOrderEntity>>(
-      ApiSuccessResult(data: testCashOrder),
+    provideDummy<ApiResult<void>>(
+      ApiSuccessResult<void>(data: null),
     );
     provideDummy<ApiResult<VisaOrderEntity>>(
       ApiSuccessResult(data: testVisaOrder),
@@ -120,11 +118,11 @@ void main() {
     );
 
     blocTest<CheckoutViewModel, CheckoutState>(
-      "PlaceOrderEvent with cash emits loading then CashOrderEntity",
+      "PlaceOrderEvent with cash emits loading then success message",
       build: () {
         when(mockCreateCashOrderUseCase.call(
           addressRequest: anyNamed("addressRequest"),
-        )).thenAnswer((_) async => ApiSuccessResult(data: testCashOrder));
+        )).thenAnswer((_) async => ApiSuccessResult<void>(data: null));
 
         final vm = CheckoutViewModel(
           mockGetUserAddressUseCase,
@@ -145,9 +143,9 @@ void main() {
         isA<CheckoutState>()
             .having((s) => s.isCashOrderLoading, "isCashOrderLoading", true),
         isA<CheckoutState>().having(
-              (s) => s.cashOrderResponse,
-          "cashOrderResponse",
-          testCashOrder,
+              (s) => s.cashOrderSuccessMessage,
+          "cashOrderSuccessMessage",
+          "success", // جاي من LocaleKeys.success.tr()
         ),
       ],
     );

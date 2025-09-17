@@ -1,7 +1,6 @@
 import 'package:flower_e_commerce_app/Feature/checkout/data/dataSources/checkout_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/data/repositories/checkout_repo_impl.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/request/shipping_address_entity.dart';
-import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/user_address_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/visa_order_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
@@ -29,30 +28,18 @@ void main() {
     mockRemoteDataSource = MockCheckoutRemoteDataSource();
     repo = CheckoutRepoImpl(mockRemoteDataSource);
 
-    provideDummy<ApiResult<CashOrderEntity>>(
-      ApiSuccessResult(
-        data: CashOrderEntity(
-          message: "success",
-        ),
-      ),
-    );
-    provideDummy<ApiResult<CashOrderEntity>>(
-      ApiErrorResult(
-        failure: Failure(errorMessage: "error"),
-      ),
+    provideDummy<ApiResult<void>>(ApiSuccessResult<void>(data: null));
+    provideDummy<ApiResult<void>>(
+      ApiErrorResult(failure: Failure(errorMessage: "error")),
     );
 
     provideDummy<ApiResult<VisaOrderEntity>>(
       ApiSuccessResult(
-        data: VisaOrderEntity(
-          message: "success",
-        ),
+        data: VisaOrderEntity(message: "success"),
       ),
     );
     provideDummy<ApiResult<VisaOrderEntity>>(
-      ApiErrorResult(
-        failure: Failure(errorMessage: "error"),
-      ),
+      ApiErrorResult(failure: Failure(errorMessage: "error")),
     );
 
     provideDummy<ApiResult<UserAddressResponseEntity>>(
@@ -61,17 +48,13 @@ void main() {
       ),
     );
     provideDummy<ApiResult<UserAddressResponseEntity>>(
-      ApiErrorResult(
-        failure: Failure(errorMessage: "error"),
-      ),
+      ApiErrorResult(failure: Failure(errorMessage: "error")),
     );
   });
 
   group("CheckoutRepoImpl Tests", () {
     test("success case for createCashOrder", () async {
-      final mockResult = ApiSuccessResult<CashOrderEntity>(
-        data: CashOrderEntity(message: "Cash Order Success"),
-      );
+      final mockResult = ApiSuccessResult<void>(data: null);
 
       when(mockRemoteDataSource.createCashOrder(
         addressRequest: anyNamed("addressRequest"),
@@ -81,12 +64,11 @@ void main() {
         addressRequest: shippingAddressEntity,
       );
 
-      expect(result, isA<ApiSuccessResult<CashOrderEntity>>());
-      expect((result as ApiSuccessResult).data.message, "Cash Order Success");
+      expect(result, isA<ApiSuccessResult<void>>());
     });
 
     test("failure case for createCashOrder", () async {
-      final mockResult = ApiErrorResult<CashOrderEntity>(
+      final mockResult = ApiErrorResult<void>(
         failure: Failure(errorMessage: "Server error"),
       );
 
@@ -98,7 +80,7 @@ void main() {
         addressRequest: shippingAddressEntity,
       );
 
-      expect(result, isA<ApiErrorResult<CashOrderEntity>>());
+      expect(result, isA<ApiErrorResult<void>>());
     });
 
     test("success case for createVisaOrder", () async {
