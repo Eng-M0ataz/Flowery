@@ -38,6 +38,8 @@ dependencies:
   equatable: ^2.0.7
   bloc_test: ^10.0.0
   flutter_image_slideshow: ^0.1.6
+  firebase_core: ^4.1.0
+  firebase_messaging: ^16.0.1
 
 
 dev_dependencies:
@@ -96,5 +98,5 @@ flutter:
           weight: 600
 flutter_assets:
   assets_path: assets/images/
-  output_path: F:\real_projects\flower_e_commerce_app\lib\core\utils\Constants\
+  output_path: lib\core\utils\constants\
   filename: app_assets.dart

@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasi
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
@@ -45,12 +46,13 @@ class RouteGenerator {
       case AppRoutes.productDetailsRoute:
         final args = settings.arguments as ProductDetailsModel;
         return MaterialPageRoute(
-          builder: (_) => ProductDetailsScreen(
-            productDetailsModel: args,
-          ),
+          builder: (_) => ProductDetailsScreen(productDetailsModel: args),
           settings: settings,
         );
-
+      case AppRoutes.searchRoute:
+        return MaterialPageRoute(
+          builder: (_) => const SearchScreen(),
+        );
       default:
         return unDefinedRoute();
     }
