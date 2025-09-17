@@ -13,4 +13,5 @@ abstract class ApiConstants {
   static const String getProducts = 'products';
   static const String categoryQuery = 'category';
   static const String mostSelling='best-seller';
+  static const String addToCart='cart';
 }
