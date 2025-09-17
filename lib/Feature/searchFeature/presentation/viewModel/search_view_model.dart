@@ -54,4 +54,10 @@ class SearchViewModel extends Cubit<SearchState> {
       },
     );
   }
+
+  @override
+  Future<void> close() {
+    searchController.dispose();
+    return super.close();
+  }
 }
