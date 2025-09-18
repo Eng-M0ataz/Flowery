@@ -61,7 +61,7 @@ abstract class AppSizes {
 
   static const double appBarHigh = 56.0;
   static const double appBarElevation = 0.0;
-  static const double appBarLeadingWidth = 200.0;
+  static const double appBarLeadingWidth = 300.0;
 
   // Image sizes
 
@@ -72,6 +72,11 @@ abstract class AppSizes {
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spaceBetweenItems_10 = 10.0;
+
+
+
+
+  static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetweenItems_16 = 16.0;
   static const double spaceBetweenItems_20 = 20.0;
@@ -83,6 +88,15 @@ abstract class AppSizes {
   static const double spaceBetweenItems_44 = 44.0;
   static const double spaceBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_50 = 50.0;
+
+
+  static const double spacingBetweenItems_10 = 12.0;
+  static const double spacingBetweenItems_12 = 12.0;
+  static const double spacingBetweenItems_16 = 16.0;
+  static const double spacingBetweenItems_24 = 24.0;
+  static const double spacingBetweenItems_32 = 32.0;
+  static const double spacingBetweenItems_36 = 36.0;
+  static const double spacingBetweenItems_48 = 48.0;
 
   // Default Spacing Between Sections
 
@@ -149,6 +163,13 @@ abstract class AppSizes {
   static const double sizedBoxHeight_8 = 8.0;
   static const double sizedBoxHeight_16 = 16.0;
   static const double sizedBoxHeight_30 = 30.0;
+
+  //location Card Height
+  static const double locationCardHeight = 85.0;
+
+  //google map 
+  static const double mapHeight = 200.0;
+  static const double mapCameraZoom = 6.0;
 
   // Tabs shimmer
   static const double tabListHeight = 40.0;

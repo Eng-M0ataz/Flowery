@@ -11,4 +11,6 @@ abstract class AppRoutes {
   static const String searchRoute = '/searchRoute';
   static const String notificationRoute = '/notificationRoute';
   static const String profileRoute = '/profileRoute';
+  static const String addAddressScreenRoute = '/addAddressScreenRoute';
+  static const String savedAddressScreenRoute = '/savedAddressScreenBody';
 }
