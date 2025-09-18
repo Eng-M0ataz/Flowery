@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/events/sign_up_event.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_Up_state.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/viewModel/signup_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_email_field.dart';
@@ -9,10 +10,10 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/b
 import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/build_phone_field.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
+import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-import 'package:flower_e_commerce_app/core/utils/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 
@@ -124,13 +125,11 @@ class SignUpForm extends StatelessWidget {
                       ),
                       const SizedBox(height: AppSizes.spacingBetweenItems_32),
                       CustomElevatedButton(
-                        onPressed: state.isLoading
-                            ? null
-                            : () => viewModel.submitSignUpForm(),
+                        widget: Text(LocaleKeys.sign_up_title.tr(),
+                            style: Theme.of(context).textTheme.headlineSmall),
+                        onPressed: () =>
+                            viewModel.doIntent(SignUpSubmitEvent()),
                         isLoading: state.isLoading,
-                        title: state.isLoading
-                            ? LocaleKeys.loading.tr()
-                            : LocaleKeys.sign_up_title.tr(),
                       ),
                       const SizedBox(height: AppSizes.spacingBetweenItems_16),
                       BuildNavigationText(
