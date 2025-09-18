@@ -3,7 +3,9 @@ description: "A new Flutter project."
 
 
 
+
 publish_to: "none"
+
 
 
 version: 1.0.0+1
@@ -41,6 +43,9 @@ dependencies:
   pinput: ^5.0.1
   bloc_test: ^10.0.0
   equatable: ^2.0.7
+  geolocator: ^14.0.2
+  google_maps_flutter: ^2.13.1
+  geocoding: ^2.1.1
 
 
 dev_dependencies:
@@ -57,7 +62,9 @@ dev_dependencies:
 
 
   injectable_generator: ^2.8.1
+
   mockito: ^5.5.0
+
 
 flutter:
   uses-material-design: true
@@ -66,6 +73,8 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
+    - assets/json/
+
 
   fonts:
     - family: Inter

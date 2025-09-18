@@ -25,4 +25,9 @@ abstract class AppConstants {
   static const int imageQuality = 80;
   static const String passwordCharacters = "★★★★★★";
   static const String notificationCountExceeded = '9+';
+  static const String floatingHeroRemove = 'rm';
+  static const String floatingHeroLoc = 'loc';
+  static const String cityJsonFilePath = 'assets/json/city.json';
+  static const String governorateJsonFilePath = 'assets/json/governorate.json';
+  
 }
