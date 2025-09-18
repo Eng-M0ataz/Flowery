@@ -24,7 +24,7 @@ class OccasionListView extends StatelessWidget {
           horizontal: AppSizes.paddingMd_16,
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
         itemCount: occasionsList.length,
         scrollDirection: Axis.horizontal,

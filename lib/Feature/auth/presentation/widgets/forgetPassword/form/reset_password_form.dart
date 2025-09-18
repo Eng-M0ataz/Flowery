@@ -55,7 +55,7 @@ class ResetPasswordForm extends StatelessWidget {
                                   viewModel.doIntent(ResetPasswordEvent()),
                               isLoading:
                                   state.status == ForgetPasswordStatus.loading,
-                              title: LocaleKeys.confirm.tr());
+                              widget: Text(LocaleKeys.confirm.tr()));
                         },
                       ),
                     ],

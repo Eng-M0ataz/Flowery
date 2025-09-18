@@ -46,6 +46,7 @@ abstract class  LocaleKeys {
   static const status = 'status';
   static const description = 'description';
   static const all_prices_include_tax = 'all_prices_include_tax';
+<<<<<<< HEAD
 =======
   static const sign_up = 'sign_up';
   static const user_name_label = 'user_name_label';
@@ -81,5 +82,31 @@ abstract class  LocaleKeys {
   static const male_label = 'male_label';
   static const female_label = 'female_label';
 >>>>>>> sign-up
+=======
+  static const search_for_any_product_you_want = 'search_for_any_product_you_want';
+  static const no_products_found_for_your_search = 'no_products_found_for_your_search';
+  static const success = 'success';
+  static const otpSentSuccess = 'otpSentSuccess';
+  static const passwordResetSuccess = 'passwordResetSuccess';
+  static const codeVerifiedSuccess = 'codeVerifiedSuccess';
+  static const operationCompleted = 'operationCompleted';
+  static const unexpectedError = 'unexpectedError';
+  static const forgetPassword = 'forgetPassword';
+  static const enterEmailInstruction = 'enterEmailInstruction';
+  static const enterEmail = 'enterEmail';
+  static const confirm = 'confirm';
+  static const invalidEmail = 'invalidEmail';
+  static const emailVerification = 'emailVerification';
+  static const enterCodeInstruction = 'enterCodeInstruction';
+  static const didNotReceiveCode = 'didNotReceiveCode';
+  static const resend = 'resend';
+  static const passwordValidation = 'passwordValidation';
+  static const newPassword = 'newPassword';
+  static const enterPassword = 'enterPassword';
+  static const confirmPassword = 'confirmPassword';
+  static const invalidCode = 'invalidCode';
+  static const resetPassword = 'resetPassword';
+  static const resetCodeInvalidOrExpired = 'resetCodeInvalidOrExpired';
+>>>>>>> 62ab95af2ae7edcf7b7c69db9ed204c90bd7719b
 
 }

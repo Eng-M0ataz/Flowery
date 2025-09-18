@@ -5,32 +5,21 @@ import '../../../../../core/utils/Constants/app_constants.dart';
 
 class ResendTimer extends StatelessWidget {
   final void Function()? onEnd;
-  const ResendTimer({super.key,required this.onEnd});
+  const ResendTimer({super.key, required this.onEnd});
 
   @override
   Widget build(BuildContext context) {
     return TimerCountdown(
-      format: CountDownTimerFormat
-          .minutesSeconds,
+      format: CountDownTimerFormat.minutesSeconds,
       endTime: DateTime.now().add(
         const Duration(minutes: AppConstants.resendDuration),
       ),
-      timeTextStyle: Theme.of(context)
-          .textTheme
-          .headlineLarge!
-          .copyWith(
-        color: Theme.of(context)
-            .colorScheme
-            .primary,
-      ),
-      colonsTextStyle: Theme.of(context)
-          .textTheme
-          .headlineLarge!
-          .copyWith(
-        color: Theme.of(context)
-            .colorScheme
-            .primary,
-      ),
+      timeTextStyle: Theme.of(context).textTheme.headlineLarge!.copyWith(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+      colonsTextStyle: Theme.of(context).textTheme.headlineLarge!.copyWith(
+            color: Theme.of(context).colorScheme.primary,
+          ),
       enableDescriptions: false,
       spacerWidth: 0,
       onEnd: onEnd,
