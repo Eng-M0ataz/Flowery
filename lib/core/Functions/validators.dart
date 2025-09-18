@@ -1,6 +1,6 @@
 import 'package:flower_e_commerce_app/core/helpers/regex.dart';
 
-abstract class Validations {
+  abstract class Validations {
   static String? validateName(String? name) {
     if (name!.isEmpty) {
       return 'Name is required!';
@@ -49,5 +49,12 @@ abstract class Validations {
       return 'This Phone number is not valid';
     }
     return null;
+  }
+  static String? pinCodeValidator(String? val) {
+    if (val!.length < 6) {
+      return "Please enter all digits";
+    } else {
+      return null;
+    }
   }
 }

@@ -213,6 +213,7 @@ abstract class AppThemeLight {
       onSurface: AppColorsLight.black,
       error: AppColorsLight.red,
       onError: AppColorsLight.white,
+
     ),
   );
 }

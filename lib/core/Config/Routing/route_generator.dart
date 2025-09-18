@@ -5,11 +5,12 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_sc
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
+import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
 import '../../models/product_details_model.dart';
-import '../../utils/Constants/app_routes.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -20,16 +21,16 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
-      case AppRoutes.forgetPasswordRoute:
       case AppRoutes.occasionRoute:
         final args = settings.arguments as OccasionInputModel;
         return MaterialPageRoute(
             builder: (_) => OccasionScreen(
                   occasionInputModel: args,
                 ));
-
-      // return MaterialPageRoute(builder: (_) => const ForgetPassword());
-
+      case AppRoutes.forgetPasswordRoute:
+        return MaterialPageRoute(
+          builder: (_) => ForgetPasswordScreen(),
+        );
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
           builder: (_) => const MainLayout(initialIndex: 0),
