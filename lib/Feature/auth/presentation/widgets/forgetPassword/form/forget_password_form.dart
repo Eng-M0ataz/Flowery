@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/Widgets/custom_app_bar.dart';
-import '../../../viewModel/forgetPassword/forget_password_intent.dart';
+import '../../../viewModel/forgetPassword/forget_password_event.dart';
 import '../../../viewModel/forgetPassword/forget_password_states.dart';
 import '../build_email_field.dart';
 import '../build_title_and_sub.dart';
@@ -46,7 +46,7 @@ class ForgetPasswordForm extends StatelessWidget {
                       builder: (context, state) {
                         return CustomElevatedButton(
                             onPressed: () =>
-                                viewModel.doIntent(SendForgetRequestIntent()),
+                                viewModel.doIntent(SendForgetRequestEvent()),
                             isLoading:
                                 state.status == ForgetPasswordStatus.loading,
                             title: LocaleKeys.confirm.tr());

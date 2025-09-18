@@ -16,7 +16,7 @@ import '../../../domain/entities/response/verify_reset_code_response_entity.dart
 import '../../../domain/useCases/forget_password_use_case.dart';
 import '../../../domain/useCases/reset_password_use_case.dart';
 import '../../../domain/useCases/verify_reset_code_use_case.dart';
-import 'forget_password_intent.dart';
+import 'forget_password_event.dart';
 
 @injectable
 class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
@@ -38,6 +38,26 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final TextEditingController codeController = TextEditingController();
+
+  Future<void> doIntent(ForgetPasswordEvent intent) async {
+    switch (intent) {
+      case SendForgetRequestEvent():
+        await _sendForgetRequest(emailController.text);
+        break;
+      case VerifyCodeEvent():
+        await _verifyCode(codeController.text);
+        break;
+      case ResendCodeEvent():
+        await _resendCode();
+        break;
+      case ResetPasswordEvent():
+        await _resetPassword(newPasswordController.text);
+        break;
+      case ResendTimerFinishedEvent():
+        await _onResendTimerFinished();
+        break;
+    }
+  }
 
   @override
   Future<void> close() {
@@ -91,25 +111,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
     }
   }
 
-  Future<void> doIntent(ForgetPasswordIntent intent) async {
-    switch (intent) {
-      case SendForgetRequestIntent():
-        await _sendForgetRequest(emailController.text);
-        break;
-      case VerifyCodeIntent():
-        await _verifyCode(codeController.text);
-        break;
-      case ResendCodeIntent():
-        await _resendCode();
-        break;
-      case ResetPasswordIntent():
-        await _resetPassword(newPasswordController.text);
-        break;
-      case ResendTimerFinishedIntent():
-        await _onResendTimerFinished();
-        break;
-    }
-  }
+
 
   Future<void> _onResendTimerFinished() async {
     emit(state.copyWith(isResendAvailable: true));
@@ -131,6 +133,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
           status: ForgetPasswordStatus.success,
           email: email,
           forgetResponse: result.data,
+          mainTimerEndTime: DateTime.now().add(const Duration(minutes: 10)),
         ));
         break;
       case ApiErrorResult<ForgetPasswordResponseEntity>():
@@ -185,6 +188,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
           forgetResponse: result.data,
           step: ForgetPasswordStep.resend,
           isResendAvailable: false,
+          mainTimerEndTime: DateTime.now().add(const Duration(minutes: 10)),
         ));
         break;
       case ApiErrorResult<ForgetPasswordResponseEntity>():

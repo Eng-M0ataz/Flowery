@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../../../core/localization/locale_keys.g.dart';
 import '../../../../../../core/utils/Constants/sizes.dart';
-import '../../../viewModel/forgetPassword/forget_password_intent.dart';
+import '../../../viewModel/forgetPassword/forget_password_event.dart';
 import '../../../viewModel/forgetPassword/forget_password_states.dart';
 import '../../../viewModel/forgetPassword/forget_password_view_model.dart';
 import '../build_confirm_password_field.dart';
@@ -52,7 +52,7 @@ class ResetPasswordForm extends StatelessWidget {
                         builder: (context, state) {
                           return CustomElevatedButton(
                               onPressed: () =>
-                                  viewModel.doIntent(ResetPasswordIntent()),
+                                  viewModel.doIntent(ResetPasswordEvent()),
                               isLoading:
                                   state.status == ForgetPasswordStatus.loading,
                               title: LocaleKeys.confirm.tr());

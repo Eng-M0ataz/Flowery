@@ -17,6 +17,7 @@ class ForgetPasswordState extends Equatable {
   final ForgetPasswordResponseEntity? forgetResponse;
   final VerifyResetCodeResponseEntity? verifyResponse;
   final ResetPasswordResponseEntity? resetResponse;
+  final DateTime? mainTimerEndTime;
 
   const ForgetPasswordState({
     this.step = ForgetPasswordStep.forget,
@@ -27,6 +28,7 @@ class ForgetPasswordState extends Equatable {
     this.forgetResponse,
     this.verifyResponse,
     this.resetResponse,
+    this.mainTimerEndTime,
   });
 
   ForgetPasswordState copyWith({
@@ -38,28 +40,31 @@ class ForgetPasswordState extends Equatable {
     ForgetPasswordResponseEntity? forgetResponse,
     VerifyResetCodeResponseEntity? verifyResponse,
     ResetPasswordResponseEntity? resetResponse,
+    DateTime? mainTimerEndTime,
   }) {
     return ForgetPasswordState(
       step: step ?? this.step,
       status: status ?? this.status,
-      failure: failure ??this.failure,
+      failure: failure ?? this.failure,
       email: email ?? this.email,
       forgetResponse: forgetResponse ?? this.forgetResponse,
       verifyResponse: verifyResponse ?? this.verifyResponse,
       resetResponse: resetResponse ?? this.resetResponse,
       isResendAvailable: isResendAvailable ?? this.isResendAvailable,
+      mainTimerEndTime: mainTimerEndTime ?? this.mainTimerEndTime,
     );
   }
 
   @override
   List<Object?> get props => [
-        step,
-        status,
-        failure,
-        email,
-        forgetResponse,
-        verifyResponse,
-        resetResponse,
-        isResendAvailable,
-      ];
+    step,
+    status,
+    failure,
+    email,
+    forgetResponse,
+    verifyResponse,
+    resetResponse,
+    isResendAvailable,
+    mainTimerEndTime,
+  ];
 }

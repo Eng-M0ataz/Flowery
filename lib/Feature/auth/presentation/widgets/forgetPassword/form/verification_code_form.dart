@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../../../core/localization/locale_keys.g.dart';
 import '../../../../../../core/utils/Constants/sizes.dart';
-import '../../../viewModel/forgetPassword/forget_password_intent.dart';
+import '../../../viewModel/forgetPassword/forget_password_event.dart';
 import '../../../viewModel/forgetPassword/forget_password_states.dart';
 import '../../../viewModel/forgetPassword/forget_password_view_model.dart';
 import '../build_pin_code.dart';
@@ -42,7 +42,7 @@ class VerificationCodeForm extends StatelessWidget {
                     BuildPinCode(
                       controller: viewModel.codeController,
                       onCompleted: (String value) {
-                        viewModel.doIntent(VerifyCodeIntent());
+                        viewModel.doIntent(VerifyCodeEvent());
                       },
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_16),
@@ -64,7 +64,7 @@ class VerificationCodeForm extends StatelessWidget {
                                   onPressed: state.isResendAvailable
                                       ? () {
                                           viewModel
-                                              .doIntent(ResendCodeIntent());
+                                              .doIntent(ResendCodeEvent());
                                         }
                                       : null,
                                   child: ResendText(
@@ -77,7 +77,7 @@ class VerificationCodeForm extends StatelessWidget {
                                 ? ResendTimer(
                                     onEnd: () {
                                       viewModel.doIntent(
-                                        ResendTimerFinishedIntent(),
+                                        ResendTimerFinishedEvent(),
                                       );
                                     },
                                   )
