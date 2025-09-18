@@ -1,4 +1,3 @@
-import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/best_seller_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'best_seller_dto.g.dart';
@@ -44,7 +43,7 @@ class BestSellerDto {
   @JsonKey(name: "id")
   final String? id;
 
-  BestSellerDto ({
+  BestSellerDto({
     this.rateAvg,
     this.rateCount,
     this.Id,
@@ -73,6 +72,4 @@ class BestSellerDto {
   Map<String, dynamic> toJson() {
     return _$BestSellerDtoToJson(this);
   }
-
-
 }

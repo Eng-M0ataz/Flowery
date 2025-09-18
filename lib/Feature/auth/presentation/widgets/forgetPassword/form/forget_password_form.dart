@@ -49,7 +49,7 @@ class ForgetPasswordForm extends StatelessWidget {
                                 viewModel.doIntent(SendForgetRequestEvent()),
                             isLoading:
                                 state.status == ForgetPasswordStatus.loading,
-                            title: LocaleKeys.confirm.tr());
+                            widget: Text(LocaleKeys.confirm.tr()));
                       },
                     ),
                   ],
@@ -60,4 +60,3 @@ class ForgetPasswordForm extends StatelessWidget {
     );
   }
 }
-

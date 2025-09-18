@@ -45,5 +45,29 @@ abstract class  LocaleKeys {
   static const status = 'status';
   static const description = 'description';
   static const all_prices_include_tax = 'all_prices_include_tax';
+  static const search_for_any_product_you_want = 'search_for_any_product_you_want';
+  static const no_products_found_for_your_search = 'no_products_found_for_your_search';
+  static const success = 'success';
+  static const otpSentSuccess = 'otpSentSuccess';
+  static const passwordResetSuccess = 'passwordResetSuccess';
+  static const codeVerifiedSuccess = 'codeVerifiedSuccess';
+  static const operationCompleted = 'operationCompleted';
+  static const unexpectedError = 'unexpectedError';
+  static const forgetPassword = 'forgetPassword';
+  static const enterEmailInstruction = 'enterEmailInstruction';
+  static const enterEmail = 'enterEmail';
+  static const confirm = 'confirm';
+  static const invalidEmail = 'invalidEmail';
+  static const emailVerification = 'emailVerification';
+  static const enterCodeInstruction = 'enterCodeInstruction';
+  static const didNotReceiveCode = 'didNotReceiveCode';
+  static const resend = 'resend';
+  static const passwordValidation = 'passwordValidation';
+  static const newPassword = 'newPassword';
+  static const enterPassword = 'enterPassword';
+  static const confirmPassword = 'confirmPassword';
+  static const invalidCode = 'invalidCode';
+  static const resetPassword = 'resetPassword';
+  static const resetCodeInvalidOrExpired = 'resetCodeInvalidOrExpired';
 
 }
