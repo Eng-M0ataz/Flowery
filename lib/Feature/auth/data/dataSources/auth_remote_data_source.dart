@@ -23,4 +23,8 @@ abstract interface class AuthRemoteDataSource {
   Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(
     ResetPasswordRequestEntity request,
   );
+
+    Future<ApiResult<SignUpResponseEntity>> signup(
+      SignUpRequestEntity signUpRequestEntity);
+
 }

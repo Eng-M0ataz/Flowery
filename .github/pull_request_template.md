@@ -11,7 +11,9 @@
 
 ## 📌 What type of PR is this? (check all applicable)
 
-- [x] ✨ Feature
+
+- [ ] ✨ Feature
+
 - [ ] 🐛 Bug Fix
 - [ ] 🧹 Refactor
 - [ ] 🚀 Performance Optimization
@@ -24,14 +26,18 @@
 ## 📝 Description
 
 
-Added **Search Feature** that allows users to search for products with debounce to reduce API calls.
+_Describe the goal of this PR and what was changed._
 
 
 ---
 
 ## 🧩 Related Issues / Tickets
 
-- Closes #123
+
+- Closes #
+- Fixes #
+- Related to #
+
 
 ---
 
@@ -42,10 +48,9 @@ _How to test the changes manually?_
 - [ ] Run the app on Android
 - [ ] Run the app on iOS
 
-- [ ] Go to the products page
-- [ ] Try searching for a product (e.g. "Rose")
-- [ ] Verify that results are shown correctly
-- [ ] Verify "No products found" message when nothing matches
+- [ ] Check specific feature/page:
+  - [ ] ...
+- [ ] Verify responsiveness on different screen sizes
 
 
 ---
@@ -54,7 +59,6 @@ _How to test the changes manually?_
 
 
 _Add screenshots or screen recordings to demonstrate your changes._
-*(Optional – e.g., showing search results and empty state)*
 
 
 ---
@@ -70,8 +74,10 @@ _Add screenshots or screen recordings to demonstrate your changes._
 
 ## 🧪 Tests
 
-- [x] Unit tests added for search feature
-- [ ] Widget tests added for search UI
+
+- [ ] Unit tests added
+- [ ] Widget tests added
+
 - [ ] Integration tests added
 - [ ] No tests needed (explain why):
 
@@ -80,13 +86,14 @@ _Add screenshots or screen recordings to demonstrate your changes._
 ## 🛠 Post-Deployment Tasks (Optional)
 
 
-
-
-_No extra tasks needed._
-
+_Any migrations, scripts, or setup tasks?_
 
 ---
 
 ## 🎬 Fun GIF (Optional)
+
+
+_What GIF best represents this PR?_
+
 
 ![fun gif](https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif)

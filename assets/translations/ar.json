@@ -1,4 +1,5 @@
 {
+
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -64,5 +65,40 @@
   "confirmPassword": "تأكيد كلمة المرور",
   "invalidCode": "رمز غير صالح",
   "resetPassword": "إعادة تعيين كلمة المرور",
-  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته"
+  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
+
+  "sign_up": "إنشاء حساب",
+  "user_name_label": "اسم المستخدم",
+  "user_name_hint": "أدخل اسم المستخدم",
+  "first_name_label": "الاسم الأول",
+  "first_name_hint": "أدخل الاسم الأول",
+  "last_name_label": "اسم العائلة",
+  "last_name_hint": "أدخل اسم العائلة",
+  "email_label": "البريد الإلكتروني",
+  "email_hint": "أدخل البريد الإلكتروني",
+  "password_label": "كلمة المرور",
+  "password_hint": "أدخل كلمة المرور",
+  "confirm_password_label": "تأكيد كلمة المرور",
+  "confirm_password_hint": "أعد إدخال كلمة المرور",
+  "phone_number_label": "رقم الهاتف",
+  "phone_number_hint": "أدخل رقم الهاتف",
+  "already_have_account_prompt": "هل لديك حساب بالفعل؟",
+  "dont_have_account_prompt": "ليس لديك حساب؟",
+  "login_link": "تسجيل الدخول",
+  "login_button": "تسجيل الدخول",
+  "register_button": "تسجيل",
+  "forgot_password_link": "نسيت كلمة المرور؟",
+  "gender": "الجنس",
+  "create_account_prompt": "بإنشائك حساب، فإنك توافق على",
+  "terms_and_conditions": "الشروط والأحكام",
+  "sign_up_title": "إنشاء حساب",
+  "already_have_account": "هل لديك حساب بالفعل؟",
+  "login_title": "تسجيل الدخول",
+  "account_created_successfully": "تم إنشاء الحساب بنجاح!",
+  "success": "نجاح",
+  "ok": "موافق",
+  "loading": "جاري التحميل...",
+  "male_label": "ذكر",
+  "female_label": "انثى"
+
 }

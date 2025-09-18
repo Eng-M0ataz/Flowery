@@ -1,19 +1,14 @@
 name: flower_e_commerce_app
 description: "A new Flutter project."
 
-publish_to: 'none' 
-
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-
   sdk: ">=3.1.0 <4.0.0"
 
   flutter: ">=1.17.0"
-
-
-
 
 dependencies:
   flutter:
@@ -25,7 +20,7 @@ dependencies:
   dio: ^5.9.0
   flutter_bloc: ^9.1.1
   bloc: ^9.0.0
-  flutter_svg: ^2.2.0
+  flutter_svg: ^2.0.10+1
   flutter_timer_countdown: ^1.0.7
   get_it: ^8.2.0
   injectable: ^2.5.1
@@ -46,7 +41,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^5.0.0
   build_runner: ^2.7.0
   test: ^1.25.15
@@ -55,20 +49,13 @@ dev_dependencies:
   injectable_generator: ^2.8.1
   mockito: ^5.5.0
 
-
-
-
-
 flutter:
-
-
   uses-material-design: true
   generate: true
 
   assets:
     - assets/images/
     - assets/translations/
-
 
   fonts:
     - family: Inter
@@ -101,5 +88,7 @@ flutter:
           weight: 600
 flutter_assets:
   assets_path: assets/images/
+
   output_path: lib\core\utils\constants\
+
   filename: app_assets.dart

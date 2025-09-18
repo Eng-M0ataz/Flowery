@@ -1,10 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/client/api_service.dart';
+
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/forget_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/reset_password_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/mapper/verify_reset_code_dto_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/auth/data/dataSources/auth_remote_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/auth/domain/entity/response/sign_in_response_entity.dart';
+
+import 'package:flower_e_commerce_app/Feature/auth/api/mapper/sign_up_response_dto_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/auth/api/models/sign_up_request_model.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/requestEntities/sign_up_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/auth/domain/entities/resposneEntities/sign_up_response_entity.dart';
+
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:injectable/injectable.dart';
@@ -102,6 +109,22 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return ApiErrorResult<ResetPasswordResponseEntity>(
         failure: Failure(errorMessage: e.toString()),
       );
+    }
+  }
+
+  @override
+  Future<ApiResult<SignUpResponseEntity>> signup(
+      SignUpRequestEntity signUpRequest) async {
+    try {
+      var response = await _apiServices
+          .signUp(SignUpRequestModel.fromDomain(signUpRequest));
+      return ApiSuccessResult<SignUpResponseEntity>(data: response.toEntity());
+    } on DioException catch (dioError) {
+      final failure = ServerFailure.fromDioError(dioException: dioError);
+      return ApiErrorResult<SignUpResponseEntity>(failure: failure);
+    } catch (e) {
+      return ApiErrorResult<SignUpResponseEntity>(
+          failure: ServerFailure(errorMessage: e.toString()));
     }
   }
 }

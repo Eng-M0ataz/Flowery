@@ -24,4 +24,6 @@ abstract interface class AuthRepo {
     required SigninRequestEntity request,
     bool? rememberMeChecked,
   });
+  Future<ApiResult<SignUpResponseEntity>> signUp(
+      SignUpRequestEntity signUpRequestEntity);
 }
