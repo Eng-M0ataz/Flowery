@@ -1,4 +1,5 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 
@@ -43,7 +44,16 @@ class CategoryScreen extends StatelessWidget {
             initialCategoryId: CategoryIdFromHome,
           ),
         ),
-        floatingActionButton: FilterButton(),
+        floatingActionButton: BlocBuilder<CategoriesViewModel, CategoriesState>(
+            builder: (context, state) {
+              return FilterButton(
+                currentFilter: state.currentFilter,
+                onFilterChanged: (filterType) {
+                  context.read<CategoriesViewModel>().applyFilter(filterType);
+                },
+              );
+            }
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );

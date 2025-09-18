@@ -59,17 +59,12 @@ class ProductGrid extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (context, index) {
           final product = products[index];
-          final discountPercent = (product.price != null && product.price! > 0)
-              ? ((1 - ((product.priceAfterDiscount ?? 0) / product.price!)) *
-                      100)
-                  .round()
-              : 0;
           return ProductCard(
             imgCover: product.imgCover ?? '',
             title: product.title ?? '',
             price: product.price?.toInt() ?? 0,
             priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
-            discountPercent: discountPercent,
+            discountPercent: product.discountPercent,
             onAddToCart: () {
               _handleAddToCart(context, product.title ?? '');
             },

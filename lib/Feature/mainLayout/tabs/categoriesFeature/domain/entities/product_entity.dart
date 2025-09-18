@@ -5,6 +5,7 @@ class ProductEntity {
   final String? imgCover;
   final num? price;
   final num? priceAfterDiscount;
+  final DateTime? createdAt;
   final int? quantity;
   final String? category;
   final int? sold;
@@ -15,8 +16,16 @@ class ProductEntity {
     this.imgCover,
     this.price,
     this.priceAfterDiscount,
+    this.createdAt,
     this.quantity,
     this.category,
     this.sold,
   });
+
+  int get discountPercent {
+    if (price != null && price! > 0) {
+      return ((1 - ((priceAfterDiscount ?? price!) / price!)) * 100).round();
+    }
+    return 0;
+  }
 }

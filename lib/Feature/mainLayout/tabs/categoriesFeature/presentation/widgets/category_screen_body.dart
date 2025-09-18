@@ -84,8 +84,18 @@ class CategoryScreenBody extends StatelessWidget {
                 isLoading: state.isLoading,
               ),
             Expanded(
-              child: ProductGrid(
-                products: state.productsList!,
+              child: state.displayProducts.isEmpty && !state.isLoading
+                  ? const Center(
+                child: Text(
+                  'No products found',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
+              )
+                  : ProductGrid(
+                products: state.displayProducts, // CHANGED: was state.productsList!
                 isLoading: state.isLoading,
               ),
             ),

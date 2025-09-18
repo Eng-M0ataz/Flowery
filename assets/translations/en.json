@@ -40,5 +40,11 @@
   "out_stock": "Status: Out Stock",
   "status": "Status",
   "description": "Description",
-  "all_prices_include_tax": "All prices include tax"
+  "all_prices_include_tax": "All prices include tax",
+  "sort_by": "Sort By",
+  "lowest_price": "Lowest Price",
+  "highest_Price": "Highest Price",
+  "new_product": "New",
+  "old_product": "Old",
+  "discount": "Discount"
 }

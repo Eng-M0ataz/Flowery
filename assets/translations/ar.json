@@ -40,5 +40,11 @@
   "out_stock": "غير متاحة",
   "status": "الحالة",
   "description": "الوصف",
-  "all_prices_include_tax": "السعر يشمل الضريبة"
+  "all_prices_include_tax": "السعر يشمل الضريبة",
+  "sort_by": "ترتيب حسب",
+  "lowest_price": "الأقل سعر",
+  "highest_Price": "الأعلى سعر",
+  "new_product": "الأجدد",
+  "old_product": "الأقدم",
+  "discount": "خصومات"
 }
