@@ -1,13 +1,15 @@
+import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/add_address_screen.dart';
+import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/saved_address_screen.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';
 import '../../models/product_details_model.dart';
-import '../../utils/constants/app_routes.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -20,13 +22,18 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.forgetPasswordRoute:
       case AppRoutes.occasionRoute:
-      final args = settings.arguments as OccasionInputModel;
-        return MaterialPageRoute(builder: (_) => OccasionScreen(
-           occasionInputModel: args,
-        ));
+        final args = settings.arguments as OccasionInputModel;
+        return MaterialPageRoute(
+            builder: (_) => OccasionScreen(
+                  occasionInputModel: args,
+                ));
 
       // return MaterialPageRoute(builder: (_) => const ForgetPassword());
 
+      case AppRoutes.addAddressScreenRoute:
+        return MaterialPageRoute(builder: (_) => const AddAddressScreen());
+      case AppRoutes.savedAddressScreenRoute:
+        return MaterialPageRoute(builder: (_) => const SavedAddressScreen());
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
             builder: (_) => const MainLayout(
@@ -46,7 +53,6 @@ class RouteGenerator {
           ),
           settings: settings,
         );
-
 
       default:
         return unDefinedRoute();

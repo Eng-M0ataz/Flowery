@@ -50,4 +50,22 @@ abstract class Validations {
     }
     return null;
   }
+
+  static String? validateAddress(String? address) {
+    if (address == null || address.trim().isEmpty) {
+      return 'Address is required!';
+    } else if (address.trim().length < 5) {
+      return 'Address is too short';
+    } else if (address.trim().length > 100) {
+      return 'Address is too long';
+    }
+    return null;
+  }
+
+  static String? validateCity(String? city) {
+    if (city == null || city.trim().isEmpty) {
+      return 'Please select a city';
+    }
+    return null;
+  }
 }

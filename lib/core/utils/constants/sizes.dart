@@ -45,36 +45,27 @@ abstract class AppSizes {
   static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
 
-
-
-
-
   static const double buttonWidth_80 = 80.0;
 
   static const double buttomHigh = 56;
   static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
 
-
-
   // AppBar High
 
   static const double appBarHigh = 56.0;
   static const double appBarElevation = 0.0;
-  static const double appBarLeadingWidth = 120.0;
+  static const double appBarLeadingWidth = 300.0;
 
   // Image sizes
 
   static const double imageHigh = 80.0;
 
   // Default Spacing Between items
-  static const double spaceBetweenItems_2 =2.0;
+  static const double spaceBetweenItems_2 = 2.0;
 
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-
-
-
 
   static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
@@ -84,17 +75,14 @@ abstract class AppSizes {
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_50 = 50.0;
 
-
-
   static const double spacingBetweenItems_10 = 12.0;
   static const double spacingBetweenItems_12 = 12.0;
   static const double spacingBetweenItems_16 = 16.0;
   static const double spacingBetweenItems_24 = 24.0;
   static const double spacingBetweenItems_32 = 32.0;
   static const double spacingBetweenItems_36 = 36.0;
+  static const double spacingBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_16 = 16.0;
-
-
 
   // Default Spacing Between Sections
 
@@ -152,6 +140,13 @@ abstract class AppSizes {
   static const double sizedBoxHeight_16 = 16.0;
   static const double sizedBoxHeight_30 = 30.0;
 
+  //location Card Height
+  static const double locationCardHeight = 85.0;
+
+  //google map 
+  static const double mapHeight = 200.0;
+  static const double mapCameraZoom = 6.0;
+
   // Tabs shimmer
   static const double tabListHeight = 40.0;
   static const double tabItemWidth = 80.0;
@@ -185,7 +180,6 @@ abstract class AppSizes {
 
   static const double shimmerProductTitleBorderRadius_4 = 4.0;
   static const double shimmerProductPriceHeight_12 = 12.0;
-
 
   // break points
 
