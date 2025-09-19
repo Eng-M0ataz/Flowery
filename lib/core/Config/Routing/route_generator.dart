@@ -1,17 +1,17 @@
-import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
-import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
-import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
+import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
+import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
+import 'package:flower_e_commerce_app/Feature/productDetails/presentation/page/product_details_screen.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
-import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
+import 'package:flower_e_commerce_app/core/models/occasion_input_model.dart';
+import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
-import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
-import '../../models/occasion_input_model.dart';
-import '../../models/product_details_model.dart';
 import '../../../Feature/mainLayout/tabs/profile/presentation/pages/profile_screen.dart';
 
 class RouteGenerator {
@@ -23,6 +23,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
+
       case AppRoutes.occasionRoute:
         final args = settings.arguments as OccasionInputModel;
         return MaterialPageRoute(
@@ -34,6 +35,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => ForgetPasswordScreen(),
         );
+
+      // return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case AppRoutes.editProfileRoute:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
           builder: (_) => const MainLayout(initialIndex: 0),

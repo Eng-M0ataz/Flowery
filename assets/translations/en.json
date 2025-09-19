@@ -93,7 +93,7 @@
   "loading": "Loading...",
   "male_label": "Male",
   "female_label": "Female",
-    "DoNotHaveAccount": "Don't have an account?",
+  "DoNotHaveAccount": "Don't have an account?",
   "SignUp": "Sign up",
   "flowery": "Flowery",
   "my_orders": "My orders",
@@ -108,6 +108,5 @@
   "arabic": "Arabic",
   "no_user_data": "No user data available"
 }
-
 
 

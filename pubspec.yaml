@@ -50,6 +50,7 @@ dev_dependencies:
   injectable_generator: ^2.8.1
   mockito: ^5.5.0
 
+
 flutter:
   uses-material-design: true
   generate: true
