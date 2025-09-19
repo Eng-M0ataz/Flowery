@@ -37,8 +37,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
   @override
   void dispose() {
     super.dispose();
-
-    viewModel.close();
+    viewModel.doIntend(CloseEvent());
   }
 
   @override
@@ -51,7 +50,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
           message: state.failure!.errorMessage,
           posActionName: LocaleKeys.ok.tr(),
           posAction: () {
-            viewModel.resetSuccessState();
+            viewModel.doIntend(ResetSuccessStateEvent());
             context.pop();
           },
         );
@@ -64,7 +63,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
           title: LocaleKeys.success.tr(),
           posActionName: LocaleKeys.ok.tr(),
           posAction: () {
-            viewModel.resetSuccessState();
+            viewModel.doIntend(ResetSuccessStateEvent());
             context.pop();
           },
         );
@@ -89,7 +88,8 @@ class _EditProfileFormState extends State<EditProfileForm> {
                             state.selectedImage?.path ?? viewModel.initialImage,
                         onImageSelected: (file) {
                           if (file != null) {
-                            viewModel.onImageSelected(file);
+                            viewModel
+                                .doIntend(OnImageSelectedEvent(file: file));
                           }
                         },
                       ),
@@ -125,7 +125,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
                           viewModel.doIntend(EditProfileSubmitEvent());
                         },
                         isLoading: state.isLoading,
-                        title: LocaleKeys.update.tr(),
+                        widget: Text(LocaleKeys.update.tr()),
                       ),
                       const SizedBox(height: AppSizes.spacingBetweenItems_16),
                     ],

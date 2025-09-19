@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_data_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/useCases/edit_profile_use_case.dart';
@@ -10,7 +13,6 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:bloc_test/bloc_test.dart';
 
 import 'profile_view_model_test.mocks.dart';
 
@@ -44,12 +46,13 @@ void main() {
       ),
     );
     loggedUserResult = ApiSuccessResult<LoggedUserDataResponseEntity>(
-        data: loggedUserDataResponseEntity);
+      data: loggedUserDataResponseEntity,
+    );
   });
 
   group("ProfileViewModel Tests", () {
     blocTest<ProfileViewModel, ProfileState>(
-      "should load logged user data",
+      "should load logged user data successfully",
       build: () {
         provideDummy<ApiResult<LoggedUserDataResponseEntity>>(loggedUserResult);
         when(mockGetLoggedUserUseCase())
@@ -67,12 +70,32 @@ void main() {
         isA<ProfileState>().having((s) => s.isLoading, "isLoading", true),
         isA<ProfileState>()
             .having((s) => s.isLoading, "isLoading", false)
-            .having((s) => s.loggedUserDataResponseEntity, "loggedUser",
-                loggedUserDataResponseEntity),
+            .having(
+              (s) => s.loggedUserDataResponseEntity,
+              "loggedUserDataResponseEntity",
+              loggedUserDataResponseEntity,
+            ),
       ],
       verify: (viewModel) {
         verify(mockGetLoggedUserUseCase()).called(1);
       },
+    );
+
+    blocTest<ProfileViewModel, ProfileState>(
+      "should update selected image when OnImageSelectedEvent is called",
+      build: () => ProfileViewModel(
+        mockGetLoggedUserUseCase,
+        mockEditProfileUseCase,
+        mockUploadPhotoUseCase,
+      ),
+      act: (viewModel) async {
+        final fakeFile = File("fake_path.png");
+        await viewModel.doIntend(OnImageSelectedEvent(file: fakeFile));
+      },
+      expect: () => [
+        isA<ProfileState>().having(
+            (s) => s.selectedImage?.path, "selectedImage", "fake_path.png"),
+      ],
     );
   });
 }

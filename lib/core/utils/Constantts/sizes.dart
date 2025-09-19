@@ -25,6 +25,7 @@ abstract class AppSizes {
   static const double lgIcon_36 = 36.0;
   static const double lgIcon_60 = 60.0;
   static const double lgIcon_64 = 64.0;
+  static const double lgIcon_120 = 120.0;
 
   // font sizes
   static const double xxsFont_10 = 10.0;
@@ -71,8 +72,6 @@ abstract class AppSizes {
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
 
-
-
   static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetweenItems_16 = 16.0;
@@ -89,13 +88,7 @@ abstract class AppSizes {
   static const double spacingBetweenItems_24 = 24.0;
   static const double spacingBetweenItems_32 = 32.0;
   static const double spacingBetweenItems_36 = 36.0;
-
-
-
-
-
-
-
+  static const double spacingBetweenItems_20 = 20.0;
 
 
   // Default Spacing Between Sections
@@ -145,7 +138,6 @@ abstract class AppSizes {
   // grid view spacing
 
   static const double gridSpacing = 16.0;
-
 
 
   //clip radius
@@ -198,13 +190,18 @@ abstract class AppSizes {
   static const double shimmerProductTitleBorderRadius_4 = 4.0;
   static const double shimmerProductPriceHeight_12 = 12.0;
 
-
   //image handler bar
   static const double imageHandlerBarWidth = 40.0;
   static const double imageHandlerBarHeight = 4.0;
 
   // profile image size
   static const double profileImageSize_85 = 85.0;
+
+
+
+// pick Image
+  static const double pickImageHeight = 800.0;
+  static const double pickImageWidth = 800.0;
 
 
   // break points
@@ -219,7 +216,6 @@ abstract class AppSizes {
     Breakpoint(start: 1024, end: 1599, name: DeviceType.tablet),
     Breakpoint(start: 1600, end: double.infinity, name: DeviceType.desktop),
   ];
-
 
 
   static const double homeBestSellerImageHigh = 151.0;
@@ -253,6 +249,4 @@ abstract class AppSizes {
 
   //spacer
   static const double spacerWidth_0 = 0;
-
-
 }

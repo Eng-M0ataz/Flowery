@@ -28,11 +28,8 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
         _buildNotificationButton(),
         const SizedBox(width: AppSizes.paddingSm_12),
       ],
-      leading: Padding(
-        padding: const EdgeInsets.only(left: AppSizes.paddingMd_16),
-        child: CustomBackButton(
-          title: LocaleKeys.edit_profile.tr(),
-        ),
+      leading: CustomBackButton(
+        title: LocaleKeys.edit_profile.tr(),
       ),
     );
   }

@@ -26,23 +26,25 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<ApiResult<EditProfileResponseEntity>> editProfile(
       EditProfileRequestEntity editProfileRequestEntity) async {
     return executeApi<EditProfileResponseDto, EditProfileResponseEntity>(
-      () => _profileApiService.editProfile(editProfileRequestEntity.toModel()),
-      (dto) => dto.toEntity(),
+      request: () =>
+          _profileApiService.editProfile(editProfileRequestEntity.toModel()),
+      mapper: (dto) => dto.toEntity(),
     );
   }
 
   @override
   Future<ApiResult<LoggedUserDataResponseEntity>> getLoggedUserData() async {
     return executeApi<LoggedUserDataResponseDto, LoggedUserDataResponseEntity>(
-        () => _profileApiService.getLoggedUserData(), (dto) => dto.toEntity());
+        request: () => _profileApiService.getLoggedUserData(),
+        mapper: (dto) => dto.toEntity());
   }
 
   @override
   Future<ApiResult<UploadPhotoResponseEntity>> uploadProfilePhoto(
       File imageFile) async {
     return executeApi<UploadPhotoResponseDto, UploadPhotoResponseEntity>(
-      () => _profileApiService.uploadProfilePhoto(imageFile),
-      (dto) => dto.toEntity(),
+      request: () => _profileApiService.uploadProfilePhoto(imageFile),
+      mapper: (dto) => dto.toEntity(),
     );
   }
 }
