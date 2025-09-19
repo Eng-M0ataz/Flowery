@@ -8,7 +8,7 @@ abstract class AppThemeLight {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColorsLight.white,
         foregroundColor: AppColorsLight.black,
         elevation: AppSizes.appBarElevation,
@@ -63,7 +63,7 @@ abstract class AppThemeLight {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusFull),
           ),
-          textStyle: const TextStyle(
+          textStyle: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: AppSizes.mdFont_16,
             fontFamily: AppFonts.inter,
@@ -73,7 +73,7 @@ abstract class AppThemeLight {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: const TextStyle(
+          textStyle: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: AppSizes.mdFont_16,
             fontFamily: AppFonts.inter,
@@ -82,7 +82,7 @@ abstract class AppThemeLight {
       ),
       inputDecorationTheme: InputDecorationTheme(
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        errorStyle: const TextStyle(
+        errorStyle: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
           fontFamily: AppFonts.roboto,
@@ -94,7 +94,7 @@ abstract class AppThemeLight {
           fontFamily: AppFonts.roboto,
           color: AppColorsLight.white[70],
         ),
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.xsFont_12,
           fontFamily: AppFonts.roboto,
@@ -124,7 +124,7 @@ abstract class AppThemeLight {
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: AppColorsLight.pink[70],
       ),
-      textTheme: const TextTheme(
+      textTheme: TextTheme(
         bodySmall: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: AppSizes.xlFont_20,
@@ -192,11 +192,6 @@ abstract class AppThemeLight {
         titleMedium: TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: AppSizes.mdFont_16,
-        ),
-        titleSmall: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: AppSizes.smFont_14,
-          fontFamily: AppFonts.inter,
         ),
       ),
     );

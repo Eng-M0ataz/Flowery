@@ -12,6 +12,7 @@ class Assets {
   static const String assetsImagesCategoryUnselected =
       "assets/images/category_unselected.svg";
 
+
   /// Assets for assetsImagesCloseCircle
   /// assets/images/close-circle.svg
   static const String assetsImagesCloseCircle =
@@ -20,6 +21,7 @@ class Assets {
   /// Assets for assetsImagesFilterIcon
   /// assets/images/filter_icon.svg
   static const String assetsImagesFilterIcon = "assets/images/filter_icon.svg";
+
 
   /// Assets for assetsImagesHomeSelected
   /// assets/images/home_selected.svg
@@ -31,6 +33,7 @@ class Assets {
   static const String assetsImagesHomeUnselected =
       "assets/images/home_unselected.svg";
 
+
   /// Assets for assetsImagesLocationIcon
   /// assets/images/location_icon.svg
   static const String assetsImagesLocationIcon =
@@ -39,6 +42,7 @@ class Assets {
   /// Assets for assetsImagesLogo
   /// assets/images/Logo.svg
   static const String assetsImagesLogo = "assets/images/Logo.svg";
+
 
   /// Assets for assetsImagesNoImage
   /// assets/images/no_image.png
@@ -59,9 +63,11 @@ class Assets {
   static const String assetsImagesPersonUnselected =
       "assets/images/person_unselected.svg";
 
+
   /// Assets for assetsImagesSearch
   /// assets/images/search.svg
   static const String assetsImagesSearch = "assets/images/search.svg";
+
 
   /// Assets for assetsImagesShoppingCartSelected
   /// assets/images/shopping_cart_selected.svg
@@ -72,4 +78,8 @@ class Assets {
   /// assets/images/shopping_cart_unselected.svg
   static const String assetsImagesShoppingCartUnselected =
       "assets/images/shopping_cart_unselected.svg";
+
+  static const String assetsImagesNotificationBill =
+      "assets/images/notification.svg";
+  static const String assetsImagesCamera = "assets/images/camera.svg";
 }
