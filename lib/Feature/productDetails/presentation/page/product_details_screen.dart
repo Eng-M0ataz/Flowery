@@ -1,7 +1,7 @@
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 import '../widgets/custom_image_slide_show.dart';
 import '../widgets/product_details_footer.dart';
 

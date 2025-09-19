@@ -1,6 +1,6 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_fonts.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_fonts.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppThemeLight {
@@ -213,7 +213,6 @@ abstract class AppThemeLight {
       onSurface: AppColorsLight.black,
       error: AppColorsLight.red,
       onError: AppColorsLight.white,
-
     ),
   );
 }

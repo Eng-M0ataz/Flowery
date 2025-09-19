@@ -11,7 +11,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';

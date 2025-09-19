@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import '../../../../../core/helpers/dialogue_utils.dart';
 import '../../../../../core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import '../../viewModel/forgetPassword/forget_password_states.dart';
 import '../../viewModel/forgetPassword/forget_password_view_model.dart';
 
@@ -15,7 +15,7 @@ class MainTimer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ForgetPasswordViewModel, ForgetPasswordState>(
       buildWhen: (previous, current) =>
-      previous.mainTimerEndTime != current.mainTimerEndTime,
+          previous.mainTimerEndTime != current.mainTimerEndTime,
       builder: (context, state) {
         final endTime = state.mainTimerEndTime;
 

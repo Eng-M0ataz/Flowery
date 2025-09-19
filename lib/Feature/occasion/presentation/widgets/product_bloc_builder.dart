@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/localization/locale_keys.g.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 import '../viewModels/occasion_event.dart';
 import '../viewModels/occasion_state.dart';
 import '../viewModels/occasion_view_model.dart';

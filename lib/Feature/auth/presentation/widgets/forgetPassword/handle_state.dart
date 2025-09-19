@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/helpers/dialogue_utils.dart';
-import '../../../../../core/utils/Constants/app_constants.dart';
+import '../../../../../core/utils/Constantts/app_constants.dart';
 
 void handleState<T>({
   required BuildContext context,

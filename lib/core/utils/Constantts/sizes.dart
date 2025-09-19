@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/core/utils/Constants/device_type.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/device_type.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 abstract class AppSizes {

@@ -4,7 +4,7 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/sign_up_use_c
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/events/sign_up_event.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_Up_state.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';

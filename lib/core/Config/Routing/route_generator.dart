@@ -7,7 +7,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../../../Feature/productDetails/presentation/page/product_details_screen.dart';
 import '../../models/occasion_input_model.dart';

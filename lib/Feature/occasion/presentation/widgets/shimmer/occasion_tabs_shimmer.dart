@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import '../../../../../core/Config/Theme/app_colors.dart';
-import '../../../../../core/utils/Constants/sizes.dart';
+import '../../../../../core/utils/Constantts/sizes.dart';
 
 class OccasionTabsShimmer extends StatelessWidget {
   const OccasionTabsShimmer({super.key});
@@ -14,9 +14,9 @@ class OccasionTabsShimmer extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 4,
         separatorBuilder: (_, __) =>
-        const SizedBox(width: AppSizes.tabItemSpacing),
+            const SizedBox(width: AppSizes.tabItemSpacing),
         itemBuilder: (context, index) => Shimmer(
-          color:Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).colorScheme.onPrimary,
           child: Container(
             width: AppSizes.tabItemWidth,
             height: AppSizes.tabItemHeight,
