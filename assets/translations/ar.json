@@ -64,5 +64,7 @@
   "confirmPassword": "تأكيد كلمة المرور",
   "invalidCode": "رمز غير صالح",
   "resetPassword": "إعادة تعيين كلمة المرور",
-  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته"
+  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
+  "aboutApp" : "حول التطبيق",
+  "termsAndConditions" : "الشروط والاحكام"
 }

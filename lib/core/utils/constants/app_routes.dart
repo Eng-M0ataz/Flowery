@@ -9,4 +9,6 @@ abstract class AppRoutes {
   static const String bestSellerRoute = '/bestSellerRoute';
   static const String searchRoute = '/searchRoute';
   static const String notificationRoute = '/notificationRoute';
+  static const String aboutAppRoute = '/aboutAppRoute';
+  static const String termsAndConditionsRoute = '/termsAndConditionsRoute';
 }

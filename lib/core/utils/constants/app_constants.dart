@@ -22,4 +22,6 @@ abstract class AppConstants {
   static const String success = 'success';
   static const int mainDuration = 10;
   static const int resendDuration = 3;
+  static const String aboutAppPath="assets/json/Flowery About Section JSON with Expanded Content.json";
+  static const String termsAndConditionsPath="assets/json/Flowery Terms and Conditions JSON with Arabic and English.json";
 }
