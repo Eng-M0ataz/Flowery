@@ -9,6 +9,7 @@ import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import '../../../../../../core/utils/Constants/app_assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfileHeaderBlocBuilder extends StatelessWidget {
   const ProfileHeaderBlocBuilder({super.key});
@@ -39,7 +40,22 @@ class ProfileHeaderBlocBuilder extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: AppSizes.borderRadius_40,
-              backgroundImage: NetworkImage(user?.photo ?? ''),
+              backgroundColor: Colors.grey.shade200,
+              child: ClipOval(
+                child: CachedNetworkImage(
+                  imageUrl: user?.photo ?? '',
+                  fit: BoxFit.cover,
+                  width: AppSizes.borderRadius_80,
+                  height: AppSizes.borderRadius_80,
+                  placeholder: (context, url) => const Icon(Icons.person,
+                      size: AppSizes.lgIcon_36, color: AppColorsLight.gray),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                    size: AppSizes.lgIcon_36,
+                    color: AppColorsLight.red,
+                  ),
+                ),
+              ),
             ),
             SizedBox(height: AppSizes.paddingXs_4),
             Row(

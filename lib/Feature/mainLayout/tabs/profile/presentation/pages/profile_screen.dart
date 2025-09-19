@@ -98,7 +98,7 @@ class ProfileScreen extends StatelessWidget {
           title: LocaleKeys.saved_address.tr(),
         ),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
-        Divider(color: AppColorsLight.white_70),
+        Divider(color: AppColorsLight.white[70]),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
       ],
     );
@@ -122,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
           title: LocaleKeys.notification.tr(),
         ),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
-        Divider(color: AppColorsLight.white_70),
+        Divider(color: AppColorsLight.white[70]),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
       ],
     );
@@ -158,7 +158,7 @@ class ProfileScreen extends StatelessWidget {
         SizedBox(height: AppSizes.spacingBetweenItems_16),
         ProfileMenuItem(title: LocaleKeys.terms_conditions.tr()),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
-        Divider(color: AppColorsLight.white_70),
+        Divider(color: AppColorsLight.white[70]),
         SizedBox(height: AppSizes.spacingBetweenItems_16),
       ],
     );
