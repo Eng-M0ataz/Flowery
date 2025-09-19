@@ -84,7 +84,7 @@ class CategoryScreenBody extends StatelessWidget {
                 isLoading: state.isCategoriesLoading,
               ),
             Expanded(
-              child: state.displayProducts.isEmpty && !state.isLoading
+              child: context.watch<CategoriesViewModel>().displayProducts.isEmpty && !state.isProductsLoading
                   ? const Center(
                 child: Text(
                   'No products found',
@@ -95,8 +95,8 @@ class CategoryScreenBody extends StatelessWidget {
                 ),
               )
                   : ProductGrid(
-                products: state.displayProducts, // CHANGED: was state.productsList!
-                isLoading: state.isLoading,
+                products: context.watch<CategoriesViewModel>().displayProducts, // CHANGED: was state.productsList!
+                isLoading: state.isProductsLoading,
               ),
             ),
           ],

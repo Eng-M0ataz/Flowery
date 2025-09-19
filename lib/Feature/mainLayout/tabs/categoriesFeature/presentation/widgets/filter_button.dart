@@ -6,8 +6,8 @@ import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class FilterButton extends StatelessWidget {
-  final FilterType? currentFilter;
-  final Function(FilterType?) onFilterChanged;
+  final FILTERTYPE? currentFilter;
+  final Function(FILTERTYPE?) onFilterChanged;
 
   const FilterButton({
     super.key,
@@ -38,7 +38,7 @@ class FilterButton extends StatelessWidget {
           );
         },
         backgroundColor: Theme.of(context).colorScheme.primary,
-        elevation: 4,
+        elevation: AppSizes.cardElevation,
         icon: Stack(
           children: [
             Icon(

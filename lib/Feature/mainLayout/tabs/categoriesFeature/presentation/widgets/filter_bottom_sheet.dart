@@ -6,8 +6,8 @@ import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class FilterBottomSheet extends StatefulWidget {
-  final FilterType? currentFilter;
-  final Function(FilterType?) onFilterSelected;
+  final FILTERTYPE? currentFilter;
+  final Function(FILTERTYPE?) onFilterSelected;
 
   const FilterBottomSheet({
     super.key,
@@ -20,7 +20,7 @@ class FilterBottomSheet extends StatefulWidget {
 }
 
 class _FilterBottomSheetState extends State<FilterBottomSheet> {
-  FilterType? selectedFilter;
+  FILTERTYPE? selectedFilter;
   bool isLoading = false;
 
   @override
@@ -46,8 +46,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
           children: [
             Center(
               child: Container(
-                width: 40,
-                height: 4,
+                width: AppSizes.sizedBoxWidth_40,
+                height: AppSizes.sizedBoxHeight_4,
                 margin: const EdgeInsets.only(bottom: AppSizes.paddingMd_16),
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
@@ -68,7 +68,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             _buildRadioFilterTile(
               context: context,
               title: LocaleKeys.lowest_price.tr(),
-              filterType: FilterType.lowestPrice,
+              filterType: FILTERTYPE.lowestPrice,
               icon: Icons.arrow_downward,
             ),
             const SizedBox(height: AppSizes.spaceBetweenItems_8),
@@ -76,7 +76,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             _buildRadioFilterTile(
               context: context,
               title: LocaleKeys.highest_Price.tr(),
-              filterType: FilterType.highestPrice,
+              filterType: FILTERTYPE.highestPrice,
               icon: Icons.arrow_upward,
             ),
             const SizedBox(height: AppSizes.spaceBetweenItems_8),
@@ -84,7 +84,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             _buildRadioFilterTile(
               context: context,
               title: LocaleKeys.new_product.tr(),
-              filterType: FilterType.newest,
+              filterType: FILTERTYPE.newest,
               icon: Icons.new_releases,
             ),
             const SizedBox(height: AppSizes.spaceBetweenItems_8),
@@ -92,7 +92,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             _buildRadioFilterTile(
               context: context,
               title: LocaleKeys.old_product.tr(),
-              filterType: FilterType.oldest,
+              filterType: FILTERTYPE.oldest,
               icon: Icons.history,
             ),
             const SizedBox(height: AppSizes.spaceBetweenItems_8),
@@ -100,7 +100,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             _buildRadioFilterTile(
               context: context,
               title: LocaleKeys.discount.tr(),
-              filterType: FilterType.discount,
+              filterType: FILTERTYPE.discount,
               icon: Icons.local_offer,
             ),
 
@@ -128,7 +128,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   Widget _buildRadioFilterTile({
     required BuildContext context,
     required String title,
-    required FilterType? filterType,
+    required FILTERTYPE? filterType,
     required IconData icon,
   }) {
     final isSelected = selectedFilter == filterType;
@@ -157,8 +157,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
           children: [
             // Radio button
             Container(
-              width: 20,
-              height: 20,
+              width: AppSizes.sizedBoxWidth_20,
+              height: AppSizes.sizedBoxHeight_20,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
@@ -174,8 +174,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               child: isSelected
                   ? Center(
                 child: Container(
-                  width: 8,
-                  height: 8,
+                  width: AppSizes.sizedBoxWidth_8,
+                  height: AppSizes.sizedBoxHeight_8,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Theme.of(context).colorScheme.onPrimary,
@@ -214,7 +214,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
     );
   }
 
-  void _selectFilter(FilterType? filter) {
+  void _selectFilter(FILTERTYPE? filter) {
     setState(() {
       if (selectedFilter == filter) {
         selectedFilter = null;

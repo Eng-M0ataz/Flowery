@@ -20,62 +20,21 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   final GetAllProductsUseCase _getAllProductsUseCase;
   final Filter _filter = Filter();
 
+  List<ProductEntity> get displayProducts {
+    final stateProducts = state.productsList ?? [];
+    final filtered = state.filteredProducts ?? [];
+
+    if (state.currentFilter != null && filtered.isNotEmpty) {
+      return filtered;
+    }
+    return stateProducts;
+  }
+
   CategoriesViewModel(
     this._categoriesUseCase,
     this._getCategoryProductsUseCase,
     this._getAllProductsUseCase,
   ) : super(const CategoriesState());
-
-  void applyFilter(FilterType? filterType) {
-
-    if (filterType == null) {
-      emit(state.copyWith(
-        filteredProducts: state.productsList,
-        currentFilter: null,
-        isLoading: false,
-      ));
-      return;
-    }
-
-    emit(state.copyWith(isLoading: true));
-
-    try {
-      final products = state.productsList ?? [];
-      if (products.isEmpty) {
-        emit(state.copyWith(isLoading: false));
-        return;
-      }
-
-      final filteredProducts = _filter.filterList<ProductEntity>(
-        items: products,
-        filter: filterType,
-        getCreatedAt: (p) => p.createdAt ?? DateTime.now(),
-        getPrice: (p) => (p.price ?? 0).toInt(),
-        getPriceAfterDiscount: (p) => p.priceAfterDiscount?.toInt(),
-        getDiscountPercent: (p) => p.discountPercent,
-      );
-
-
-      emit(state.copyWith(
-        filteredProducts: filteredProducts,
-        currentFilter: filterType,
-        isLoading: false,
-      ));
-    } catch (e) {
-      emit(state.copyWith(
-        isLoading: false,
-        errorMessage: e.toString(),
-      ));
-    }
-  }
-
-  void clearFilter() {
-    emit(state.copyWith(
-      filteredProducts: state.productsList,
-      currentFilter: null,
-      isLoading: false,
-    ));
-  }
 
   Future<void> doIntent(CategoriesEvent event) async {
     switch (event) {
@@ -94,8 +53,67 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
           limit: event.limit ?? 10,
         ));
         break;
+      case ApplyFilterEvent():
+        _applyFilter(event.filterType);
+        break;
+      case ClearFilterEvent():
+        _clearFilter();
+        break;
     }
   }
+
+  void _applyFilter(FILTERTYPE? filterType) {
+
+    if (filterType == null) {
+      emit(state.copyWith(
+        filteredProducts: state.productsList,
+        currentFilter: null,
+        isProductsLoading: false,
+      ));
+      return;
+    }
+
+    emit(state.copyWith(isProductsLoading: true));
+
+    try {
+      final products = state.productsList ?? [];
+      if (products.isEmpty) {
+        emit(state.copyWith(isProductsLoading: false));
+        return;
+      }
+
+      final filteredProducts = _filter.filterList<ProductEntity>(
+        items: products,
+        filter: filterType,
+        getCreatedAt: (p) => p.createdAt ?? DateTime.now(),
+        getPrice: (p) => (p.price ?? 0).toInt(),
+        getPriceAfterDiscount: (p) => p.priceAfterDiscount?.toInt(),
+        getDiscountPercent: (p) => p.discountPercent,
+      );
+
+
+      emit(state.copyWith(
+        filteredProducts: filteredProducts,
+        currentFilter: filterType,
+        isProductsLoading: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        isProductsLoading: false,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
+  void _clearFilter() {
+    emit(state.copyWith(
+      filteredProducts: state.productsList,
+      currentFilter: null,
+      isProductsLoading: false,
+    ));
+  }
+
+
 
   Future<void> _getAllCategories() async {
     emit(state.copyWith(

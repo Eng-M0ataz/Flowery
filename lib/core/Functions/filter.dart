@@ -1,4 +1,4 @@
-enum FilterType {
+enum FILTERTYPE {
   newest,
   oldest,
   discount,
@@ -10,7 +10,7 @@ class Filter{
 
   List<TProductEntity> filterList<TProductEntity>({
     required List<TProductEntity> items,
-    required FilterType filter,
+    required FILTERTYPE filter,
     required DateTime Function(TProductEntity) getCreatedAt,
     required int Function(TProductEntity) getPrice,
     required int? Function(TProductEntity) getPriceAfterDiscount,
@@ -19,25 +19,25 @@ class Filter{
     List<TProductEntity> sorted = [...items]; // copy
 
     switch (filter) {
-      case FilterType.newest:
+      case FILTERTYPE.newest:
         sorted.sort((a, b) => getCreatedAt(b).compareTo(getCreatedAt(a)));
         break;
 
-      case FilterType.oldest:
+      case FILTERTYPE.oldest:
         sorted.sort((a, b) => getCreatedAt(a).compareTo(getCreatedAt(b)));
         break;
 
-      case FilterType.discount:
+      case FILTERTYPE.discount:
         sorted = sorted.where((p) => getDiscountPercent(p) > 0).toList();
         sorted.sort((a, b) => getDiscountPercent(b).compareTo(getDiscountPercent(a)));
         break;
 
-      case FilterType.lowestPrice:
+      case FILTERTYPE.lowestPrice:
         sorted.sort((a, b) =>
             (getPriceAfterDiscount(a) ?? getPrice(a)).compareTo(getPriceAfterDiscount(b) ?? getPrice(b)));
         break;
 
-      case FilterType.highestPrice:
+      case FILTERTYPE.highestPrice:
         sorted.sort((a, b) =>
             (getPriceAfterDiscount(b) ?? getPrice(b)).compareTo(getPriceAfterDiscount(a) ?? getPrice(a)));
         break;

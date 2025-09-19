@@ -10,7 +10,7 @@ class CategoriesState extends Equatable {
   final List<CategoryEntity>? categories;
   final List<ProductEntity>? productsList;
   final List<ProductEntity>? filteredProducts;
-  final FilterType? currentFilter;
+  final FILTERTYPE? currentFilter;
   final bool isSuccess;
   final String? selectedCategoryId;
 
@@ -33,7 +33,7 @@ class CategoriesState extends Equatable {
     List<CategoryEntity>? categories,
     List<ProductEntity>? productsList,
     List<ProductEntity>? filteredProducts,
-    FilterType? currentFilter,
+    FILTERTYPE? currentFilter,
     bool? isSuccess,
     String? selectedCategoryId,
   }) {
@@ -48,13 +48,6 @@ class CategoriesState extends Equatable {
       isSuccess: isSuccess ?? this.isSuccess,
       selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
     );
-  }
-
-  List<ProductEntity> get displayProducts {
-    if (currentFilter != null && filteredProducts != null && filteredProducts!.isNotEmpty) {
-      return filteredProducts!;
-    }
-    return productsList ?? [];
   }
 
   @override

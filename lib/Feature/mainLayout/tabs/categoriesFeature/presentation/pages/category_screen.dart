@@ -49,7 +49,7 @@ class CategoryScreen extends StatelessWidget {
               return FilterButton(
                 currentFilter: state.currentFilter,
                 onFilterChanged: (filterType) {
-                  context.read<CategoriesViewModel>().applyFilter(filterType);
+                  context.read<CategoriesViewModel>().doIntent(ApplyFilterEvent(filterType));
                 },
               );
             }
