@@ -74,8 +74,9 @@ class Assets {
       "assets/images/shopping_cart_unselected.svg";
 
   static const String assetsImagesFlower =
-      "assets/images/Flower.svg";
+      'assets/images/Flower (1).svg';
 
-  static const String assetsImagePen='assets/images/pen.svg';
+  static const String assetsImagePen='assets/images/noto-v1_pen.svg';
   static const String assetsImageSelectIcon='assets/images/icon.svg';
+
 }

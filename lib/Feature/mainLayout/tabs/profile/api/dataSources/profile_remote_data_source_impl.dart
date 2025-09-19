@@ -16,6 +16,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   @override
   Future<ApiResult<LoggedUserDataResponseEntity>> getLoggedUserData() async {
     return executeApi<LoggedUserDataResponseDto, LoggedUserDataResponseEntity>(
-        () => _apiService.getLoggedUserData(), (dto) => dto.toEntity());
+        request: () => _apiService.getLoggedUserData(),
+        mapper: (dto) => dto.toEntity());
   }
 }

@@ -8,7 +8,7 @@ class GetLoggedUserUseCase {
 
   GetLoggedUserUseCase(this._profileRepo);
 
-  Future<ApiResult<LoggedUserDataResponseEntity>> call() async {
+  Future<ApiResult<LoggedUserDataResponseEntity>> invoke() async {
     return await _profileRepo.getLoggedUserData();
   }
 }

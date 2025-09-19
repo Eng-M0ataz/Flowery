@@ -88,6 +88,7 @@ abstract class AppSizes {
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
   static const double borderRadius_40 = 40.0;
+  static const double borderRadius_80 = 80.0;
   static const double borderRadiusFull = 100.0;
 
   // Divider Height

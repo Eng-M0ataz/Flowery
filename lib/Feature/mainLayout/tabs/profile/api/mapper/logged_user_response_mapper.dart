@@ -5,7 +5,7 @@ import '../models/response/logged_user_data_response_dto.dart';
 extension LoggedUserDataResponseDtoMapper on LoggedUserDataResponseDto {
   LoggedUserDataResponseEntity toEntity() {
     return LoggedUserDataResponseEntity(
-      message: message,
+      message: message??'',
       user: user?.toEntity(),
     );
   }
