@@ -36,17 +36,12 @@ class RouteGenerator {
           builder: (_) => ForgetPasswordScreen(),
         );
 
-      // return MaterialPageRoute(builder: (_) => const SignUpScreen());
-      case AppRoutes.editProfileRoute:
-        return MaterialPageRoute(builder: (_) => EditProfileScreen());
-
-      // return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.editProfileRoute:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
 
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
-          builder: (_) => const MainLayout(initialIndex: 0),
+          builder: (_) => const MainLayout(),
         );
       case AppRoutes.notificationRoute:
         return MaterialPageRoute(

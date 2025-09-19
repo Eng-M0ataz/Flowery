@@ -3,10 +3,10 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/
 import 'package:flower_e_commerce_app/Feature/mainLayout/widgets/button_nav_bar.dart';
 import 'package:flutter/material.dart';
 
-
 class MainLayout extends StatefulWidget {
-  const MainLayout({super.key, required this.initialIndex});
-  final int? initialIndex;
+  const MainLayout({
+    super.key,
+  });
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -14,6 +14,10 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentIndex = 0;
+  final List<Widget> scrrens = [
+    HomeScreen(),
+    CategoryScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +29,7 @@ class _MainLayoutState extends State<MainLayout> {
           });
         },
       ),
-      body: IndexedStack(
-        index: currentIndex,
-        children: [
-         HomeScreen(),
-          CategoryScreen(),
-
-        ],
-      ),
+      body: scrrens[currentIndex],
     );
   }
 }
