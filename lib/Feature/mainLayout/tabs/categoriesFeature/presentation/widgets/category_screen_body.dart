@@ -41,7 +41,7 @@ class CategoryScreenBody extends StatelessWidget {
       builder: (context, state) {
         if (initialCategoryId != null &&
             state.productsList == null &&
-            !state.isLoading) {
+            !state.isProductsLoading) {
           context.read<CategoriesViewModel>().doIntent(
                 GetProductsByCategoryEvent(categoryId: initialCategoryId!),
               );
@@ -81,12 +81,12 @@ class CategoryScreenBody extends StatelessWidget {
                         );
                   }
                 },
-                isLoading: state.isLoading,
+                isLoading: state.isCategoriesLoading,
               ),
             Expanded(
               child: ProductGrid(
                 products: state.productsList!,
-                isLoading: state.isLoading,
+                isLoading: state.isProductsLoading,
               ),
             ),
           ],

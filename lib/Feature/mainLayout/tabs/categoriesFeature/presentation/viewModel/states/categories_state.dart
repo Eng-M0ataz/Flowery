@@ -3,7 +3,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
 
 class CategoriesState extends Equatable {
-  final bool isLoading;
+  final bool isCategoriesLoading;
+  final bool isProductsLoading;
   final String? errorMessage;
   final List<CategoryEntity>? categories;
   final List<ProductEntity>? productsList;
@@ -11,7 +12,8 @@ class CategoriesState extends Equatable {
   final String? selectedCategoryId;
 
   const CategoriesState({
-    this.isLoading = false,
+    this.isCategoriesLoading = false,
+    this.isProductsLoading = false,
     this.errorMessage,
     this.categories = const [],
     this.productsList = const [],
@@ -20,7 +22,8 @@ class CategoriesState extends Equatable {
   });
 
   CategoriesState copyWith({
-    bool? isLoading,
+    bool? isCategoriesLoading,
+    bool? isProductsLoading,
     String? errorMessage,
     List<CategoryEntity>? categories,
     List<ProductEntity>? productsList,
@@ -28,7 +31,8 @@ class CategoriesState extends Equatable {
     String? selectedCategoryId,
   }) {
     return CategoriesState(
-      isLoading: isLoading ?? this.isLoading,
+      isCategoriesLoading: isCategoriesLoading ?? this.isCategoriesLoading,
+      isProductsLoading: isProductsLoading ?? this.isProductsLoading,
       errorMessage: errorMessage ?? this.errorMessage,
       categories: categories ?? this.categories,
       productsList: productsList ?? this.productsList,
@@ -39,7 +43,8 @@ class CategoriesState extends Equatable {
 
   @override
   List<Object?> get props => [
-        isLoading,
+        isCategoriesLoading,
+        isProductsLoading,
         errorMessage,
         categories,
         productsList,

@@ -125,8 +125,9 @@ class SignUpForm extends StatelessWidget {
                       ),
                       const SizedBox(height: AppSizes.spacingBetweenItems_32),
                       CustomElevatedButton(
-                        widget: Text(LocaleKeys.sign_up_title.tr(),
-                            style: Theme.of(context).textTheme.headlineSmall),
+                        widget: Text(
+                          LocaleKeys.sign_up_title.tr(),
+                        ),
                         onPressed: () =>
                             viewModel.doIntent(SignUpSubmitEvent()),
                         isLoading: state.isLoading,
