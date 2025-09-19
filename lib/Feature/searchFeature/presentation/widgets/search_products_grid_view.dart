@@ -1,7 +1,7 @@
 import 'package:flower_e_commerce_app/Feature/searchFeature/domain/entities/search_peoduct_entity.dart';
 import 'package:flower_e_commerce_app/core/Functions/calculate_product_discount_percent.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class SearchProductsGridView extends StatelessWidget {

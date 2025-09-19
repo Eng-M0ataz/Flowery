@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/Widgets/custom_elevated_button.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 import '../../../../core/models/product_details_model.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 
 class ProductDetailsFooter extends StatelessWidget {
   final ProductDetailsModel product;

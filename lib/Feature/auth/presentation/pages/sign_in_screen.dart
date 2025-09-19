@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/signin/sign_in_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
-import 'package:flower_e_commerce_app/core/Utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import '../../../../core/Di/di.dart';
 import '../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../core/Widgets/custom_elevated_button.dart';
@@ -23,7 +23,6 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   final SigninViewModel _viewModel = getIt<SigninViewModel>();
 
-
   @override
   Widget build(BuildContext context) {
     final theme = AppThemeLight.lightTheme;
@@ -32,48 +31,40 @@ class _SigninScreenState extends State<SigninScreen> {
       child: Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: AppSizes.paddingMd_12),
+            padding:
+                const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                 CustomBackButton(title: LocaleKeys.login.tr()),
+                CustomBackButton(title: LocaleKeys.login.tr()),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 Form(
                   key: _viewModel.formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
-                        controller: _viewModel.emailController,
-                        decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.email.tr(),
-                              style: theme.textTheme.bodyMedium
+                          controller: _viewModel.emailController,
+                          decoration: InputDecoration(
+                            label: Text(LocaleKeys.email.tr(),
+                                style: theme.textTheme.bodyMedium),
+                            hintText: LocaleKeys.email_hint.tr(),
                           ),
-                          hintText: LocaleKeys.email_hint.tr(),
-                        ),
-                        validator: (value) => Validations.validateEmail(value)
-                      ),
+                          validator: (value) =>
+                              Validations.validateEmail(value)),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                       TextFormField(
-                        controller: _viewModel.passwordController,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          label: Text(
-                              LocaleKeys.password.tr(),
-                              style: theme.textTheme.bodyMedium
+                          controller: _viewModel.passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            label: Text(LocaleKeys.password.tr(),
+                                style: theme.textTheme.bodyMedium),
+                            hintText: LocaleKeys.password_hint.tr(),
                           ),
-                          hintText: LocaleKeys.password_hint.tr(),
-                        ),
-                        validator: (value) => Validations.validatePassword(value)
-                      ),
-
+                          validator: (value) =>
+                              Validations.validatePassword(value)),
                       const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -82,7 +73,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               Checkbox(
                                 value: _viewModel.rememberMe,
                                 onChanged: (val) {
-                                    _viewModel.rememberMe = val ?? false;
+                                  _viewModel.rememberMe = val ?? false;
                                 },
                               ),
                               Text(LocaleKeys.remember_me.tr()),
@@ -104,9 +95,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 BlocConsumer<SigninViewModel, SignInState>(
                   bloc: _viewModel,
                   listener: (context, state) {
@@ -127,7 +116,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     final isLoading = state.isLoading;
 
                     return CustomElevatedButton(
-                      widget:Text(LocaleKeys.login.tr()) ,
+                      widget: Text(LocaleKeys.login.tr()),
                       isLoading: isLoading,
                       onPressed: () {
                         _viewModel.signin();
@@ -135,24 +124,18 @@ class _SigninScreenState extends State<SigninScreen> {
                     );
                   },
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
                 OutlinedButton(
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(
-                        AppRoutes.mainLayoutRoute,
-                        predicate: (route) => false
-                    );
+                    context.pushNamedAndRemoveUntil(AppRoutes.mainLayoutRoute,
+                        predicate: (route) => false);
                   },
                   style: OutlinedButton.styleFrom(
                     minimumSize: Size(double.infinity, AppSizes.buttomHigh_48),
                   ),
                   child: Text(LocaleKeys.guest),
                 ),
-
                 const SizedBox(height: AppSizes.spaceBetweenItems_8),
-
                 Center(
                   child: GestureDetector(
                     onTap: () => context.pushNamed(AppRoutes.signUpRoute),

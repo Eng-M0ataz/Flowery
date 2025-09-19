@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 
 import 'package:flower_e_commerce_app/core/Services/storage_interface.dart';
 
-import 'package:flower_e_commerce_app/core/utils/Constants/api_constants.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/api_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../../Services/storage_interface.dart';

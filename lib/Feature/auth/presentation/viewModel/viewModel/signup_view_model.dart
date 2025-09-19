@@ -4,7 +4,7 @@ import 'package:flower_e_commerce_app/Feature/auth/domain/useCases/sign_up_use_c
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/events/sign_up_event.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/states/sign_Up_state.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -27,7 +27,8 @@ class SignupViewModel extends Cubit<SignUpState> {
   final TextEditingController signUpRePasswordController =
       TextEditingController();
 
-  final TextEditingController signUpPhoneController = TextEditingController();
+  final TextEditingController signUpPhoneController =
+      TextEditingController(text: "+2");
 
   final formKey = GlobalKey<FormState>();
   String selectedGender = AppConstants.femaleValue;
@@ -41,6 +42,15 @@ class SignupViewModel extends Cubit<SignUpState> {
   }
 
   Future<void> _signUp(SignUpSubmitEvent event) async {
+    final isValid = formKey.currentState?.validate() ?? false;
+
+    if (!isValid) {
+      emit(state.copyWith(
+        isLoading: false,
+        isSuccess: false,
+      ));
+      return;
+    }
     emit(state.copyWith(isSuccess: false, isLoading: true, errorMessage: null));
 
     final signUpRequestEntity = SignUpRequestEntity(
@@ -49,9 +59,7 @@ class SignupViewModel extends Cubit<SignUpState> {
       email: signUpEmailController.text.trim(),
       password: signUpPasswordController.text.trim(),
       rePassword: signUpRePasswordController.text.trim(),
-      phone: signUpPhoneController.text.trim().startsWith("+")
-          ? signUpPhoneController.text.trim()
-          : "+2${signUpPhoneController.text.trim()}",
+      phone: signUpPhoneController.text.trim(),
       gender: selectedGender.toLowerCase().trim(),
     );
 

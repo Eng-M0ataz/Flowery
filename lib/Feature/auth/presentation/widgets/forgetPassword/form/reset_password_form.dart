@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../../../core/localization/locale_keys.g.dart';
-import '../../../../../../core/utils/Constants/sizes.dart';
+import '../../../../../../core/utils/Constantts/sizes.dart';
 import '../../../viewModel/forgetPassword/forget_password_event.dart';
 import '../../../viewModel/forgetPassword/forget_password_states.dart';
 import '../../../viewModel/forgetPassword/forget_password_view_model.dart';

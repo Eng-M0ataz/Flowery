@@ -3,8 +3,8 @@ import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/viewMod
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/viewModel/search_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/app_assets.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,4 +1,4 @@
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomDropDownButton extends StatelessWidget {
@@ -17,8 +17,8 @@ class CustomDropDownButton extends StatelessWidget {
       underline: const SizedBox(),
       hint: const Text("Deliver to 2XVP+XC - Sheikh Zayed"),
       style: Theme.of(context).textTheme.titleSmall!.copyWith(
-        overflow: TextOverflow.ellipsis,
-      ),
+            overflow: TextOverflow.ellipsis,
+          ),
       items: const [
         DropdownMenuItem(
           value: "Deliver to 2XVP+XC - Sheikh Zayed ",

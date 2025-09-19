@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class ProductGrid extends StatelessWidget {

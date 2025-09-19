@@ -1,7 +1,7 @@
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 import '../widgets/custom_image_slide_show.dart';
 import '../widgets/product_details_footer.dart';
 
@@ -22,7 +22,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 Stack(
                   children: [
                     CustomImageSlideShow(
-                      itemImagesList: productDetailsModel.images??[],
+                      itemImagesList: productDetailsModel.images ?? [],
                     ),
                     Positioned(
                         top: AppSizes.paddingXl_64,
@@ -36,7 +36,9 @@ class ProductDetailsScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                ProductDetailsFooter(product: productDetailsModel,),
+                ProductDetailsFooter(
+                  product: productDetailsModel,
+                ),
               ],
             ),
           ),
@@ -45,5 +47,3 @@ class ProductDetailsScreen extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,7 +1,7 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class SearchListTile extends StatelessWidget {

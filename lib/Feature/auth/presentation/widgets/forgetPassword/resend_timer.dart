@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 
-import '../../../../../core/utils/Constants/app_constants.dart';
+import '../../../../../core/utils/Constantts/app_constants.dart';
 
 class ResendTimer extends StatelessWidget {
   final void Function()? onEnd;

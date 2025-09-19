@@ -1,7 +1,7 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
-import '../utils/Constants/sizes.dart';
+import '../utils/Constantts/sizes.dart';
 
 class ProductsShimmer extends StatelessWidget {
   final bool isEnabled;

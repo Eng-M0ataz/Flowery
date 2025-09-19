@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 import '../../../../core/models/occasion_input_model.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 import '../viewModels/occasion_event.dart';
 import '../viewModels/occasion_view_model.dart';
 import '../widgets/product_bloc_builder.dart';
@@ -19,10 +19,8 @@ class OccasionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider<OccasionViewModel>(
-      create: (context) =>
-      occasionViewModel
+      create: (context) => occasionViewModel
         ..doIntent(
             occasionId: occasionInputModel.occasionId, GetAllOccasionsEvent()),
       child: Scaffold(
@@ -41,16 +39,14 @@ class OccasionScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: AppSizes.paddingLg_24),
                     child: Text(
                       LocaleKeys.best_sellers.tr(),
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(
-                        color: AppColorsLight.grey,
-                      ),
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: AppColorsLight.grey,
+                          ),
                     )),
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                TabsBlocBuilder(initialIndex: occasionInputModel.index,),
+                TabsBlocBuilder(
+                  initialIndex: occasionInputModel.index,
+                ),
                 const SizedBox(height: AppSizes.spaceBetweenItems_32),
                 Expanded(child: ProductBlocBuilder()),
               ],
