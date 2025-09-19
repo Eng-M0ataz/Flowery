@@ -41,7 +41,6 @@ void main() {
     mockGetProductsByCategoryUseCase = MockGetProductsByCategoryUseCase();
     mockGetAllProductsUseCase = MockGetAllProductsUseCase();
 
-    /// Categories
     categoryEntityList = [
       CategoryEntity(
         id: "1",
@@ -70,7 +69,6 @@ void main() {
       data: categoryResponseEntity,
     );
 
-    /// Products
     productList = [
       ProductEntity(
         id: "p1",
@@ -126,12 +124,12 @@ void main() {
           .thenAnswer((_) async => productResult);
 
       await viewModel.doIntent(const GetAllCategoriesEvent());
-
       await viewModel.doIntent(const GetAllProductsEvent());
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: true,
+        isProductsLoading: false,
         isSuccess: false,
         errorMessage: null,
         categories: [],
@@ -139,7 +137,8 @@ void main() {
         selectedCategoryId: null,
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: categoryEntityList,
@@ -147,16 +146,17 @@ void main() {
         selectedCategoryId: AppConstants.allId,
       ),
       CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
         errorMessage: null,
         categories: categoryEntityList,
         productsList: const [],
         selectedCategoryId: AppConstants.allId,
       ),
-      // State 4: Successfully  all products
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: categoryEntityList,
@@ -169,6 +169,7 @@ void main() {
       verify(mockGetAllProductsUseCase.invoke()).called(1);
     },
   );
+
   blocTest<CategoriesViewModel, CategoriesState>(
     "should load products by category",
     build: () => CategoriesViewModel(
@@ -190,12 +191,17 @@ void main() {
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
+        errorMessage: null,
+        categories: [],
+        productsList: [],
         selectedCategoryId: "1",
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: const [],
@@ -228,12 +234,17 @@ void main() {
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
+        errorMessage: null,
+        categories: [],
+        productsList: [],
         selectedCategoryId: AppConstants.allId,
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: const [],

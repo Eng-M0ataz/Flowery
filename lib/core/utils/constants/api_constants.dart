@@ -12,5 +12,12 @@ abstract class ApiConstants {
   static const String allCategories = 'categories';
   static const String getProducts = 'products';
   static const String categoryQuery = 'category';
-  static const String mostSelling='best-seller';
+  static const String mostSelling = 'best-seller';
+  static const String addToCart = 'cart';
+  static const String searchProducts = 'products';
+  static const String keywordQuery = 'keyword';
+  static const String forgotPassword = 'auth/forgotPassword';
+  static const String verifyResetCode = 'auth/verifyResetCode';
+  static const String resetPassword = 'auth/resetPassword';
+  static const String signUp = 'auth/signup';
 }

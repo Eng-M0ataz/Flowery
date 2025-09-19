@@ -10,7 +10,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
 
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/search_bar_widget.dart';
+import 'package:flower_e_commerce_app/core/Widgets/search_list_tile.dart';
 
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 
@@ -41,7 +41,7 @@ class CategoryScreenBody extends StatelessWidget {
       builder: (context, state) {
         if (initialCategoryId != null &&
             state.productsList == null &&
-            !state.isLoading) {
+            !state.isProductsLoading) {
           context.read<CategoriesViewModel>().doIntent(
                 GetProductsByCategoryEvent(categoryId: initialCategoryId!),
               );
@@ -55,7 +55,7 @@ class CategoryScreenBody extends StatelessWidget {
                 height: AppSizes.buttonHigh_48,
                 child: Row(
                   children: [
-                    const Expanded(child: SearchBarWidget()),
+                    const Expanded(child: SearchListTile()),
                     const SizedBox(width: AppSizes.spacingBetweenItems_12),
                     FilterIconButtonOfAppBar(onTap: () {
                       //todo open filter bottom sheet
@@ -81,7 +81,7 @@ class CategoryScreenBody extends StatelessWidget {
                         );
                   }
                 },
-                isLoading: state.isLoading,
+                isLoading: state.isCategoriesLoading,
               ),
             Expanded(
               child: state.displayProducts.isEmpty && !state.isLoading

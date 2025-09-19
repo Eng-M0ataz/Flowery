@@ -98,13 +98,17 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   }
 
   Future<void> _getAllCategories() async {
-    emit(state.copyWith(isSuccess: false, isLoading: true, errorMessage: null));
+    emit(state.copyWith(
+      isCategoriesLoading: true,
+      isSuccess: false,
+      errorMessage: null,
+    ));
 
     final result = await _categoriesUseCase.invoke();
     switch (result) {
       case ApiSuccessResult<CategoryResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isCategoriesLoading: false,
           errorMessage: null,
           categories: result.data.categories,
           isSuccess: true,
@@ -113,9 +117,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         break;
       case ApiErrorResult<CategoryResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isCategoriesLoading: false,
           errorMessage: result.failure.errorMessage,
-          categories: null,
           isSuccess: false,
         ));
         break;
@@ -124,8 +127,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
 
   Future<void> _getAllProducts() async {
     emit(state.copyWith(
+      isProductsLoading: true,
       isSuccess: false,
-      isLoading: true,
       errorMessage: null,
       selectedCategoryId: AppConstants.allId,
       currentFilter: null,
@@ -136,7 +139,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     switch (result) {
       case ApiSuccessResult<ProductResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isProductsLoading: false,
           errorMessage: null,
           productsList: result.data.products,
           filteredProducts: result.data.products,
@@ -146,11 +149,9 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         break;
       case ApiErrorResult<ProductResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isProductsLoading: false,
           errorMessage: result.failure.errorMessage,
-          productsList: null,
           isSuccess: false,
-          selectedCategoryId: AppConstants.allId,
         ));
         break;
     }
@@ -159,8 +160,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   Future<void> _getCategoryProducts(
       GetProductsByCategoryRequestModel requestModel) async {
     emit(state.copyWith(
+      isProductsLoading: true,
       isSuccess: false,
-      isLoading: true,
       errorMessage: null,
       selectedCategoryId: requestModel.categoryId,
       currentFilter: null,
@@ -176,7 +177,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     switch (result) {
       case ApiSuccessResult<ProductResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isProductsLoading: false,
           errorMessage: null,
           productsList: result.data.products,
           filteredProducts: result.data.products,
@@ -187,9 +188,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
 
       case ApiErrorResult<ProductResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isProductsLoading: false,
           errorMessage: result.failure.errorMessage,
-          productsList: null,
           isSuccess: false,
         ));
         break;

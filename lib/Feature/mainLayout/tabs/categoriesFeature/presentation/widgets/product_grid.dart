@@ -88,8 +88,11 @@ class ProductGrid extends StatelessWidget {
   }
 
   Widget _buildShimmerGrid() {
-    return const ProductsShimmer(
-      isEnabled: true,
+    return Padding(
+      padding: const EdgeInsets.all(AppSizes.paddingMd_16),
+      child: const ProductsShimmer(
+        isEnabled: true,
+      ),
     );
   }
 }

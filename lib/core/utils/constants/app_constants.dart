@@ -15,7 +15,11 @@ abstract class AppConstants {
   static const String femaleValue = 'Female';
   static const String allId = 'all';
   static const String noProduct = 'No Product';
-  static const String guest='guest';
-  static const String isTrue='true';
-
+  static const String guest = 'guest';
+  static const String isTrue = 'true';
+  static const String loading = 'loading';
+  static const String error = 'error';
+  static const String success = 'success';
+  static const int mainDuration = 10;
+  static const int resendDuration = 3;
 }

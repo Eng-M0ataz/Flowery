@@ -10,19 +10,26 @@ class CustomBackButton extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final theme = Theme.of(context);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        GestureDetector(
-          onTap: onTap ?? context.pop,
-          child: Icon(Icons.arrow_back_ios, size: 20),
-        ),
-        Text(
-          title,
-          style: theme.textTheme.bodySmall,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: AppSizes.paddingMd_16,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          GestureDetector(
+            onTap: onTap ?? context.pop,
+            child: Icon(Icons.arrow_back_ios, size: 20),
+
+          ),
+          Text(
+            title,
+            style: theme.textTheme.bodySmall,
+          ),
+        ],
+      ),
     );
   }
 

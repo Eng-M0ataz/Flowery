@@ -57,7 +57,7 @@ class ListViewsShimmerWidget extends StatelessWidget {
           ),
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
       ),
     );
