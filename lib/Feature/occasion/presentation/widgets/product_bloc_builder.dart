@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 import '../../../../core/utils/Constants/sizes.dart';
 import '../viewModels/occasion_event.dart';

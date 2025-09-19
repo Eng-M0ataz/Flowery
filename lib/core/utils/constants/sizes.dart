@@ -69,10 +69,12 @@ abstract class AppSizes {
 
   static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
-  static const double spaceBetwwenItems_16 = 16.0;
-  static const double spaceBetwwenItems_24 = 24.0;
+  static const double spaceBetweenItems_16 = 16.0;
+  static const double spaceBetweenItems_24 = 24.0;
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
+  static const double spaceBetweenItems_40 = 40.0;
+  static const double spaceBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_50 = 50.0;
 
   static const double spacingBetweenItems_10 = 12.0;
@@ -81,8 +83,10 @@ abstract class AppSizes {
   static const double spacingBetweenItems_24 = 24.0;
   static const double spacingBetweenItems_32 = 32.0;
   static const double spacingBetweenItems_36 = 36.0;
+
   static const double spacingBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_16 = 16.0;
+
 
   // Default Spacing Between Sections
 
@@ -126,7 +130,8 @@ abstract class AppSizes {
   static const double gridSpacing = 16.0;
 
   //clip radius
-  static const double clipHeight_131 = 131;
+  static const double clipHeight_155 = 155;
+  static const double clipWidth_163 = 163;
 
   //elevation
   static const double cardElevation_0 = 0.0;
@@ -213,4 +218,16 @@ abstract class AppSizes {
   static const int homeDummyShimmerListViewItemsLength = 6;
   static const double homeDummyShimmerListViewTextWidth = 80.0;
   static const double homeDummyShimmerListViewTextHigh = 12.0;
+  //pin code
+  static const int pinCodeLength_6 = 6;
+  static const double pinCodeHeight_74 = 74;
+  static const double pinCodeWidth_68 = 68;
+  static const int pinCodeSpace = 16;
+  static const double pinCodeBorderWidth_2 = 2;
+  //custom elevated button
+  static const double customElevatedButtonHeight_24 = 24;
+  static const double customElevatedButtonWidth_24 = 24;
+
+  //spacer
+  static const double spacerWidth_0 = 0;
 }

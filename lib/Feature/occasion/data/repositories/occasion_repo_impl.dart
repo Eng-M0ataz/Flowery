@@ -1,3 +1,4 @@
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/add_product_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/product_by_occasion_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
@@ -19,6 +20,12 @@ class OccasionRepoImpl implements OccasionRepo {
   @override
   Future<ApiResult<ProductByOccasionResponseEntity>> getProductsByOccasion(String occasionId) {
     return _occasionRemoteDataSource.getProductsByOccasion(occasionId);
+  }
+
+  @override
+  Future<ApiResult<AddProductResponseEntity>> addProductToCart(
+      String productId) {
+    return _occasionRemoteDataSource.addProductToCart(productId);
   }
 
 }

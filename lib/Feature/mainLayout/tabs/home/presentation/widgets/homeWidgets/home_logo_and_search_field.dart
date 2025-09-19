@@ -22,7 +22,7 @@ class HomeLogoAndSearchField extends StatelessWidget {
             Assets.assetsImagesLogo,
           ),
           const SizedBox(
-            width: AppSizes.spaceBetwwenItems_16,
+            width: AppSizes.spaceBetweenItems_16,
           ),
           Expanded(
             child: TextField(
