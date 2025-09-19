@@ -1,6 +1,7 @@
 {
 
 
+
   "occasion": "Occasion",
   "best_sellers": "Bloom with our exquisite best sellers",
   "add_to_cart": "Add to cart",
@@ -71,6 +72,7 @@
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
+
   "Login": "Login",
   "Email": "Email",
   "EmailHint": "Enter your email",
@@ -93,6 +95,7 @@
   "email_label": "Email",
   "email_hint": "Enter email",
 
+
   "password_label": "Password",
   "password_hint": "Enter password",
   "confirm_password_label": "Confirm password",
@@ -113,6 +116,7 @@
   "login_title": "Login",
   "account_created_successfully": "'Account created successfully!'",
 
+
   "phone_number_label": "Phone number",
   "phone_number_hint": "Enter phone number",
   "gender": "Gender",
@@ -121,7 +125,9 @@
   "loading": "Loading...",
   "male_label": "Male",
 
+
   "female_label": "Female",
+
 
   "female_label": "Female",
   "password_label": "password",

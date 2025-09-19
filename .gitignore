@@ -51,7 +51,7 @@ macos/Flutter/GeneratedPluginRegistrant.swift
 linux/flutter/generated_plugins.cmake
 linux/flutter/generated_plugin_registrant.h
 linux/flutter/generated_plugin_registrant.cc
-=======
+
 android/build/reports/problems/problems-report.html
 lib/core/Di/di.config.dart
 lib/Feature/auth/api/client/api_service.g.dart
@@ -73,3 +73,4 @@ lib/Feature/auth/api/client/api_service.g.dart
 android/build/reports/problems/problems-report.html
 android/build/reports/problems/problems-report.html
 pubspec.lock
+

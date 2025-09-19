@@ -13,6 +13,7 @@ class Assets {
       "assets/images/category_unselected.svg";
 
 
+
   /// Assets for assetsImagesCloseCircle
   /// assets/images/close-circle.svg
   static const String assetsImagesCloseCircle =
@@ -21,6 +22,7 @@ class Assets {
   /// Assets for assetsImagesFilterIcon
   /// assets/images/filter_icon.svg
   static const String assetsImagesFilterIcon = "assets/images/filter_icon.svg";
+
 
 
   /// Assets for assetsImagesHomeSelected
@@ -34,6 +36,7 @@ class Assets {
       "assets/images/home_unselected.svg";
 
 
+
   /// Assets for assetsImagesLocationIcon
   /// assets/images/location_icon.svg
   static const String assetsImagesLocationIcon =
@@ -42,6 +45,7 @@ class Assets {
   /// Assets for assetsImagesLogo
   /// assets/images/Logo.svg
   static const String assetsImagesLogo = "assets/images/Logo.svg";
+
 
 
   /// Assets for assetsImagesNoImage
@@ -64,9 +68,11 @@ class Assets {
       "assets/images/person_unselected.svg";
 
 
+
   /// Assets for assetsImagesSearch
   /// assets/images/search.svg
   static const String assetsImagesSearch = "assets/images/search.svg";
+
 
 
   /// Assets for assetsImagesShoppingCartSelected
