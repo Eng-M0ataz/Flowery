@@ -1,5 +1,4 @@
 {
-
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -8,19 +7,15 @@
   "no_products": "لا توجد منتجات",
   "login": "تسجيل الدخول",
   "email": "البريد الإلكتروني",
-  "email_hint": "أدخل بريدك الإلكتروني",
   "email_required": "البريد الإلكتروني مطلوب",
   "email_invalid": "أدخل بريدًا إلكترونيًا صالحًا",
   "password": "كلمة المرور",
-  "password_hint": "أدخل كلمة المرور",
   "password_required": "كلمة المرور مطلوبة",
   "remember_me": "تذكرني",
   "forget_password": "هل نسيت كلمة المرور؟",
   "error": "خطأ",
-  "ok": "موافق",
   "guest": "المتابعة كضيف",
   "do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
-  "sign_up": "إنشاء حساب",
   "egp": "جنيه مصري",
   "view_all": "مشاهده الكل",
   "categories": "الفئات",
@@ -44,7 +39,6 @@
   "all_prices_include_tax": "السعر يشمل الضريبة",
   "search_for_any_product_you_want" : "ابحث عن أي منتج تريد",
   "no_products_found_for_your_search" : "لا يوجد منتجات مطابقة للبحث الذي أدخلته",
-  "success": "نجاح",
   "otpSentSuccess": "تم إرسال الكود! افحص بريدك.",
   "passwordResetSuccess": "تم تغيير كلمة المرور بنجاح.",
   "codeVerifiedSuccess": "تم تأكيد الكود!",
@@ -66,7 +60,6 @@
   "invalidCode": "رمز غير صالح",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
-
   "sign_up": "إنشاء حساب",
   "user_name_label": "اسم المستخدم",
   "user_name_hint": "أدخل اسم المستخدم",
@@ -100,5 +93,4 @@
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
   "female_label": "انثى"
-
 }
