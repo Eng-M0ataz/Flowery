@@ -12,7 +12,7 @@ import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/respon
 import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/logged_user_data_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/upload_photo_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/Errors/execute_api.dart';
+import 'package:flower_e_commerce_app/core/Functions/execute_api.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ProfileRemoteDataSource)
