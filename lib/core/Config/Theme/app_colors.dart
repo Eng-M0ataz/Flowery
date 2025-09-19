@@ -57,13 +57,11 @@ abstract class AppColorsLight {
 
     0: Color(0xFFE3F2FD), // lightest
 
-
-  
-
     10: Color(0xFFBBDEFB),
     20: Color(0xFF90CAF9),
     30: Color(0xFF64B5F6),
     40: Color(0xFF42A5F5),
+
     50: Color(0xFF2196F3), // base color (primary)
     60: Color(0xFF1E88E5),
     70: Color(0xFF1976D2),

@@ -1,6 +1,4 @@
 {
-
-
   "occasion": "Occasion",
   "best_sellers": "Bloom with our exquisite best sellers",
   "add_to_cart": "Add to cart",
@@ -36,8 +34,8 @@
   "status": "Status",
   "description": "Description",
   "all_prices_include_tax": "All prices include tax",
-  "search_for_any_product_you_want" : "Search For Any Product You Want",
-  "no_products_found_for_your_search" : "No products found for your search",
+  "search_for_any_product_you_want": "Search For Any Product You Want",
+  "no_products_found_for_your_search": "No products found for your search",
   "error": "Error",
   "otpSentSuccess": "Code sent! Check your email.",
   "passwordResetSuccess": "Password changed successfully.",
@@ -78,6 +76,7 @@
   "ForgetPassword": "Forget password?",
   "Error": "Error",
   "OK": "OK",
+
   "DoNotHaveAccount": "Don't have an account?",
   "SignUp": "Sign up",
   "first_name_label": "First name",
@@ -107,16 +106,12 @@
   "login_title": "Login",
   "account_created_successfully": "'Account created successfully!'",
 
-
-
   "success": "Success",
   "ok": "OK",
   "loading": "Loading...",
   "male_label": "Male",
 
-
   "female_label": "Female",
-
 
   "edit_profile": "Edit profile",
   "select_profile_picture": "Select profile picture",
@@ -124,11 +119,8 @@
   "gallery": "Gallery",
   "remove": "Remove",
 
-
-
-  "change":"Change",
-  "profile_updated":"Profile updated successfully",
-  "update":"Update",
-  "failed_to_pick_image":"Failed to pick image:"
-
+  "change": "Change",
+  "profile_updated": "Profile updated successfully",
+  "update": "Update",
+  "failed_to_pick_image": "Failed to pick image:"
 }

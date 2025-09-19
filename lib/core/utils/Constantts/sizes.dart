@@ -198,7 +198,6 @@ abstract class AppSizes {
   static const double profileImageSize_85 = 85.0;
 
 
-
 // pick Image
   static const double pickImageHeight = 800.0;
   static const double pickImageWidth = 800.0;

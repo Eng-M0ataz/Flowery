@@ -1,5 +1,7 @@
 {
 
+
+
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -79,6 +81,8 @@
   "Error": "خطأ",
   "OK": "موافق",
 
+
+
   "Do_not_have_an_account": "ليس لديك حساب؟ سجل الآن",
   "Sign_up": "سجل",
 
@@ -108,26 +112,6 @@
   "sign_up_title": "إنشاء حساب",
   "already_have_account": "هل لديك حساب بالفعل؟",
   "login_title": "تسجيل الدخول",
-  "account_created_successfully": "تم إنشاء الحساب بنجاح!",
-  "success": "نجاح",
-  "ok": "موافق",
-  "loading": "جاري التحميل...",
-  "male_label": "ذكر",
+  "account_created_successfully": "تم إنشاء الحساب بنجاح!"
 
-
- 
-  "female_label": "أنثى",
-
-
-  "edit_profile": "تعديل الملف ",
-  "select_profile_picture": "حدد صورة الملف الشخصية",
-  "camera": "الكاميرا",
-  "gallery": "المعرض",
-  "remove": "حذف",
-
-
-  "change": "تغيير",
-  "profile_updated": "تم تحديث الملف الشخصي بنجاح",
-  "update": "تحديث",
-  "failed_to_pick_image": "فشل في اختيار الصورة:"
 }
