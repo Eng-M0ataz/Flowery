@@ -27,7 +27,8 @@ class SignupViewModel extends Cubit<SignUpState> {
   final TextEditingController signUpRePasswordController =
       TextEditingController();
 
-  final TextEditingController signUpPhoneController = TextEditingController();
+  final TextEditingController signUpPhoneController =
+      TextEditingController(text: "+2");
 
   final formKey = GlobalKey<FormState>();
   String selectedGender = AppConstants.femaleValue;
@@ -41,6 +42,15 @@ class SignupViewModel extends Cubit<SignUpState> {
   }
 
   Future<void> _signUp(SignUpSubmitEvent event) async {
+    final isValid = formKey.currentState?.validate() ?? false;
+
+    if (!isValid) {
+      emit(state.copyWith(
+        isLoading: false,
+        isSuccess: false,
+      ));
+      return;
+    }
     emit(state.copyWith(isSuccess: false, isLoading: true, errorMessage: null));
 
     final signUpRequestEntity = SignUpRequestEntity(
@@ -49,9 +59,7 @@ class SignupViewModel extends Cubit<SignUpState> {
       email: signUpEmailController.text.trim(),
       password: signUpPasswordController.text.trim(),
       rePassword: signUpRePasswordController.text.trim(),
-      phone: signUpPhoneController.text.trim().startsWith("+")
-          ? signUpPhoneController.text.trim()
-          : "+2${signUpPhoneController.text.trim()}",
+      phone: signUpPhoneController.text.trim(),
       gender: selectedGender.toLowerCase().trim(),
     );
 

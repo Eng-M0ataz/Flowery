@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
+import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,7 +18,7 @@ class ProfileImagePickerWidget extends StatefulWidget {
     super.key,
     this.initialImageUrl,
     this.onImageSelected,
-    this.size = 120,
+    this.size = AppSizes.lgIcon_120,
   });
 
   @override
@@ -71,9 +72,9 @@ class _ProfileImagePickerWidgetState extends State<ProfileImagePickerWidget> {
     try {
       final XFile? pickedFile = await _picker.pickImage(
         source: source,
-        maxWidth: 800,
-        maxHeight: 800,
-        imageQuality: 80,
+        maxWidth: AppSizes.pickImageWidth,
+        maxHeight: AppSizes.pickImageHeight,
+        imageQuality: AppConstants.imageQuality,
       );
 
       if (pickedFile != null) {

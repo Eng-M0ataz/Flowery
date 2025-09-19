@@ -48,6 +48,13 @@ class ProfileViewModel extends Cubit<ProfileState> {
         await _updateProfileWithOptionalImage();
       case LoadUserDataEvent():
         await _getLoggedUserData();
+      case OnImageSelectedEvent():
+        _onImageSelected(event.file);
+        break;
+      case ResetSuccessStateEvent():
+        _resetSuccessState();
+      case CloseEvent():
+        _close();
     }
   }
 
@@ -57,7 +64,7 @@ class ProfileViewModel extends Cubit<ProfileState> {
     switch (result) {
       case ApiSuccessResult<LoggedUserDataResponseEntity>():
         final response = result.data;
-        onUserDataLoaded(response);
+        _onUserDataLoaded(response);
         emit(state.copyWith(
           isLoading: false,
           failure: null,
@@ -71,7 +78,7 @@ class ProfileViewModel extends Cubit<ProfileState> {
     }
   }
 
-  void onUserDataLoaded(LoggedUserDataResponseEntity response) {
+  void _onUserDataLoaded(LoggedUserDataResponseEntity response) {
     editProfileFirstNameController.text = response.user?.firstName ?? '';
     editProfileLastNameController.text = response.user?.lastName ?? '';
     editProfileEmailController.text = response.user?.email ?? '';
@@ -80,56 +87,15 @@ class ProfileViewModel extends Cubit<ProfileState> {
   }
 
   Future<void> _updateProfileWithOptionalImage() async {
-    if (!isFormValid()) {
-      return;
-    }
+    if (!_isFormValid()) return;
 
     emit(state.copyWith(isLoading: true, failure: null, editSuccess: false));
 
     try {
-      if (selectedImageFile != null) {
-        final uploadResult =
-            await _uploadPhotoUseCase.invoke(selectedImageFile!);
-        switch (uploadResult) {
-          case ApiErrorResult<UploadPhotoResponseEntity>():
-            emit(state.copyWith(
-                isLoading: false,
-                failure: uploadResult.failure,
-                editSuccess: false));
-            return;
-          case ApiSuccessResult<UploadPhotoResponseEntity>():
-            break;
-        }
-      }
+      final uploadSuccess = await _handleImageUploadIfNeeded();
+      if (!uploadSuccess) return;
 
-      final request = EditProfileRequestEntity(
-        firstName: editProfileFirstNameController.text.trim(),
-        lastName: editProfileLastNameController.text.trim(),
-        email: editProfileEmailController.text.trim(),
-        phone: editProfilePhoneController.text
-            .replaceAll(RegExp(r'[^\d+]'), '')
-            .trim(),
-      );
-
-      final result = await _editProfileUseCase.invoke(request);
-
-      switch (result) {
-        case ApiSuccessResult<EditProfileResponseEntity>():
-          emit(state.copyWith(
-            isLoading: false,
-            editSuccess: true,
-            failure: null,
-            editProfileResponseEntity: result.data,
-          ));
-
-          break;
-
-        case ApiErrorResult<EditProfileResponseEntity>():
-          emit(state.copyWith(
-              isLoading: false, failure: result.failure, editSuccess: false));
-          selectedImageFile = null;
-          break;
-      }
+      await _updateProfileData();
     } catch (e) {
       emit(state.copyWith(
         isLoading: false,
@@ -139,21 +105,72 @@ class ProfileViewModel extends Cubit<ProfileState> {
     }
   }
 
-  void onImageSelected(File file) {
+  Future<bool> _handleImageUploadIfNeeded() async {
+    if (selectedImageFile == null) return true;
+
+    final uploadResult = await _uploadPhotoUseCase.invoke(selectedImageFile!);
+    switch (uploadResult) {
+      case ApiErrorResult<UploadPhotoResponseEntity>():
+        emit(state.copyWith(
+          isLoading: false,
+          failure: uploadResult.failure,
+          editSuccess: false,
+        ));
+        return false;
+
+      case ApiSuccessResult<UploadPhotoResponseEntity>():
+        return true;
+    }
+  }
+
+  Future<void> _updateProfileData() async {
+    final request = EditProfileRequestEntity(
+      firstName: editProfileFirstNameController.text.trim(),
+      lastName: editProfileLastNameController.text.trim(),
+      email: editProfileEmailController.text.trim(),
+      phone: editProfilePhoneController.text
+          .replaceAll(RegExp(r'[^\d+]'), '')
+          .trim(),
+    );
+
+    final result = await _editProfileUseCase.invoke(request);
+
+    switch (result) {
+      case ApiSuccessResult<EditProfileResponseEntity>():
+        emit(state.copyWith(
+          isLoading: false,
+          editSuccess: true,
+          failure: null,
+          editProfileResponseEntity: result.data,
+        ));
+        break;
+
+      case ApiErrorResult<EditProfileResponseEntity>():
+        emit(state.copyWith(
+          isLoading: false,
+          failure: result.failure,
+          editSuccess: false,
+        ));
+        selectedImageFile = null;
+        break;
+    }
+  }
+
+  void _onImageSelected(File file) {
     selectedImageFile = file;
     emit(state.copyWith(selectedImage: file));
   }
 
-  bool isFormValid() {
+  bool _isFormValid() {
     return editProfileFormKey.currentState?.validate() ?? false;
   }
 
-  void resetSuccessState() {
+  void _resetSuccessState() {
     emit(state.copyWith(editSuccess: false, failure: null));
   }
 
   @override
-  Future<void> close() {
+  Future<void> _close() {
     editProfileFirstNameController.dispose();
     editProfileLastNameController.dispose();
     editProfileEmailController.dispose();

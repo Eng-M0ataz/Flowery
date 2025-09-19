@@ -31,6 +31,10 @@ class SignUpForm extends StatelessWidget {
         DialogueUtils.showMessage(
           context: context,
           message: state.errorMessage!,
+          posActionName: LocaleKeys.ok.tr(),
+          posAction: () {
+            context.read<SignupViewModel>().clearForm();
+          },
         );
       }
       if (state.isSuccess && !state.isLoading) {

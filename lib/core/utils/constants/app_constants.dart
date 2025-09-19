@@ -22,4 +22,7 @@ abstract class AppConstants {
   static const String success = 'success';
   static const int mainDuration = 10;
   static const int resendDuration = 3;
+  static const int imageQuality = 80;
+  static const String passwordCharacters = "★★★★★★";
+  static const String notificationCountExceeded = '9+';
 }
