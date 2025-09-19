@@ -5,6 +5,7 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 
 import 'package:flower_e_commerce_app/core/Functions/execute_navigation.dart';
+import 'package:flower_e_commerce_app/core/helpers/app_config_cubit.dart';
 
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
@@ -39,20 +40,22 @@ class FlowerECommerceApp extends StatelessWidget {
   final String initialRoute;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      builder: (context, child) => ResponsiveBreakpoints.builder(
-        child: child!,
-        breakpoints: AppSizes.appBreakPoints,
-        breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
+    return BlocProvider(
+      create: (context) => getIt<AppConfigCubit>(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        builder: (context, child) => ResponsiveBreakpoints.builder(
+          child: child!,
+          breakpoints: AppSizes.appBreakPoints,
+          breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
+        ),
+        theme: AppThemeLight.lightTheme,
+        onGenerateRoute: RouteGenerator.getRoute,
+        initialRoute: initialRoute,
       ),
-      theme: AppThemeLight.lightTheme,
-
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: initialRoute,
     );
   }
 }

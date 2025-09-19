@@ -4,7 +4,8 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_sc
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/main_layout.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/pages/edit_profile_screen.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/pages/profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/productDetails/presentation/page/product_details_screen.dart';
@@ -23,22 +24,18 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
       case AppRoutes.signUpRoute:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
-
       case AppRoutes.occasionRoute:
         final args = settings.arguments as OccasionInputModel;
         return MaterialPageRoute(
             builder: (_) => OccasionScreen(
                   occasionInputModel: args,
                 ));
-
       case AppRoutes.forgetPasswordRoute:
         return MaterialPageRoute(
           builder: (_) => ForgetPasswordScreen(),
         );
-
       case AppRoutes.editProfileRoute:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
-
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(
           builder: (_) => const MainLayout(),
@@ -62,6 +59,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => const SearchScreen(),
         );
+      case AppRoutes.profileRoute:
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
+
       default:
         return unDefinedRoute();
     }

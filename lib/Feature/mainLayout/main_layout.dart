@@ -1,5 +1,6 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/pages/category_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/pages/home_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/pages/profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/widgets/button_nav_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class _MainLayoutState extends State<MainLayout> {
   final List<Widget> scrrens = [
     HomeScreen(),
     CategoryScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

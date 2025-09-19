@@ -16,44 +16,44 @@ import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpForm extends StatelessWidget {
-  SignUpForm({super.key});
+  const SignUpForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignupViewModel, SignUpState>(
-        listener: (context, state) {
-      if (state.errorMessage != null && !state.isLoading) {
-        DialogueUtils.showMessage(
-          context: context,
-          message: state.errorMessage!,
-          posActionName: LocaleKeys.ok.tr(),
-          posAction: () {
-            context.read<SignupViewModel>().clearForm();
-          },
-        );
-      }
-      if (state.isSuccess && !state.isLoading) {
-        DialogueUtils.showMessage(
-          context: context,
-          message: LocaleKeys.account_created_successfully.tr(),
-          title: LocaleKeys.success.tr(),
-          posActionName: LocaleKeys.ok.tr(),
-          posAction: () {
-            context.pushReplacementNamed(AppRoutes.signInRoute);
-          },
-        );
+      listener: (context, state) {
+        if (state.errorMessage != null && !state.isLoading) {
+          DialogueUtils.showMessage(
+            context: context,
+            message: state.errorMessage!,
+            posActionName: LocaleKeys.ok.tr(),
+            posAction: () {
+              context.read<SignupViewModel>().clearForm();
+            },
+          );
+        }
+        if (state.isSuccess && !state.isLoading) {
+          DialogueUtils.showMessage(
+            context: context,
+            message: LocaleKeys.account_created_successfully.tr(),
+            title: LocaleKeys.success.tr(),
+            posActionName: LocaleKeys.ok.tr(),
+            posAction: () {
+              context.pushReplacementNamed(AppRoutes.signInRoute);
+            },
+          );
 
-        context.read<SignupViewModel>().clearForm();
-      }
-    }, builder: (context, state) {
-      final viewModel = context.read<SignupViewModel>();
+          context.read<SignupViewModel>().clearForm();
+        }
+      },
+      builder: (context, state) {
+        final viewModel = context.read<SignupViewModel>();
 
-      return Scaffold(
+        return Scaffold(
           appBar: AppBar(
             leadingWidth: AppSizes.appBarLeadingWidth,
             leading: CustomBackButton(
@@ -68,86 +68,90 @@ class SignUpForm extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: AppSizes.paddingMd_20),
                   child: AutofillGroup(
-                      child: Column(
-                    children: [
-                      const SizedBox(height: AppSizes.paddingLg_24),
-                      BuildFirstAndLastNameField(
-                        firstNameController:
-                            viewModel.signUpFirstNameController,
-                        secondNameController:
-                            viewModel.signUpLastNameController,
-                      ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
-                      BuildEmailField(
-                        controller: viewModel.signUpEmailController,
-                      ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
-                      BuildPasswordAndConfirmField(
-                          passwordController:
-                              viewModel.signUpPasswordController,
-                          confirmController:
-                              viewModel.signUpRePasswordController),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
-                      BuildPhoneField(
-                        controller: viewModel.signUpPhoneController,
-                      ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_24),
-                      BuildGenderField(
-                          selectedGender: viewModel.selectedGender,
-                          onChanged: (String gender) {
-                            viewModel.updateGender(gender);
-                          }),
-                      const SizedBox(height: AppSizes.spaceBetweenItems_16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            LocaleKeys.create_account_prompt.tr(),
-                            style: AppThemeLight
-                                .lightTheme.textTheme.bodyMedium!
-                                .copyWith(fontSize: 11),
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                              minimumSize: const Size(0, 0),
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            ),
-                            onPressed: () {
-                              // TODO: navigate to terms and conditions
-                            },
-                            child: Text(
-                              LocaleKeys.terms_and_conditions.tr(),
-                              style: AppThemeLight
-                                  .lightTheme.textTheme.labelLarge!
-                                  .copyWith(
-                                      decoration: TextDecoration.underline,
-                                      fontSize: 12),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_32),
-                      CustomElevatedButton(
-                        widget: Text(
-                          LocaleKeys.sign_up_title.tr(),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: AppSizes.paddingLg_24),
+                        BuildFirstAndLastNameField(
+                          firstNameController:
+                              viewModel.signUpFirstNameController,
+                          secondNameController:
+                              viewModel.signUpLastNameController,
                         ),
-                        onPressed: () =>
-                            viewModel.doIntent(SignUpSubmitEvent()),
-                        isLoading: state.isLoading,
-                      ),
-                      const SizedBox(height: AppSizes.spacingBetweenItems_16),
-                      BuildNavigationText(
+                        const SizedBox(height: AppSizes.spaceBetweenItems_24),
+                        BuildEmailField(
+                          controller: viewModel.signUpEmailController,
+                        ),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_24),
+                        BuildPasswordAndConfirmField(
+                            passwordController:
+                                viewModel.signUpPasswordController,
+                            confirmController:
+                                viewModel.signUpRePasswordController),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_24),
+                        BuildPhoneField(
+                          controller: viewModel.signUpPhoneController,
+                        ),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_24),
+                        BuildGenderField(
+                            selectedGender: viewModel.selectedGender,
+                            onChanged: (String gender) {
+                              viewModel.updateGender(gender);
+                            }),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              LocaleKeys.create_account_prompt.tr(),
+                              style: AppThemeLight
+                                  .lightTheme.textTheme.bodyMedium!
+                                  .copyWith(fontSize: 11),
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                minimumSize: const Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                              onPressed: () {
+                                // TODO: navigate to terms and conditions
+                              },
+                              child: Text(
+                                LocaleKeys.terms_and_conditions.tr(),
+                                style: AppThemeLight
+                                    .lightTheme.textTheme.labelLarge!
+                                    .copyWith(
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 12),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_32),
+                        CustomElevatedButton(
+                          widget: Text(
+                            LocaleKeys.sign_up_title.tr(),
+                          ),
+                          onPressed: () =>
+                              viewModel.doIntent(SignUpSubmitEvent()),
+                          isLoading: state.isLoading,
+                        ),
+                        const SizedBox(height: AppSizes.spaceBetweenItems_16),
+                        BuildNavigationText(
                           firstText:
                               LocaleKeys.already_have_account_prompt.tr(),
                           secondText: LocaleKeys.login_title.tr(),
-                          routeName: AppRoutes.signInRoute)
-                    ],
-                  )),
+                          routeName: AppRoutes.signInRoute,
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
-          ));
-    });
+          ),
+        );
+      },
+    );
   }
 }

@@ -33,8 +33,7 @@ class _SigninScreenState extends State<SigninScreen> {
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 CustomBackButton(title: LocaleKeys.login.tr()),

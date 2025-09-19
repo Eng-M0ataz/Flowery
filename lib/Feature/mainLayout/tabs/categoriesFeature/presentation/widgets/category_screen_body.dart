@@ -56,7 +56,7 @@ class CategoryScreenBody extends StatelessWidget {
                 child: Row(
                   children: [
                     const Expanded(child: SearchListTile()),
-                    const SizedBox(width: AppSizes.spacingBetweenItems_12),
+                    const SizedBox(width: AppSizes.spaceBetweenItems_12),
                     FilterIconButtonOfAppBar(onTap: () {
                       //todo open filter bottom sheet
                     }),

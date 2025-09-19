@@ -35,6 +35,7 @@ abstract class AppSizes {
   static const double mdFont_16 = 16.0;
   static const double lgFont_18 = 18.0;
   static const double xlFont_20 = 20.0;
+  static const double xxlFont_22 = 22.0;
   static const double xxlFont_24 = 24.0;
 
   // button sizes
@@ -68,28 +69,20 @@ abstract class AppSizes {
 
   // Default Spacing Between items
   static const double spaceBetweenItems_2 = 2.0;
-
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
-
-  static const double spacegBetweenItems_10 = 10.0;
+  static const double spaceBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetweenItems_16 = 16.0;
+  static const double spaceBetweenItems_20 = 20.0;
   static const double spaceBetweenItems_24 = 24.0;
   static const double spaceBetweenItems_32 = 32.0;
   static const double spaceBetweenItems_36 = 36.0;
   static const double spaceBetweenItems_40 = 40.0;
+  static const double spaceBetweenItems_42 = 42.0;
+  static const double spaceBetweenItems_44 = 44.0;
   static const double spaceBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_50 = 50.0;
-
-  static const double spacingBetweenItems_10 = 12.0;
-  static const double spacingBetweenItems_12 = 12.0;
-  static const double spacingBetweenItems_16 = 16.0;
-  static const double spacingBetweenItems_24 = 24.0;
-  static const double spacingBetweenItems_32 = 32.0;
-  static const double spacingBetweenItems_36 = 36.0;
-  static const double spacingBetweenItems_20 = 20.0;
-
 
   // Default Spacing Between Sections
 
@@ -101,11 +94,13 @@ abstract class AppSizes {
   static const double borderRadiusXs_2 = 2.0;
   static const double borderRadiusSm_4 = 4.0;
   static const double borderRadiusMd_8 = 8.0;
+  static const double borderRadiusMd_10 = 10.0;
   static const double borderRadiusLg_12 = 12.0;
   static const double borderRadiusXl_16 = 16.0;
   static const double borderRadiusXl_20 = 20.0;
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
+  static const double borderRadiusXxxl_40 = 32.0;
   static const double borderRadiusFull = 100.0;
 
   //Border Width
@@ -138,7 +133,6 @@ abstract class AppSizes {
   // grid view spacing
 
   static const double gridSpacing = 16.0;
-
 
   //clip radius
   static const double clipHeight_155 = 155;
@@ -197,11 +191,9 @@ abstract class AppSizes {
   // profile image size
   static const double profileImageSize_85 = 85.0;
 
-
 // pick Image
   static const double pickImageHeight = 800.0;
   static const double pickImageWidth = 800.0;
-
 
   // break points
 
@@ -215,7 +207,6 @@ abstract class AppSizes {
     Breakpoint(start: 1024, end: 1599, name: DeviceType.tablet),
     Breakpoint(start: 1600, end: double.infinity, name: DeviceType.desktop),
   ];
-
 
   static const double homeBestSellerImageHigh = 151.0;
   static const double homeBestSellerImageWidth = 131.0;
@@ -248,4 +239,13 @@ abstract class AppSizes {
 
   //spacer
   static const double spacerWidth_0 = 0;
+  //switch
+  static const double switchWidth_42 = 42.0;
+  static const double switchHigh_30 = 30.0;
+
+  // svg pic
+  static const double photoHeight_32 = 32.0;
+  static const double photoWidth_32 = 32.0;
+  static const double photoHeight_20 = 20.0;
+  static const double photoWidth_20 = 20.0;
 }
