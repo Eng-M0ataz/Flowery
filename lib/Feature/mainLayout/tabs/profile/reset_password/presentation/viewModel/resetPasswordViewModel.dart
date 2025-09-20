@@ -35,8 +35,7 @@ class ResetPasswordViewModel extends Cubit<ResetPasswordState> {
     final resetPasswordRequestEntity = ResetPasswordRequestEntity(
         currantPassword: currentPasswordController.text,
         newPassword: newPasswordController.text);
-    final result =
-        await _resetPasswordUseCase.invoke(resetPasswordRequestEntity);
+    final result = await _resetPasswordUseCase.invoke(resetPasswordRequestEntity);
 
     switch (result) {
       case ApiSuccessResult<ResetPasswordResponseEntity>():
