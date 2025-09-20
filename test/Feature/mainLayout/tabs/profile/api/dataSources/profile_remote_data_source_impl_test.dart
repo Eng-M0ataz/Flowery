@@ -1,21 +1,21 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/client/profile_api_service.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/dataSources/profile_remote_data_source_impl.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/models/response/edit_profile_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/models/response/logged_user_data_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/models/response/upload_photo_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/request/edit_profile_request_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/edit_profile_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_data_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/upload_photo_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/client/profile_api_service.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/dataSources/profile_remote_data_source_impl.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/models/logged_user_dto.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/models/response/edit_profile_response_dto.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/models/response/logged_user_data_response_dto.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/api/models/response/upload_photo_response_dto.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/request/edit_profile_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/edit_profile_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/logged_user_data_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/upload_photo_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flower_e_commerce_app/Feature/auth/api/model/responses/user_response_dto.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/api/models/logged_user_dto.dart';
 
 import 'profile_remote_data_source_impl_test.mocks.dart';
 

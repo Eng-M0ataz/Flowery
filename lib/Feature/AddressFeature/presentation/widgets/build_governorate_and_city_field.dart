@@ -3,7 +3,7 @@ import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/cit
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/governorate_entity.dart';
 import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class BuildGovernorateAndCityFields extends StatelessWidget {

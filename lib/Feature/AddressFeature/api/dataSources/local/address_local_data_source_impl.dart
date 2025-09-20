@@ -4,7 +4,7 @@ import 'package:flower_e_commerce_app/Feature/AddressFeature/api/models/governor
 import 'package:flower_e_commerce_app/Feature/AddressFeature/data/dataSources/address_local_data_source.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/city_entity.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/governorate_entity.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 

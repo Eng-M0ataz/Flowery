@@ -1,6 +1,6 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_assets.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
