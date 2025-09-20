@@ -1,6 +1,7 @@
 import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/add_address_screen.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/saved_address_screen.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
@@ -51,6 +52,8 @@ class RouteGenerator {
         );
       case AppRoutes.profileRoute:
         return MaterialPageRoute(builder: (_) => ProfileScreen());
+      case AppRoutes.editProfileRoute:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
       default:
         return unDefinedRoute();
     }
