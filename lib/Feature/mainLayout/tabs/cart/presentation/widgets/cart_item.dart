@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/viewModel/cart_events.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,9 +56,9 @@ class CartItem extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         context.read<CartCubit>().doIntent(
-                          ClearSpecificCartItemEvent(),
-                          productId: cartItemEntity.productId!,
-                        );
+                              ClearSpecificCartItemEvent(),
+                              productId: cartItemEntity.productId!,
+                            );
                       },
                       child: Icon(Icons.delete, color: AppColorsLight.red),
                     ),
@@ -78,7 +78,9 @@ class CartItem extends StatelessWidget {
                   children: [
                     Text(
                       '${LocaleKeys.currency.tr()} ${cartItemEntity.productPrice!.toString()}',
-                      style: Theme.of(context).textTheme.displayMedium!
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
                           .copyWith(fontWeight: FontWeight.w600),
                     ),
                     Row(
@@ -89,11 +91,11 @@ class CartItem extends StatelessWidget {
                               ? null
                               : () {
                                   context.read<CartCubit>().doIntent(
-                                    UpdateCartProductQuantityEvent(),
-                                    productId: cartItemEntity.productId!,
-                                    quantity: cartItemEntity.quantity!,
-                                    isIncrement: false,
-                                  );
+                                        UpdateCartProductQuantityEvent(),
+                                        productId: cartItemEntity.productId!,
+                                        quantity: cartItemEntity.quantity!,
+                                        isIncrement: false,
+                                      );
                                 },
                           child: Icon(Icons.remove),
                         ),
@@ -120,11 +122,11 @@ class CartItem extends StatelessWidget {
                               ? null
                               : () {
                                   context.read<CartCubit>().doIntent(
-                                    UpdateCartProductQuantityEvent(),
-                                    productId: cartItemEntity.productId!,
-                                    quantity: cartItemEntity.quantity!,
-                                    isIncrement: true,
-                                  );
+                                        UpdateCartProductQuantityEvent(),
+                                        productId: cartItemEntity.productId!,
+                                        quantity: cartItemEntity.quantity!,
+                                        isIncrement: true,
+                                      );
                                 },
                           child: Icon(Icons.add),
                         ),

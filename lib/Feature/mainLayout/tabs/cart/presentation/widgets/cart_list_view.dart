@@ -1,6 +1,6 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/domain/entity/cart_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/widgets/cart_item.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CartListView extends StatelessWidget {

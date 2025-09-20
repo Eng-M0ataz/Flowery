@@ -1,5 +1,5 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -57,7 +57,7 @@ class ListViewsShimmerWidget extends StatelessWidget {
           ),
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
       ),
     );

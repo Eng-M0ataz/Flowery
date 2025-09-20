@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/api/models/cart/cart_response_dto.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/api/models/cart/update_cart_quantity_dto.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/api_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/api_constants.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';

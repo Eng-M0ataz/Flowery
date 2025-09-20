@@ -1,5 +1,5 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class SummaryItem extends StatelessWidget {
@@ -23,25 +23,25 @@ class SummaryItem extends StatelessWidget {
             text,
             style: isTotal
                 ? Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: AppSizes.mdFont_16,
-                    fontWeight: FontWeight.w600,
-                  )
+                      fontSize: AppSizes.mdFont_16,
+                      fontWeight: FontWeight.w600,
+                    )
                 : Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: AppSizes.mdFont_16,
-                    color: AppColorsLight.grey,
-                  ),
+                      fontSize: AppSizes.mdFont_16,
+                      color: AppColorsLight.grey,
+                    ),
           ),
           Text(
             price,
             style: isTotal
                 ? Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: AppSizes.mdFont_16,
-                    fontWeight: FontWeight.w600,
-                  )
+                      fontSize: AppSizes.mdFont_16,
+                      fontWeight: FontWeight.w600,
+                    )
                 : Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: AppSizes.mdFont_16,
-                    color: AppColorsLight.grey,
-                  ),
+                      fontSize: AppSizes.mdFont_16,
+                      color: AppColorsLight.grey,
+                    ),
           ),
         ],
       ),

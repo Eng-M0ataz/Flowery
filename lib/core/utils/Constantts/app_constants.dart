@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+abstract class AppConstants {
+  static const List<Locale> supportedLocales = [Locale(en), Locale(ar)];
+  static const String languageCode = "language_code";
+  static const String secureStorage = 'secureStorage';
+  static const String en = 'en';
+  static const String ar = 'ar';
+  static const String assetsPath = 'assets/translations';
+  static const String token = 'token';
+  static const String rememberMe = 'remember_me';
+  static const String gender = 'gender';
+  static const String male = 'male';
+  static const String female = 'female';
+  static const String femaleValue = 'Female';
+  static const String allId = 'all';
+  static const String noProduct = 'No Product';
+  static const String guest = 'guest';
+  static const String isTrue = 'true';
+  static const String floatingHeroRemove = 'rm';
+  static const String floatingHeroLoc = 'loc';
+  static const String cityJsonFilePath = 'assets/json/city.json';
+  static const String governorateJsonFilePath = 'assets/json/governorate.json';
+  static const String loading = 'loading';
+  static const String error = 'error';
+  static const String success = 'success';
+  static const int mainDuration = 10;
+  static const int resendDuration = 3;
+  static const int imageQuality = 80;
+  static const String passwordCharacters = "★★★★★★";
+  static const String notificationCountExceeded = '9+';
+
+  
+
+}

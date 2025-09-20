@@ -1,25 +1,14 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/category_tabs.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/filter_icon_button_of_app_bar.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
-
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/search_bar_widget.dart';
-
+import 'package:flower_e_commerce_app/core/Widgets/search_list_tile.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
-
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
-
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryScreenBody extends StatelessWidget {
@@ -41,7 +30,7 @@ class CategoryScreenBody extends StatelessWidget {
       builder: (context, state) {
         if (initialCategoryId != null &&
             state.productsList == null &&
-            !state.isLoading) {
+            !state.isProductsLoading) {
           context.read<CategoriesViewModel>().doIntent(
                 GetProductsByCategoryEvent(categoryId: initialCategoryId!),
               );
@@ -55,8 +44,8 @@ class CategoryScreenBody extends StatelessWidget {
                 height: AppSizes.buttonHigh_48,
                 child: Row(
                   children: [
-                    const Expanded(child: SearchBarWidget()),
-                    const SizedBox(width: AppSizes.spacingBetweenItems_12),
+                    const Expanded(child: SearchListTile()),
+                    const SizedBox(width: AppSizes.spaceBetweenItems_12),
                     FilterIconButtonOfAppBar(onTap: () {
                       //todo open filter bottom sheet
                     }),
@@ -81,13 +70,29 @@ class CategoryScreenBody extends StatelessWidget {
                         );
                   }
                 },
-                isLoading: state.isLoading,
+                isLoading: state.isCategoriesLoading,
               ),
             Expanded(
-              child: ProductGrid(
-                products: state.productsList!,
-                isLoading: state.isLoading,
-              ),
+              child: context
+                          .watch<CategoriesViewModel>()
+                          .displayProducts
+                          .isEmpty &&
+                      !state.isProductsLoading
+                  ? const Center(
+                      child: Text(
+                        'No products found',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    )
+                  : ProductGrid(
+                      products: context
+                          .watch<CategoriesViewModel>()
+                          .displayProducts, // CHANGED: was state.productsList!
+                      isLoading: state.isProductsLoading,
+                    ),
             ),
           ],
         );

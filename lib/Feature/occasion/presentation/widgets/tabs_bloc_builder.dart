@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/locale_keys.g.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 import '../viewModels/occasion_event.dart';
 import '../viewModels/occasion_state.dart';
 import '../viewModels/occasion_view_model.dart';
@@ -11,7 +11,7 @@ import 'shimmer/occasion_tabs_shimmer.dart';
 
 class TabsBlocBuilder extends StatelessWidget {
   final int initialIndex;
-  const TabsBlocBuilder({super.key,required this.initialIndex});
+  const TabsBlocBuilder({super.key, required this.initialIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +43,12 @@ class TabsBlocBuilder extends StatelessWidget {
         }
         final occasions = state.occasionResponse!.occasions!;
         return BuildTabBar(
-          initialIndex:initialIndex ,
+          initialIndex: initialIndex,
           tabsLength: occasions.length,
           taps: occasions.map((occasion) => Tab(text: occasion.name)).toList(),
           onTap: (index) {
-
-            context.read<OccasionViewModel>().doIntent(occasionId: occasions[index].id??'',
+            context.read<OccasionViewModel>().doIntent(
+                  occasionId: occasions[index].id ?? '',
                   LoadProductsByOccasionEvent(),
                 );
           },

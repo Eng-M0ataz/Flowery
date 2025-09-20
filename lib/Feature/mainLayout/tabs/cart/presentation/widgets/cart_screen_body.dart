@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/widgets/cart_product_shimmer.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,7 +52,7 @@ class CartScreenBody extends StatelessWidget {
               children: [
                 Icon(
                   Icons.shopping_bag_outlined,
-                  size: AppSizes.icon_60,
+                  size: AppSizes.lgIcon_60,
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 Text(LocaleKeys.empty_cart.tr()),

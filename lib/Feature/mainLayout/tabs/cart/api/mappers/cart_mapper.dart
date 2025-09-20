@@ -7,8 +7,7 @@ extension CartMapper on CartResponseDto {
     return CartEntity(
       products:
           cart?.cartItems?.map((cartitem) => cartitem.toEntity()).toList() ??
-          [],
-
+              [],
       totalPrice: cart?.totalPrice ?? 0,
       numberOfCartItems: numOfCartItems ?? 0,
     );

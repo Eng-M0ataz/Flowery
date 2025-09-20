@@ -1,5 +1,5 @@
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -58,8 +58,8 @@ class CartProductShimmer extends StatelessWidget {
                       Shimmer(
                         color: AppColorsLight.white,
                         child: Container(
-                          width: AppSizes.icon_16,
-                          height: AppSizes.icon_16,
+                          width: AppSizes.smIcon_16,
+                          height: AppSizes.smIcon_16,
                           decoration: BoxDecoration(
                             color: AppColorsLight.shimmerColor,
                             borderRadius: BorderRadius.circular(
@@ -124,8 +124,7 @@ class CartProductShimmer extends StatelessWidget {
                             child: Container(
                               width: AppSizes
                                   .cartProductPluseAndNegetiveButtonHighWidth,
-                              height:
-                                  AppSizes
+                              height: AppSizes
                                       .cartProductPluseAndNegetiveButtonHighWidth +
                                   6,
                               decoration: BoxDecoration(

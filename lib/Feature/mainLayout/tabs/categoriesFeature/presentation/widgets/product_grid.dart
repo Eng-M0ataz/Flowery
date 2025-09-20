@@ -5,7 +5,7 @@ import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class ProductGrid extends StatelessWidget {
@@ -59,17 +59,12 @@ class ProductGrid extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (context, index) {
           final product = products[index];
-          final discountPercent = (product.price != null && product.price! > 0)
-              ? ((1 - ((product.priceAfterDiscount ?? 0) / product.price!)) *
-                      100)
-                  .round()
-              : 0;
           return ProductCard(
             imgCover: product.imgCover ?? '',
             title: product.title ?? '',
             price: product.price?.toInt() ?? 0,
             priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
-            discountPercent: discountPercent,
+            discountPercent: product.discountPercent,
             onAddToCart: () {
               _handleAddToCart(context, product.title ?? '');
             },
@@ -93,8 +88,11 @@ class ProductGrid extends StatelessWidget {
   }
 
   Widget _buildShimmerGrid() {
-    return const ProductsShimmer(
-      isEnabled: true,
+    return Padding(
+      padding: const EdgeInsets.all(AppSizes.paddingMd_16),
+      child: const ProductsShimmer(
+        isEnabled: true,
+      ),
     );
   }
 }

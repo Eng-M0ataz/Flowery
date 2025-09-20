@@ -1,8 +1,8 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/occasion_item.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/occasion_entity.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_routes.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/models/occasion_input_model.dart';
@@ -24,7 +24,7 @@ class OccasionListView extends StatelessWidget {
           horizontal: AppSizes.paddingMd_16,
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
         itemCount: occasionsList.length,
         scrollDirection: Axis.horizontal,

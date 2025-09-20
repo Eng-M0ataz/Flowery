@@ -50,4 +50,47 @@ abstract class Validations {
     }
     return null;
   }
+
+  static String? validateAddress(String? address) {
+    if (address == null || address.trim().isEmpty) {
+      return 'Address is required!';
+    } else if (address.trim().length < 5) {
+      return 'Address is too short';
+    } else if (address.trim().length > 100) {
+      return 'Address is too long';
+    }
+    return null;
+  }
+
+  static String? validateCity(String? city) {
+    if (city == null || city.trim().isEmpty) {
+      return 'Please select a city';
+    }
+    return null;
+  }
+
+  static String? pinCodeValidator(String? val) {
+    if (val!.length < 6) {
+      return "Please enter all digits";
+    } else {
+      return null;
+    }
+  }
+
+  static String? validateRecipientName(String? name) {
+    if (name == null || name.trim().isEmpty) {
+      return 'Recipient name is required!';
+    }
+
+    final parts = name.trim().split(RegExp(r'\s+'));
+    if (parts.length < 2) {
+      return 'Please enter full name (first and last name)';
+    }
+
+    if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
+      return 'Name can only contain letters';
+    }
+
+    return null;
+  }
 }

@@ -1,37 +1,50 @@
 import 'package:equatable/equatable.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
+import 'package:flower_e_commerce_app/core/Functions/filter.dart';
 
 class CategoriesState extends Equatable {
-  final bool isLoading;
+  final bool isCategoriesLoading;
+  final bool isProductsLoading;
   final String? errorMessage;
   final List<CategoryEntity>? categories;
   final List<ProductEntity>? productsList;
+  final List<ProductEntity>? filteredProducts;
+  final FILTERTYPE? currentFilter;
   final bool isSuccess;
   final String? selectedCategoryId;
 
   const CategoriesState({
-    this.isLoading = false,
+    this.isCategoriesLoading = false,
+    this.isProductsLoading = false,
     this.errorMessage,
     this.categories = const [],
     this.productsList = const [],
+    this.filteredProducts = const [],
+    this.currentFilter,
     this.isSuccess = false,
     this.selectedCategoryId,
   });
 
   CategoriesState copyWith({
-    bool? isLoading,
+    bool? isCategoriesLoading,
+    bool? isProductsLoading,
     String? errorMessage,
     List<CategoryEntity>? categories,
     List<ProductEntity>? productsList,
+    List<ProductEntity>? filteredProducts,
+    FILTERTYPE? currentFilter,
     bool? isSuccess,
     String? selectedCategoryId,
   }) {
     return CategoriesState(
-      isLoading: isLoading ?? this.isLoading,
+      isCategoriesLoading: isCategoriesLoading ?? this.isCategoriesLoading,
+      isProductsLoading: isProductsLoading ?? this.isProductsLoading,
       errorMessage: errorMessage ?? this.errorMessage,
       categories: categories ?? this.categories,
       productsList: productsList ?? this.productsList,
+      filteredProducts: filteredProducts ?? this.filteredProducts,
+      currentFilter: currentFilter ?? this.currentFilter,
       isSuccess: isSuccess ?? this.isSuccess,
       selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
     );
@@ -39,10 +52,13 @@ class CategoriesState extends Equatable {
 
   @override
   List<Object?> get props => [
-        isLoading,
+        isCategoriesLoading,
+        isProductsLoading,
         errorMessage,
         categories,
         productsList,
+        filteredProducts,
+        currentFilter,
         isSuccess,
         selectedCategoryId,
       ];

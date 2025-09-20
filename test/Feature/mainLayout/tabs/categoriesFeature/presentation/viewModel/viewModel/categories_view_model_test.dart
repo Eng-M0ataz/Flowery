@@ -11,7 +11,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/app_constants.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
@@ -41,7 +41,6 @@ void main() {
     mockGetProductsByCategoryUseCase = MockGetProductsByCategoryUseCase();
     mockGetAllProductsUseCase = MockGetAllProductsUseCase();
 
-    /// Categories
     categoryEntityList = [
       CategoryEntity(
         id: "1",
@@ -70,7 +69,6 @@ void main() {
       data: categoryResponseEntity,
     );
 
-    /// Products
     productList = [
       ProductEntity(
         id: "p1",
@@ -126,41 +124,51 @@ void main() {
           .thenAnswer((_) async => productResult);
 
       await viewModel.doIntent(const GetAllCategoriesEvent());
-
       await viewModel.doIntent(const GetAllProductsEvent());
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: true,
+        isProductsLoading: false,
         isSuccess: false,
         errorMessage: null,
         categories: [],
         productsList: [],
+        filteredProducts: [],
+        currentFilter: null,
         selectedCategoryId: null,
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: categoryEntityList,
         productsList: [],
+        filteredProducts: [],
+        currentFilter: null,
         selectedCategoryId: AppConstants.allId,
       ),
-      CategoriesState(
-        isLoading: true,
+      const CategoriesState(
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
         errorMessage: null,
-        categories: categoryEntityList,
-        productsList: const [],
+        categories: [],
+        productsList: [],
+        filteredProducts: [],
+        currentFilter: null,
         selectedCategoryId: AppConstants.allId,
-      ),
-      // State 4: Successfully  all products
+      ).copyWith(categories: categoryEntityList),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: categoryEntityList,
         productsList: productList,
+        filteredProducts: productList,
+        currentFilter: null,
         selectedCategoryId: AppConstants.allId,
       ),
     ],
@@ -169,6 +177,7 @@ void main() {
       verify(mockGetAllProductsUseCase.invoke()).called(1);
     },
   );
+
   blocTest<CategoriesViewModel, CategoriesState>(
     "should load products by category",
     build: () => CategoriesViewModel(
@@ -190,16 +199,25 @@ void main() {
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
+        errorMessage: null,
+        categories: [],
+        productsList: [],
+        filteredProducts: [],
+        currentFilter: null,
         selectedCategoryId: "1",
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: const [],
         productsList: productList,
+        filteredProducts: productList,
+        currentFilter: null,
         selectedCategoryId: "1",
       ),
     ],
@@ -228,16 +246,25 @@ void main() {
     },
     expect: () => [
       const CategoriesState(
-        isLoading: true,
+        isCategoriesLoading: false,
+        isProductsLoading: true,
         isSuccess: false,
+        errorMessage: null,
+        categories: [],
+        productsList: [],
+        filteredProducts: [],
+        currentFilter: null,
         selectedCategoryId: AppConstants.allId,
       ),
       CategoriesState(
-        isLoading: false,
+        isCategoriesLoading: false,
+        isProductsLoading: false,
         isSuccess: true,
         errorMessage: null,
         categories: const [],
         productsList: productList,
+        filteredProducts: productList,
+        currentFilter: null,
         selectedCategoryId: AppConstants.allId,
       ),
     ],

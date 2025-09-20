@@ -1,0 +1,16 @@
+import 'dart:io';
+
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/request/edit_profile_request_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/edit_profile_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/logged_user_data_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/upload_photo_response_entity.dart';
+import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
+
+abstract class ProfileRepo {
+  Future<ApiResult<EditProfileResponseEntity>> editProfile(
+      EditProfileRequestEntity editProfileRequestEntity);
+  Future<ApiResult<LoggedUserDataResponseEntity>> getLoggedUserData();
+  Future<ApiResult<UploadPhotoResponseEntity>> uploadProfilePhoto(
+    File imageFile,
+  );
+}

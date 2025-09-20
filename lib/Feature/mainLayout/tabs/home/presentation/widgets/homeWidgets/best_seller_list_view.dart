@@ -1,8 +1,8 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/home/presentation/widgets/homeWidgets/best_seller_item.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
-import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
-import 'package:flower_e_commerce_app/core/utils/constants/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../bestSellerFeature/domain/entities/best_seller_entity.dart';
@@ -22,7 +22,7 @@ class BestSellerListView extends StatelessWidget {
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_16),
         separatorBuilder: (context, index) => const SizedBox(
-          width: AppSizes.spaceBetwwenItems_16,
+          width: AppSizes.spaceBetweenItems_16,
         ),
         itemCount: bestSellerList.length,
         scrollDirection: Axis.horizontal,
