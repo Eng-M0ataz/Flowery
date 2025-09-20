@@ -73,6 +73,11 @@ class AddressViewModel extends Cubit<AddressState> {
       case InitializeEditAddressEvent():
         await _initializeEditAddress(event.address);
         break;
+      case NavigateToAddAddressEvent():
+        _navigateToAddAddress();
+      case RefreshAddressesEvent():
+        await _loadAddresses();
+        break;
 
       case DisposeEvent():
         _dispose();
@@ -180,21 +185,9 @@ class AddressViewModel extends Cubit<AddressState> {
 
   bool _validateForm() {
     if (!(formKey.currentState?.validate() ?? false)) {
-      emit(state.copyWith(
-          errorMessage: LocaleKeys.please_fill_all_required_fields.tr()));
       return false;
     }
-    if (state.selectedGovernorateId == null) {
-      emit(state.copyWith(
-          errorMessage: LocaleKeys.please_select_governorate.tr()));
-      return false;
-    }
-    if (state.selectedCityId == null) {
-      emit(state.copyWith(
-          errorMessage: LocaleKeys.please_select_governorate.tr()));
-      return false;
-    }
-    emit(state.copyWith(errorMessage: null));
+
     return true;
   }
 
@@ -293,5 +286,9 @@ class AddressViewModel extends Cubit<AddressState> {
     addressController.clear();
     phoneController.clear();
     recipientNameController.clear();
+  }
+
+  void _navigateToAddAddress() {
+    emit(state.copyWith(navigateToAddAddress: true));
   }
 }

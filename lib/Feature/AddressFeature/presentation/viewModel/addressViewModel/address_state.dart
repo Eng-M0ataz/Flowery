@@ -1,5 +1,4 @@
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/address_entity.dart';
-import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/address_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/city_entity.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/governorate_entity.dart';
 
@@ -11,7 +10,6 @@ class AddressState {
   final List<CityEntity> cities;
   final int? selectedGovernorateId;
   final int? selectedCityId;
-  final List<AddressResponseEntity> addresses;
   final List<AddressEntity> addressList;
   final String selectedLat;
   final String selectedLong;
@@ -20,7 +18,8 @@ class AddressState {
   final bool isEditMode;
   final String? editingAddressId;
   final String selectedAddress;
-
+  final bool navigateToAddAddress;
+  final bool refreshAddresses;
   AddressState({
     this.isSuccess = false,
     this.isLoading = false,
@@ -29,7 +28,6 @@ class AddressState {
     this.cities = const [],
     this.selectedGovernorateId,
     this.selectedCityId,
-    this.addresses = const [],
     this.addressList = const [],
     this.selectedLat = '',
     this.selectedLong = '',
@@ -38,6 +36,8 @@ class AddressState {
     this.isEditMode = false,
     this.editingAddressId,
     this.selectedAddress = '',
+    this.navigateToAddAddress = false,
+    this.refreshAddresses = false,
   });
 
   AddressState copyWith({
@@ -48,7 +48,6 @@ class AddressState {
     List<CityEntity>? cities,
     int? selectedGovernorateId,
     int? selectedCityId,
-    List<AddressResponseEntity>? addresses,
     List<AddressEntity>? addressList,
     String? selectedLat,
     String? selectedLong,
@@ -57,6 +56,8 @@ class AddressState {
     bool? isEditMode,
     String? editingAddressId,
     String? selectedAddress,
+    bool? navigateToAddAddress,
+    bool? refreshAddresses,
   }) {
     return AddressState(
       isSuccess: isSuccess ?? this.isSuccess,
@@ -67,7 +68,6 @@ class AddressState {
       selectedGovernorateId:
           selectedGovernorateId ?? this.selectedGovernorateId,
       selectedCityId: selectedCityId ?? this.selectedCityId,
-      addresses: addresses ?? this.addresses,
       addressList: addressList ?? this.addressList,
       selectedLat: selectedLat ?? this.selectedLat,
       selectedLong: selectedLong ?? this.selectedLong,
@@ -75,7 +75,9 @@ class AddressState {
       isUpdatingAddress: isUpdatingAddress ?? this.isUpdatingAddress,
       isEditMode: isEditMode ?? this.isEditMode,
       editingAddressId: editingAddressId ?? this.editingAddressId,
-      
+      selectedAddress: selectedAddress ?? this.selectedAddress,
+      navigateToAddAddress: navigateToAddAddress ?? this.navigateToAddAddress,
+      refreshAddresses: refreshAddresses ?? this.refreshAddresses,
     );
   }
 }
