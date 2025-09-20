@@ -15,6 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'core/utils/Constantts/app_routes.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -41,25 +43,26 @@ class FlowerECommerceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AppConfigCubit>(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        builder: (context, child) => ResponsiveBreakpoints.builder(
-          child: child!,
-          breakpoints: AppSizes.appBreakPoints,
-          breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
-        ),
-        theme: AppThemeLight.lightTheme,
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: initialRoute,
+      create: (context) => getIt<AppConfigCubit>()..loadSavedLocale(),
+      child: BlocBuilder<AppConfigCubit, Locale>(
+        builder: (context, localeState) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: localeState,
+            builder: (context, child) => ResponsiveBreakpoints.builder(
+              child: child!,
+              breakpoints: AppSizes.appBreakPoints,
+              breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
+            ),
+            theme: AppThemeLight.lightTheme,
+            onGenerateRoute: RouteGenerator.getRoute,
+            initialRoute: AppRoutes.mainLayoutRoute,
+          );
+        },
       ),
-
-
-
-
     );
   }
+
 }

@@ -20,6 +20,15 @@ class LanguageBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: Divider(
+              color: AppColorsLight.black,
+              thickness: 4,
+              indent: 120,
+              endIndent: 120,
+            ),
+          ),
+          const SizedBox(height: AppSizes.spaceBetweenItems_16),
           Text(
             LocaleKeys.change_language.tr(),
             style: Theme.of(context)
@@ -49,22 +58,45 @@ class LanguageBottomSheet extends StatelessWidget {
     required String title,
     required Locale locale,
   }) {
-    return ListTile(
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.titleMedium,
-      ),
-      tileColor: AppColorsLight.white,
-      trailing: SvgPicture.asset(
-        Assets.assetsImagesSelectedIcon,
-        height: AppSizes.photoHeight_20,
-        width: AppSizes.photoWidth_20,
-        fit: BoxFit.contain,
-      ),
-      onTap: () {
-        context.read<AppConfigCubit>().changeLanguage(locale);
-        context.setLocale(locale);
-        Navigator.pop(context);
+    return BlocBuilder<AppConfigCubit, Locale>(
+      builder: (context, currentLocale) {
+        final isSelected = currentLocale.languageCode == locale.languageCode;
+
+        return Material(
+          elevation: 2,
+          shadowColor: Colors.black26,
+          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd_8),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(AppSizes.borderRadiusMd_8),
+              ),
+            ),
+            title: Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            tileColor: AppColorsLight.whiteOriginal,
+            trailing: isSelected
+                ? SvgPicture.asset(
+                    Assets.assetsImagesSelectedIcon,
+                    height: AppSizes.photoHeight_20,
+                    width: AppSizes.photoWidth_20,
+                    fit: BoxFit.contain,
+                  )
+                :  SvgPicture.asset(
+              Assets.assetsImagesUnSelectedIcon,
+              height: AppSizes.photoHeight_20,
+              width: AppSizes.photoWidth_20,
+              fit: BoxFit.contain,
+            ),
+            onTap: () {
+              context.read<AppConfigCubit>().changeLanguage(locale);
+              context.setLocale(locale);
+              Navigator.pop(context);
+            },
+          ),
+        );
       },
     );
   }
