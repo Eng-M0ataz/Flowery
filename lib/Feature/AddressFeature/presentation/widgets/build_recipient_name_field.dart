@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class BuildRecipientNameField extends StatelessWidget {
         hintText: LocaleKeys.enter_recipient_name.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
+      validator: Validations.validateRecipientName,
     );
   }
 }

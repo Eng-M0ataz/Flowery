@@ -59,3 +59,6 @@ class InitializeEditAddressEvent extends AddressEvent {
   const InitializeEditAddressEvent({required this.address});
 }
 
+class NavigateToAddAddressEvent extends AddressEvent {}
+
+class RefreshAddressesEvent extends AddressEvent {}

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/city_entity.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/domain/entities/governorate_entity.dart';
+import 'package:flower_e_commerce_app/core/Functions/validators.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,7 @@ class BuildGovernorateAndCityFields extends StatelessWidget {
                 );
               }).toList(),
               onChanged: onGovernorateChanged,
+              validator: Validations.validateCity,
               decoration: InputDecoration(
                 labelText: LocaleKeys.governorate.tr(),
                 border: OutlineInputBorder(),
@@ -82,6 +84,7 @@ class BuildGovernorateAndCityFields extends StatelessWidget {
                         ),
                       );
                     }).toList(),
+              validator: Validations.validateCity,
               onChanged: selectedGovernorate == null ? null : onCityChanged,
               decoration: InputDecoration(
                 labelText: LocaleKeys.city.tr(),

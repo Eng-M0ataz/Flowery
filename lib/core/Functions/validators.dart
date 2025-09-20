@@ -76,4 +76,21 @@ abstract class Validations {
     }
     return null;
   }
+
+  static String? validateRecipientName(String? name) {
+    if (name == null || name.trim().isEmpty) {
+      return 'Recipient name is required!';
+    }
+
+    final parts = name.trim().split(RegExp(r'\s+'));
+    if (parts.length < 2) {
+      return 'Please enter full name (first and last name)';
+    }
+
+    if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(name)) {
+      return 'Name can only contain letters';
+    }
+
+    return null;
+  }
 }
