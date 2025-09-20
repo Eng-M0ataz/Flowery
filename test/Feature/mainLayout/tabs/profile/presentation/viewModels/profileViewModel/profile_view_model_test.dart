@@ -1,14 +1,15 @@
 import 'dart:io';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_data_response_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/entities/response/logged_user_entity.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/useCases/edit_profile_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/useCases/get_logged_user_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/domain/useCases/upload_photo_use_case.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_event.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_state.dart';
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile/presentation/viewModels/profileViewModel/profile_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/logged_user_data_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/entities/response/logged_user_entity.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/useCases/edit_profile_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/useCases/get_logged_user_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/domain/useCases/upload_photo_use_case.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/presentation/viewModels/profileViewModel/profile_event.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/presentation/viewModels/profileViewModel/profile_state.dart';
+import 'package:flower_e_commerce_app/Feature/editProfile/presentation/viewModels/profileViewModel/profile_view_model.dart';
+
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
