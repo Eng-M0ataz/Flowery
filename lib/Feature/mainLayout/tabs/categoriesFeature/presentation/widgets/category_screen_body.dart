@@ -1,25 +1,14 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/category_tabs.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/filter_icon_button_of_app_bar.dart';
-
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
-
 import 'package:flower_e_commerce_app/core/Widgets/search_list_tile.dart';
-
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
-
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
-
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryScreenBody extends StatelessWidget {
@@ -84,10 +73,26 @@ class CategoryScreenBody extends StatelessWidget {
                 isLoading: state.isCategoriesLoading,
               ),
             Expanded(
-              child: ProductGrid(
-                products: state.productsList!,
-                isLoading: state.isProductsLoading,
-              ),
+              child: context
+                          .watch<CategoriesViewModel>()
+                          .displayProducts
+                          .isEmpty &&
+                      !state.isProductsLoading
+                  ? const Center(
+                      child: Text(
+                        'No products found',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    )
+                  : ProductGrid(
+                      products: context
+                          .watch<CategoriesViewModel>()
+                          .displayProducts, // CHANGED: was state.productsList!
+                      isLoading: state.isProductsLoading,
+                    ),
             ),
           ],
         );

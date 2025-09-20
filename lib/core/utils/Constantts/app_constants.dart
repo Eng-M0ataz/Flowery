@@ -17,13 +17,10 @@ abstract class AppConstants {
   static const String noProduct = 'No Product';
   static const String guest = 'guest';
   static const String isTrue = 'true';
-
   static const String floatingHeroRemove = 'rm';
   static const String floatingHeroLoc = 'loc';
   static const String cityJsonFilePath = 'assets/json/city.json';
   static const String governorateJsonFilePath = 'assets/json/governorate.json';
-  
-
   static const String loading = 'loading';
   static const String error = 'error';
   static const String success = 'success';

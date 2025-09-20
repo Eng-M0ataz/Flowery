@@ -41,7 +41,7 @@ class LocationCard extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      Assets.locationIcon,
+                      Assets.assetsImagesLocationIcon,
                       height: AppSizes.mdIcon_24,
                       width: AppSizes.mdIcon_24,
                     ),
@@ -76,7 +76,7 @@ class LocationCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(AppSizes.paddingXs_4),
                   child: SvgPicture.asset(
-                    Assets.deleteIcon,
+                    Assets.assetsImagesDeleteIcon,
                     height: AppSizes.mdIcon_24,
                     width: AppSizes.mdIcon_24,
                   ),
@@ -90,7 +90,7 @@ class LocationCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(AppSizes.paddingXs_4),
                   child: SvgPicture.asset(
-                    Assets.editIcon,
+                    Assets.assetsImagesEditIcon,
                     height: AppSizes.mdIcon_24,
                     width: AppSizes.mdIcon_24,
                   ),

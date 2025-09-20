@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
+import 'package:flower_e_commerce_app/core/Functions/filter.dart';
 
 class CategoriesState extends Equatable {
   final bool isCategoriesLoading;
@@ -8,6 +9,8 @@ class CategoriesState extends Equatable {
   final String? errorMessage;
   final List<CategoryEntity>? categories;
   final List<ProductEntity>? productsList;
+  final List<ProductEntity>? filteredProducts;
+  final FILTERTYPE? currentFilter;
   final bool isSuccess;
   final String? selectedCategoryId;
 
@@ -17,6 +20,8 @@ class CategoriesState extends Equatable {
     this.errorMessage,
     this.categories = const [],
     this.productsList = const [],
+    this.filteredProducts = const [],
+    this.currentFilter,
     this.isSuccess = false,
     this.selectedCategoryId,
   });
@@ -27,6 +32,8 @@ class CategoriesState extends Equatable {
     String? errorMessage,
     List<CategoryEntity>? categories,
     List<ProductEntity>? productsList,
+    List<ProductEntity>? filteredProducts,
+    FILTERTYPE? currentFilter,
     bool? isSuccess,
     String? selectedCategoryId,
   }) {
@@ -36,6 +43,8 @@ class CategoriesState extends Equatable {
       errorMessage: errorMessage ?? this.errorMessage,
       categories: categories ?? this.categories,
       productsList: productsList ?? this.productsList,
+      filteredProducts: filteredProducts ?? this.filteredProducts,
+      currentFilter: currentFilter ?? this.currentFilter,
       isSuccess: isSuccess ?? this.isSuccess,
       selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
     );
@@ -48,6 +57,8 @@ class CategoriesState extends Equatable {
         errorMessage,
         categories,
         productsList,
+        filteredProducts,
+        currentFilter,
         isSuccess,
         selectedCategoryId,
       ];

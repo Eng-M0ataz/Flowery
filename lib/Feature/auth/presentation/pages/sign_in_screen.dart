@@ -83,7 +83,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               context.pushNamed(AppRoutes.forgetPasswordRoute);
                             },
                             child: Text(
-                              LocaleKeys.forget_password.tr(),
+                              LocaleKeys.forgetPassword.tr(),
                               style: theme.textTheme.bodyMedium!.copyWith(
                                 decoration: TextDecoration.underline,
                               ),
