@@ -10,7 +10,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
 
-import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/search_bar_widget.dart';
+import 'package:flower_e_commerce_app/core/Widgets/search_list_tile.dart';
 
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 
@@ -55,7 +55,7 @@ class CategoryScreenBody extends StatelessWidget {
                 height: AppSizes.buttonHigh_48,
                 child: Row(
                   children: [
-                    const Expanded(child: SearchBarWidget()),
+                    const Expanded(child: SearchListTile()),
                     const SizedBox(width: AppSizes.spacingBetweenItems_12),
                     FilterIconButtonOfAppBar(onTap: () {
                       //todo open filter bottom sheet

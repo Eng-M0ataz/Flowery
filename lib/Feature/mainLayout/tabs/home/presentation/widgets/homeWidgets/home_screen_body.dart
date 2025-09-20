@@ -19,7 +19,7 @@ class HomeScreenBody extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: AppSizes.spaceBetwwenItems_16,
+          height: AppSizes.spaceBetweenItems_16,
         ),
         const HomeLogoAndSearchField(),
         const LocationWidget(),
@@ -30,11 +30,11 @@ class HomeScreenBody extends StatelessWidget {
           },
         ),
         const SizedBox(
-          height: AppSizes.spaceBetwwenItems_16,
+          height: AppSizes.spaceBetweenItems_16,
         ),
         const CategoriesListViewBlocBuilder(),
         const SizedBox(
-          height: AppSizes.spaceBetwwenItems_24,
+          height: AppSizes.spaceBetweenItems_24,
         ),
         Expanded(
           child: ListView(
@@ -47,11 +47,11 @@ class HomeScreenBody extends StatelessWidget {
                 },
               ),
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_16,
+                height: AppSizes.spaceBetweenItems_16,
               ),
               const BestSellerListViewBlocBuilder(),
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_24,
+                height: AppSizes.spaceBetweenItems_24,
               ),
               SectionHeader(
                 title: LocaleKeys.occasions.tr(),
@@ -60,7 +60,7 @@ class HomeScreenBody extends StatelessWidget {
                 },
               ),
               const SizedBox(
-                height: AppSizes.spaceBetwwenItems_16,
+                height: AppSizes.spaceBetweenItems_16,
               ),
               const OccasionListViewBlocBuilder(),
             ],
