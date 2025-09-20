@@ -61,17 +61,14 @@ class AddAddressScreenBody extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             leadingWidth: AppSizes.appBarLeadingWidth,
-            leading: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.paddingMd_16),
-              child: BlocBuilder<AddressViewModel, AddressState>(
-                builder: (context, state) {
-                  return CustomBackButton(
-                    title: state.isEditMode
-                        ? LocaleKeys.edit_address.tr()
-                        : LocaleKeys.add_address.tr(),
-                  );
-                },
-              ),
+            leading: BlocBuilder<AddressViewModel, AddressState>(
+              builder: (context, state) {
+                return CustomBackButton(
+                  title: state.isEditMode
+                      ? LocaleKeys.edit_address.tr()
+                      : LocaleKeys.add_address.tr(),
+                );
+              },
             ),
           ),
           body: SafeArea(
@@ -91,16 +88,16 @@ class AddAddressScreenBody extends StatelessWidget {
                     key: viewModel.formKey,
                     child: Column(
                       children: [
-                        SizedBox(height: AppSizes.spacingBetweenItems_24),
+                        SizedBox(height: AppSizes.spaceBetweenItems_24),
                         BuildAddressField(
                             addressController: viewModel.addressController),
-                        SizedBox(height: AppSizes.spacingBetweenItems_24),
+                        SizedBox(height: AppSizes.spaceBetweenItems_24),
                         BuildPhoneField(controller: viewModel.phoneController),
-                        SizedBox(height: AppSizes.spacingBetweenItems_24),
+                        SizedBox(height: AppSizes.spaceBetweenItems_24),
                         BuildRecipientNameField(
                             recipientNameController:
                                 viewModel.recipientNameController),
-                        SizedBox(height: AppSizes.spacingBetweenItems_24),
+                        SizedBox(height: AppSizes.spaceBetweenItems_24),
                         BlocBuilder<AddressViewModel, AddressState>(
                           builder: (context, state) {
                             return BuildGovernorateAndCityFields(
@@ -132,7 +129,7 @@ class AddAddressScreenBody extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: AppSizes.spacingBetweenItems_48),
+                  SizedBox(height: AppSizes.spaceBetweenItems_48),
                   BlocBuilder<AddressViewModel, AddressState>(
                     builder: (context, state) {
                       return CustomElevatedButton(

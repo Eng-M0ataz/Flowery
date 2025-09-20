@@ -23,10 +23,7 @@ class SavedAddressScreenBody extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leadingWidth: AppSizes.appBarLeadingWidth,
-          leading: Padding(
-            padding: const EdgeInsets.all(AppSizes.paddingMd_16),
-            child: CustomBackButton(title: LocaleKeys.saved_addresses.tr()),
-          ),
+          leading: CustomBackButton(title: LocaleKeys.saved_addresses.tr()),
         ),
         body: SafeArea(
           child: Padding(

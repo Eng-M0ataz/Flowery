@@ -42,17 +42,13 @@ abstract class AppSizes {
 
   static const double buttonHigh = 56;
   static const double buttonHigh_14 = 14;
-
   static const double buttonHigh_48 = 48;
   static const double buttonHigh_36 = 36;
   static const double buttonHigh_30 = 30;
   static const double buttonWidthSm_80 = 80;
-
   static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
-
   static const double buttonWidth_80 = 80.0;
-
   static const double buttomHigh = 56;
   static const double buttomHigh_48 = 48;
   static const double buttomRadius = 8;
@@ -72,11 +68,6 @@ abstract class AppSizes {
   static const double spaceBetweenItems_4 = 4.0;
   static const double spaceBetweenItems_8 = 8.0;
   static const double spaceBetweenItems_10 = 10.0;
-
-
-
-
-  static const double spacegBetweenItems_10 = 10.0;
   static const double spaceBetweenItems_12 = 12.0;
   static const double spaceBetweenItems_16 = 16.0;
   static const double spaceBetweenItems_20 = 20.0;
@@ -90,16 +81,7 @@ abstract class AppSizes {
   static const double spaceBetweenItems_50 = 50.0;
 
 
-  static const double spacingBetweenItems_10 = 12.0;
-  static const double spacingBetweenItems_12 = 12.0;
-  static const double spacingBetweenItems_16 = 16.0;
-  static const double spacingBetweenItems_24 = 24.0;
-  static const double spacingBetweenItems_32 = 32.0;
-  static const double spacingBetweenItems_36 = 36.0;
-  static const double spacingBetweenItems_48 = 48.0;
 
-  static const double spacingBetweenItems_48 = 48.0;
-  static const double spaceBetweenItems_16 = 16.0;
 
 
   // Default Spacing Between Sections
@@ -205,7 +187,6 @@ abstract class AppSizes {
   static const double shimmerProductImageBorderRadius_8 = 8.0;
   static const double shimmerProductTitleHeight_16 = 16.0;
   static const double shimmerHeight_30 = 30.0;
-
   static const double shimmerProductTitleBorderRadius_4 = 4.0;
   static const double shimmerProductPriceHeight_12 = 12.0;
 
@@ -237,12 +218,10 @@ abstract class AppSizes {
   static const double homeBestSellerImageWidth = 131.0;
   static const double homeBestSellerTextWidthConstrain = 131.0;
   static const double homeBestSellerListViewHigh = 208.0;
-
   static const double homeOccasionImageHigh = 151.0;
   static const double homeOccasionImageWidth = 131.0;
   static const double homeOccasionTextWidthConstrain = 131.0;
   static const double homeOccasionListViewHigh = 185.0;
-
   static const double homeCategoriesImageContainerHigh = 64.0;
   static const double homeCategoriesImageContainerWidth = 64.0;
   static const double homeCategoriesImageHigh = 24.0;
