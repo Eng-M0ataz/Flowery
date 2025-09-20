@@ -80,10 +80,6 @@ abstract class AppSizes {
   static const double spaceBetweenItems_48 = 48.0;
   static const double spaceBetweenItems_50 = 50.0;
 
-
-
-
-
   // Default Spacing Between Sections
 
   static const double spaceBetweenSections_16 = 16.0;
@@ -153,7 +149,7 @@ abstract class AppSizes {
   //location Card Height
   static const double locationCardHeight = 85.0;
 
-  //google map 
+  //google map
   static const double mapHeight = 200.0;
   static const double mapCameraZoom = 6.0;
 
@@ -252,4 +248,9 @@ abstract class AppSizes {
   static const double photoWidth_32 = 32.0;
   static const double photoHeight_20 = 20.0;
   static const double photoWidth_20 = 20.0;
+//sized box
+  static const double sizedBoxWidth_20 = 20.0;
+  static const double sizedBoxWidth_40 = 40.0;
+  static const double sizedBoxHeight_4 = 4.0;
+  static const double sizedBoxHeight_20 = 20.0;
 }

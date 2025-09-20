@@ -43,7 +43,6 @@
   "status": "الحالة",
   "description": "الوصف",
 
-
   "all_prices_include_tax": "جميع الأسعار شاملة الضريبة",
 
   "location_service_disabled": "من فضلك فعّل خدمة الموقع (GPS)",
@@ -79,7 +78,6 @@
   "selected_city_does_not_belong_to_governorate": "المدينة المختارة غير موجودة في المحافظة",
   "governorate_not_found": "المحافظة غير موجودة",
   "city_not_found": "المدينة غير موجودة",
-
 
   "all_prices_include_tax": "السعر يشمل الضريبة",
   "search_for_any_product_you_want": "ابحث عن أي منتج تريد",
@@ -212,7 +210,13 @@
   "governorate_not_found": "المحافظة غير موجودة",
   "city_not_found": "المدينة غير موجودة",
 
-  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته"
-
-
+  "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
+  "sort_by": "ترتيب حسب",
+  "lowest_price": "الأقل سعر",
+  "highest_Price": "الأعلى سعر",
+  "new_product": "الأجدد",
+  "old_product": "الأقدم",
+  "discount": "خصومات",
+  "search_for_any_product_you_want": "ابحث عن أي منتج تريد",
+  "no_products_found_for_your_search": "لا يوجد منتجات مطابقة للبحث الذي أدخلته"
 }

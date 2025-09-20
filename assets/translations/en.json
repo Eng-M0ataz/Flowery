@@ -37,7 +37,6 @@
   "search_for_any_product_you_want": "Search For Any Product You Want",
   "no_products_found_for_your_search": "No products found for your search",
 
-
   "location_service_disabled": "Please enable location service (GPS)",
   "location_permission_denied": "Location permission denied",
   "location_permission_denied_forever": "Location permission denied forever",
@@ -73,8 +72,8 @@
   "governorate_not_found": "Governorate not found",
   "city_not_found": "City not found",
 
-  "search_for_any_product_you_want" : "Search For Any Product You Want",
-  "no_products_found_for_your_search" : "No products found for your search",
+  "search_for_any_product_you_want": "Search For Any Product You Want",
+  "no_products_found_for_your_search": "No products found for your search",
   "error": "Error",
   "ok": "Ok",
   "success": "Success",
@@ -204,7 +203,13 @@
   "selected_city_does_not_belong_to_governorate": "Selected city does not belong to the current governorate",
   "governorate_not_found": "Governorate not found",
   "city_not_found": "City not found",
-  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired"
-
-
+  "resetCodeInvalidOrExpired": "Reset code is invalid or has expired",
+  "sort_by": "Sort By",
+  "lowest_price": "Lowest Price",
+  "highest_Price": "Highest Price",
+  "new_product": "New",
+  "old_product": "Old",
+  "discount": "Discount",
+  "search_for_any_product_you_want": "Search For Any Product You Want",
+  "no_products_found_for_your_search": "No products found for your search"
 }

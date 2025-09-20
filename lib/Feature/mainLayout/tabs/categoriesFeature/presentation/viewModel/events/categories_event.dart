@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flower_e_commerce_app/core/Functions/filter.dart';
 
 sealed class CategoriesEvent extends Equatable {
   const CategoriesEvent();
@@ -28,4 +29,17 @@ class GetProductsByCategoryEvent extends CategoriesEvent {
 
   @override
   List<Object?> get props => [categoryId, page, limit];
+}
+
+class ApplyFilterEvent extends CategoriesEvent {
+  final FILTERTYPE? filterType;
+
+  const ApplyFilterEvent(this.filterType);
+
+  @override
+  List<Object?> get props => [filterType];
+}
+
+class ClearFilterEvent extends CategoriesEvent {
+  const ClearFilterEvent();
 }

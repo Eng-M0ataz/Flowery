@@ -9,6 +9,7 @@ extension ProductDtoMapper on ProductDto {
         imgCover: imgCover ?? "",
         price: price ?? 0,
         priceAfterDiscount: priceAfterDiscount ?? 0,
+        createdAt: DateTime.parse(createdAt!).toLocal(),
         quantity: quantity ?? 0,
         category: category ?? "",
         sold: sold ?? 0,
