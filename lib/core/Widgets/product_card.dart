@@ -36,10 +36,11 @@ class ProductCard extends StatelessWidget {
         border: Border.all(color: AppColorsLight.white[70]!),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CachedNetworkImage(
             imageUrl: imgCover,
-            height: AppSizes.clipHeight_155,
+            height: 179,
             width: AppSizes.clipWidth_163,
             fit: BoxFit.cover,
             errorWidget: (context, url, error) =>

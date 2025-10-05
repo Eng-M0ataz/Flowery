@@ -84,12 +84,12 @@ class LanguageBottomSheet extends StatelessWidget {
                     width: AppSizes.photoWidth_20,
                     fit: BoxFit.contain,
                   )
-                :  SvgPicture.asset(
-              Assets.assetsImagesUnSelectedIcon,
-              height: AppSizes.photoHeight_20,
-              width: AppSizes.photoWidth_20,
-              fit: BoxFit.contain,
-            ),
+                : SvgPicture.asset(
+                    Assets.assetsImagesUnselectedIcon,
+                    height: AppSizes.photoHeight_20,
+                    width: AppSizes.photoWidth_20,
+                    fit: BoxFit.contain,
+                  ),
             onTap: () {
               context.read<AppConfigCubit>().changeLanguage(locale);
               context.setLocale(locale);
