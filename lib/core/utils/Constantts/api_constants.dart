@@ -26,4 +26,5 @@ abstract class ApiConstants {
   static const String verifyResetCode = 'auth/verifyResetCode';
   static const String resetPassword = 'auth/resetPassword';
   static const String signUp = 'auth/signup';
+  static const String orders = 'orders';
 }

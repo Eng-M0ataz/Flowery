@@ -15,11 +15,11 @@ import 'orders_remote_data_source_impl_test.mocks.dart';
 @GenerateMocks([OrdersApiService, OrdersResponseDto])
 void main() {
   late OrdersRemoteDataSourceImpl dataSource;
-  late MockOrdersService mockOrdersService;
+  late MockOrdersApiService mockOrdersService;
   late MockOrdersResponseDto mockOrdersResponseDto;
 
   setUp(() {
-    mockOrdersService = MockOrdersService();
+    mockOrdersService = MockOrdersApiService();
     mockOrdersResponseDto = MockOrdersResponseDto();
     dataSource = OrdersRemoteDataSourceImpl(mockOrdersService);
   });

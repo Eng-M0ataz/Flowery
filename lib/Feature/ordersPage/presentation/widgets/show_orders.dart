@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/Config/Theme/app_colors.dart';
 import '../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../core/localization/locale_keys.g.dart';
-import '../../../../core/utils/Constants/sizes.dart';
+import '../../../../core/utils/Constantts/sizes.dart';
 class ShowOrders extends StatelessWidget {
   final List<OrderItemWithOrderInfo> allActiveOrderItems;
   final List<OrderItemWithOrderInfo> allCompletedOrderItems;
