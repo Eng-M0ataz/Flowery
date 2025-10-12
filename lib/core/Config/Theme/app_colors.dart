@@ -9,6 +9,7 @@ abstract class AppColorsLight {
 
   static const Color shimmerColor = Color(0xffebebf4);
   static const Color shimmerColorSecondary = Color(0x4Da6a6a6);
+  static const Color whiteOriginal = Color(0xFFFFFFFF);
 
 
 

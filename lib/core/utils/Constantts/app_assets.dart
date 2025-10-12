@@ -89,5 +89,9 @@ class Assets {
   /// Assets for assetsImagesTransactionOrder
   /// assets/images/Transaction-order.svg
   static const String assetsImagesTransactionOrder = "assets/images/Transaction-order.svg";
+
+  /// Assets for assetsImagesUnselectedIcon
+  /// assets/images/unselected_icon.svg
+  static const String assetsImagesUnselectedIcon = "assets/images/unselected_icon.svg";
 }
 

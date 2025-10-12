@@ -1,14 +1,23 @@
 name: flower_e_commerce_app
 description: "A new Flutter project."
 
-publish_to: 'none' 
+
+
+
+publish_to: "none"
+
 
 
 version: 1.0.0+1
 
 environment:
+
   sdk: ">=3.1.0 <4.0.0"
+
+
+
   flutter: ">=1.17.0"
+
 
 dependencies:
   flutter:
@@ -31,27 +40,39 @@ dependencies:
   easy_localization: ^3.0.8
   image_picker: ^1.2.0
   shimmer_animation: ^2.2.2
+  flutter_image_slideshow: ^0.1.6
+
   geolocator: ^14.0.2
   google_maps_flutter: ^2.13.1
   geocoding: ^2.1.1
+
   firebase_core: ^4.1.0
   firebase_messaging: ^16.0.1
   pinput: ^5.0.1
   bloc_test: ^10.0.0
-  flutter_image_slideshow: ^0.1.6
   equatable: ^2.0.7
+
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
   flutter_lints: ^5.0.0
   build_runner: ^2.7.0
   test: ^1.25.15
   json_serializable: ^6.10.0
+
   retrofit_generator: ^10.0.4
+
+
+
   injectable_generator: ^2.8.1
-  bloc_test: ^10.0.0
+
   mockito: ^5.5.0
+
+
 
 flutter:
   uses-material-design: true

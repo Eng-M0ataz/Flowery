@@ -11,6 +11,8 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../../core/models/occasion_input_model.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
 
@@ -56,7 +58,10 @@ class HomeScreenBody extends StatelessWidget {
               SectionHeader(
                 title: LocaleKeys.occasions.tr(),
                 onTap: () {
-                  Navigator.pushNamed(context, AppRoutes.occasionRoute);
+                  context.pushNamed(AppRoutes.occasionRoute, arguments: OccasionInputModel(
+                    occasionId: "673b34c21159920171827ae0",
+                    index: 0,
+                  ),);
                 },
               ),
               const SizedBox(

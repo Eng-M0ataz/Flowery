@@ -15,6 +15,7 @@ abstract class AppSizes {
   static const double paddingXl_64 = 64.0;
 
   // icon sizes
+
   static const double xxsIcon_8 = 8.0;
   static const double xsIcon_12 = 12.0;
   static const double smIcon_16 = 16.0;
@@ -230,6 +231,16 @@ abstract class AppSizes {
   static const int homeDummyShimmerListViewItemsLength = 6;
   static const double homeDummyShimmerListViewTextWidth = 80.0;
   static const double homeDummyShimmerListViewTextHigh = 12.0;
+
+  static const double cartImageHigh = 101.0;
+  static const double cartImageWidth = 96.0;
+  static const double cartProductNameWidth = 230.0;
+  static const double cartProductNameHigh = 20;
+  static const double cartProductPluseAndNegetiveButtonHighWidth = 16;
+  static const double cartAddAndRemoveCircleLoadingIndicatorWidth = 10.0;
+  static const double cartAddAndRemoveCircleLoadingIndicatorHigh = 10.0;
+  static const double cartAddAndRemoveCircleLoadingIndicatorStrokeWidth = 3.0;
+
   //pin code
   static const int pinCodeLength_6 = 6;
   static const double pinCodeHeight_74 = 74;

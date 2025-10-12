@@ -3,10 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flower_e_commerce_app/core/Config/Routing/route_generator.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
-
 import 'package:flower_e_commerce_app/core/Functions/execute_navigation.dart';
 import 'package:flower_e_commerce_app/core/helpers/app_config_cubit.dart';
-
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flower_e_commerce_app/firebase_options.dart';
@@ -14,6 +12,7 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'core/utils/Constantts/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,20 +40,24 @@ class FlowerECommerceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AppConfigCubit>(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        builder: (context, child) => ResponsiveBreakpoints.builder(
-          child: child!,
-          breakpoints: AppSizes.appBreakPoints,
-          breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
-        ),
-        theme: AppThemeLight.lightTheme,
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: initialRoute,
+      create: (context) => getIt<AppConfigCubit>()..loadSavedLocale(),
+      child: BlocBuilder<AppConfigCubit, Locale>(
+        builder: (context, localeState) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: localeState,
+            builder: (context, child) => ResponsiveBreakpoints.builder(
+              child: child!,
+              breakpoints: AppSizes.appBreakPoints,
+              breakpointsLandscape: AppSizes.appLandscapeBreakPoints,
+            ),
+            theme: AppThemeLight.lightTheme,
+            onGenerateRoute: RouteGenerator.getRoute,
+            initialRoute: AppRoutes.mainLayoutRoute,
+          );
+        },
       ),
     );
   }
