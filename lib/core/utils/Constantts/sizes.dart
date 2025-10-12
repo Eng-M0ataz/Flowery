@@ -121,7 +121,9 @@ abstract class AppSizes {
   static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 4.0;
+  static const double cardHeight_125 = 125.0;
   static const double cardHeight_229 = 229.0;
+  static const double cardWidth_319 = 319.0;
 
   // image carousel high
 
@@ -134,7 +136,8 @@ abstract class AppSizes {
   //clip radius
   static const double clipHeight_155 = 155;
   static const double clipWidth_163 = 163;
-
+  static const double clipHeight_131 = 131;
+  static const double clipWidth_127 = 127;
   //elevation
   static const double cardElevation_0 = 0.0;
 

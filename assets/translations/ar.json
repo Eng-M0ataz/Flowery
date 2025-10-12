@@ -170,5 +170,14 @@
   "highest_Price": "الأعلى سعر",
   "new_product": "الأجدد",
   "old_product": "الأقدم",
-  "discount": "خصومات"
+  "discount": "خصومات",
+  "active": "نشيط",
+  "completed": "مكتمل",
+  "no_orders": "لا يوجد طلبيات مسجلة",
+  "no_active_orders": "لا يوجد طلبيات نشطة",
+  "no_completed_orders": "لا يود طلبيات مكتملة",
+  "delivered_on": "تم التسليم فى",
+  "order_number": "رقم الطلب",
+  "reorder": "إعادة طلب",
+  "track_order": "تتبع الطلب"
 }
