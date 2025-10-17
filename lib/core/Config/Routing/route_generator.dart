@@ -1,4 +1,5 @@
 
+import 'package:flower_e_commerce_app/Feature/Success%20page/presentation/pages/success_order_screen.dart' show SuccessOrderScreen;
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/notifications/presentation/pages/notification_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
@@ -55,6 +56,10 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => ProductDetailsScreen(productDetailsModel: args),
           settings: settings,
+        );
+      case AppRoutes.successOrderRoute:
+        return MaterialPageRoute(
+          builder: (_) => const SuccessOrderScreen(),
         );
       case AppRoutes.searchRoute:
         return MaterialPageRoute(

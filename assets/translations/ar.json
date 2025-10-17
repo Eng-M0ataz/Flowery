@@ -1,5 +1,4 @@
 {
-
   "occasion": "المناسبة",
   "best_sellers": "تألق مع أفضل مبيعاتنا المميزة",
   "add_to_cart": "أضف إلى السلة",
@@ -42,8 +41,8 @@
   "status": "الحالة",
   "description": "الوصف",
   "all_prices_include_tax": "السعر يشمل الضريبة",
-  "search_for_any_product_you_want" : "ابحث عن أي منتج تريد",
-  "no_products_found_for_your_search" : "لا يوجد منتجات مطابقة للبحث الذي أدخلته",
+  "search_for_any_product_you_want": "ابحث عن أي منتج تريد",
+  "no_products_found_for_your_search": "لا يوجد منتجات مطابقة للبحث الذي أدخلته",
   "success": "نجاح",
   "otpSentSuccess": "تم إرسال الكود! افحص بريدك.",
   "passwordResetSuccess": "تم تغيير كلمة المرور بنجاح.",
@@ -66,7 +65,6 @@
   "invalidCode": "رمز غير صالح",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "resetCodeInvalidOrExpired": "رمز إعادة التعيين غير صالح أو انتهت صلاحيته",
-
   "sign_up": "إنشاء حساب",
   "user_name_label": "اسم المستخدم",
   "user_name_hint": "أدخل اسم المستخدم",
@@ -99,6 +97,7 @@
   "ok": "موافق",
   "loading": "جاري التحميل...",
   "male_label": "ذكر",
-  "female_label": "انثى"
-
+  "female_label": "انثى",
+  "successOrder": "تم تقديم طلبك بنجاح",
+  "trakerOrder": "تتبع الطلب"
 }

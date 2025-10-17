@@ -22,4 +22,6 @@ abstract class AppConstants {
   static const String success = 'success';
   static const int mainDuration = 10;
   static const int resendDuration = 3;
+  static const String orderSuccessImage = 'assets/images/success_logo.svg';
+
 }

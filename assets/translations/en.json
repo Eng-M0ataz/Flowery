@@ -1,5 +1,4 @@
 {
-
   "occasion": "Occasion",
   "best_sellers": "Bloom with our exquisite best sellers",
   "add_to_cart": "Add to cart",
@@ -38,8 +37,8 @@
   "status": "Status",
   "description": "Description",
   "all_prices_include_tax": "All prices include tax",
-  "search_for_any_product_you_want" : "Search For Any Product You Want",
-  "no_products_found_for_your_search" : "No products found for your search",
+  "search_for_any_product_you_want": "Search For Any Product You Want",
+  "no_products_found_for_your_search": "No products found for your search",
   "error": "Error",
   "ok": "Ok",
   "success": "Success",
@@ -66,7 +65,6 @@
   "invalidCode": "Invalid code",
   "resetPassword": "Reset password",
   "resetCodeInvalidOrExpired": "Reset code is invalid or has expired",
-
   "sign_up": "Sign up",
   "user_name_label": "Username",
   "user_name_hint": "Enter your user name",
@@ -99,6 +97,7 @@
   "ok": "OK",
   "loading": "Loading...",
   "male_label": "Male",
-  "female_label": "Female"
-
+  "female_label": "Female",
+  "successOrder": "Your order placed successfully!",
+  "trakerOrder": "Traker Order"
 }

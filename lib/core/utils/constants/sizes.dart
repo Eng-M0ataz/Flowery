@@ -36,12 +36,12 @@ abstract class AppSizes {
 
   static const double buttonHigh = 56;
   static const double buttonHigh_14 = 14;
-
+  static const double buttonHigh_24 = 24;
   static const double buttonHigh_48 = 48;
   static const double buttonHigh_36 = 36;
   static const double buttonHigh_30 = 30;
   static const double buttonWidthSm_80 = 80;
-
+  static const double buttonWidth_343 = 343;
   static const double buttonRadius = 8;
   static const double buttonWidth = double.infinity;
 
@@ -60,6 +60,8 @@ abstract class AppSizes {
   // Image sizes
 
   static const double imageHigh = 80.0;
+  static const double imageOrderSuccessWidth_150 = 150;
+  static const double imageOrderSuccessHeight_150 = 150;
 
   // Default Spacing Between items
   static const double spaceBetweenItems_2 = 2.0;

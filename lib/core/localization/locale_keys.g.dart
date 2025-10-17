@@ -1,9 +1,7 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 // ignore_for_file: constant_identifier_names
-
-abstract class  LocaleKeys {
-<<<<<<< HEAD
+abstract class LocaleKeys {
   static const occasion = 'occasion';
   static const best_sellers = 'best_sellers';
   static const add_to_cart = 'add_to_cart';
@@ -46,9 +44,6 @@ abstract class  LocaleKeys {
   static const status = 'status';
   static const description = 'description';
   static const all_prices_include_tax = 'all_prices_include_tax';
-<<<<<<< HEAD
-=======
-  static const sign_up = 'sign_up';
   static const user_name_label = 'user_name_label';
   static const user_name_hint = 'user_name_hint';
   static const first_name_label = 'first_name_label';
@@ -56,9 +51,7 @@ abstract class  LocaleKeys {
   static const last_name_label = 'last_name_label';
   static const last_name_hint = 'last_name_hint';
   static const email_label = 'email_label';
-  static const email_hint = 'email_hint';
   static const password_label = 'password_label';
-  static const password_hint = 'password_hint';
   static const confirm_password_label = 'confirm_password_label';
   static const confirm_password_hint = 'confirm_password_hint';
   static const phone_number_label = 'phone_number_label';
@@ -77,15 +70,11 @@ abstract class  LocaleKeys {
   static const login_title = 'login_title';
   static const account_created_successfully = 'account_created_successfully';
   static const success = 'success';
-  static const ok = 'ok';
   static const loading = 'loading';
   static const male_label = 'male_label';
   static const female_label = 'female_label';
->>>>>>> sign-up
-=======
   static const search_for_any_product_you_want = 'search_for_any_product_you_want';
   static const no_products_found_for_your_search = 'no_products_found_for_your_search';
-  static const success = 'success';
   static const otpSentSuccess = 'otpSentSuccess';
   static const passwordResetSuccess = 'passwordResetSuccess';
   static const codeVerifiedSuccess = 'codeVerifiedSuccess';
@@ -107,6 +96,6 @@ abstract class  LocaleKeys {
   static const invalidCode = 'invalidCode';
   static const resetPassword = 'resetPassword';
   static const resetCodeInvalidOrExpired = 'resetCodeInvalidOrExpired';
->>>>>>> 62ab95af2ae7edcf7b7c69db9ed204c90bd7719b
-
+  static const successOrder='successOrder';
+  static const trakerOrder='trakerOrder';
 }
