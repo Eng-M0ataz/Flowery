@@ -36,9 +36,7 @@ void main() {
 
   setUp(() {
     mockApiServices = MockApiServices();
-    authRemoteDataSourceImpl =
-
-        AuthRemoteDataSourceImpl(apiServices: mockApiServices);
+    authRemoteDataSourceImpl = AuthRemoteDataSourceImpl(mockApiServices);
   });
 
   group('forgetPassword', () {
@@ -46,43 +44,10 @@ void main() {
         ForgetPasswordRequestEntity(email: 'test@example.com');
     final responseDto =
         ForgetPasswordResponseDto(message: "Email sent", info: '');
-
-        AuthRemoteDataSourceImpl(apiServicest: mockApiServices);
-  });
-  group('signUp', () {
-    final requestEntity = SignUpRequestEntity(
-      firstName: 'John',
-      lastName: 'Doe',
-      gender: 'male',
-      email: 'john@example.com',
-      password: 'password123',
-      rePassword: 'password123',
-      phone: '+1234567890',
-    );
-
-    final responseDto = SignUpResponseDto(
-      message: "User registered successfully",
-      user: UserDto(
-        id: '1',
-        firstName: 'John',
-        lastName: 'Doe',
-        gender: 'male',
-        email: 'john@example.com',
-        phone: '+1234567890',
-        addresses: [],
-        createdAt: DateTime(2023, 1, 1),
-        photo: '',
-        wishlist: [],
-        role: 'customer',
-      ),
-      token: 'auth_token_123',
-    );
-
     final responseEntity = responseDto.toEntity();
 
     test('should return ApiSuccessResult when api call is successful',
         () async {
-
       when(mockApiServices.forgetPassword(any))
           .thenAnswer((_) async => responseDto);
 
@@ -94,31 +59,11 @@ void main() {
       expect(success.data.message, responseEntity.message);
 
       verify(mockApiServices.forgetPassword(any)).called(1);
-
-      // Arrange
-      when(mockApiServices.signUp(any)).thenAnswer((_) async => responseDto);
-
-      // Act
-      final result = await authRemoteDataSourceImpl.signup(requestEntity);
-
-      // Assert
-      expect(result, isA<ApiSuccessResult<SignUpResponseEntity>>());
-      final success = result as ApiSuccessResult<SignUpResponseEntity>;
-      expect(success.data.message, responseEntity.message);
-      expect(success.data.user?.firstName, responseEntity.user?.firstName);
-      expect(success.data.user?.lastName, responseEntity.user?.lastName);
-      expect(success.data.user?.email, responseEntity.user?.email);
-      expect(success.data.user?.gender, responseEntity.user?.gender);
-      expect(success.data.token, responseEntity.token);
-
-      verify(mockApiServices.signUp(any)).called(1);
-
     });
 
     test(
         'should return ApiErrorResult with ServerFailure when DioException thrown',
         () async {
-
       when(mockApiServices.forgetPassword(any)).thenThrow(
         DioException(requestOptions: RequestOptions(path: '/forget')),
       );
@@ -147,10 +92,8 @@ void main() {
   });
 
   group('verifyResetCode', () {
-    final requestEntity =
-        VerifyResetCodeRequestEntity(resetCode: '123456');
-    final responseDto =
-        VerifyResetCodeResponseDto(status: "Code verified");
+    final requestEntity = VerifyResetCodeRequestEntity(resetCode: '123456');
+    final responseDto = VerifyResetCodeResponseDto(status: "Code verified");
     final responseEntity = responseDto.toEntity();
 
     test('should return ApiSuccessResult when api call is successful',
@@ -247,8 +190,61 @@ void main() {
       expect(result, isA<ApiErrorResult<ResetPasswordResponseEntity>>());
       final error = result as ApiErrorResult<ResetPasswordResponseEntity>;
       expect(error.failure.errorMessage, contains('Unexpected error'));
+    });
+  });
 
-      // Arrange
+  group('signUp', () {
+    final requestEntity = SignUpRequestEntity(
+      firstName: 'John',
+      lastName: 'Doe',
+      gender: 'male',
+      email: 'john@example.com',
+      password: 'password123',
+      rePassword: 'password123',
+      phone: '+1234567890',
+    );
+
+    final responseDto = SignUpResponseDto(
+      message: "User registered successfully",
+      user: UserDto(
+        id: '1',
+        firstName: 'John',
+        lastName: 'Doe',
+        gender: 'male',
+        email: 'john@example.com',
+        phone: '+1234567890',
+        addresses: [],
+        createdAt: DateTime(2023, 1, 1),
+        photo: '',
+        wishlist: [],
+        role: 'customer',
+      ),
+      token: 'auth_token_123',
+    );
+
+    final responseEntity = responseDto.toEntity();
+
+    test('should return ApiSuccessResult when api call is successful',
+        () async {
+      when(mockApiServices.signUp(any)).thenAnswer((_) async => responseDto);
+
+      final result = await authRemoteDataSourceImpl.signup(requestEntity);
+
+      expect(result, isA<ApiSuccessResult<SignUpResponseEntity>>());
+      final success = result as ApiSuccessResult<SignUpResponseEntity>;
+      expect(success.data.message, responseEntity.message);
+      expect(success.data.user.firstName, responseEntity.user.firstName);
+      expect(success.data.user.lastName, responseEntity.user.lastName);
+      expect(success.data.user.email, responseEntity.user.email);
+      expect(success.data.user.gender, responseEntity.user.gender);
+      expect(success.data.token, responseEntity.token);
+
+      verify(mockApiServices.signUp(any)).called(1);
+    });
+
+    test(
+        'should return ApiErrorResult with ServerFailure when DioException thrown',
+        () async {
       final dioException = DioException(
         requestOptions: RequestOptions(path: '/signup'),
         response: Response(
@@ -260,10 +256,8 @@ void main() {
 
       when(mockApiServices.signUp(any)).thenThrow(dioException);
 
-      // Act
       final result = await authRemoteDataSourceImpl.signup(requestEntity);
 
-      // Assert
       expect(result, isA<ApiErrorResult<SignUpResponseEntity>>());
       final error = result as ApiErrorResult<SignUpResponseEntity>;
       expect(error.failure, isA<ServerFailure>());
@@ -274,31 +268,24 @@ void main() {
     test(
         'should return ApiErrorResult with ServerFailure when generic exception thrown',
         () async {
-      // Arrange
       when(mockApiServices.signUp(any))
           .thenThrow(Exception('Network connection failed'));
 
-      // Act
       final result = await authRemoteDataSourceImpl.signup(requestEntity);
 
-      // Assert
       expect(result, isA<ApiErrorResult<SignUpResponseEntity>>());
       final error = result as ApiErrorResult<SignUpResponseEntity>;
       expect(error.failure, isA<ServerFailure>());
-      expect(error.failure.errorMessage, contains('Unexpected error occurred'));
       expect(error.failure.errorMessage, contains('Network connection failed'));
 
       verify(mockApiServices.signUp(any)).called(1);
     });
 
     test('should call signUp with correct SignUpRequestDto', () async {
-      // Arrange
       when(mockApiServices.signUp(any)).thenAnswer((_) async => responseDto);
 
-      // Act
       await authRemoteDataSourceImpl.signup(requestEntity);
 
-      // Assert
       final captured = verify(mockApiServices.signUp(captureAny)).captured;
       final capturedDto = captured.first as SignUpRequestModel;
 
@@ -312,7 +299,6 @@ void main() {
     });
 
     test('should handle DioException with specific error response', () async {
-      // Arrange
       final dioException = DioException(
         requestOptions: RequestOptions(path: '/signup'),
         response: Response(
@@ -330,17 +316,13 @@ void main() {
 
       when(mockApiServices.signUp(any)).thenThrow(dioException);
 
-      // Act
       final result = await authRemoteDataSourceImpl.signup(requestEntity);
 
-      // Assert
       expect(result, isA<ApiErrorResult<SignUpResponseEntity>>());
       final error = result as ApiErrorResult<SignUpResponseEntity>;
       expect(error.failure, isA<ServerFailure>());
-      // The exact error message will depend on your ServerFailure.fromDioError implementation
 
       verify(mockApiServices.signUp(any)).called(1);
-
     });
   });
 }

@@ -29,7 +29,7 @@ abstract class AppConstants {
   static const int imageQuality = 80;
   static const String passwordCharacters = "★★★★★★";
   static const String notificationCountExceeded = '9+';
-
-  
-
+  static const String apiRemoteExecutor = 'apiRemoteExecutor';
+  static const String firebaseRemoteExecutor = 'firebaseRemoteExecutor';
+  static const String firebaseRealTimeDatabase = 'firebaseRealTimeDatabase';
 }
