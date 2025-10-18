@@ -14,4 +14,6 @@ abstract class AppRoutes {
   static const String notificationRoute = '/notificationRoute';
   static const String profileRoute = '/profileRoute';
   static const String cartRoute = '/cartRoute';
+  static const String trackOrderRoute = '/trackOrderRoute';
+  static const String mapScreen='/mapScreen';
 }

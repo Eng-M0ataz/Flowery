@@ -11,6 +11,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/pages/profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/productDetails/presentation/page/product_details_screen.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
+import 'package:flower_e_commerce_app/Feature/trackOrder/presentation/pages/map_screen.dart';
+import 'package:flower_e_commerce_app/Feature/trackOrder/presentation/pages/track_order_screen.dart';
 import 'package:flower_e_commerce_app/core/models/occasion_input_model.dart';
 import 'package:flower_e_commerce_app/core/models/product_details_model.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
@@ -54,6 +56,14 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case AppRoutes.editProfileRoute:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
+      case AppRoutes.trackOrderRoute:
+        return MaterialPageRoute(
+            builder: (_) => TrackOrderScreen(
+                  path: '68f1067a7fee68a4c2ec99a7',
+                ));
+      case AppRoutes.mapScreen:
+        return MaterialPageRoute(builder: (_) => MapScreen(path:'68f1067a7fee68a4c2ec99a7' ,));
+
       default:
         return unDefinedRoute();
     }
