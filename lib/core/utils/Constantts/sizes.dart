@@ -20,13 +20,16 @@ abstract class AppSizes {
   static const double xsIcon_12 = 12.0;
   static const double smIcon_16 = 16.0;
   static const double smIcon_18 = 18.0;
+  static const double mdIcon_20 = 20.0;
   static const double mdIcon_24 = 24.0;
   static const double mdIcon_30 = 30.0;
   static const double lgIcon_32 = 32.0;
   static const double lgIcon_36 = 36.0;
   static const double lgIcon_60 = 60.0;
   static const double lgIcon_64 = 64.0;
+  static const double xlIcon_83 = 83.0;
   static const double lgIcon_120 = 120.0;
+  static const double lgIcon_213 = 213.0;
 
   // font sizes
   static const double xxsFont_10 = 10.0;
@@ -90,11 +93,13 @@ abstract class AppSizes {
   static const double borderRadius0 = 0.0;
   static const double borderRadiusXs_2 = 2.0;
   static const double borderRadiusSm_4 = 4.0;
+  static const double borderRadiusSm_5 = 5.0;
   static const double borderRadiusMd_8 = 8.0;
   static const double borderRadiusMd_10 = 10.0;
   static const double borderRadiusLg_12 = 12.0;
   static const double borderRadiusXl_16 = 16.0;
   static const double borderRadiusXl_20 = 20.0;
+  static const double borderRadiusXxl_22 = 22.0;
   static const double borderRadiusXxl_24 = 24.0;
   static const double borderRadiusXxxl_32 = 32.0;
   static const double borderRadiusXxxl_40 = 32.0;
@@ -143,6 +148,7 @@ abstract class AppSizes {
 
   //max lines
   static const int maxLines_1 = 1;
+
   //size box sizes
   static const double sizedBoxWidth_8 = 8.0;
   static const double sizedBoxWidth_16 = 16.0;
@@ -247,12 +253,14 @@ abstract class AppSizes {
   static const double pinCodeWidth_68 = 68;
   static const int pinCodeSpace = 16;
   static const double pinCodeBorderWidth_2 = 2;
+
   //custom elevated button
   static const double customElevatedButtonHeight_24 = 24;
   static const double customElevatedButtonWidth_24 = 24;
 
   //spacer
   static const double spacerWidth_0 = 0;
+
   //switch
   static const double switchWidth_42 = 42.0;
   static const double switchHigh_30 = 30.0;
@@ -262,9 +270,23 @@ abstract class AppSizes {
   static const double photoWidth_32 = 32.0;
   static const double photoHeight_20 = 20.0;
   static const double photoWidth_20 = 20.0;
+
 //sized box
   static const double sizedBoxWidth_20 = 20.0;
   static const double sizedBoxWidth_40 = 40.0;
   static const double sizedBoxHeight_4 = 4.0;
   static const double sizedBoxHeight_20 = 20.0;
+
+  static const double imageProfileWidth_80 = 80.0;
+  static const double imageProfileHeight_80 = 80.0;
+
+  //container
+  static const double containerHeight_20 = 20.0;
+  static const double containerWidth_1 = 1.0;
+  static const double containerHeight_62 = 62.0;
+
+  // Common UI positioning and shadow sizes
+  static const double topPosition_40 = 40.0;
+  static const double shadowBlurRadius_10 = 10.0;
+  static const double shadowSpreadRadius_2 = 2.0;
 }

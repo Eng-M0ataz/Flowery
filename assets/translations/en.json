@@ -171,7 +171,25 @@
   "old_product": "Old",
   "discount": "Discount",
   "search_for_any_product_you_want": "Search For Any Product You Want",
-  "no_products_found_for_your_search": "No products found for your search"
+  "no_products_found_for_your_search": "No products found for your search",
+  "estimated_arrival": "Estimated arrival",
+  "delivery_hero_today": "Is your delivery hero for today",
+  "received_order": "Received your order",
+  "preparing_order": "Preparing your order",
+  "out_for_delivery": "Out for delivery",
+  "delivered": "Delivered",
+  "show_map": "Show map",
+  "order_details": "Order details",
+  "arrived": "Arrived",
+  "waiting_for_driver": "Waiting for driver",
+  "order_pending": "Your order is pending",
+  "fifteen_mins": "15 mins",
+  "your_order_is_accepted": "Your order is accepted",
+  "your_order_is_picked": "Your order is picked",
+  "your_order_is_in_the_way": "Your order is on the way",
+  "your_order_is_arrived": "Your order has arrived",
+  "your_order_is_delivered": "Your order is delivered",
+  "no_products_found_for_your_search": "No products found for your search",
   "all_prices_include_tax": "All prices include tax",
   "my_orders": "My orders",
   "active": "Active",
@@ -185,6 +203,6 @@
   "track_order": "Track order"
 }
 
- 
+
 
 

@@ -29,4 +29,9 @@ abstract class ApiConstants {
   static const String orders = 'orders';
   static const String getAndClearUserCart = 'cart';
   static const String removeAndUpdateSpesificUserCartItem = 'cart/{productId}';
+
+  static const String googleDirectionsBaseUrl = 'https://routes.googleapis.com/directions/v2:';
+  static const String computeRoutes = 'computeRoutes';
+  static const String xGoogApiKey = 'X-Goog-Api-Key';
+  static const String xGoogFieldMask = 'X-Goog-FieldMask';
 }
