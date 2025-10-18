@@ -179,7 +179,6 @@
   "out_for_delivery": "Out for delivery",
   "delivered": "Delivered",
   "show_map": "Show map",
-  "track_order": "Track Order",
   "order_details": "Order details",
   "arrived": "Arrived",
   "waiting_for_driver": "Waiting for driver",
@@ -189,7 +188,19 @@
   "your_order_is_picked": "Your order is picked",
   "your_order_is_in_the_way": "Your order is on the way",
   "your_order_is_arrived": "Your order has arrived",
-  "your_order_is_delivered": "Your order is delivered"
+  "your_order_is_delivered": "Your order is delivered",
+  "no_products_found_for_your_search": "No products found for your search",
+  "all_prices_include_tax": "All prices include tax",
+  "my_orders": "My orders",
+  "active": "Active",
+  "completed": "Completed",
+  "no_orders": "No orders registered",
+  "no_active_orders": "No active orders registered",
+  "no_completed_orders": "No completed orders registered",
+  "delivered_on": "Delivered on",
+  "order_number": "Order number",
+  "reorder": "Reorder",
+  "track_order": "Track order"
 }
 
 

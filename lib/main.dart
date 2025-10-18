@@ -3,10 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flower_e_commerce_app/core/Config/Routing/route_generator.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
-
 import 'package:flower_e_commerce_app/core/Functions/execute_navigation.dart';
 import 'package:flower_e_commerce_app/core/helpers/app_config_cubit.dart';
-
 import 'package:flower_e_commerce_app/core/helpers/block_observer.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flower_e_commerce_app/firebase_options.dart';
@@ -15,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
 import 'core/utils/Constantts/app_routes.dart';
 
 void main() async {
@@ -66,5 +63,4 @@ class FlowerECommerceApp extends StatelessWidget {
       ),
     );
   }
-
 }

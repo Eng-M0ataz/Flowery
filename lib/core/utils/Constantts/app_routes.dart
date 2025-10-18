@@ -6,8 +6,9 @@ abstract class AppRoutes {
   static const String editProfileRoute = '/editProfileRoute';
   static const String occasionRoute = '/occasionRoute';
   static const String categoriesRoute = '/categoryScreenRoute';
-  static const String productDetailsRoute = '/productDetailsRoute';
-  static const String bestSellerRoute = '/bestSellerRoute';
+  static const String productDetailsRoute= '/productDetailsRoute';
+  static const String bestSellerRoute= '/bestSellerRoute';
+  static const String ordersRoute= '/ordersRoute';
   static const String addAddressScreenRoute = '/addAddressScreenRoute';
   static const String savedAddressScreenRoute = '/savedAddressScreenBody';
   static const String searchRoute = '/searchRoute';

@@ -62,6 +62,7 @@ lib/core/localization/codegen_loader.g.dart
 lib/Feature/auth/api/client/api_service.g.dart
 analysis_options.yaml
 android/build/reports/problems/problems-report.html
+
 lib/core/Di/di.config.dart
 lib/Feature/auth/api/client/api_service.g.dart
 lib/Feature/auth/api/models/request/sign_in_request_dto.g.dart
@@ -71,6 +72,8 @@ lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
 *.freezed.dart
 *.config.dart
 *.gr.dart
+*.lock
+*.mocks.dart
 .gitignore
 lib/Feature/auth/api/models/user_dto.g.dart
 lib/Feature/auth/api/models/response/sign_in_response_dto.g.dart
