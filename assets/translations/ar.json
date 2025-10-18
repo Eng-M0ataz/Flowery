@@ -178,7 +178,6 @@
   "out_for_delivery": "في الطريق للتسليم",
   "delivered": "تم التسليم",
   "show_map": "عرض الخريطة",
-  "track_order": "تتبع الطلب",
   "order_details": "تفاصيل الطلب",
   "arrived": "تم الوصول",
   "waiting_for_driver": "في انتظار السائق",
@@ -188,5 +187,14 @@
   "your_order_is_picked": "تم استلام طلبك من المتجر",
   "your_order_is_in_the_way": "طلبك في الطريق",
   "your_order_is_arrived": "تم الوصول إلى موقعك",
-  "your_order_is_delivered": "تم تسليم طلبك بنجاح"
+  "your_order_is_delivered": "تم تسليم طلبك بنجاح",
+  "active": "نشيط",
+  "completed": "مكتمل",
+  "no_orders": "لا يوجد طلبيات مسجلة",
+  "no_active_orders": "لا يوجد طلبيات نشطة",
+  "no_completed_orders": "لا يود طلبيات مكتملة",
+  "delivered_on": "تم التسليم فى",
+  "order_number": "رقم الطلب",
+  "reorder": "إعادة طلب",
+  "track_order": "تتبع الطلب"
 }

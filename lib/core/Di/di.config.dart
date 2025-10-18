@@ -14,6 +14,36 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 
+import '../../Feature/AddressFeature/api/client/address_api_service.dart'
+    as _i304;
+import '../../Feature/AddressFeature/api/dataSources/local/address_local_data_source_impl.dart'
+    as _i932;
+import '../../Feature/AddressFeature/api/dataSources/remote/address_remote_data_source_impl.dart'
+    as _i824;
+import '../../Feature/AddressFeature/data/dataSources/address_local_data_source.dart'
+    as _i436;
+import '../../Feature/AddressFeature/data/dataSources/address_remote_data_source.dart'
+    as _i115;
+import '../../Feature/AddressFeature/data/repository/address_repo_impl.dart'
+    as _i98;
+import '../../Feature/AddressFeature/domain/repositories/address_repo.dart'
+    as _i718;
+import '../../Feature/AddressFeature/domain/useCases/add_address_use_case.dart'
+    as _i451;
+import '../../Feature/AddressFeature/domain/useCases/delete_address_use_case.dart'
+    as _i179;
+import '../../Feature/AddressFeature/domain/useCases/get_addresses_use_case.dart'
+    as _i1008;
+import '../../Feature/AddressFeature/domain/useCases/get_cities_by_governorate_use_case.dart'
+    as _i359;
+import '../../Feature/AddressFeature/domain/useCases/get_cities_use_case.dart'
+    as _i378;
+import '../../Feature/AddressFeature/domain/useCases/get_governorates_use_case.dart'
+    as _i483;
+import '../../Feature/AddressFeature/domain/useCases/update_address_use_case.dart'
+    as _i392;
+import '../../Feature/AddressFeature/presentation/viewModel/addressViewModel/address_view_model.dart'
+    as _i506;
 import '../../Feature/auth/api/client/api_service.dart' as _i500;
 import '../../Feature/auth/api/dataSources/auth_local_data_source_impl.dart'
     as _i608;
@@ -122,6 +152,9 @@ import '../../Feature/occasion/domain/useCases/get_products_by_occasion_use_case
     as _i89;
 import '../../Feature/occasion/presentation/viewModels/occasion_view_model.dart'
     as _i347;
+import '../../Feature/ordersPage/domain/useCases/orders_use_case.dart' as _i57;
+import '../../Feature/ordersPage/presentation/viewModels/orders_view_model.dart'
+    as _i64;
 import '../../Feature/searchFeature/api/client/search_api_service.dart'
     as _i104;
 import '../../Feature/searchFeature/api/dataSources/search_remote_data_source_impl.dart'
@@ -153,11 +186,16 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final dioModule = _$DioModule();
+    gh.factory<_i57.OrdersUseCase>(() => _i57.OrdersUseCase());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => dioModule.providePrettyDioLogger());
     gh.lazySingleton<_i361.Dio>(() => dioModule.provideDio());
+    gh.factory<_i436.AddressLocalDataSource>(
+        () => _i932.AddressLocalDataSourceImpl());
     gh.factory<_i713.AppConfigCubit>(
         () => _i713.AppConfigCubit(gh<_i456.Storage>()));
+    gh.factory<_i304.AddressApiServices>(
+        () => _i304.AddressApiServices.new(gh<_i361.Dio>()));
     gh.factory<_i500.ApiServices>(() => _i500.ApiServices.new(gh<_i361.Dio>()));
     gh.factory<_i35.MostSellingApiService>(
         () => _i35.MostSellingApiService.new(gh<_i361.Dio>()));
@@ -170,8 +208,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i713.OccasionApiService.new(gh<_i361.Dio>()));
     gh.factory<_i104.SearchApiService>(
         () => _i104.SearchApiService.new(gh<_i361.Dio>()));
+    gh.factory<_i115.AddressRemoteDataSource>(() =>
+        _i824.AddressRemoteDataSourceImpl(
+            apiServicest: gh<_i304.AddressApiServices>()));
     gh.factory<_i245.OccasionRemoteDataSource>(() =>
         _i108.OccasionRemoteDataSourceImpl(gh<_i713.OccasionApiService>()));
+    gh.factory<_i64.OrdersViewModel>(
+        () => _i64.OrdersViewModel(gh<_i57.OrdersUseCase>()));
     gh.lazySingleton<_i456.Storage>(
       () => _i927.SecureStorageImpl(),
       instanceName: 'secureStorage',
@@ -217,6 +260,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i515.AuthRemoteDataSourceImpl(gh<_i500.ApiServices>()));
     gh.factory<_i215.OccasionRepo>(
         () => _i782.OccasionRepoImpl(gh<_i245.OccasionRemoteDataSource>()));
+    gh.factory<_i718.AddressRepo>(() => _i98.AddressRepoImpl(
+          addressRemoteDataSource: gh<_i115.AddressRemoteDataSource>(),
+          addressLocalDataSource: gh<_i436.AddressLocalDataSource>(),
+        ));
     gh.factory<_i127.BestSellerUseCase>(
         () => _i127.BestSellerUseCase(repo: gh<_i516.BestSellerRepo>()));
     gh.factory<_i781.AddProductToCartUseCase>(
@@ -225,6 +272,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i49.GetAllOccasionUseCase(gh<_i215.OccasionRepo>()));
     gh.factory<_i89.GetProductsByOccasionUseCase>(
         () => _i89.GetProductsByOccasionUseCase(gh<_i215.OccasionRepo>()));
+    gh.factory<_i179.DeleteAddressUseCase>(
+        () => _i179.DeleteAddressUseCase(addressRepo: gh<_i718.AddressRepo>()));
+    gh.factory<_i1008.GetAddressesUseCase>(
+        () => _i1008.GetAddressesUseCase(addressRepo: gh<_i718.AddressRepo>()));
     gh.factory<_i983.EditProfileUseCase>(
         () => _i983.EditProfileUseCase(profileRepo: gh<_i197.ProfileRepo>()));
     gh.factory<_i463.UploadPhotoUseCase>(
@@ -237,6 +288,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i49.GetAllOccasionUseCase>(),
           gh<_i89.GetProductsByOccasionUseCase>(),
         ));
+    gh.factory<_i451.AddAddressUseCase>(
+        () => _i451.AddAddressUseCase(gh<_i718.AddressRepo>()));
+    gh.factory<_i392.UpdateAddressUseCase>(
+        () => _i392.UpdateAddressUseCase(gh<_i718.AddressRepo>()));
     gh.factory<_i53.BestSellerViewModel>(
         () => _i53.BestSellerViewModel(gh<_i127.BestSellerUseCase>()));
     gh.factory<_i466.AuthRepo>(() => _i923.AuthRepoImpl(
@@ -248,6 +303,13 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i127.BestSellerUseCase>(),
           gh<_i66.CategoriesUseCase>(),
         ));
+    gh.factory<_i359.GetCitiesByGovernorateUseCase>(() =>
+        _i359.GetCitiesByGovernorateUseCase(
+            repository: gh<_i718.AddressRepo>()));
+    gh.factory<_i378.GetCitiesUseCase>(
+        () => _i378.GetCitiesUseCase(repository: gh<_i718.AddressRepo>()));
+    gh.factory<_i483.GetGovernoratesUseCase>(() =>
+        _i483.GetGovernoratesUseCase(repository: gh<_i718.AddressRepo>()));
     gh.factory<_i568.ForgetPasswordUseCase>(
         () => _i568.ForgetPasswordUseCase(gh<_i466.AuthRepo>()));
     gh.factory<_i576.ResetPasswordUseCase>(
@@ -273,6 +335,15 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i182.GetLoggedUserUseCase>(),
           gh<_i983.EditProfileUseCase>(),
           gh<_i463.UploadPhotoUseCase>(),
+        ));
+    gh.factory<_i506.AddressViewModel>(() => _i506.AddressViewModel(
+          gh<_i359.GetCitiesByGovernorateUseCase>(),
+          gh<_i378.GetCitiesUseCase>(),
+          gh<_i483.GetGovernoratesUseCase>(),
+          gh<_i1008.GetAddressesUseCase>(),
+          gh<_i179.DeleteAddressUseCase>(),
+          gh<_i451.AddAddressUseCase>(),
+          gh<_i392.UpdateAddressUseCase>(),
         ));
     gh.factory<_i505.ProfileMainViewModel>(
         () => _i505.ProfileMainViewModel(gh<_i868.GetLoggedUserUseCase>()));
