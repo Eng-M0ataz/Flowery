@@ -73,20 +73,19 @@ class ProductGrid extends StatelessWidget {
             price: product.price?.toInt() ?? 0,
             priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
             discountPercent: product.discountPercent,
-            onAddToCart: () {
-              if (product.id != null) {
-                context
-                    .read<CategoriesViewModel>()
-                    .doIntent(AddProductToCartEvent(productId: product.id!));
-              }
-            },
+            onAddToCart: product.quantity! <= 0
+                ? null
+                : () {
+                    if (product.id != null) {
+                      context.read<CategoriesViewModel>().doIntent(
+                          AddProductToCartEvent(productId: product.id!));
+                    }
+                  },
           );
         },
       ),
     );
   }
-
-
 
   Widget _buildShimmerGrid() {
     return Padding(

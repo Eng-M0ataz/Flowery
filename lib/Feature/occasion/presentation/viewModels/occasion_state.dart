@@ -7,6 +7,7 @@ import 'package:equatable/equatable.dart';
 class OccasionState extends Equatable {
   final bool isOccasionLoading;
   final bool isProductLoading;
+  final bool isAddingToCartLoading;
   final String? productId;
 
   final Failure? occasionFailure;
@@ -20,6 +21,7 @@ class OccasionState extends Equatable {
   const OccasionState(
       {this.isOccasionLoading = true,
       this.isProductLoading = true,
+      this.isAddingToCartLoading = false,
       this.occasionFailure,
       this.productFailure,
       this.occasionResponse,
@@ -38,6 +40,7 @@ class OccasionState extends Equatable {
     AddProductResponseEntity? addToCartResponse,
     Failure? addToCartFailure,
     String? productId,
+    bool? isAddingToCartLoading,
   }) {
     return OccasionState(
       isOccasionLoading: isOccasionLoading ?? this.isOccasionLoading,
@@ -48,7 +51,9 @@ class OccasionState extends Equatable {
       productResponse: productResponse ?? this.productResponse,
       addToCartResponse: addToCartResponse ?? this.addToCartResponse,
       addToCartFailure: addToCartFailure ?? this.addToCartFailure,
-      productId: productId ,
+      productId: productId,
+      isAddingToCartLoading:
+          isAddingToCartLoading ?? this.isAddingToCartLoading,
     );
   }
 
@@ -63,5 +68,6 @@ class OccasionState extends Equatable {
         addToCartResponse,
         addToCartFailure,
         productId,
+        isAddingToCartLoading,
       ];
 }

@@ -3,7 +3,6 @@ import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
-
 class CustomImageSlideShow extends StatelessWidget {
   final List<String> itemImagesList;
 
@@ -21,13 +20,13 @@ class CustomImageSlideShow extends StatelessWidget {
             imageUrl: imagePath,
             width: double.infinity,
             height: double.infinity,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
             errorWidget: (context, url, error) => Icon(
               Icons.error,
               color: Theme.of(context).colorScheme.error,
             ),
-           placeholder: (context,url)=>Center(child: CircularProgressIndicator()),
-
+            placeholder: (context, url) =>
+                Center(child: CircularProgressIndicator()),
           );
         }).toList());
   }

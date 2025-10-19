@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
   final int price;
   final int priceAfterDiscount;
   final int discountPercent;
-  final VoidCallback onAddToCart;
+  final VoidCallback? onAddToCart;
   final bool isAddingToCart;
 
   const ProductCard({
@@ -43,8 +43,8 @@ class ProductCard extends StatelessWidget {
               imageUrl: imgCover,
               width: double.infinity,
               fit: BoxFit.cover,
-              errorWidget: (context, url, error) =>
-                  Icon(Icons.error, color: Theme.of(context).colorScheme.primary),
+              errorWidget: (context, url, error) => Icon(Icons.error,
+                  color: Theme.of(context).colorScheme.primary),
             ),
           ),
           Padding(
@@ -89,10 +89,10 @@ class ProductCard extends StatelessWidget {
                               .textTheme
                               .headlineSmall!
                               .copyWith(
-                            decoration: TextDecoration.lineThrough,
-                            color: Colors.grey,
-                            fontSize: 11,
-                          ),
+                                decoration: TextDecoration.lineThrough,
+                                color: Colors.grey,
+                                fontSize: 11,
+                              ),
                         ),
                       ),
                     ),
@@ -129,13 +129,10 @@ class ProductCard extends StatelessWidget {
                       const SizedBox(width: AppSizes.spaceBetweenItems_2),
                       Text(
                         LocaleKeys.add_to_cart.tr(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall!
-                            .copyWith(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                          fontSize: AppSizes.xxsFont_10,
-                        ),
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                              fontSize: AppSizes.xxsFont_10,
+                            ),
                       ),
                     ],
                   ),

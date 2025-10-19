@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/Widgets/custom_elevated_button.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 import '../../../../core/models/product_details_model.dart';
 import '../../../../core/utils/Constantts/sizes.dart';
@@ -50,14 +49,10 @@ class ProductDetailsFooter extends StatelessWidget {
                 .labelSmall!
                 .copyWith(color: Colors.grey),
           ),
-
           SizedBox(height: AppSizes.spaceBetweenItems_12),
-
           Text("${product.title}",
               style: Theme.of(context).textTheme.labelLarge),
           const SizedBox(height: AppSizes.spaceBetweenItems_16),
-
-          // Description
           Text(LocaleKeys.description.tr(),
               style: Theme.of(context)
                   .textTheme
@@ -72,14 +67,6 @@ class ProductDetailsFooter extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.normal),
           ),
           const SizedBox(height: AppSizes.spaceBetweenItems_12),
-          CustomElevatedButton(
-            widget: Text(LocaleKeys.add_to_cart.tr()),
-            onPressed: () {
-              //todo: implement add to cart use case
-            },
-            isLoading: false,
-          ),
-          const SizedBox(height: AppSizes.spaceBetweenItems_32),
         ],
       ),
     );

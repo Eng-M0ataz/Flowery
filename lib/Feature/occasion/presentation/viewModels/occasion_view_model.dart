@@ -83,19 +83,21 @@ class OccasionViewModel extends Cubit<OccasionState> {
   }
 
   Future<void> _addProductToCart(String productId) async {
-    emit(state.copyWith(productId: productId));
+    emit(state.copyWith(productId: productId, isAddingToCartLoading: true));
     final result = await _addProductToCartUseCase.invoke(productId);
 
     switch (result) {
       case ApiSuccessResult<AddProductResponseEntity>():
         emit(state.copyWith(
           productId: null,
+          isAddingToCartLoading: false,
           addToCartResponse: result.data,
         ));
         break;
       case ApiErrorResult<AddProductResponseEntity>():
         emit(state.copyWith(
           productId: null,
+          isAddingToCartLoading: false,
           addToCartFailure: result.failure,
         ));
         break;

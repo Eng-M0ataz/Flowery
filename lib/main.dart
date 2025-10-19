@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'core/utils/Constantts/app_routes.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -57,7 +56,7 @@ class FlowerECommerceApp extends StatelessWidget {
             ),
             theme: AppThemeLight.lightTheme,
             onGenerateRoute: RouteGenerator.getRoute,
-            initialRoute: AppRoutes.trackOrderRoute,
+            initialRoute: initialRoute,
           );
         },
       ),
