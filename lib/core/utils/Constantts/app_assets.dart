@@ -117,10 +117,15 @@ class Assets {
   static const String assetsImagesUnselectedIconGray =
       "assets/images/unselected_icon_gray.svg";
 
-  static const String assetsImagesLightTheme='assets/mapStyles/light_style.json';
-  static const String assetImageLocationMapIcon='assets/images/location_map_icon_big.png';
-  static const String assetImageDeliveryMotorCycle='assets/images/delivery_motorcycle_map_icon_big.png';
+  static const String assetsImagesLightTheme =
+      'assets/mapStyles/light_style.json';
+  static const String assetImageLocationMapIcon =
+      'assets/images/location_map_icon_big.png';
+  static const String assetImageDeliveryMotorCycle =
+      'assets/images/delivery_motorcycle_map_icon_big.png';
 
-
+  static const String filterIcon = "assets/images/filter_icon.svg";
+  static const String noImage = "assets/images/no_image.png";
+  static const String selectedIcon = 'assets/images/selected_icon.svg';
+  static const String unselectedIcon = 'assets/images/unselected_icon.svg';
 }
-

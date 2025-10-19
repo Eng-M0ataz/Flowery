@@ -19,6 +19,24 @@ abstract class AppThemeLight {
           color: AppColorsLight.black,
         ),
       ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith<Color?>(
+          (states) => AppColorsLight.white,
+        ),
+        trackColor: WidgetStateProperty.resolveWith<Color?>(
+          (states) {
+            if (states.contains(WidgetState.disabled)) {
+              return AppColorsLight.white[80];
+            }
+            if (states.contains(WidgetState.selected)) {
+              return AppColorsLight.pink;
+            }
+            return AppColorsLight.whiteGrey;
+          },
+        ),
+        trackOutlineColor: WidgetStateProperty.all<Color?>(Colors.grey),
+        trackOutlineWidth: WidgetStateProperty.all<double?>(1),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(

@@ -114,6 +114,8 @@ abstract class AppSizes {
   // Divider Height
 
   static const double dividerHeight = 1.0;
+  static const double dividerHeight_24 = 24.0;
+  static const double dividerThickness_24 = 24.0;
 
   // input field
 
@@ -271,7 +273,7 @@ abstract class AppSizes {
   static const double photoHeight_20 = 20.0;
   static const double photoWidth_20 = 20.0;
 
-//sized box
+  //sized box
   static const double sizedBoxWidth_20 = 20.0;
   static const double sizedBoxWidth_40 = 40.0;
   static const double sizedBoxHeight_4 = 4.0;

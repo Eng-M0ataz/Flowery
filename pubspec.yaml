@@ -58,8 +58,7 @@ dependencies:
   flutter_polyline_points: ^2.0.0
   flutter_dotenv: ^5.1.0
   awesome_snackbar_content: ^0.1.8
-
-
+  webview_flutter: ^4.13.0
 
 
 dev_dependencies:

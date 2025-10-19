@@ -3,6 +3,7 @@ import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/presentation/pages/checkout_screen.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
@@ -26,6 +27,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SigninScreen());
       case AppRoutes.bestSellerRoute:
         return MaterialPageRoute(builder: (_) => BestSellerScreen());
+      case AppRoutes.checkoutRoute:
+        final args = settings.arguments as double;
+        return MaterialPageRoute(
+            builder: (_) => CheckoutScreen(
+                  totalPrice: args,
+                ));
       case AppRoutes.signUpRoute:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case AppRoutes.occasionRoute:
@@ -43,13 +50,16 @@ class RouteGenerator {
       case AppRoutes.categoriesRoute:
         final args = settings.arguments as String?;
         return MaterialPageRoute(
-            builder: (_) => CategoryScreen(CategoryIdFromHome: args,));
+            builder: (_) => CategoryScreen(
+                  CategoryIdFromHome: args,
+                ));
       case AppRoutes.productDetailsRoute:
         final args = settings.arguments as ProductDetailsModel;
         return MaterialPageRoute(
           builder: (_) => ProductDetailsScreen(productDetailsModel: args),
           settings: settings,
         );
+
       case AppRoutes.cartRoute:
         return MaterialPageRoute(builder: (context) => const CartScreen());
       case AppRoutes.searchRoute:
@@ -66,7 +76,10 @@ class RouteGenerator {
                   path: '68f1067a7fee68a4c2ec99a7',
                 ));
       case AppRoutes.mapScreen:
-        return MaterialPageRoute(builder: (_) => MapScreen(path:'68f1067a7fee68a4c2ec99a7' ,));
+        return MaterialPageRoute(
+            builder: (_) => MapScreen(
+                  path: '68f1067a7fee68a4c2ec99a7',
+                ));
 
       default:
         return unDefinedRoute();
