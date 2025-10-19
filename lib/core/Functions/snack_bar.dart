@@ -14,6 +14,7 @@ void showSnackBar(
       message,
       style: textStyle,
     ),
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundColor??Theme.of(context).colorScheme.primary,
+
   ));
 }

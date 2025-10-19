@@ -11,6 +11,7 @@ import 'shimmer/occasion_tabs_shimmer.dart';
 
 class TabsBlocBuilder extends StatelessWidget {
   final int initialIndex;
+
   const TabsBlocBuilder({super.key, required this.initialIndex});
 
   @override
@@ -28,9 +29,11 @@ class TabsBlocBuilder extends StatelessWidget {
                 const SizedBox(height: AppSizes.spaceBetweenItems_16),
                 TextButton(
                     onPressed: () {
-                      context.read<OccasionViewModel>().doIntent(
-                          occasionId: '673b34c21159920171827ae0',
-                          GetAllOccasionsEvent());
+                      context
+                          .read<OccasionViewModel>()
+                          .doIntent(GetAllOccasionsEvent(
+                            occasionId: '673b34c21159920171827ae0',
+                          ));
                     },
                     child: Text(LocaleKeys.retry.tr())),
               ],
@@ -48,8 +51,7 @@ class TabsBlocBuilder extends StatelessWidget {
           taps: occasions.map((occasion) => Tab(text: occasion.name)).toList(),
           onTap: (index) {
             context.read<OccasionViewModel>().doIntent(
-                  occasionId: occasions[index].id ?? '',
-                  LoadProductsByOccasionEvent(),
+                  LoadProductsByOccasionEvent(occasionId: occasions[index].id!),
                 );
           },
         );

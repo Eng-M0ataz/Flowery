@@ -1,33 +1,52 @@
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/responseEntities/best_seller_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/add_product_response_entity.dart';
+import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import 'package:equatable/equatable.dart';
 
-class BestSellerState{
+class BestSellerState extends Equatable {
   final bool isLoading;
-  final String? errorMessage;
-  final bool isSuccess;
   final BestSellerResponseEntity? bestSellers;
-  final String? selectedBestSellerId;
 
-  BestSellerState({
-    this.isLoading = false,
-    this.errorMessage,
-    this.isSuccess = false,
+  final String? selectedBestSellerId;
+  final AddProductResponseEntity? addToCartResponse;
+  final Failure? addToCartFailure;
+  final Failure? bestSellerFailure;
+
+  const BestSellerState({
+    this.isLoading = true,
     this.bestSellers,
     this.selectedBestSellerId,
+    this.addToCartResponse,
+    this.addToCartFailure,
+    this.bestSellerFailure,
   });
 
   BestSellerState copyWith({
     bool? isLoading,
-    String? errorMessage,
-    bool? isSuccess,
+    Failure? failure,
     BestSellerResponseEntity? bestSellers,
     String? selectedBestSellerId,
+    AddProductResponseEntity? addToCartResponse,
+    Failure? addToCartFailure,
+    Failure? bestSellerFailure,
   }) {
     return BestSellerState(
       isLoading: isLoading ?? this.isLoading,
-      errorMessage: errorMessage ?? this.errorMessage,
-      isSuccess: isSuccess ?? this.isSuccess,
       bestSellers: bestSellers ?? this.bestSellers,
-      selectedBestSellerId: selectedBestSellerId ?? this.selectedBestSellerId,
+      selectedBestSellerId: selectedBestSellerId,
+      addToCartResponse: addToCartResponse ?? this.addToCartResponse,
+      addToCartFailure: addToCartFailure ?? this.addToCartFailure,
+      bestSellerFailure: bestSellerFailure ?? this.bestSellerFailure,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        isLoading,
+        bestSellers,
+        selectedBestSellerId,
+        addToCartResponse,
+        addToCartFailure,
+        bestSellerFailure,
+      ];
 }

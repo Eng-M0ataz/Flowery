@@ -21,16 +21,49 @@ class BestSellerScreen extends StatefulWidget {
 }
 
 class _BestSellerScreenState extends State<BestSellerScreen> {
+  late final BestSellerViewModel _viewModel;
+
+  @override
+  void initState() {
+    _viewModel = getIt.get<BestSellerViewModel>();
+    _viewModel.doIntent(GetAllBestSellersEvent());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          getIt.get<BestSellerViewModel>()..doIntent(GetAllBestSellersEvent()),
+    return BlocProvider.value(
+      value: _viewModel,
       child: BlocConsumer<BestSellerViewModel, BestSellerState>(
+        listenWhen: (pre, cur) =>
+            pre.addToCartResponse != cur.addToCartResponse ||
+            pre.addToCartFailure != cur.addToCartFailure,
         listener: (context, state) {
-          if (state.errorMessage != null) {
+          if (state.bestSellerFailure != null) {
             DialogueUtils.showMessage(
-                context: context, message: state.errorMessage!);
+              context: context,
+              message: state.bestSellerFailure!.errorMessage,
+            );
+          }
+
+          if (state.addToCartResponse != null) {
+            showSnackBar(
+              context: context,
+              message: 'Product added successfully',
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+            );
+          }
+
+          if (state.addToCartFailure != null &&
+              state.addToCartResponse == null) {
+            showSnackBar(
+              context: context,
+              message: state.addToCartFailure!.errorMessage,
+              textStyle: Theme.of(context).textTheme.bodyMedium!,
+            );
           }
         },
         builder: (context, state) {
@@ -45,9 +78,7 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
             body: Padding(
               padding: const EdgeInsets.all(AppSizes.paddingMd_12),
               child: state.isLoading
-                  ? ListViewsShimmerWidget(
-                      isCategorie: false,
-                    )
+                  ? ListViewsShimmerWidget(isCategorie: false)
                   : state.bestSellers == null
                       ? const Center(child: Text('No products found'))
                       : GridView.builder(
@@ -64,6 +95,8 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                           itemBuilder: (context, index) {
                             final product =
                                 state.bestSellers!.bestSeller![index];
+                            final bool isThisCardLoading =
+                                state.selectedBestSellerId == product.Id;
 
                             return ProductCard(
                               imgCover: product.imgCover ?? '',
@@ -72,14 +105,15 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                               priceAfterDiscount:
                                   product.priceAfterDiscount ?? 0,
                               discountPercent: product.discountPercent,
+                              isAddingToCart: isThisCardLoading,
                               onAddToCart: () {
-                                showSnackBar(
-                                    message: 'added to cart!',
-                                    context: context,
-                                    textStyle: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith());
+                                if (product.Id != null) {
+                                  context.read<BestSellerViewModel>().doIntent(
+                                        AddProductToCartEvent(
+                                          productId: product.Id!,
+                                        ),
+                                      );
+                                }
                               },
                             );
                           },

@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/category_entity.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/add_product_response_entity.dart';
+import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flower_e_commerce_app/core/Functions/filter.dart';
 
 class CategoriesState extends Equatable {
@@ -13,6 +15,9 @@ class CategoriesState extends Equatable {
   final FILTERTYPE? currentFilter;
   final bool isSuccess;
   final String? selectedCategoryId;
+  final AddProductResponseEntity? addToCartResponse;
+  final Failure? addToCartFailure;
+  final String? productId;
 
   const CategoriesState({
     this.isCategoriesLoading = false,
@@ -24,6 +29,9 @@ class CategoriesState extends Equatable {
     this.currentFilter,
     this.isSuccess = false,
     this.selectedCategoryId,
+    this.addToCartResponse,
+    this.addToCartFailure,
+    this.productId,
   });
 
   CategoriesState copyWith({
@@ -36,6 +44,9 @@ class CategoriesState extends Equatable {
     FILTERTYPE? currentFilter,
     bool? isSuccess,
     String? selectedCategoryId,
+    AddProductResponseEntity? addToCartResponse,
+    Failure? addToCartFailure,
+    String? productId,
   }) {
     return CategoriesState(
       isCategoriesLoading: isCategoriesLoading ?? this.isCategoriesLoading,
@@ -47,6 +58,9 @@ class CategoriesState extends Equatable {
       currentFilter: currentFilter ?? this.currentFilter,
       isSuccess: isSuccess ?? this.isSuccess,
       selectedCategoryId: selectedCategoryId ?? this.selectedCategoryId,
+      addToCartResponse: addToCartResponse ?? this.addToCartResponse,
+      addToCartFailure: addToCartFailure ?? this.addToCartFailure,
+      productId: productId,
     );
   }
 
@@ -61,5 +75,8 @@ class CategoriesState extends Equatable {
         currentFilter,
         isSuccess,
         selectedCategoryId,
+        addToCartResponse,
+        addToCartFailure,
+        productId,
       ];
 }

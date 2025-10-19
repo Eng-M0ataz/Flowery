@@ -9,7 +9,9 @@ class CustomElevatedButton extends StatelessWidget {
       required this.widget,
       this.loadingColor,
       this.textColor,
-      this.containerColor});
+      this.containerColor,
+      this.containerHeight
+      });
 
   final void Function() onPressed;
   final bool isLoading;
@@ -17,12 +19,13 @@ class CustomElevatedButton extends StatelessWidget {
   final Color? textColor;
   final Color? loadingColor;
   final Color? containerColor;
+  final double?containerHeight;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedContainer(
-        height: AppSizes.buttonHigh_48,
+        height: containerHeight??AppSizes.buttonHigh_48,
         width: isLoading
             ? AppSizes.buttonWidthSm_80
             : MediaQuery.of(context).size.width,

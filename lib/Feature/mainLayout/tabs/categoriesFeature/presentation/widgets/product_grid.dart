@@ -1,20 +1,25 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/entities/product_entity.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../viewModel/events/categories_event.dart';
 
 class ProductGrid extends StatelessWidget {
   final List<ProductEntity> products;
   final bool isLoading;
+  final String productId;
 
   const ProductGrid({
     super.key,
     required this.products,
+    required this.productId,
     this.isLoading = false,
   });
 
@@ -59,14 +64,21 @@ class ProductGrid extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (context, index) {
           final product = products[index];
+          final bool isThisCardLoading = productId == product.id;
+
           return ProductCard(
+            isAddingToCart: isThisCardLoading,
             imgCover: product.imgCover ?? '',
             title: product.title ?? '',
             price: product.price?.toInt() ?? 0,
             priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
             discountPercent: product.discountPercent,
             onAddToCart: () {
-              _handleAddToCart(context, product.title ?? '');
+              if (product.id != null) {
+                context
+                    .read<CategoriesViewModel>()
+                    .doIntent(AddProductToCartEvent(productId: product.id!));
+              }
             },
           );
         },
@@ -74,18 +86,7 @@ class ProductGrid extends StatelessWidget {
     );
   }
 
-  void _handleAddToCart(BuildContext context, String productName) {
-    showSnackBar(
-      message: '$productName ${LocaleKeys.add_to_cart.tr()}',
-      context: context,
-      textStyle: Theme.of(context)
-          .textTheme
-          .headlineSmall!
-          .copyWith(color: AppColorsLight.white),
-      duration: const Duration(seconds: 2),
-      backgroundColor: AppColorsLight.green,
-    );
-  }
+
 
   Widget _buildShimmerGrid() {
     return Padding(

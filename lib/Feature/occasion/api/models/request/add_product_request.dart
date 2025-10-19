@@ -12,7 +12,8 @@ class AddProductRequest {
 
   AddProductRequest({
     required this.productId,
-  }) : quantity = 1;
+    this.quantity = 1,
+  });
 
   factory AddProductRequest.fromJson(Map<String, dynamic> json) =>
       _$AddProductRequestFromJson(json);

@@ -1,4 +1,6 @@
-  import 'package:bloc/bloc.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/add_product_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/useCases/add_product_to_cart_use_case.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:injectable/injectable.dart';
 import '../../domain/entities/response/occasion_response_entity.dart';
@@ -12,19 +14,24 @@ import 'occasion_state.dart';
 class OccasionViewModel extends Cubit<OccasionState> {
   final GetAllOccasionUseCase _getAllOccasionUseCase;
   final GetProductsByOccasionUseCase _getProductsByOccasionUseCase;
+  final AddProductToCartUseCase _addProductToCartUseCase;
 
   OccasionViewModel(
     this._getAllOccasionUseCase,
     this._getProductsByOccasionUseCase,
+    this._addProductToCartUseCase,
   ) : super(OccasionState());
 
-  Future<void> doIntent(OccasionEvent event, {required String occasionId}) async {
+  Future<void> doIntent(OccasionEvent event) async {
     switch (event) {
       case LoadProductsByOccasionEvent():
-        await _getProductsByOccasion(occasionId);
+        await _getProductsByOccasion(event.occasionId);
         break;
       case GetAllOccasionsEvent():
-        _getAllOccasionData(occasionId);
+        _getAllOccasionData(event.occasionId);
+        break;
+      case AddProductToCartEvent():
+        await _addProductToCart(event.productId);
         break;
     }
   }
@@ -70,6 +77,26 @@ class OccasionViewModel extends Cubit<OccasionState> {
         emit(state.copyWith(
           isProductLoading: false,
           productFailure: result.failure,
+        ));
+        break;
+    }
+  }
+
+  Future<void> _addProductToCart(String productId) async {
+    emit(state.copyWith(productId: productId));
+    final result = await _addProductToCartUseCase.invoke(productId);
+
+    switch (result) {
+      case ApiSuccessResult<AddProductResponseEntity>():
+        emit(state.copyWith(
+          productId: null,
+          addToCartResponse: result.data,
+        ));
+        break;
+      case ApiErrorResult<AddProductResponseEntity>():
+        emit(state.copyWith(
+          productId: null,
+          addToCartFailure: result.failure,
         ));
         break;
     }

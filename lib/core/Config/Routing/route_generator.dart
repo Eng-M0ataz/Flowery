@@ -41,8 +41,9 @@ class RouteGenerator {
       case AppRoutes.mainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const MainLayout());
       case AppRoutes.categoriesRoute:
+        final args = settings.arguments as String?;
         return MaterialPageRoute(
-            builder: (_) => const CategoryScreen(), settings: settings);
+            builder: (_) => CategoryScreen(CategoryIdFromHome: args,));
       case AppRoutes.productDetailsRoute:
         final args = settings.arguments as ProductDetailsModel;
         return MaterialPageRoute(

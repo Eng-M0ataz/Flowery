@@ -7,6 +7,8 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/domain/useCases/get_products_by_category_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/entities/response/add_product_response_entity.dart';
+import 'package:flower_e_commerce_app/Feature/occasion/domain/useCases/add_product_to_cart_use_case.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Functions/filter.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
@@ -18,6 +20,8 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
   final CategoriesUseCase _categoriesUseCase;
   final GetProductsByCategoryUseCase _getCategoryProductsUseCase;
   final GetAllProductsUseCase _getAllProductsUseCase;
+  final AddProductToCartUseCase _addProductToCartUseCase;
+
   final Filter _filter = Filter();
 
   List<ProductEntity> get displayProducts {
@@ -34,6 +38,7 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
     this._categoriesUseCase,
     this._getCategoryProductsUseCase,
     this._getAllProductsUseCase,
+    this._addProductToCartUseCase,
   ) : super(const CategoriesState());
 
   Future<void> doIntent(CategoriesEvent event) async {
@@ -58,6 +63,29 @@ class CategoriesViewModel extends Cubit<CategoriesState> {
         break;
       case ClearFilterEvent():
         _clearFilter();
+        break;
+      case AddProductToCartEvent():
+        await _addProductToCart(event.productId);
+        break;
+    }
+  }
+
+  Future<void> _addProductToCart(String productId) async {
+    emit(state.copyWith(productId: productId));
+    final result = await _addProductToCartUseCase.invoke(productId);
+
+    switch (result) {
+      case ApiSuccessResult<AddProductResponseEntity>():
+        emit(state.copyWith(
+          productId: null,
+          addToCartResponse: result.data,
+        ));
+        break;
+      case ApiErrorResult<AddProductResponseEntity>():
+        emit(state.copyWith(
+          productId: null,
+          addToCartFailure: result.failure,
+        ));
         break;
     }
   }

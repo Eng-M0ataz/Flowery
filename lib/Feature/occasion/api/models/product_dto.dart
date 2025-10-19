@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 part 'product_dto.g.dart';
+
 @JsonSerializable()
 class ProductDto {
   @JsonKey(name: "rateAvg")
@@ -42,7 +43,7 @@ class ProductDto {
   @JsonKey(name: "id")
   final String? id;
 
-  ProductDto ({
+  ProductDto({
     this.rateAvg,
     this.rateCount,
     this.Id,

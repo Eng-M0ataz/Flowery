@@ -22,7 +22,10 @@ class OccasionScreen extends StatelessWidget {
     return BlocProvider<OccasionViewModel>(
       create: (context) => occasionViewModel
         ..doIntent(
-            occasionId: occasionInputModel.occasionId, GetAllOccasionsEvent()),
+          GetAllOccasionsEvent(
+            occasionId: occasionInputModel.occasionId,
+          ),
+        ),
       child: Scaffold(
         appBar: AppBar(
           title: Text(LocaleKeys.occasion.tr()),

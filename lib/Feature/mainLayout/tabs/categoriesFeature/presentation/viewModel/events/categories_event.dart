@@ -43,3 +43,9 @@ class ApplyFilterEvent extends CategoriesEvent {
 class ClearFilterEvent extends CategoriesEvent {
   const ClearFilterEvent();
 }
+
+class AddProductToCartEvent extends CategoriesEvent {
+  final String productId;
+
+  const AddProductToCartEvent({required this.productId});
+}

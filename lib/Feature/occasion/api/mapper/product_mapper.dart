@@ -4,7 +4,7 @@ import '../models/product_dto.dart';
 extension ProductDtoMapper on ProductDto {
   ProductEntity toEntity() {
     return ProductEntity(
-      id: id ?? '',
+      id: Id ,
       title: title ?? '',
       slug: slug ?? '',
       description: description ?? '',

@@ -3,7 +3,7 @@ import 'package:flower_e_commerce_app/Feature/bestSellerFeature/domain/entities/
 
 extension BestSellerDtoMapper on BestSellerDto {
   BestSellerEntity toEntity() => BestSellerEntity(
-        Id: id ?? "",
+        Id: id ,
         title: title ?? "",
         description: description ?? "",
         imgCover: imgCover ?? "",

@@ -13,35 +13,42 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
   const CategoryScreen({
+    this.CategoryIdFromHome,
     super.key,
   });
 
+  final String? CategoryIdFromHome;
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
+  late final CategoriesViewModel _viewModel;
+
+  @override
+  initState() {
+    _viewModel = getIt<CategoriesViewModel>();
+    _viewModel.doIntent(const GetAllCategoriesEvent());
+    if (widget.CategoryIdFromHome != null) {
+      _viewModel.doIntent(
+          GetProductsByCategoryEvent(categoryId: widget.CategoryIdFromHome!));
+    } else {
+      _viewModel.doIntent(const GetAllProductsEvent());
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final String? CategoryIdFromHome =
-        ModalRoute.of(context)?.settings.arguments as String?;
-
-    return BlocProvider(
-      create: (context) {
-        final viewModel = getIt<CategoriesViewModel>();
-
-        viewModel.doIntent(const GetAllCategoriesEvent());
-
-        if (CategoryIdFromHome != null) {
-          viewModel.doIntent(
-              GetProductsByCategoryEvent(categoryId: CategoryIdFromHome));
-        } else {
-          viewModel.doIntent(const GetAllProductsEvent());
-        }
-
-        return viewModel;
-      },
+    return BlocProvider.value(
+      value: _viewModel,
       child: Scaffold(
         body: SafeArea(
           child: CategoryScreenBody(
-            initialCategoryId: CategoryIdFromHome,
+            initialCategoryId: widget.CategoryIdFromHome,
           ),
         ),
         floatingActionButton: BlocBuilder<CategoriesViewModel, CategoriesState>(

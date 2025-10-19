@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/localization/locale_keys.g.dart';
@@ -14,14 +15,36 @@ class ProductBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OccasionViewModel, OccasionState>(
+    return BlocConsumer<OccasionViewModel, OccasionState>(
+      listenWhen: (pre, cur) =>
+          pre.addToCartResponse != cur.addToCartResponse ||
+          pre.addToCartFailure != cur.addToCartFailure,
+      listener: (context, state) {
+        if (state.addToCartResponse != null) {
+          return showSnackBar(
+            context: context,
+            textStyle: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+            message: 'product added successfully',
+          );
+        } else if (state.addToCartFailure != null &&
+            state.addToCartResponse == null) {
+          showSnackBar(
+            context: context,
+            message: state.addToCartFailure!.errorMessage,
+            textStyle: Theme.of(context).textTheme.bodyMedium!,
+          );
+        }
+      },
       builder: (context, state) {
         if (state.isProductLoading) {
           return ProductsShimmer(
             isEnabled: true,
           );
         }
-        if (state.productFailure != null) {
+        if (state.productFailure != null && state.productResponse == null) {
           final occasionId =
               state.occasionResponse?.occasions?.isNotEmpty == true
                   ? state.occasionResponse!.occasions!.first.id ?? ''
@@ -35,8 +58,7 @@ class ProductBlocBuilder extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       context.read<OccasionViewModel>().doIntent(
-                          occasionId: occasionId,
-                          LoadProductsByOccasionEvent());
+                          LoadProductsByOccasionEvent(occasionId: occasionId));
                     },
                     child: Text(LocaleKeys.retry.tr())),
               ],
@@ -67,13 +89,21 @@ class ProductBlocBuilder extends StatelessWidget {
                         100)
                     .round()
                 : 0;
+            final bool isThisCardLoading = state.productId == product.id;
             return ProductCard(
               title: product.title ?? '',
               imgCover: product.imgCover ?? '',
               price: product.price ?? 0,
               priceAfterDiscount: product.priceAfterDiscount ?? 0,
               discountPercent: discountPercent,
-              onAddToCart: () {},
+              isAddingToCart: isThisCardLoading,
+              onAddToCart: () {
+                if (product.id != null) {
+                  context
+                      .read<OccasionViewModel>()
+                      .doIntent(AddProductToCartEvent(productId: product.id!));
+                }
+              },
             );
           },
         );

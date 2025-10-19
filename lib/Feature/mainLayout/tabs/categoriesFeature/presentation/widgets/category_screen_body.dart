@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/category_tabs.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/filter_icon_button_of_app_bar.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/widgets/product_grid.dart';
+import 'package:flower_e_commerce_app/core/Functions/snack_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/search_list_tile.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
@@ -19,7 +20,28 @@ class CategoryScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CategoriesViewModel, CategoriesState>(
+      listenWhen: (pre, cur) =>
+          pre.addToCartResponse != cur.addToCartResponse ||
+          pre.addToCartFailure != cur.addToCartFailure,
       listener: (context, state) {
+        if (state.addToCartResponse != null) {
+          return showSnackBar(
+            context: context,
+            textStyle: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+            message: 'product added successfully',
+          );
+        } else if (state.addToCartFailure != null &&
+            state.addToCartResponse == null) {
+          showSnackBar(
+            context: context,
+            message: state.addToCartFailure!.errorMessage,
+            textStyle: Theme.of(context).textTheme.bodyMedium!,
+          );
+        }
+
         if (state.errorMessage != null) {
           DialogueUtils.showMessage(
             context: context,
@@ -88,9 +110,9 @@ class CategoryScreenBody extends StatelessWidget {
                       ),
                     )
                   : ProductGrid(
-                      products: context
-                          .watch<CategoriesViewModel>()
-                          .displayProducts, // CHANGED: was state.productsList!
+                      productId: state.productId ?? '',
+                      products:
+                          context.watch<CategoriesViewModel>().displayProducts,
                       isLoading: state.isProductsLoading,
                     ),
             ),

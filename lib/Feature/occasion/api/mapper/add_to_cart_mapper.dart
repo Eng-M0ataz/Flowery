@@ -9,7 +9,7 @@ extension AddToCartMapper on AddToCartDto {
       cartItems: cartItems != null
           ? cartItems!.map((item) => item.toEntity()).toList()
           : [],
-      id: id ?? '',
+      id: id ,
       appliedCoupons: appliedCoupons ?? [],
       totalPrice: totalPrice ?? 0,
     );

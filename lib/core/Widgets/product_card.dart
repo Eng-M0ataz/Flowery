@@ -13,6 +13,7 @@ class ProductCard extends StatelessWidget {
   final int priceAfterDiscount;
   final int discountPercent;
   final VoidCallback onAddToCart;
+  final bool isAddingToCart;
 
   const ProductCard({
     super.key,
@@ -22,95 +23,126 @@ class ProductCard extends StatelessWidget {
     required this.priceAfterDiscount,
     required this.onAddToCart,
     required this.discountPercent,
+    this.isAddingToCart = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppSizes.paddingSm_8),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimary,
-        borderRadius: BorderRadius.circular(
-          AppSizes.borderRadiusMd_8,
-        ),
+        borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd_8),
         border: Border.all(color: AppColorsLight.white[70]!),
       ),
+      clipBehavior: Clip.antiAlias,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CachedNetworkImage(
-            imageUrl: imgCover,
-            height: 179,
-            width: AppSizes.clipWidth_163,
-            fit: BoxFit.cover,
-            errorWidget: (context, url, error) =>
-                Icon(Icons.error, color: Theme.of(context).colorScheme.primary),
-          ),
-          const SizedBox(height: AppSizes.spaceBetweenItems_8),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headlineSmall,
-              maxLines: AppSizes.maxLines_1,
-              overflow: TextOverflow.ellipsis,
+          Expanded(
+            child: CachedNetworkImage(
+              imageUrl: imgCover,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorWidget: (context, url, error) =>
+                  Icon(Icons.error, color: Theme.of(context).colorScheme.primary),
             ),
           ),
-          const SizedBox(height: AppSizes.spaceBetweenItems_4),
-          SizedBox(
-            width: 147,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Row(children: [
+          Padding(
+            padding: const EdgeInsets.all(AppSizes.paddingSm_8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
                 Text(
-                  "${LocaleKeys.currency_egp.tr()} $priceAfterDiscount",
-                  style: Theme.of(context).textTheme.displayLarge,
+                  title,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(width: AppSizes.spaceBetweenItems_8),
-                Text(
-                  "$price",
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        decoration: TextDecoration.lineThrough,
-                        color: Colors.grey,
+                const SizedBox(height: AppSizes.spaceBetweenItems_4),
+
+                /// ✅ Fixed Row Overflow
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "${LocaleKeys.currency_egp.tr()} $priceAfterDiscount",
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayMedium!
+                              .copyWith(fontSize: 12),
+                        ),
                       ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(width: AppSizes.spaceBetweenItems_8),
-                Text(
-                  "$discountPercent%",
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                        color: Colors.green,
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "$price",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(
+                            decoration: TextDecoration.lineThrough,
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
                       ),
-                  overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "$discountPercent%",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(color: Colors.green, fontSize: 11),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ]),
-            ),
-          ),
-          const SizedBox(height: AppSizes.spaceBetweenItems_8),
-          SizedBox(
-            height: AppSizes.sizedBoxHeight_30,
-            child: CustomElevatedButton(
-              onPressed: onAddToCart,
-              isLoading: false,
-              widget: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.shopping_cart_outlined,
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                  const SizedBox(width: AppSizes.spaceBetweenItems_2),
-                  Text(
-                    LocaleKeys.add_to_cart.tr(),
-                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                const SizedBox(height: AppSizes.spaceBetweenItems_8),
+                CustomElevatedButton(
+                  containerHeight: AppSizes.buttonHigh_30,
+                  onPressed: onAddToCart,
+                  isLoading: isAddingToCart,
+                  widget: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart_outlined,
                         color: Theme.of(context).colorScheme.onPrimary,
-                        fontSize: AppSizes.xxsFont_10),
+                        size: AppSizes.smIcon_16,
+                      ),
+                      const SizedBox(width: AppSizes.spaceBetweenItems_2),
+                      Text(
+                        LocaleKeys.add_to_cart.tr(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelSmall!
+                            .copyWith(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontSize: AppSizes.xxsFont_10,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );

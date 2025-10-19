@@ -57,6 +57,7 @@ dependencies:
   http: ^1.2.1
   flutter_polyline_points: ^2.0.0
   flutter_dotenv: ^5.1.0
+  awesome_snackbar_content: ^0.1.8
 
 
 
