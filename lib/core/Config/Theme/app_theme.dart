@@ -87,6 +87,8 @@ abstract class AppThemeLight {
             fontFamily: AppFonts.inter,
             color: AppColorsLight.white,
           ),
+          disabledBackgroundColor: Colors.grey,
+          disabledForegroundColor: AppColorsLight.white,
         ),
       ),
       textButtonTheme: TextButtonThemeData(

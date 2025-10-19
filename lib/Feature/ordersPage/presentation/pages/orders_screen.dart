@@ -23,22 +23,19 @@ class _OrdersScreenState extends State<OrdersScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt.get<OrdersViewModel>()..doIntent(GetAllOrdersEvent()),
+      create: (context) =>
+          getIt.get<OrdersViewModel>()..doIntent(GetAllOrdersEvent()),
       child: BlocConsumer<OrdersViewModel, OrdersState>(
         listener: (context, state) {
           if (state.orderFailure != null) {
             DialogueUtils.showMessage(
-                context: context,
-                message: state.orderFailure!.errorMessage
-            );
+                context: context, message: state.orderFailure!.errorMessage);
           }
         },
         builder: (context, state) {
           if (state.isLoading == true) {
             return Scaffold(
-              appBar: CustomBackButton(
-                  title: LocaleKeys.my_orders.tr()
-              ),
+              appBar: CustomBackButton(title: LocaleKeys.my_orders.tr()),
               body: Column(
                 children: [
                   ProductsShimmer(isEnabled: state.isLoading),
@@ -73,11 +70,10 @@ class _OrdersScreenState extends State<OrdersScreen> {
               length: 2,
               child: ShowOrders(
                   allActiveOrderItems: allActiveOrderItems,
-                  allCompletedOrderItems: allCompletedOrderItems
-              ),
+                  allCompletedOrderItems: allCompletedOrderItems),
             );
           }
-          return Center(child: Text(LocaleKeys.no_orders.tr()));
+          return Scaffold(body: Center(child: Text(LocaleKeys.no_orders.tr())));
         },
       ),
     );

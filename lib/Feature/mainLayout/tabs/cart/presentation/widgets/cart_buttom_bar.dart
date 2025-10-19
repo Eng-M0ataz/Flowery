@@ -17,8 +17,6 @@ class CartButtomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
-      buildWhen: (previous, current) =>
-          previous.cartEntity != current.cartEntity,
       builder: (context, state) {
         return BottomAppBar(
           height: 200,
@@ -30,7 +28,7 @@ class CartButtomBar extends StatelessWidget {
                 onPressed: () {
                   context.pushNamed(
                     AppRoutes.checkoutRoute,
-                    arguments: state.cartEntity?.totalPrice,
+                    arguments: state.cartEntity!.totalPrice,
                   );
                 },
                 child: Text(LocaleKeys.checkout.tr()),

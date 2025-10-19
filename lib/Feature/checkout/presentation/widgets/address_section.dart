@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,7 +78,7 @@ class AddressSection extends StatelessWidget {
               ),
               child: GestureDetector(
                 onTap: () {
-                  //todo navigate add new address screen
+                  context.pushNamed(AppRoutes.addAddressScreenRoute);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -126,6 +126,6 @@ class Assets {
 
   static const String filterIcon = "assets/images/filter_icon.svg";
   static const String noImage = "assets/images/no_image.png";
-  static const String selectedIcon = 'assets/images/selected_icon.svg';
-  static const String unselectedIcon = 'assets/images/unselected_icon.svg';
+  static const String selectedIcon = 'assets/images/selected.svg';
+  static const String unselectedIcon = 'assets/images/unselected.svg';
 }

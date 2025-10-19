@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(
               height: AppSizes.spaceBetweenItems_42,
             ),
-            _buildOrdersAndAddress(),
+            _buildOrdersAndAddress(context),
             _buildNotification(),
             _buildGeneralSettings(context),
             _buildLogout(),
@@ -75,25 +77,31 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildOrdersAndAddress() {
+  Widget _buildOrdersAndAddress(BuildContext context) {
     return Column(
       children: [
-        ProfileMenuItem(
-          leadingIcon: SvgPicture.asset(
-            Assets.assetsImagesTransactionOrder,
-            width: 20,
-            height: 20,
+        GestureDetector(
+          onTap: () => context.pushNamed(AppRoutes.ordersRoute),
+          child: ProfileMenuItem(
+            leadingIcon: SvgPicture.asset(
+              Assets.assetsImagesTransactionOrder,
+              width: 20,
+              height: 20,
+            ),
+            title: LocaleKeys.my_orders.tr(),
           ),
-          title: LocaleKeys.my_orders.tr(),
         ),
         SizedBox(height: AppSizes.spaceBetweenItems_12),
-        ProfileMenuItem(
-          leadingIcon: SvgPicture.asset(
-            Assets.assetsImagesLocationIcon,
-            width: 22,
-            height: 22,
+        GestureDetector(
+          onTap: () => context.pushNamed(AppRoutes.savedAddressScreenRoute),
+          child: ProfileMenuItem(
+            leadingIcon: SvgPicture.asset(
+              Assets.assetsImagesLocationIcon,
+              width: 22,
+              height: 22,
+            ),
+            title: LocaleKeys.saved_address.tr(),
           ),
-          title: LocaleKeys.saved_address.tr(),
         ),
         SizedBox(height: AppSizes.spaceBetweenItems_16),
         Divider(color: AppColorsLight.white[70]),
