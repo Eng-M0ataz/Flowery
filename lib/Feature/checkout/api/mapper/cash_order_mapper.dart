@@ -5,6 +5,7 @@ extension CashOrderMapper on CashOrderDto {
   CashOrderEntity toEntity() {
     return CashOrderEntity(
       message: message??'',
+      orderId: order?.id??'',
     );
   }
 }

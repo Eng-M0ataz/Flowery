@@ -1,7 +1,10 @@
 import 'package:flower_e_commerce_app/Feature/checkout/api/client/checkout_api_service.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/cash_order_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/shipping_address_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/user_address_response_mapper.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/visa_order_mapper.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/api/models/response/cash_order_dto.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/user_address_response_entity.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Functions/execute_api.dart';
@@ -19,12 +22,12 @@ class CheckoutRemoteDataSourceImpl implements CheckoutRemoteDataSource {
   CheckoutRemoteDataSourceImpl(this._apiService);
 
   @override
-  Future<ApiResult<void>> createCashOrder({
+  Future<ApiResult<CashOrderEntity>> createCashOrder({
     required ShippingAddressEntity addressRequest,
   }) async {
-    return executeApi<dynamic, void>(
+    return executeApi<CashOrderDto,CashOrderEntity >(
       request: () => _apiService.createCashOrder(addressRequest.toDto()),
-      mapper: (_) {},
+      mapper: (dto) => dto.toEntity(),
     );
   }
 

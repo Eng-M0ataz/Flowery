@@ -1,3 +1,4 @@
+import 'package:flower_e_commerce_app/Feature/checkout/api/models/response/cash_order_dto.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/models/response/user_address_dto.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/models/response/visa_order_dto.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/api_constants.dart';
@@ -16,7 +17,7 @@ abstract class CheckoutApiService {
   factory CheckoutApiService(Dio dio) = _CheckoutApiService;
 
   @POST(ApiConstants.cashOrder)
-  Future<void> createCashOrder(
+  Future<CashOrderDto> createCashOrder(
     @Body() ShippingAddressRequestDto body,
   );
 

@@ -25,7 +25,7 @@ class CartAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             child: Row(
               children: [
-                CustomBackButton(title: LocaleKeys.cart.tr()),
+                CustomBackButton(title: LocaleKeys.cart.tr(),onTap: (){},),
                 Text(
                   ' (${(state.cartEntity?.numberOfCartItems ?? 0)} ${LocaleKeys.items.tr()})',
                   style: Theme.of(

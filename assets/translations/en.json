@@ -217,7 +217,9 @@
   "unableToLoadPaymentPage": "Unable to load payment page.",
   "please_select_address": "Please select an address",
   "no_address_selected": "No address selected",
-  "success": "Success"
+  "success": "Success",
+  "order_success_message": "Your order placed successfully!"
+
 }
 
 

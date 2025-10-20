@@ -4,12 +4,14 @@ import 'package:flower_e_commerce_app/Feature/ordersPage/domain/entities/order_i
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_event.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/widgets/show_orders.dart';
+import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
-import 'package:flower_e_commerce_app/core/Widgets/products_shimmer.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 import '../../../../core/Di/di.dart';
 
 class OrdersScreen extends StatefulWidget {
@@ -26,8 +28,9 @@ class _OrdersScreenState extends State<OrdersScreen> {
       create: (context) =>
           getIt.get<OrdersViewModel>()..doIntent(GetAllOrdersEvent()),
       child: BlocConsumer<OrdersViewModel, OrdersState>(
+        listenWhen: (pre,cur)=>pre.isSuccess!=cur.isSuccess||pre.orderFailure!=cur.orderFailure,
         listener: (context, state) {
-          if (state.orderFailure != null) {
+          if (state.orderFailure != null&& state.isSuccess==false) {
             DialogueUtils.showMessage(
                 context: context, message: state.orderFailure!.errorMessage);
           }
@@ -36,11 +39,45 @@ class _OrdersScreenState extends State<OrdersScreen> {
           if (state.isLoading == true) {
             return Scaffold(
               appBar: CustomBackButton(title: LocaleKeys.my_orders.tr()),
-              body: Column(
-                children: [
-                  ProductsShimmer(isEnabled: state.isLoading),
-                ],
-              ),
+              body: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context,index){
+                return Shimmer(
+                  enabled: true,
+                  color: AppColorsLight.shimmerColor,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 180,
+                        decoration: BoxDecoration(
+                          color: AppColorsLight.shimmerColor,
+                          borderRadius:
+                          BorderRadius.circular(AppSizes.shimmerCardRadius),
+                        ),
+                      ),
+                      const SizedBox(height: AppSizes.shimmerSpacingSmall),
+                      Container(
+                        height: AppSizes.shimmerLineHeight,
+                        width: AppSizes.shimmerLineWidthLarge,
+                        decoration: BoxDecoration(
+                          color: AppColorsLight.shimmerColor,
+                          borderRadius: BorderRadius.circular(AppSizes.shimmerFullRadius),
+                        ),
+                      ),
+                      const SizedBox(height: AppSizes.shimmerSpacingXSmall),
+                      Container(
+                        height: AppSizes.shimmerLineHeight,
+                        width: AppSizes.shimmerLineWidthSmall,
+                        decoration: BoxDecoration(
+                          color: AppColorsLight.shimmerColor,
+                          borderRadius: BorderRadius.circular(AppSizes.shimmerFullRadius),
+                        ),
+                      ),
+                    ],
+                  ),
+                );                  },
+                  separatorBuilder: (context,index)=>SizedBox(height: 12, ), itemCount: 3),
             );
           }
           if (state.orders != null && state.orders!.orders!.isNotEmpty) {

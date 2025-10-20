@@ -23,7 +23,6 @@ class OrdersState extends Equatable {
     return OrdersState(
       isLoading: isLoading ?? this.isLoading,
       isSuccess: isSuccess ?? this.isSuccess,
-
       orderFailure: orderFailure ?? this.orderFailure,
       orders: orders ?? this.orders,
     );

@@ -14,9 +14,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({super.key, required this.path});
+  const MapScreen({super.key, required this.orderId});
 
-  final String path;
+  final String orderId;
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -29,7 +29,7 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _viewModel = getIt<TrackOrderViewModel>();
-    _viewModel.doIntend(StartListeningOrderEvent(widget.path));
+    _viewModel.doIntend(StartListeningOrderEvent(widget.orderId));
   }
 
   @override

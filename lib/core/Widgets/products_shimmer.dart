@@ -21,8 +21,9 @@ class ProductsShimmer extends StatelessWidget {
       itemCount: 6,
       itemBuilder: (context, index) => Shimmer(
         enabled: isEnabled,
-        color: Colors.white,
-        child: Column(
+        color: AppColorsLight.shimmerColor,
+        child:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(

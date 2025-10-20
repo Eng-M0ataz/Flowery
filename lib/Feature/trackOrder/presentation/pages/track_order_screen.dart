@@ -7,6 +7,7 @@ import 'package:flower_e_commerce_app/Feature/trackOrder/presentation/widgets/or
 import 'package:flower_e_commerce_app/core/Di/di.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
+import 'package:flower_e_commerce_app/core/enum/order_status.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
@@ -19,9 +20,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class TrackOrderScreen extends StatefulWidget {
-  const TrackOrderScreen({super.key, required this.path});
+  const TrackOrderScreen({super.key, required this.orderId});
 
-  final String path;
+  final String orderId;
 
   @override
   State<TrackOrderScreen> createState() => _TrackOrderScreenState();
@@ -34,13 +35,16 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
   void initState() {
     super.initState();
     _viewModel = getIt<TrackOrderViewModel>();
-    _viewModel.doIntend(StartListeningOrderEvent(widget.path));
+    _viewModel.doIntend(StartListeningOrderEvent(widget.orderId));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomBackButton(title: LocaleKeys.order_details.tr()),
+      appBar: CustomBackButton(
+        title: LocaleKeys.track_order.tr(),
+        onTap: () => context.pushReplacementNamed(AppRoutes.mainLayoutRoute),
+      ),
       body: BlocProvider.value(
         value: _viewModel,
         child: BlocBuilder<TrackOrderViewModel, TrackOrderState>(
@@ -55,6 +59,21 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
             }
 
             final isLoading = state.isListening && state.entity == null;
+            if (state.entity!.driver == null) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'your order is still pending ',
+                      style: TextStyle(color: AppColorsLight.red),
+                    ),
+                    SizedBox(height: AppSizes.spaceBetweenItems_16),
+                    Icon(Icons.pending_actions_outlined)
+                  ],
+                ),
+              );
+            }
 
             final driver = state.entity!.driver!;
 
@@ -98,21 +117,32 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                         ],
                       ),
                     ),
-                    CustomElevatedButton(
-                      onPressed: () {
-                        if (state.failure != null) {
-                          _viewModel
-                              .doIntend(StartListeningOrderEvent(widget.path));
-                        } else if (state.entity != null) {
-                          context.pushNamed(AppRoutes.mapScreen);
-                        }
+                    BlocBuilder<TrackOrderViewModel, TrackOrderState>(
+                      builder: (context, state) {
+                        final bool isOrderOnTheWay = state.entity?.statusHistory
+                                ?.outfordelivery?.status ==
+                            OrderStatus.outfordelivery.name;
+                        return CustomElevatedButton(
+                          onPressed: isOrderOnTheWay
+                              ? () {
+                                  if (state.failure != null) {
+                                    _viewModel.doIntend(
+                                        StartListeningOrderEvent(
+                                            widget.orderId));
+                                  }
+
+                                  context.pushNamed(AppRoutes.mapScreen,
+                                      arguments: widget.orderId);
+                                }
+                              : null,
+                          isLoading: isLoading,
+                          widget: Text(
+                            state.failure != null
+                                ? LocaleKeys.retry.tr()
+                                : LocaleKeys.show_map.tr(),
+                          ),
+                        );
                       },
-                      isLoading: isLoading,
-                      widget: Text(
-                        state.failure != null
-                            ? LocaleKeys.retry.tr()
-                            : LocaleKeys.show_map.tr(),
-                      ),
                     ),
                     SizedBox(height: AppSizes.spaceBetweenItems_40),
                   ],

@@ -6,17 +6,17 @@ import 'package:flower_e_commerce_app/Feature/ordersPage/domain/entities/order_i
 extension OrdersMapper on OrdersDto {
   OrdersEntity toEntity() {
     return OrdersEntity(
-      id: id,
-      orderNumber: orderNumber,
-      updatedAt: updatedAt,
-      createdAt: createdAt,
-      state: state,
-      isDelivered: isDelivered,
-      isPaid: isPaid,
-      paymentType: paymentType,
-      totalPrice: totalPrice,
+      id: id??'',
+      orderNumber: orderNumber??'',
+      updatedAt: updatedAt??'',
+      createdAt: createdAt??'',
+      state: state??'',
+      isDelivered: isDelivered??false,
+      isPaid: isPaid??false,
+      paymentType: paymentType??'',
+      totalPrice: totalPrice??0,
       orderItems: orderItems?.map((i) =>i.toEntity()).toList() ?? <OrderItemsEntity>[],
-      user: user,
+      user: user??'',
     );
   }
 }

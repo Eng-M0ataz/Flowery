@@ -216,6 +216,8 @@
   "visaOrderSuccessMessage": "تم إنشاء طلبك بنجاح! الرجاء إكمال الدفع في صفحة الفيزا 💳",
   "unableToLoadPaymentPage": "تعذر تحميل صفحة الدفع.",
   "please_select_address": "من فضلك اختر عنوانًا",
-  "no_address_selected": "لم يتم اختيار عنوان"
+  "no_address_selected": "لم يتم اختيار عنوان",
+  "order_success_message": "تم وضع طلبك بنجاح!"
+
 }
 

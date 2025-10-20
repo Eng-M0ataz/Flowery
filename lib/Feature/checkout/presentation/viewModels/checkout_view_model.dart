@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/api/mapper/address_entity_to_shipping.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
@@ -110,20 +111,22 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
     final result = await _createCashOrderUseCase.call(addressRequest: address);
 
     switch (result) {
-      case ApiSuccessResult<void>():
+      case ApiSuccessResult<CashOrderEntity>():
         emit(state.copyWith(
           isCashOrderLoading: false,
           cashOrderSuccessMessage: LocaleKeys.success.tr(),
+          cashOrderResponse: result.data,
         ));
         break;
 
-      case ApiErrorResult<void>():
+      case ApiErrorResult<CashOrderEntity>():
         emit(state.copyWith(
           isCashOrderLoading: false,
           cashOrderFailure: result.failure,
           cashOrderSuccessMessage: null,
         ));
         break;
+
     }
   }
 

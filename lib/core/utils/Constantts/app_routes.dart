@@ -18,4 +18,4 @@ abstract class AppRoutes {
   static const String trackOrderRoute = '/trackOrderRoute';
   static const String mapScreen = '/mapScreen';
   static const String checkoutRoute = '/checkoutRoute';
-}
+  static const String successOrderRoute= '/successPageRoute';}

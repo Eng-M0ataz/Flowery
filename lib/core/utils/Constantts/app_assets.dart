@@ -128,4 +128,5 @@ class Assets {
   static const String noImage = "assets/images/no_image.png";
   static const String selectedIcon = 'assets/images/selected.svg';
   static const String unselectedIcon = 'assets/images/unselected.svg';
+  static const String successLogo = 'assets/images/success_logo.svg';
 }

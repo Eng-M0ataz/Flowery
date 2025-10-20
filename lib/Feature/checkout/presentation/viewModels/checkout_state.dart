@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flower_e_commerce_app/Feature/checkout/domain/entities/response/cash_order_entity.dart';
 import '../../../../core/Errors/failure.dart';
 import '../../domain/entities/response/user_address_response_entity.dart';
 import '../../domain/entities/response/visa_order_entity.dart';
@@ -17,7 +18,7 @@ class CheckoutState extends Equatable {
 
   final UserAddressResponseEntity? userAddressResponse;
   final String? cashOrderSuccessMessage;
-
+   final CashOrderEntity ? cashOrderResponse;
   final VisaOrderEntity? visaOrderResponse;
 
   const CheckoutState({
@@ -33,6 +34,7 @@ class CheckoutState extends Equatable {
     this.userAddressResponse,
     this.visaOrderResponse,
     this.cashOrderSuccessMessage,
+    this.cashOrderResponse,
   });
 
   CheckoutState copyWith({
@@ -48,6 +50,7 @@ class CheckoutState extends Equatable {
     VisaOrderEntity? visaOrderResponse,
     String? selectedAddressId,
     String? cashOrderSuccessMessage,
+    CashOrderEntity ? cashOrderResponse,
   }) {
     return CheckoutState(
       isAddressLoading: isAddressLoading ?? this.isAddressLoading,
@@ -62,6 +65,7 @@ class CheckoutState extends Equatable {
       selectedAddressId: selectedAddressId ?? this.selectedAddressId,
       isCash: isCash ?? this.isCash,
       cashOrderSuccessMessage: cashOrderSuccessMessage,
+      cashOrderResponse: cashOrderResponse ?? this.cashOrderResponse,
     );
   }
 
@@ -79,5 +83,6 @@ class CheckoutState extends Equatable {
         selectedAddressId,
         isCash,
         cashOrderSuccessMessage,
+        cashOrderResponse,
       ];
 }

@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/widgets/visa_payment_web_view.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/Widgets/custom_elevated_button.dart';
@@ -17,7 +19,8 @@ class OrderButtonWithFeedback extends StatelessWidget {
     return BlocConsumer<CheckoutViewModel, CheckoutState>(
       listenWhen: (previous, current) {
         return previous.visaOrderResponse != current.visaOrderResponse ||
-            previous.cashOrderSuccessMessage != current.cashOrderSuccessMessage ||
+            previous.cashOrderSuccessMessage !=
+                current.cashOrderSuccessMessage ||
             previous.cashOrderFailure != current.cashOrderFailure ||
             previous.visaOrderFailure != current.visaOrderFailure ||
             previous.validationFailure != current.validationFailure;
@@ -39,6 +42,10 @@ class OrderButtonWithFeedback extends StatelessWidget {
             context: context,
             posActionName: LocaleKeys.ok.tr(),
             message: LocaleKeys.cashOrderSuccessMessage.tr(),
+            posAction: () {
+              context.pushReplacementNamed(AppRoutes.successOrderRoute,
+                  arguments: state.cashOrderResponse!.orderId);
+            },
           );
         } else if (!state.isVisaOrderLoading &&
             state.visaOrderResponse != null) {

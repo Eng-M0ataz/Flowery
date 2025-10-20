@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/pages/orders_screen.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/widgets/order_card.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/Config/Theme/app_colors.dart';
 import '../../../../core/Widgets/custom_app_bar.dart';
 import '../../../../core/localization/locale_keys.g.dart';
@@ -78,12 +77,12 @@ class ShowOrders extends StatelessWidget {
                     final item = orderItemWithInfo.orderItem;
                     final order = orderItemWithInfo.order;
                     final product = item.product;
-                    final itemPrice = (item.price! * item.quantity!);
-                    return Padding(
+                    final itemPrice = (item.price ?? 0) * (item.quantity ?? 1);                    return Padding(
                       padding: const EdgeInsets.only(bottom: AppSizes.spaceBetweenItems_16),
                       child: OrderCard(
+                        orderId: order.id??'',
                         imgCover: product?.imageCover ?? '',
-                        isDelivered: order.isDelivered!,
+                        isDelivered: order.isDelivered?? false,
                         title: product?.title ?? 'Unknown Product',
                         price: itemPrice.toDouble(),
                         orderNumber: order.orderNumber,
@@ -108,8 +107,9 @@ class ShowOrders extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: AppSizes.spaceBetweenItems_16),
                       child: OrderCard(
+                        orderId: order.id?? '',
                         imgCover: product?.imageCover,
-                        isDelivered: order.isDelivered!,
+                        isDelivered: order.isDelivered?? false,
                         title: product?.title ?? "Unknown Product",
                         price: itemPrice.toDouble(),
                         orderNumber: order.orderNumber,
