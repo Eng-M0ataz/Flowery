@@ -4,6 +4,7 @@ import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
+
 import '../Config/Theme/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
@@ -39,12 +40,15 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: CachedNetworkImage(
-              imageUrl: imgCover,
-              width: double.infinity,
-              fit: BoxFit.cover,
-              errorWidget: (context, url, error) => Icon(Icons.error,
-                  color: Theme.of(context).colorScheme.primary),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CachedNetworkImage(
+                imageUrl: imgCover,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorWidget: (context, url, error) => Icon(Icons.error,
+                    color: Theme.of(context).colorScheme.primary),
+              ),
             ),
           ),
           Padding(
@@ -60,8 +64,6 @@ class ProductCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: AppSizes.spaceBetweenItems_4),
-
-                /// ✅ Fixed Row Overflow
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -74,7 +76,8 @@ class ProductCard extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .displayMedium!
-                              .copyWith(fontSize: 12),
+                              .copyWith(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -90,8 +93,9 @@ class ProductCard extends StatelessWidget {
                               .headlineSmall!
                               .copyWith(
                                 decoration: TextDecoration.lineThrough,
-                                color: Colors.grey,
-                                fontSize: 11,
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
                               ),
                         ),
                       ),
@@ -106,7 +110,11 @@ class ProductCard extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall!
-                              .copyWith(color: Colors.green, fontSize: 11),
+                              .copyWith(
+                                color: Colors.green,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ),
                     ),
