@@ -63,6 +63,7 @@ class OccasionViewModel extends Cubit<OccasionState> {
   }
 
   Future<void> _getProductsByOccasion(String occasionId) async {
+    emit(state.copyWith(isProductLoading: true));
     final result = await _getProductsByOccasionUseCase.invoke(occasionId);
 
     switch (result) {

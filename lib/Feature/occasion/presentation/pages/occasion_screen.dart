@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/widgets/tabs_bloc_builder.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/locale_keys.g.dart';
@@ -27,8 +28,8 @@ class OccasionScreen extends StatelessWidget {
           ),
         ),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(LocaleKeys.occasion.tr()),
+        appBar: CustomBackButton(
+          title: LocaleKeys.occasion.tr(),
         ),
         body: SafeArea(
           child: Padding(

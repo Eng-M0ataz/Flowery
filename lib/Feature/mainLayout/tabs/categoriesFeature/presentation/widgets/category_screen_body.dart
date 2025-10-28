@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/events/categories_event.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/states/categories_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/presentation/viewModel/viewModel/categories_view_model.dart';
@@ -11,6 +12,8 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../../core/localization/locale_keys.g.dart';
 
 class CategoryScreenBody extends StatelessWidget {
   final String? initialCategoryId;
@@ -68,9 +71,7 @@ class CategoryScreenBody extends StatelessWidget {
                   children: [
                     const Expanded(child: SearchListTile()),
                     const SizedBox(width: AppSizes.spaceBetweenItems_12),
-                    FilterIconButtonOfAppBar(onTap: () {
-                      //todo open filter bottom sheet
-                    }),
+                    FilterIconButtonOfAppBar(onTap: () {}),
                   ],
                 ),
               ),
@@ -100,13 +101,17 @@ class CategoryScreenBody extends StatelessWidget {
                           .displayProducts
                           .isEmpty &&
                       !state.isProductsLoading
-                  ? const Center(
-                      child: Text(
-                        'No products found',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
+                  ? Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.shopping_bag_outlined,
+                            color: Theme.of(context).primaryColor,
+                            size: 100,
+                          ),
+                          Text(LocaleKeys.no_products.tr()),
+                        ],
                       ),
                     )
                   : ProductGrid(

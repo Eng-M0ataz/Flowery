@@ -68,7 +68,17 @@ class ProductBlocBuilder extends StatelessWidget {
 
         if (state.productResponse?.products?.isEmpty ?? true) {
           return Center(
-            child: Text(LocaleKeys.no_products.tr()),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.shopping_bag_outlined,
+                  color: Theme.of(context).primaryColor,
+                  size: 100,
+                ),
+                Text(LocaleKeys.no_products.tr()),
+              ],
+            ),
           );
         }
         final products = state.productResponse!.products!;
