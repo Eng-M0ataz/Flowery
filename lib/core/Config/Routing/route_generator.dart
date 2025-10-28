@@ -1,5 +1,6 @@
 import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/add_address_screen.dart';
 import 'package:flower_e_commerce_app/Feature/AddressFeature/presentation/pages/saved_address_screen.dart';
+import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/forget_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pages/best_seller_screen.dart';
 import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
@@ -36,6 +37,8 @@ class RouteGenerator {
                 ));
       case AppRoutes.signUpRoute:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case AppRoutes.forgetPasswordRoute:
+        return MaterialPageRoute(builder: (_)=>ForgetPasswordScreen());
       case AppRoutes.occasionRoute:
         final args = settings.arguments as OccasionInputModel;
         return MaterialPageRoute(

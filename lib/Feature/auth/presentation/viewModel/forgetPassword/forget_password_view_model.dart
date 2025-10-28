@@ -3,6 +3,7 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/viewModel/forget
 import 'package:bloc/bloc.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../../core/Errors/api_results.dart';
@@ -96,7 +97,7 @@ class ForgetPasswordViewModel extends Cubit<ForgetPasswordState> {
         break;
       case ForgetPasswordStep.reset:
         if (state.resetResponse != null) {
-          context.pop();
+          context.pushReplacementNamed(AppRoutes.signInRoute);
         } else {
           pageController.nextPage(
             duration: const Duration(milliseconds: 300),
