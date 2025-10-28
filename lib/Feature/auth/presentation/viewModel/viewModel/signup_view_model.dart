@@ -28,7 +28,7 @@ class SignupViewModel extends Cubit<SignUpState> {
       TextEditingController();
 
   final TextEditingController signUpPhoneController =
-      TextEditingController(text: "+2");
+      TextEditingController(text: "+20");
 
   final formKey = GlobalKey<FormState>();
   String selectedGender = AppConstants.femaleValue;
