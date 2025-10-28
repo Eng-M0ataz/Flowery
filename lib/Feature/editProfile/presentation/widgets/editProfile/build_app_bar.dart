@@ -30,7 +30,9 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       leading: CustomBackButton(
         title: LocaleKeys.edit_profile.tr(),
+        onTap: ()=>Navigator.pop(context,true),
       ),
+
     );
   }
 

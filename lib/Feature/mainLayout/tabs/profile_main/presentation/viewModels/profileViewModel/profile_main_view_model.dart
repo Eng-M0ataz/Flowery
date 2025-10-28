@@ -20,6 +20,7 @@ class ProfileMainViewModel extends Cubit<ProfileMainState> {
   }
 
   Future<void> _getLoggedUserData() async {
+    emit(state.copyWith(isLoading: true));
     final result = await _getLoggedUserUseCase.invoke();
     switch (result) {
       case ApiSuccessResult<LoggedUserDataResponseEntity>():

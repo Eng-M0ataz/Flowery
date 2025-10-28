@@ -15,17 +15,36 @@ import '../widgets/language_bottom_sheet.dart';
 import '../widgets/profile_header_bloc_builder.dart';
 import '../widgets/profile_menu_item.dart';
 
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
-  final ProfileMainViewModel viewModel = getIt<ProfileMainViewModel>();
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  late final ProfileMainViewModel _viewModel;
+
+  @override
+  void initState() {
+    _viewModel = getIt<ProfileMainViewModel>();
+    _viewModel.doIntend(GetLoggedUserDataEvent());
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _viewModel;
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: BlocProvider<ProfileMainViewModel>(
-        create: (context) => viewModel..doIntend(GetLoggedUserDataEvent()),
+      body: BlocProvider<ProfileMainViewModel>.value(
+        value: _viewModel,
         child: Column(
           children: [
             ProfileHeaderBlocBuilder(),

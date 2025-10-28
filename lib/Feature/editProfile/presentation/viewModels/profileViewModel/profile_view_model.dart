@@ -38,7 +38,9 @@ class ProfileViewModel extends Cubit<ProfileState> {
 
   ProfileViewModel(this._getLoggedUserUseCase, this._editProfileUseCase,
       this._uploadPhotoUseCase)
-      : super(ProfileState());
+      : super(ProfileState()){
+    _addListeners();
+  }
 
   Future<void> doIntend(ProfileEvent event) async {
     switch (event) {
@@ -50,11 +52,12 @@ class ProfileViewModel extends Cubit<ProfileState> {
         await _getLoggedUserData();
       case OnImageSelectedEvent():
         _onImageSelected(event.file);
+        _onDataChanged();
         break;
       case ResetSuccessStateEvent():
         _resetSuccessState();
       case CloseEvent():
-        _close();
+        await _close();
     }
   }
 
@@ -69,6 +72,8 @@ class ProfileViewModel extends Cubit<ProfileState> {
           isLoading: false,
           failure: null,
           loggedUserDataResponseEntity: response,
+          isDataChanged: false,
+          selectedImage: null,
         ));
 
         break;
@@ -79,17 +84,20 @@ class ProfileViewModel extends Cubit<ProfileState> {
   }
 
   void _onUserDataLoaded(LoggedUserDataResponseEntity response) {
+    _removeListeners();
     editProfileFirstNameController.text = response.user?.firstName ?? '';
     editProfileLastNameController.text = response.user?.lastName ?? '';
     editProfileEmailController.text = response.user?.email ?? '';
     editProfilePhoneController.text = response.user?.phone ?? '';
     initialImage = response.user?.photo;
+    selectedImageFile = null;
+    _addListeners();
   }
 
   Future<void> _updateProfileWithOptionalImage() async {
     if (!_isFormValid()) return;
 
-    emit(state.copyWith(isLoading: true, failure: null, editSuccess: false));
+    emit(state.copyWith(isUpdating: true,));
 
     try {
       final uploadSuccess = await _handleImageUploadIfNeeded();
@@ -98,7 +106,7 @@ class ProfileViewModel extends Cubit<ProfileState> {
       await _updateProfileData();
     } catch (e) {
       emit(state.copyWith(
-        isLoading: false,
+        isUpdating: false,
         failure: null,
         editSuccess: false,
       ));
@@ -138,7 +146,7 @@ class ProfileViewModel extends Cubit<ProfileState> {
     switch (result) {
       case ApiSuccessResult<EditProfileResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isUpdating: false,
           editSuccess: true,
           failure: null,
           editProfileResponseEntity: result.data,
@@ -147,7 +155,7 @@ class ProfileViewModel extends Cubit<ProfileState> {
 
       case ApiErrorResult<EditProfileResponseEntity>():
         emit(state.copyWith(
-          isLoading: false,
+          isUpdating: false,
           failure: result.failure,
           editSuccess: false,
         ));
@@ -160,6 +168,51 @@ class ProfileViewModel extends Cubit<ProfileState> {
     selectedImageFile = file;
     emit(state.copyWith(selectedImage: file));
   }
+  void _onDataChanged() {
+    final initialData = state.loggedUserDataResponseEntity?.user;
+    if (initialData == null) {
+      return;
+    }
+
+    final bool isFirstNameChanged =
+        editProfileFirstNameController.text.trim() !=
+            (initialData.firstName ?? '');
+    final bool isLastNameChanged =
+        editProfileLastNameController.text.trim() !=
+            (initialData.lastName ?? '');
+    final bool isEmailChanged =
+        editProfileEmailController.text.trim() !=
+            (initialData.email ?? '');
+    final bool isPhoneChanged =
+        editProfilePhoneController.text.trim() !=
+            (initialData.phone ?? '');
+
+    final bool isImageChanged = state.selectedImage != null;
+
+    final bool hasChanged = isFirstNameChanged ||
+        isLastNameChanged ||
+        isEmailChanged ||
+        isPhoneChanged ||
+        isImageChanged;
+
+    if (hasChanged != state.isDataChanged) {
+      emit(state.copyWith(isDataChanged: hasChanged));
+    }
+  }
+
+  void _addListeners() {
+    editProfileFirstNameController.addListener(_onDataChanged);
+    editProfileLastNameController.addListener(_onDataChanged);
+    editProfileEmailController.addListener(_onDataChanged);
+    editProfilePhoneController.addListener(_onDataChanged);
+  }
+
+  void _removeListeners() {
+    editProfileFirstNameController.removeListener(_onDataChanged);
+    editProfileLastNameController.removeListener(_onDataChanged);
+    editProfileEmailController.removeListener(_onDataChanged);
+    editProfilePhoneController.removeListener(_onDataChanged);
+  }
 
   bool _isFormValid() {
     return editProfileFormKey.currentState?.validate() ?? false;
@@ -169,8 +222,8 @@ class ProfileViewModel extends Cubit<ProfileState> {
     emit(state.copyWith(editSuccess: false, failure: null));
   }
 
-  @override
   Future<void> _close() {
+    _removeListeners();
     editProfileFirstNameController.dispose();
     editProfileLastNameController.dispose();
     editProfileEmailController.dispose();

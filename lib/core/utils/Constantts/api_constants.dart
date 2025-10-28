@@ -29,7 +29,6 @@ abstract class ApiConstants {
   static const String orders = 'orders';
   static const String getAndClearUserCart = 'cart';
   static const String removeAndUpdateSpesificUserCartItem = 'cart/{productId}';
-
   static const String googleDirectionsBaseUrl =
       'https://routes.googleapis.com/directions/v2:';
   static const String computeRoutes = 'computeRoutes';
@@ -37,4 +36,6 @@ abstract class ApiConstants {
   static const String xGoogFieldMask = 'X-Goog-FieldMask';
   static const String cashOrder = 'orders';
   static const String visaOrder = 'orders/checkout?url=http://localhost:3000';
+  static const String changePassword = 'auth/change-password';
+
 }

@@ -10,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../../../core/utils/Constantts/app_assets.dart';
+import '../viewModels/profileViewModel/profile_main_event.dart' show GetLoggedUserDataEvent;
 import '../viewModels/profileViewModel/profile_main_state.dart';
 import '../viewModels/profileViewModel/profile_main_view_model.dart';
 
@@ -69,8 +70,12 @@ class ProfileHeaderBlocBuilder extends StatelessWidget {
                 ),
                 SizedBox(width: AppSizes.paddingXs_4),
                 GestureDetector(
-                  onTap: () {
-                    context.pushNamed(AppRoutes.editProfileRoute);
+                  onTap: () async {
+                    final result = await context.pushNamed(AppRoutes.editProfileRoute);
+
+                    if (result == true) {
+                      context.read<ProfileMainViewModel>().doIntend(GetLoggedUserDataEvent());
+                    }
                   },
                   child: SvgPicture.asset(
                     Assets.assetsImagesNotoV1Pen,

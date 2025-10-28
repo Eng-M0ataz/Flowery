@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'profile_image_dialog.dart';
 import 'profile_image_utils.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfileImagePickerWidget extends StatefulWidget {
   final String? initialImageUrl;
@@ -47,7 +48,17 @@ class _ProfileImagePickerWidgetState extends State<ProfileImagePickerWidget> {
             child: _selectedImage != null
                 ? Image.file(_selectedImage!, fit: BoxFit.cover)
                 : (widget.initialImageUrl != null
-                    ? Image.network(widget.initialImageUrl!, fit: BoxFit.cover)
+                    ? CachedNetworkImage(
+              imageUrl: widget.initialImageUrl!,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => const Icon(
+                Icons.error,
+                color: Colors.red,
+              ),
+            )
                     : Icon(Icons.person, size: widget.size / 2)),
           ),
         ),
