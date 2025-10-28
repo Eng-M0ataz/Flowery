@@ -123,7 +123,9 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                                     title: product.title ?? '[Title]',
                                     discountPercent: product.discountPercent,
                                     isAddingToCart: isThisCardLoading,
-                                    onAddToCart: () {
+                                    onAddToCart: product.quantity! <= 0?
+                                    null
+                                        : () {
                                       if (product.Id != null) {
                                         context
                                             .read<BestSellerViewModel>()

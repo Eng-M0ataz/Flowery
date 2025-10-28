@@ -112,7 +112,9 @@ class ProductBlocBuilder extends StatelessWidget {
               price: product.price ?? 0,
               discountPercent: discountPercent,
               isAddingToCart: isThisCardLoading,
-              onAddToCart: () {
+              onAddToCart: product.quantity! <= 0?
+                  null
+                 : () {
                 if (product.id != null) {
                   context
                       .read<OccasionViewModel>()
