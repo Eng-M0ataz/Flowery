@@ -7,6 +7,7 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+
 import '../../../../../../core/localization/locale_keys.g.dart';
 import '../../../../../../core/utils/Constantts/app_assets.dart';
 import '../viewModels/profileViewModel/profile_main_event.dart';
@@ -45,17 +46,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: _buildAppBar(context),
       body: BlocProvider<ProfileMainViewModel>.value(
         value: _viewModel,
-        child: Column(
-          children: [
-            ProfileHeaderBlocBuilder(),
-            SizedBox(
-              height: AppSizes.spaceBetweenItems_42,
-            ),
-            _buildOrdersAndAddress(context),
-            _buildNotification(),
-            _buildGeneralSettings(context),
-            _buildLogout(),
-          ],
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              ProfileHeaderBlocBuilder(),
+              SizedBox(
+                height: AppSizes.spaceBetweenItems_42,
+              ),
+              _buildOrdersAndAddress(context),
+              _buildNotification(),
+              _buildGeneralSettings(context),
+              _buildLogout(),
+              SizedBox(
+                height: AppSizes.spaceBetweenItems_42,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -63,6 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       title: SvgPicture.asset(
         Assets.assetsImagesLogo,
         height: AppSizes.photoHeight_32,
