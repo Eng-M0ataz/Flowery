@@ -1,17 +1,18 @@
 import 'dart:async';
+
 import 'package:flower_e_commerce_app/Feature/trackMap/api/models/route_request_body_dto.dart';
-import 'package:flower_e_commerce_app/core/Di/di.dart';
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
-import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/driver_entity.dart';
-import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/store_entity.dart';
-import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/user_entity.dart';
 import 'package:flower_e_commerce_app/Feature/trackMap/presentation/viewModel/track_map_event.dart';
 import 'package:flower_e_commerce_app/Feature/trackMap/presentation/viewModel/track_map_state.dart';
 import 'package:flower_e_commerce_app/Feature/trackMap/presentation/viewModel/track_map_view_model.dart';
+import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/driver_entity.dart';
+import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/store_entity.dart';
+import 'package:flower_e_commerce_app/Feature/trackOrder/domain/entities/user_entity.dart';
+import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class CustomGoogleMap extends StatefulWidget {
   const CustomGoogleMap({
@@ -55,24 +56,26 @@ class _CustomGoogleMapState extends State<CustomGoogleMap> {
   }
 
   void _listenToStateChanges() {
-    _stateSubscription = _viewModel.stream.listen((state) {
-      if (state.routeResponse != null &&
-          state.routeResponse!.routes!.isNotEmpty) {
-        final encodedPolyline =
-            state.routeResponse!.routes?[0].polyline?.encodedPolyline;
-        _drawPolyline(encodedPolyline!);
-      }
-      if (state.failure != null) {
-        debugPrint('Failed to get route: ${state.failure?.errorMessage}');
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                content: Text(
-                    'Error fetching route: ${state.failure?.errorMessage}')),
-          );
+    _stateSubscription = _viewModel.stream.listen(
+      (state) {
+        if (state.routeResponse != null &&
+            state.routeResponse!.routes!.isNotEmpty) {
+          final encodedPolyline =
+              state.routeResponse!.routes?[0].polyline?.encodedPolyline;
+          _drawPolyline(encodedPolyline!);
         }
-      }
-    });
+        if (state.failure != null) {
+          debugPrint('Failed to get route: ${state.failure?.errorMessage}');
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                  content: Text(
+                      'Error fetching route: ${state.failure?.errorMessage}')),
+            );
+          }
+        }
+      },
+    );
   }
 
   @override
@@ -125,15 +128,15 @@ class _CustomGoogleMapState extends State<CustomGoogleMap> {
   Future<void> _loadCustomMarkers() async {
     _userIcon = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(size: Size(84, 84)),
-      Assets.assetImageLocationMapIcon,
+      Assets.assetsImagesLocationMapIconBig,
     );
     _storeIcon = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(size: Size(84, 84)),
-      Assets.assetImageLocationMapIcon,
+      Assets.assetsImagesLocationMapIconBig,
     );
     _driverIcon = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(size: Size(84, 84)),
-      Assets.assetImageDeliveryMotorCycle,
+      Assets.assetsImagesDeliveryMotorcycleMapIconBig,
     );
     if (mounted) {
       setState(() {});
@@ -226,7 +229,7 @@ class _CustomGoogleMapState extends State<CustomGoogleMap> {
 
   void _setMapStyle() async {
     String style = await DefaultAssetBundle.of(context)
-        .loadString(Assets.assetsImagesLightTheme);
+        .loadString('assets/mapStyles/light_style.json');
     _controller?.setMapStyle(style);
   }
 

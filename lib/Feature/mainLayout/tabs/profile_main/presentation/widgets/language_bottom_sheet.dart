@@ -5,6 +5,7 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../../../core/Config/Theme/app_colors.dart';
 import '../../../../../../core/localization/locale_keys.g.dart';
 import '../../../../../../core/utils/Constantts/app_assets.dart';
@@ -79,13 +80,13 @@ class LanguageBottomSheet extends StatelessWidget {
             tileColor: AppColorsLight.whiteOriginal,
             trailing: isSelected
                 ? SvgPicture.asset(
-                    Assets.assetsImagesSelectedIcon,
+                    Assets.assetsImagesSelected,
                     height: AppSizes.photoHeight_20,
                     width: AppSizes.photoWidth_20,
                     fit: BoxFit.contain,
                   )
                 : SvgPicture.asset(
-                    Assets.assetsImagesUnselectedIcon,
+                    Assets.assetsImagesUnselected,
                     height: AppSizes.photoHeight_20,
                     width: AppSizes.photoWidth_20,
                     fit: BoxFit.contain,

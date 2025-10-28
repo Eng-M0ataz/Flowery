@@ -23,7 +23,7 @@ class OrderSuccessScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(AppSizes.paddingMd_16),
                 child: SvgPicture.asset(
-                  Assets.successLogo,
+                  Assets.assetsImagesSuccessLogo,
                   fit: BoxFit.contain,
                   width: 150,
                   height: 150,

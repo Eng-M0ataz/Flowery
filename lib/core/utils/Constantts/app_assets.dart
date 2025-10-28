@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/camera.svg
   static const String assetsImagesCamera = "assets/images/camera.svg";
 
+  /// Assets for assetsImagesCar
+  /// assets/images/Car.svg
+  static const String assetsImagesCar = "assets/images/Car.svg";
+
   /// Assets for assetsImagesCategorySelected
   /// assets/images/category_selected.svg
   static const String assetsImagesCategorySelected =
@@ -24,6 +28,11 @@ class Assets {
   /// Assets for assetsImagesDeleteIcon
   /// assets/images/delete_icon.svg
   static const String assetsImagesDeleteIcon = "assets/images/delete_icon.svg";
+
+  /// Assets for assetsImagesDeliveryMotorcycleMapIconBig
+  /// assets/images/delivery_motorcycle_map_icon_big.png
+  static const String assetsImagesDeliveryMotorcycleMapIconBig =
+      "assets/images/delivery_motorcycle_map_icon_big.png";
 
   /// Assets for assetsImagesEditIcon
   /// assets/images/edit_icon.svg
@@ -52,6 +61,11 @@ class Assets {
   /// assets/images/location_icon.svg
   static const String assetsImagesLocationIcon =
       "assets/images/location_icon.svg";
+
+  /// Assets for assetsImagesLocationMapIconBig
+  /// assets/images/location_map_icon_big.png
+  static const String assetsImagesLocationMapIconBig =
+      "assets/images/location_map_icon_big.png";
 
   /// Assets for assetsImagesLogo
   /// assets/images/Logo.svg
@@ -84,10 +98,9 @@ class Assets {
   /// assets/images/search.svg
   static const String assetsImagesSearch = "assets/images/search.svg";
 
-  /// Assets for assetsImagesSelectedIcon
-  /// assets/images/selected_icon.svg
-  static const String assetsImagesSelectedIcon =
-      "assets/images/selected_icon.svg";
+  /// Assets for assetsImagesSelected
+  /// assets/images/selected.svg
+  static const String assetsImagesSelected = "assets/images/selected.svg";
 
   /// Assets for assetsImagesShoppingCartSelected
   /// assets/images/shopping_cart_selected.svg
@@ -99,34 +112,27 @@ class Assets {
   static const String assetsImagesShoppingCartUnselected =
       "assets/images/shopping_cart_unselected.svg";
 
+  /// Assets for assetsImagesSuccessLogo
+  /// assets/images/success_logo.svg
+  static const String assetsImagesSuccessLogo =
+      "assets/images/success_logo.svg";
+
   /// Assets for assetsImagesTransactionOrder
   /// assets/images/Transaction-order.svg
   static const String assetsImagesTransactionOrder =
       "assets/images/Transaction-order.svg";
 
-  /// Assets for assetsImagesUnselectedIcon
-  /// assets/images/unselected_icon.svg
-  static const String assetsImagesUnselectedIcon =
-      "assets/images/unselected_icon.svg";
+  /// Assets for assetsImagesUnselected
+  /// assets/images/unselected.svg
+  static const String assetsImagesUnselected = "assets/images/unselected.svg";
 
-  static const String assetsImagesCar = "assets/images/Car.svg";
-
-  static const String assetsImagesWhatsappIcon =
-      "assets/images/whatsapp_icon.svg";
-
+  /// Assets for assetsImagesUnselectedIconGray
+  /// assets/images/unselected_icon_gray.svg
   static const String assetsImagesUnselectedIconGray =
       "assets/images/unselected_icon_gray.svg";
 
-  static const String assetsImagesLightTheme =
-      'assets/mapStyles/light_style.json';
-  static const String assetImageLocationMapIcon =
-      'assets/images/location_map_icon_big.png';
-  static const String assetImageDeliveryMotorCycle =
-      'assets/images/delivery_motorcycle_map_icon_big.png';
-
-  static const String filterIcon = "assets/images/filter_icon.svg";
-  static const String noImage = "assets/images/no_image.png";
-  static const String selectedIcon = 'assets/images/selected.svg';
-  static const String unselectedIcon = 'assets/images/unselected.svg';
-  static const String successLogo = 'assets/images/success_logo.svg';
+  /// Assets for assetsImagesWhatsappIcon
+  /// assets/images/whatsapp_icon.svg
+  static const String assetsImagesWhatsappIcon =
+      "assets/images/whatsapp_icon.svg";
 }

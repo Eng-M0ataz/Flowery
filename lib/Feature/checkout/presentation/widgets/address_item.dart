@@ -3,6 +3,7 @@ import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 import '../../../../core/Config/Theme/app_colors.dart';
 import '../../../../core/localization/locale_keys.g.dart';
 
@@ -35,8 +36,8 @@ class AddressItem extends StatelessWidget {
                   GestureDetector(
                       onTap: onSelect,
                       child: isSelected
-                          ? SvgPicture.asset(Assets.selectedIcon)
-                          : SvgPicture.asset(Assets.unselectedIcon)),
+                          ? SvgPicture.asset(Assets.assetsImagesSelected)
+                          : SvgPicture.asset(Assets.assetsImagesUnselected)),
                   SizedBox(
                     width: AppSizes.spaceBetweenItems_8,
                   ),
