@@ -116,9 +116,7 @@ abstract class AppThemeLight {
         ),
         labelStyle: TextStyle(
           fontWeight: FontWeight.w400,
-          fontSize: AppSizes.xsFont_12,
-          fontFamily: AppFonts.roboto,
-          color: AppColorsLight.grey,
+          fontSize: AppSizes.mdFont_16,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusSm_4),
