@@ -1,11 +1,19 @@
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
-class CustomDropDownButton extends StatelessWidget {
+class CustomDropDownButton extends StatefulWidget {
   const CustomDropDownButton({
     super.key,
   });
 
+  @override
+  State<CustomDropDownButton> createState() => _CustomDropDownButtonState();
+}
+
+String adress = '';
+String value = 'SidiBishr';
+
+class _CustomDropDownButtonState extends State<CustomDropDownButton> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
@@ -15,23 +23,23 @@ class CustomDropDownButton extends StatelessWidget {
         color: Theme.of(context).colorScheme.primary,
       ),
       underline: const SizedBox(),
-      hint: const Text("Deliver to 2XVP+XC - Sheikh Zayed"),
+      hint: Text("Deliver to  $adress"),
       style: Theme.of(context).textTheme.titleSmall!.copyWith(
             overflow: TextOverflow.ellipsis,
           ),
-      items: const [
+      items: [
         DropdownMenuItem(
-          value: "Deliver to 2XVP+XC - Sheikh Zayed ",
+          value: value,
           child: Text(
-            "Deliver to 2XVP+XC - Sheikh Zayed",
+            value,
           ),
         ),
-        DropdownMenuItem(
-          value: "Deliver to 3XVP+XC - Sheikh Zayed",
-          child: Text("Deliver to 3XVP+XC - Sheikh Zayed"),
-        ),
       ],
-      onChanged: (value) {},
+      onChanged: (value) {
+        setState(() {
+          adress = value.toString();
+        });
+      },
     );
   }
 }

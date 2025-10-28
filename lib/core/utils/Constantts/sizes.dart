@@ -221,6 +221,11 @@ abstract class AppSizes {
     Breakpoint(start: 1024, end: 1599, name: DeviceType.tablet),
     Breakpoint(start: 1600, end: double.infinity, name: DeviceType.desktop),
   ];
+  static const List<Condition<double>> conditionalValues = [
+    Condition.between(start: 0, end: 450, value: 375),
+    Condition.between(start: 451, end: 768, value: 600),
+    Condition.between(start: 769, end: 1024, value: 1024),
+  ];
 
   static const double homeBestSellerImageHigh = 151.0;
   static const double homeBestSellerImageWidth = 131.0;

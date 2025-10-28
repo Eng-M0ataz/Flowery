@@ -67,11 +67,15 @@ class ProductGrid extends StatelessWidget {
           final bool isThisCardLoading = productId == product.id;
 
           return ProductCard(
+            description: product.description ?? '',
+            quantity: product.quantity ?? 0,
+            id: product.id ?? '',
             isAddingToCart: isThisCardLoading,
             imgCover: product.imgCover ?? '',
             title: product.title ?? '',
             price: product.price?.toInt() ?? 0,
-            priceAfterDiscount: product.priceAfterDiscount?.toInt() ?? 0,
+            images: product.images!,
+            priceAfterDiscount: product.priceAfterDiscount?.toDouble() ?? 0,
             discountPercent: product.discountPercent,
             onAddToCart: product.quantity! <= 0
                 ? null

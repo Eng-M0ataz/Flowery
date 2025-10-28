@@ -13,5 +13,6 @@ extension ProductDtoMapper on ProductDto {
         quantity: quantity ?? 0,
         category: category ?? "",
         sold: sold ?? 0,
+        images: images ?? [],
       );
 }

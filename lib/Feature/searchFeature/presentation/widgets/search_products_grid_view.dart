@@ -22,10 +22,14 @@ class SearchProductsGridView extends StatelessWidget {
       itemCount: products.length,
       itemBuilder: (context, index) {
         return ProductCard(
+          description: products[index].description!,
+          images: products[index].images!,
+          quantity: products[index].quantity!,
+          id: products[index].id!,
           imgCover: products[index].imgCover!,
           title: products[index].title!,
           price: products[index].price!,
-          priceAfterDiscount: products[index].priceAfterDiscount!,
+          priceAfterDiscount: products[index].priceAfterDiscount!.toDouble(),
           onAddToCart: () {
             // toDo : add to cart Function
           },

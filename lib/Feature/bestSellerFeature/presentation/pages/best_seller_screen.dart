@@ -112,11 +112,15 @@ class _BestSellerScreenState extends State<BestSellerScreen> {
                                       state.selectedBestSellerId == product.Id;
 
                                   return ProductCard(
+                                    description: product.description ?? '',
+                                    images: product.images!,
+                                    quantity: product.quantity ?? 0,
+                                    id: product.Id ?? '',
+                                    priceAfterDiscount:
+                                        product.priceAfterDiscount!.toDouble(),
+                                    price: product.price ?? 0,
                                     imgCover: product.imgCover ?? '',
                                     title: product.title ?? '[Title]',
-                                    price: product.price ?? 0,
-                                    priceAfterDiscount:
-                                        product.priceAfterDiscount ?? 0,
                                     discountPercent: product.discountPercent,
                                     isAddingToCart: isThisCardLoading,
                                     onAddToCart: () {

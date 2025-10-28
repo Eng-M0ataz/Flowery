@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flower_e_commerce_app/Feature/searchFeature/domain/entities/search_response_entity.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/domain/useCases/product_search_use_case.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/viewModel/search_events.dart';
@@ -24,6 +25,7 @@ class SearchViewModel extends Cubit<SearchState> {
   }
 
   Future<void> _searchProducts(String keyword) async {
+    emit(state.copyWith(isLoading: true));
     final result = await _searchUseCase.invoke(keyword);
     switch (result) {
       case ApiSuccessResult<SearchResponseEntity>():
@@ -48,7 +50,7 @@ class SearchViewModel extends Cubit<SearchState> {
       _debounce!.cancel();
     }
     _debounce = Timer(
-      const Duration(milliseconds: 600),
+      const Duration(seconds: 1),
       () {
         _searchProducts(keyword);
       },

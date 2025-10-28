@@ -9,6 +9,8 @@ class ProductEntity {
   final int? quantity;
   final String? category;
   final int? sold;
+  final List<String>? images;
+
   ProductEntity({
     this.id,
     this.title,
@@ -20,6 +22,7 @@ class ProductEntity {
     this.quantity,
     this.category,
     this.sold,
+    this.images,
   });
 
   int get discountPercent {
