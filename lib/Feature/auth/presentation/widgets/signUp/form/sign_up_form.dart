@@ -11,11 +11,11 @@ import 'package:flower_e_commerce_app/Feature/auth/presentation/widgets/signUp/b
 import 'package:flower_e_commerce_app/core/Config/Theme/app_theme.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/Widgets/custom_elevated_button.dart';
+import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
-import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,7 +99,7 @@ class SignUpForm extends StatelessWidget {
                             }),
                         const SizedBox(height: AppSizes.spaceBetweenItems_16),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               LocaleKeys.create_account_prompt.tr(),
@@ -107,22 +107,23 @@ class SignUpForm extends StatelessWidget {
                                   .lightTheme.textTheme.bodyMedium!
                                   .copyWith(fontSize: 11),
                             ),
+                            SizedBox(width: AppSizes.spaceBetweenItems_4),
                             TextButton(
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                                 minimumSize: const Size(0, 0),
                                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
-                              onPressed: () {
-                                // TODO: navigate to terms and conditions
-                              },
+                              onPressed: () {},
                               child: Text(
                                 LocaleKeys.terms_and_conditions.tr(),
                                 style: AppThemeLight
                                     .lightTheme.textTheme.labelLarge!
                                     .copyWith(
-                                        decoration: TextDecoration.underline,
-                                        fontSize: 12),
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
                             ),
                           ],

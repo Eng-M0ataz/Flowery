@@ -1,4 +1,5 @@
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 
 class BuildNavigationText extends StatelessWidget {
@@ -18,6 +19,7 @@ class BuildNavigationText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(firstText, style: Theme.of(context).textTheme.headlineLarge),
+        SizedBox(width: AppSizes.spaceBetweenItems_4),
         TextButton(
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero,
