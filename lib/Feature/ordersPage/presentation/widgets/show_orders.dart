@@ -14,11 +14,12 @@ class ShowOrders extends StatelessWidget {
   final List<OrderItemWithOrderInfo> allCompletedOrderItems;
   final bool isLoading;
 
-  const ShowOrders(
-      {super.key,
-      required this.allActiveOrderItems,
-      required this.allCompletedOrderItems,
-      this.isLoading = false});
+  const ShowOrders({
+    super.key,
+    required this.allActiveOrderItems,
+    required this.allCompletedOrderItems,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,160 +30,195 @@ class ShowOrders extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: AppSizes.spaceBetweenItems_16),
-              child: TabBar(
-                isScrollable: true,
-                indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(width: 3, color: AppColorsLight.pink),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                vertical: AppSizes.spaceBetweenItems_16),
+            child: TabBar(
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(width: 3, color: AppColorsLight.pink),
+              ),
+              labelColor: AppColorsLight.pink,
+              unselectedLabelColor: AppColorsLight.grey,
+              indicatorSize: TabBarIndicatorSize.tab,
+              tabAlignment: TabAlignment.fill,
+              tabs: [
+                Tab(
+                  text: LocaleKeys.active.tr(),
                 ),
-                labelColor: AppColorsLight.pink,
-                unselectedLabelColor: AppColorsLight.grey,
-                indicatorSize: TabBarIndicatorSize.tab,
-                tabs: [
-                  Tab(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width / 2 - 25,
-                      child: Center(child: Text(LocaleKeys.active.tr())),
+                Tab(
+                  text: LocaleKeys.completed.tr(),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+              child: TabBarView(
+            children: [
+              // Active Orders Tab
+              if (isLoading)
+                ListView.separated(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.spaceBetweenItems_16),
+                  itemBuilder: (context, index) => ShimmerItem(),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12),
+                  itemCount: 3,
+                )
+              else if (allActiveOrderItems.isEmpty)
+                Center(child: Text(LocaleKeys.no_active_orders.tr()))
+              else
+                ListView.builder(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.spaceBetweenItems_16),
+                  itemCount: allActiveOrderItems.length,
+                  itemBuilder: (context, index) {
+                    final orderItemWithInfo = allActiveOrderItems[index];
+                    final item = orderItemWithInfo.orderItem;
+                    final order = orderItemWithInfo.order;
+                    final product = item.product;
+                    final itemPrice = (item.price ?? 0) * (item.quantity ?? 1);
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: AppSizes.spaceBetweenItems_16),
+                      child: OrderCard(
+                        orderId: order.id ?? '',
+                        imgCover: product?.imageCover ?? '',
+                        isDelivered: order.isDelivered ?? false,
+                        title: product?.title ?? 'Unknown Product',
+                        price: itemPrice.toDouble(),
+                        orderNumber: order.orderNumber,
+                        date: order.updatedAt ??
+                            order.createdAt ??
+                            DateTime.now().toIso8601String(),
+                      ),
+                    );
+                  },
+                ),
+
+              // Completed Orders Tab
+              if (isLoading)
+                ListView.separated(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.spaceBetweenItems_16),
+                  itemBuilder: (context, index) => ShimmerItem(),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 12),
+                  itemCount: 3,
+                )
+              else if (allCompletedOrderItems.isEmpty)
+                Center(child: Text(LocaleKeys.no_completed_orders.tr()))
+              else
+                ListView.builder(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.spaceBetweenItems_16),
+                  itemCount: allCompletedOrderItems.length,
+                  itemBuilder: (context, index) {
+                    final orderItemWithInfo = allCompletedOrderItems[index];
+                    final item = orderItemWithInfo.orderItem;
+                    final order = orderItemWithInfo.order;
+                    final product = item.product;
+                    final itemPrice = (item.price ?? 0) * (item.quantity ?? 1);
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          bottom: AppSizes.spaceBetweenItems_16),
+                      child: OrderCard(
+                        orderId: order.id ?? '',
+                        imgCover: product?.imageCover ?? '',
+                        isDelivered: order.isDelivered ?? false,
+                        title: product?.title ?? "Unknown Product",
+                        price: itemPrice.toDouble(),
+                        orderNumber: order.orderNumber,
+                        date: order.updatedAt ??
+                            order.createdAt ??
+                            DateTime.now().toIso8601String(),
+                      ),
+                    );
+                  },
+                ),
+            ],
+          ))
+        ],
+      ),
+    );
+  }
+}
+
+class ShimmerItem extends StatelessWidget {
+  const ShimmerItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer(
+      enabled: true,
+      color: AppColorsLight.shimmerColor,
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.black12),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: AppColorsLight.shimmerColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 14,
+                    decoration: BoxDecoration(
+                      color: AppColorsLight.shimmerColor,
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  Tab(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width / 2 - 25,
-                      child: Center(child: Text(LocaleKeys.completed.tr())),
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 14,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: AppColorsLight.shimmerColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 14,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: AppColorsLight.shimmerColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Align(
+                    alignment: AlignmentGeometry.center,
+                    child: Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: AppColorsLight.shimmerColor,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                // Active Orders Tab
-                isLoading && allActiveOrderItems.isEmpty
-                    ? ListView.separated(
-                        shrinkWrap: true,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: AppSizes.spaceBetweenItems_16),
-                        itemBuilder: (context, index) {
-                          return Shimmer(
-                            enabled: true,
-                            color: AppColorsLight.shimmerColor,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 180,
-                                  decoration: BoxDecoration(
-                                    color: AppColorsLight.shimmerColor,
-                                    borderRadius: BorderRadius.circular(
-                                        AppSizes.shimmerCardRadius),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                        separatorBuilder: (context, index) =>
-                            const SizedBox(height: 12),
-                        itemCount: 3)
-                    : allActiveOrderItems.isEmpty
-                        ? Center(child: Text(LocaleKeys.no_active_orders.tr()))
-                        : ListView.builder(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppSizes.spaceBetweenItems_16),
-                            itemCount: allActiveOrderItems.length,
-                            itemBuilder: (context, index) {
-                              final orderItemWithInfo =
-                                  allActiveOrderItems[index];
-                              final item = orderItemWithInfo.orderItem;
-                              final order = orderItemWithInfo.order;
-                              final product = item.product;
-                              final itemPrice =
-                                  (item.price ?? 0) * (item.quantity ?? 1);
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: AppSizes.spaceBetweenItems_16),
-                                child: OrderCard(
-                                  orderId: order.id ?? '',
-                                  imgCover: product?.imageCover ?? '',
-                                  isDelivered: order.isDelivered ?? false,
-                                  title: product?.title ?? 'Unknown Product',
-                                  price: itemPrice.toDouble(),
-                                  orderNumber: order.orderNumber,
-                                  date: order.updatedAt ??
-                                      order.createdAt ??
-                                      DateTime.now().toIso8601String(),
-                                ),
-                              );
-                            },
-                          ),
-                // Completed Orders Tab
-                isLoading && allCompletedOrderItems.isEmpty
-                    ? ListView.separated(
-                        shrinkWrap: true,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: AppSizes.spaceBetweenItems_16),
-                        itemBuilder: (context, index) {
-                          return Shimmer(
-                            enabled: true,
-                            color: AppColorsLight.shimmerColor,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 180,
-                                  decoration: BoxDecoration(
-                                    color: AppColorsLight.shimmerColor,
-                                    borderRadius: BorderRadius.circular(
-                                        AppSizes.shimmerCardRadius),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                        separatorBuilder: (context, index) =>
-                            const SizedBox(height: 12),
-                        itemCount: 3)
-                    : allCompletedOrderItems.isEmpty
-                        ? Center(
-                            child: Text(LocaleKeys.no_completed_orders.tr()))
-                        : ListView.builder(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppSizes.spaceBetweenItems_16),
-                            itemCount: allCompletedOrderItems.length,
-                            itemBuilder: (context, index) {
-                              final orderItemWithInfo =
-                                  allCompletedOrderItems[index];
-                              final item = orderItemWithInfo.orderItem;
-                              final order = orderItemWithInfo.order;
-                              final product = item.product;
-                              final itemPrice = (item.price! * item.quantity!);
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: AppSizes.spaceBetweenItems_16),
-                                child: OrderCard(
-                                  orderId: order.id ?? '',
-                                  imgCover: product?.imageCover,
-                                  isDelivered: order.isDelivered ?? false,
-                                  title: product?.title ?? "Unknown Product",
-                                  price: itemPrice.toDouble(),
-                                  orderNumber: order.orderNumber,
-                                  date: order.updatedAt ??
-                                      order.createdAt ??
-                                      DateTime.now().toIso8601String(),
-                                ),
-                              );
-                            },
-                          ),
-              ],
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
