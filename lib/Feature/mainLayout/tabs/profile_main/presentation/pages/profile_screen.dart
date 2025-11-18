@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
 import 'package:flower_e_commerce_app/core/Di/di.dart';
+import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
@@ -201,10 +202,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildLogout() {
-    return ProfileMenuItem(
-      leadingIcon: Icon(Icons.logout, size: AppSizes.smIcon_16),
-      title: LocaleKeys.logout.tr(),
-      trailing: Icon(Icons.logout),
+    return GestureDetector(
+      onTap: () => DialogueUtils.showMessage(
+        context: context,
+        title: 'Confirm Logout',
+        message: 'Are you sure you want to log out?',
+        posActionName: 'Ok',
+        posAction: () async {
+          await _viewModel.doIntend(LogOutEvent());
+          context.pushReplacementNamed(AppRoutes.signInRoute);
+        },
+        ngeActionName: 'Cancel',
+      ),
+      child: ProfileMenuItem(
+        leadingIcon: Icon(Icons.logout, size: AppSizes.smIcon_16),
+        title: LocaleKeys.logout.tr(),
+        trailing: GestureDetector(child: Icon(Icons.logout)),
+      ),
     );
   }
 }

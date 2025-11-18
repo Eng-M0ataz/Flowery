@@ -6,6 +6,7 @@ import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../core/utils/Constantts/sizes.dart';
 
 class OrderCard extends StatelessWidget {
@@ -31,13 +32,13 @@ class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime dateTime = DateTime.parse(date).toLocal();
-    String formattedDate = DateFormat('dd MMM yyyy').format(dateTime).toUpperCase();
+    String formattedDate =
+        DateFormat('dd MMM yyyy').format(dateTime).toUpperCase();
     return Container(
-      width: AppSizes.cardWidth_319,
       constraints: BoxConstraints(minHeight: AppSizes.cardHeight_125),
       padding: EdgeInsets.symmetric(
-          horizontal: AppSizes.spaceBetweenItems_16,
-          vertical: AppSizes.spaceBetweenItems_12
+        horizontal: AppSizes.spaceBetweenItems_12,
+        vertical: AppSizes.spaceBetweenItems_12,
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimary,
@@ -48,17 +49,16 @@ class OrderCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-              child: Container(
-                color: AppColorsLight.pink[10],
-                height: AppSizes.clipHeight_131,
-                width: AppSizes.clipWidth_127,
-                child: CachedNetworkImage(
-                    imageUrl: imgCover ?? '',
-                    fit: BoxFit.fill,
-                    errorWidget: (context, url, error) => Icon(Icons.error,
-                      color: Theme.of(context).colorScheme.primary),
-                ),
-              ),
+            borderRadius:
+                BorderRadiusGeometry.circular(AppSizes.borderRadiusMd_8),
+            child: CachedNetworkImage(
+              imageUrl: imgCover!,
+              height: AppSizes.clipHeight_131,
+              width: AppSizes.clipWidth_127,
+              fit: BoxFit.cover,
+              errorWidget: (context, url, error) => Icon(Icons.error,
+                  color: Theme.of(context).colorScheme.primary),
+            ),
           ),
           SizedBox(width: 12),
           Expanded(
@@ -79,21 +79,25 @@ class OrderCard extends StatelessWidget {
                 ),
                 SizedBox(height: AppSizes.spaceBetweenItems_4),
                 Text(
-                  isDelivered ? "${LocaleKeys.delivered_on.tr()} $formattedDate" :
-                  "${LocaleKeys.order_number.tr()} $orderNumber",
+                  isDelivered
+                      ? "${LocaleKeys.delivered_on.tr()} $formattedDate"
+                      : "${LocaleKeys.order_number.tr()} $orderNumber",
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 SizedBox(height: AppSizes.spaceBetweenItems_32),
                 SizedBox(
                   height: AppSizes.sizedBoxHeight_30,
                   child: CustomElevatedButton(
-                      onPressed: () {
-                        context.pushNamed(AppRoutes.trackOrderRoute,arguments: orderId);
-                      },
-                      isLoading: false,
-                      widget: Text(
-                        isDelivered ? LocaleKeys.reorder.tr() : LocaleKeys.track_order.tr(),
-                      ),
+                    onPressed: () {
+                      context.pushNamed(AppRoutes.trackOrderRoute,
+                          arguments: orderId);
+                    },
+                    isLoading: false,
+                    widget: Text(
+                      isDelivered
+                          ? LocaleKeys.reorder.tr()
+                          : LocaleKeys.track_order.tr(),
+                    ),
                   ),
                 )
               ],

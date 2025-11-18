@@ -3,7 +3,6 @@ import 'package:flower_e_commerce_app/core/Errors/api_results.dart';
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
 import 'package:flower_e_commerce_app/core/Services/storage_interface.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_constants.dart';
-
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthLocalDataSource)
@@ -40,5 +39,17 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<bool> getRememberMe() async {
     final String value = await _storage.read(key: AppConstants.rememberMe);
     return value.toLowerCase() == 'true';
+  }
+
+  @override
+  Future<ApiResult<void>> logOut() async {
+    try {
+      await _storage.delete(key: AppConstants.token);
+      await _storage.delete(key: AppConstants.rememberMe);
+      return ApiSuccessResult<void>(data: null);
+    } catch (e) {
+      final Failure failure = Failure(errorMessage: e.toString());
+      return ApiErrorResult<void>(failure: failure);
+    }
   }
 }
