@@ -1,27 +1,37 @@
 import 'package:flower_e_commerce_app/core/Errors/failure.dart';
+import '../../../api/models/about_app_model.dart';
+import '../../../api/models/terms_and_conditions_model.dart';
 import '../../../domain/entities/response/logged_user_data_response_entity.dart';
 
 class ProfileMainState {
   final bool isLoading;
   final Failure? failure;
   final LoggedUserDataResponseEntity? loggedUserDataResponseEntity;
+  final AboutAppModel? aboutApp;
+  final TermsAndConditionsModel? termsAndConditions;
 
   ProfileMainState({
-    this.isLoading = true,
+    this.isLoading = false,
     this.failure,
     this.loggedUserDataResponseEntity,
+    this.aboutApp,
+    this.termsAndConditions,
   });
 
   ProfileMainState copyWith({
     bool? isLoading,
     Failure? failure,
     LoggedUserDataResponseEntity? loggedUserDataResponseEntity,
+    AboutAppModel? aboutApp,
+    TermsAndConditionsModel? termsAndConditions,
   }) {
     return ProfileMainState(
       isLoading: isLoading ?? this.isLoading,
       failure: failure ?? this.failure,
       loggedUserDataResponseEntity:
           loggedUserDataResponseEntity ?? this.loggedUserDataResponseEntity,
+      aboutApp: aboutApp ?? this.aboutApp,
+      termsAndConditions: termsAndConditions ?? this.termsAndConditions,
     );
   }
 }

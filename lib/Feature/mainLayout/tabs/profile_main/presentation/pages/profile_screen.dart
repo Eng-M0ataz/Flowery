@@ -190,9 +190,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           },
         ),
         SizedBox(height: AppSizes.spaceBetweenItems_16),
-        ProfileMenuItem(title: LocaleKeys.about_us.tr()),
+        ProfileMenuItem(
+          title: LocaleKeys.about_us.tr(),
+          onTap: () => context.pushNamed(AppRoutes.aboutRoute),
+        ),
         SizedBox(height: AppSizes.spaceBetweenItems_16),
-        ProfileMenuItem(title: LocaleKeys.terms_conditions.tr()),
+        ProfileMenuItem(
+            title: LocaleKeys.terms_conditions.tr(),
+            onTap: () => context.pushNamed(AppRoutes.termsRoute)),
         SizedBox(height: AppSizes.spaceBetweenItems_16),
         Divider(color: AppColorsLight.white[70]),
         SizedBox(height: AppSizes.spaceBetweenItems_16),

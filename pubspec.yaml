@@ -90,6 +90,7 @@ flutter:
     - assets/json/
     - assets/mapStyles/
     - .env
+    - assets/docs/
 
 
   fonts:
