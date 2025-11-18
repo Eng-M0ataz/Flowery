@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/viewModels/checkout_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/widgets/address_section.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/widgets/app_bar_section.dart';
