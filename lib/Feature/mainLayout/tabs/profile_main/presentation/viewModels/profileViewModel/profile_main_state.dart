@@ -9,6 +9,8 @@ class ProfileMainState {
   final LoggedUserDataResponseEntity? loggedUserDataResponseEntity;
   final AboutAppModel? aboutApp;
   final TermsAndConditionsModel? termsAndConditions;
+  final Failure? logoutFailure;
+  final bool isLogOutLoading;
 
   ProfileMainState({
     this.isLoading = false,
@@ -17,6 +19,12 @@ class ProfileMainState {
     this.aboutApp,
     this.termsAndConditions,
   });
+  ProfileMainState(
+      {this.isLoading = true,
+      this.failure,
+      this.loggedUserDataResponseEntity,
+      this.isLogOutLoading = true,
+      this.logoutFailure});
 
   ProfileMainState copyWith({
     bool? isLoading,
@@ -24,6 +32,8 @@ class ProfileMainState {
     LoggedUserDataResponseEntity? loggedUserDataResponseEntity,
     AboutAppModel? aboutApp,
     TermsAndConditionsModel? termsAndConditions,
+    final Failure? logoutFailure,
+    final bool? isLogOutLoading,
   }) {
     return ProfileMainState(
       isLoading: isLoading ?? this.isLoading,
@@ -32,6 +42,9 @@ class ProfileMainState {
           loggedUserDataResponseEntity ?? this.loggedUserDataResponseEntity,
       aboutApp: aboutApp ?? this.aboutApp,
       termsAndConditions: termsAndConditions ?? this.termsAndConditions,
+        isLogOutLoading: isLogOutLoading ?? this.isLogOutLoading,
+        logoutFailure: logoutFailure ?? this.logoutFailure);
+
     );
   }
 }

@@ -24,14 +24,17 @@ class CartButtomBar extends StatelessWidget {
             children: [
               CartSummeryWidget(),
               SizedBox(height: AppSizes.spaceBetweenItems_8),
-              ElevatedButton(
-                onPressed: () {
-                  context.pushNamed(
-                    AppRoutes.checkoutRoute,
-                    arguments: state.cartEntity!.totalPrice,
-                  );
-                },
-                child: Text(LocaleKeys.checkout.tr()),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    context.pushNamed(
+                      AppRoutes.checkoutRoute,
+                      arguments: state.cartEntity!.totalPrice,
+                    );
+                  },
+                  child: Text(LocaleKeys.checkout.tr()),
+                ),
               ),
             ],
           ),

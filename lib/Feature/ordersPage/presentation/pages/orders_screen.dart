@@ -4,14 +4,11 @@ import 'package:flower_e_commerce_app/Feature/ordersPage/domain/entities/order_i
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_event.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/viewModels/orders_view_model.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/widgets/show_orders.dart';
-import 'package:flower_e_commerce_app/core/Config/Theme/app_colors.dart';
-import 'package:flower_e_commerce_app/core/Widgets/custom_app_bar.dart';
 import 'package:flower_e_commerce_app/core/helpers/dialogue_utils.dart';
 import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer_animation/shimmer_animation.dart';
+
 import '../../../../core/Di/di.dart';
 
 class OrdersScreen extends StatefulWidget {
@@ -28,64 +25,21 @@ class _OrdersScreenState extends State<OrdersScreen> {
       create: (context) =>
           getIt.get<OrdersViewModel>()..doIntent(GetAllOrdersEvent()),
       child: BlocConsumer<OrdersViewModel, OrdersState>(
-        listenWhen: (pre,cur)=>pre.isSuccess!=cur.isSuccess||pre.orderFailure!=cur.orderFailure,
+        listenWhen: (pre, cur) =>
+            pre.isSuccess != cur.isSuccess ||
+            pre.orderFailure != cur.orderFailure,
         listener: (context, state) {
-          if (state.orderFailure != null&& state.isSuccess==false) {
+          if (state.orderFailure != null && state.isSuccess == false) {
             DialogueUtils.showMessage(
                 context: context, message: state.orderFailure!.errorMessage);
           }
         },
         builder: (context, state) {
-          if (state.isLoading == true) {
-            return Scaffold(
-              appBar: CustomBackButton(title: LocaleKeys.my_orders.tr()),
-              body: ListView.separated(
-                  shrinkWrap: true,
-                  itemBuilder: (context,index){
-                return Shimmer(
-                  enabled: true,
-                  color: AppColorsLight.shimmerColor,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 180,
-                        decoration: BoxDecoration(
-                          color: AppColorsLight.shimmerColor,
-                          borderRadius:
-                          BorderRadius.circular(AppSizes.shimmerCardRadius),
-                        ),
-                      ),
-                      const SizedBox(height: AppSizes.shimmerSpacingSmall),
-                      Container(
-                        height: AppSizes.shimmerLineHeight,
-                        width: AppSizes.shimmerLineWidthLarge,
-                        decoration: BoxDecoration(
-                          color: AppColorsLight.shimmerColor,
-                          borderRadius: BorderRadius.circular(AppSizes.shimmerFullRadius),
-                        ),
-                      ),
-                      const SizedBox(height: AppSizes.shimmerSpacingXSmall),
-                      Container(
-                        height: AppSizes.shimmerLineHeight,
-                        width: AppSizes.shimmerLineWidthSmall,
-                        decoration: BoxDecoration(
-                          color: AppColorsLight.shimmerColor,
-                          borderRadius: BorderRadius.circular(AppSizes.shimmerFullRadius),
-                        ),
-                      ),
-                    ],
-                  ),
-                );                  },
-                  separatorBuilder: (context,index)=>SizedBox(height: 12, ), itemCount: 3),
-            );
-          }
+          final List<OrderItemWithOrderInfo> allActiveOrderItems = [];
+          final List<OrderItemWithOrderInfo> allCompletedOrderItems = [];
+
           if (state.orders != null && state.orders!.orders!.isNotEmpty) {
             final orders = state.orders!.orders;
-
-            final List<OrderItemWithOrderInfo> allActiveOrderItems = [];
-            final List<OrderItemWithOrderInfo> allCompletedOrderItems = [];
-
             for (final order in orders!) {
               if (order.orderItems != null) {
                 for (final item in order.orderItems!) {
@@ -102,14 +56,20 @@ class _OrdersScreenState extends State<OrdersScreen> {
                 }
               }
             }
+          }
 
+          if (allActiveOrderItems.isNotEmpty ||
+              allCompletedOrderItems.isNotEmpty ||
+              state.isLoading == true) {
             return DefaultTabController(
               length: 2,
               child: ShowOrders(
                   allActiveOrderItems: allActiveOrderItems,
-                  allCompletedOrderItems: allCompletedOrderItems),
+                  allCompletedOrderItems: allCompletedOrderItems,
+                  isLoading: state.isLoading == true),
             );
           }
+
           return Scaffold(body: Center(child: Text(LocaleKeys.no_orders.tr())));
         },
       ),

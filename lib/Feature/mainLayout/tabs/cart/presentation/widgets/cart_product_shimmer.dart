@@ -39,36 +39,17 @@ class CartProductShimmer extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Shimmer(
-                        color: AppColorsLight.white,
-                        child: Container(
-                          width: AppSizes.cartProductNameWidth,
-                          height: AppSizes.cartProductNameHigh,
-                          decoration: BoxDecoration(
-                            color: AppColorsLight.shimmerColor,
-                            borderRadius: BorderRadius.circular(
-                              AppSizes.borderRadiusSm_4,
-                            ),
-                          ),
+                  Shimmer(
+                    color: AppColorsLight.white,
+                    child: Container(
+                      height: AppSizes.cartProductNameHigh,
+                      decoration: BoxDecoration(
+                        color: AppColorsLight.shimmerColor,
+                        borderRadius: BorderRadius.circular(
+                          AppSizes.borderRadiusSm_4,
                         ),
                       ),
-                      Shimmer(
-                        color: AppColorsLight.white,
-                        child: Container(
-                          width: AppSizes.smIcon_16,
-                          height: AppSizes.smIcon_16,
-                          decoration: BoxDecoration(
-                            color: AppColorsLight.shimmerColor,
-                            borderRadius: BorderRadius.circular(
-                              AppSizes.borderRadiusMd_8,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   SizedBox(height: AppSizes.spaceBetweenItems_4),
                   Shimmer(
