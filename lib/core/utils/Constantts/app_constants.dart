@@ -32,4 +32,6 @@ abstract class AppConstants {
   static const String apiRemoteExecutor = 'apiRemoteExecutor';
   static const String firebaseRemoteExecutor = 'firebaseRemoteExecutor';
   static const String firebaseRealTimeDatabase = 'firebaseRealTimeDatabase';
+  static const String termsPath='assets/docs/Flowery Terms and Conditions JSON with Arabic and English.json';
+  static const String aboutPath='assets/docs/Flowery About Section JSON with Expanded Content.json';
 }

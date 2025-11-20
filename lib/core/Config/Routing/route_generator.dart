@@ -5,6 +5,8 @@ import 'package:flower_e_commerce_app/Feature/bestSellerFeature/presentation/pag
 import 'package:flower_e_commerce_app/Feature/editProfile/presentation/pages/edit_profile_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/pages/cart_screen.dart';
 import 'package:flower_e_commerce_app/Feature/checkout/presentation/pages/checkout_screen.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/widgets/about_app_widget.dart';
+import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/widgets/terms_and_conditions_widget.dart';
 import 'package:flower_e_commerce_app/Feature/occasion/presentation/pages/occasion_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_in_screen.dart';
 import 'package:flower_e_commerce_app/Feature/auth/presentation/pages/sign_up_screen.dart';
@@ -95,6 +97,10 @@ class RouteGenerator {
             builder: (_) => MapScreen(
                   orderId: orderId,
                 ));
+      case AppRoutes.aboutRoute:
+        return MaterialPageRoute(builder: (_) => AboutAppWidget());
+      case AppRoutes.termsRoute:
+        return MaterialPageRoute(builder: (_) => TermsAndConditionsWidget());
 
       default:
         return unDefinedRoute();
