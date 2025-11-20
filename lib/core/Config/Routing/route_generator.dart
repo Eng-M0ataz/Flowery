@@ -15,6 +15,7 @@ import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/categoriesFeature/
 import 'package:flower_e_commerce_app/Feature/orderSuccess/presentation/order_success_page.dart';
 import 'package:flower_e_commerce_app/Feature/ordersPage/presentation/pages/orders_screen.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/profile_main/presentation/pages/profile_screen.dart';
+import 'package:flower_e_commerce_app/Feature/paymentSuccess/presentation/pages/payment_success_screen.dart';
 import 'package:flower_e_commerce_app/Feature/productDetails/presentation/page/product_details_screen.dart';
 import 'package:flower_e_commerce_app/Feature/resetPassword/presentation/pages/reset_password_screen.dart';
 import 'package:flower_e_commerce_app/Feature/searchFeature/presentation/pages/search_screen.dart';
@@ -86,7 +87,7 @@ class RouteGenerator {
                   orderId: orderId,
                 ));
       case AppRoutes.successOrderRoute:
-        final orderId = settings.arguments as String;
+        final  orderId = settings.arguments as String;
         return MaterialPageRoute(
             builder: (_) => OrderSuccessScreen(
                   orderId: orderId,
@@ -101,6 +102,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AboutAppWidget());
       case AppRoutes.termsRoute:
         return MaterialPageRoute(builder: (_) => TermsAndConditionsWidget());
+    case AppRoutes.paymentSuccessRoute:
+    return MaterialPageRoute(builder: (_) => PaymentSuccessScreen());
 
       default:
         return unDefinedRoute();

@@ -1,3 +1,5 @@
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -12,7 +14,6 @@ class VisaPaymentWebView extends StatefulWidget {
 
 class _VisaPaymentWebViewState extends State<VisaPaymentWebView> {
   late final WebViewController _controller;
-  bool isLoading = true;
 
   @override
   void initState() {
@@ -22,15 +23,26 @@ class _VisaPaymentWebViewState extends State<VisaPaymentWebView> {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
-          onPageFinished: (_) {
-            setState(() {
-              isLoading = false;
-            });
+
+          onNavigationRequest: (NavigationRequest request) {
+            if (request.url.contains('localhost') ||
+                request.url.contains('allOrders')) {
+              _handleSuccessNavigation();
+              return NavigationDecision.prevent;
+            }
+            return NavigationDecision.navigate;
           },
-          onWebResourceError: (_) {},
+
         ),
       )
       ..loadRequest(Uri.parse(widget.url));
+  }
+
+  void _handleSuccessNavigation() {
+    if (mounted) {
+
+      context.pushNamedAndRemoveUntil(AppRoutes.paymentSuccessRoute,predicate: (_) => false);
+    }
   }
 
   @override
@@ -42,10 +54,6 @@ class _VisaPaymentWebViewState extends State<VisaPaymentWebView> {
       body: Stack(
         children: [
           WebViewWidget(controller: _controller),
-          if (isLoading)
-            const Center(
-              child: CircularProgressIndicator(),
-            ),
         ],
       ),
     );

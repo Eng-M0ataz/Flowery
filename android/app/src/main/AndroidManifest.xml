@@ -5,7 +5,9 @@
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
 
+
     <application
+        android:usesCleartextTraffic="true"
         android:label="flower_e_commerce_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

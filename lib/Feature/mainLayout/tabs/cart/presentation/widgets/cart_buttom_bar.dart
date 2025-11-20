@@ -16,10 +16,11 @@ class CartButtomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   final height= MediaQuery.of(context).size.height;
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
         return BottomAppBar(
-          height: 200,
+          height: 204,
           child: Column(
             children: [
               CartSummeryWidget(),
