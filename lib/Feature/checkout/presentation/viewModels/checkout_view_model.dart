@@ -86,6 +86,7 @@ class CheckoutViewModel extends Cubit<CheckoutState> {
   }
 
   Future<void> _getUserAddress() async {
+    emit(state.copyWith(isAddressLoading: true));
     final result = await _getUserAddressUseCase.call();
 
     switch (result) {

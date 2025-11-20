@@ -136,7 +136,7 @@ class SavedAddressScreenBody extends StatelessWidget {
                             .read<AddressViewModel>()
                             .doIntent(NavigateToAddAddressEvent());
                       },
-                      isLoading: state.isLoading,
+                      isLoading: false,
                       widget: Text(LocaleKeys.add_new_address.tr()),
                     );
                   },

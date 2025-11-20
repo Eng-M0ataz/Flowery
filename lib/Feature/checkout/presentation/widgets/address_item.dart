@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/app_assets.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -61,7 +63,7 @@ class AddressItem extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              //todo navigate to edit address screen
+              context.pushNamed(AppRoutes.savedAddressScreenRoute);
             },
             child: Icon(
               Icons.edit_outlined,

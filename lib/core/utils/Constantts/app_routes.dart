@@ -22,4 +22,5 @@ abstract class AppRoutes {
   static const String changePasswordRoute='/changePasswordRoute';
   static const String aboutRoute='/aboutRoute';
   static const String termsRoute='/termsRoute';
+  static const String paymentSuccessRoute='/paymentSuccessRoute';
 }

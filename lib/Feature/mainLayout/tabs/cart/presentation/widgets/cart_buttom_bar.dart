@@ -1,6 +1,8 @@
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/viewModel/cart_cubit.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/viewModel/cart_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/widgets/cart_summery_widget.dart';
+import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
+import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +42,12 @@ class CartButtomBar extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(
+                      AppRoutes.checkoutRoute,
+                      arguments: state.cartEntity!.totalPrice,
+                    );
+                  },
                   child: Text("Checkout"),
                 ),
               ),

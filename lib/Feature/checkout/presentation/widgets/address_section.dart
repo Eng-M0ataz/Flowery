@@ -77,8 +77,14 @@ class AddressSection extends StatelessWidget {
                 border: Border.all(color: AppColorsLight.white[60]!, width: 2),
               ),
               child: GestureDetector(
-                onTap: () {
-                  context.pushNamed(AppRoutes.addAddressScreenRoute);
+                onTap: () async {
+                  final result =
+                      await context.pushNamed(AppRoutes.addAddressScreenRoute);
+                  if (result == true) {
+                    context
+                        .read<CheckoutViewModel>()
+                        .doIntent(event: LoadUserAddressEvent());
+                  }
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
