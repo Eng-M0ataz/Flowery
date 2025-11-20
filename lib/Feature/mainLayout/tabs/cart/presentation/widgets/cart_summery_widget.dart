@@ -17,7 +17,6 @@ class CartSummeryWidget extends StatelessWidget {
         return Column(
           spacing: AppSizes.spaceBetweenItems_8,
           children: [
-            Divider(),
             SummaryItem(
               text: LocaleKeys.sub_total.tr(),
               price:

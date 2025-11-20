@@ -1,10 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/viewModel/cart_cubit.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/viewModel/cart_state.dart';
 import 'package:flower_e_commerce_app/Feature/mainLayout/tabs/cart/presentation/widgets/cart_summery_widget.dart';
-import 'package:flower_e_commerce_app/core/helpers/routing_extensions.dart';
-import 'package:flower_e_commerce_app/core/localization/locale_keys.g.dart';
-import 'package:flower_e_commerce_app/core/utils/Constantts/app_routes.dart';
 import 'package:flower_e_commerce_app/core/utils/Constantts/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,22 +14,34 @@ class CartButtomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
-        return BottomAppBar(
-          height: 200,
+        return Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.paddingMd_16,
+            vertical: AppSizes.paddingMd_16,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(AppSizes.borderRadiusXl_16),
+              topRight: Radius.circular(AppSizes.borderRadiusXl_16),
+            ),
+            color: Theme.of(context).colorScheme.onPrimary,
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 6,
+                color: Colors.black12,
+              )
+            ],
+          ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               CartSummeryWidget(),
-              SizedBox(height: AppSizes.spaceBetweenItems_8),
+              SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    context.pushNamed(
-                      AppRoutes.checkoutRoute,
-                      arguments: state.cartEntity!.totalPrice,
-                    );
-                  },
-                  child: Text(LocaleKeys.checkout.tr()),
+                  onPressed: () {},
+                  child: Text("Checkout"),
                 ),
               ),
             ],
