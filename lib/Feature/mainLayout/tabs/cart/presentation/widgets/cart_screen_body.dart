@@ -43,7 +43,12 @@ class CartScreenBody extends StatelessWidget {
           return CartProductShimmer();
         }
         if (state.cartFailure != null) {
-          return Center(child: Text(state.cartFailure!.errorMessage));
+          return Center(
+            child: Text(
+              state.cartFailure!.errorMessage,
+              textAlign: TextAlign.center,
+            ),
+          );
         }
         if (state.cartEntity!.products.isEmpty) {
           return Center(

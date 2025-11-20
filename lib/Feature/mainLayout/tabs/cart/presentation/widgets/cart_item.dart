@@ -45,8 +45,7 @@ class CartItem extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      width: AppSizes.cartProductNameWidth,
+                    Expanded(
                       child: Text(
                         cartItemEntity.productName!,
                         overflow: TextOverflow.ellipsis,
