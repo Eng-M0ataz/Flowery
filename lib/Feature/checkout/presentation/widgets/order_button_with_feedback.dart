@@ -41,6 +41,7 @@ class OrderButtonWithFeedback extends StatelessWidget {
           DialogueUtils.showMessage(
             context: context,
             posActionName: LocaleKeys.ok.tr(),
+            title: LocaleKeys.success.tr(),
             message: LocaleKeys.cashOrderSuccessMessage.tr(),
             posAction: () {
               context.pushReplacementNamed(AppRoutes.successOrderRoute,
@@ -53,6 +54,7 @@ class OrderButtonWithFeedback extends StatelessWidget {
           if (url != null && url.isNotEmpty) {
             DialogueUtils.showMessage(
               context: context,
+              title: LocaleKeys.success.tr(),
               posActionName: LocaleKeys.ok.tr(),
               message: LocaleKeys.visaOrderSuccessMessage.tr(),
               posAction: () {
