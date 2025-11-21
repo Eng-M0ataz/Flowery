@@ -1,8 +1,7 @@
 # 🌸 Flower E-Commerce - Mobile Application
 <br><br>
 <div align="center">
-  <img src="assets/images/logo.png" alt="Flower E-Commerce Logo" width="200"/>
-
+<img width="200" height="144" alt="Image" src="https://github.com/user-attachments/assets/bd06c81f-7630-4eac-a6c5-bb5346e8dafd" />
 <br><br>
 
   [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
@@ -112,83 +111,81 @@
 
 ### 🔐 Authentication Screens / شاشات المصادقة
 <div align="center">
-  <img width="250" alt="Login Screen" src="https://via.placeholder.com/250x500?text=Login+Screen" />
-  <img width="250" alt="Sign Up Screen" src="https://via.placeholder.com/250x500?text=Sign+Up+Screen" />
-  <img width="250" alt="Email Verification" src="https://via.placeholder.com/250x500?text=Email+Verification" />
-  <img width="250" alt="Forgot Password" src="https://via.placeholder.com/250x500?text=Forgot+Password" />
-  <img width="250" alt="Reset Password" src="https://via.placeholder.com/250x500?text=Reset+Password" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/e387dacd-32ec-4609-9d04-fc79505ecdb1" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/0b8f7ad4-8f06-42de-896c-ac021616191b" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/e3bd56fc-4dd0-4c6e-b956-57cd5688a1af" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/f2f1ff9b-2b46-4aa1-88a4-b59407d318ed" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/39a1e6c1-d802-4c85-9164-53379af8eb63" />
+
 </div>
 
-### 🏠 Home & Product Browsing / الصفحة الرئيسية وتصفح المنتجات
+### 🏠 Main Application Screens / الشاشات الرئيسية
 <div align="center">
-  <img width="250" alt="Home Screen" src="https://via.placeholder.com/250x500?text=Home+Screen" />
-  <img width="250" alt="Product Categories" src="https://via.placeholder.com/250x500?text=Categories" />
-  <img width="250" alt="Product Listing" src="https://via.placeholder.com/250x500?text=Product+List" />
-  <img width="250" alt="Search Products" src="https://via.placeholder.com/250x500?text=Search" />
-  <img width="250" alt="Filtered Products" src="https://via.placeholder.com/250x500?text=Filtered+Products" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/16410705-1403-4115-95b3-1c52dcf11ede" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/03f6e85a-405f-4dba-a370-335c21c8c642" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/1eb79aed-7eaf-486a-b03b-43dbc13f8c37" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/4d6db9ed-b9ca-45d9-a182-ba0700a80cb2" />
 </div>
 
 ### 📝 Product Details / تفاصيل المنتج
 <div align="center">
-  <img width="250" alt="Product Details" src="https://via.placeholder.com/250x500?text=Product+Details" />
-  <img width="250" alt="Product Gallery" src="https://via.placeholder.com/250x500?text=Product+Gallery" />
-  <img width="250" alt="Product Reviews" src="https://via.placeholder.com/250x500?text=Reviews" />
-  <img width="250" alt="Add to Cart" src="https://via.placeholder.com/250x500?text=Add+to+Cart" />
-  <img width="250" alt="Add to Wishlist" src="https://via.placeholder.com/250x500?text=Add+Wishlist" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/04416fc8-02e1-4eff-b7be-0dc6067dcdaa" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/03ab3f2c-d30a-4085-b8ca-53191d21b324" />
 </div>
 
 ### 🎁 Special Occasions / المناسبات الخاصة
 <div align="center">
-  <img width="250" alt="Occasions" src="https://via.placeholder.com/250x500?text=Occasions" />
-  <img width="250" alt="Birthday Products" src="https://via.placeholder.com/250x500?text=Birthday" />
-  <img width="250" alt="Anniversary Products" src="https://via.placeholder.com/250x500?text=Anniversary" />
-  <img width="250" alt="Holiday Products" src="https://via.placeholder.com/250x500?text=Holidays" />
-  <img width="250" alt="Occasion Details" src="https://via.placeholder.com/250x500?text=Occasion+Details" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/76ee11ce-0d3a-4df3-8494-66a1d3437af0" />
 </div>
 
-### 🛒 Cart & Checkout / السلة والدفع
+### ❤️ Best Sellers /  الأكثر مبيعاً
 <div align="center">
-  <img width="250" alt="Shopping Cart" src="https://via.placeholder.com/250x500?text=Shopping+Cart" />
-  <img width="250" alt="Cart Empty State" src="https://via.placeholder.com/250x500?text=Empty+Cart" />
-  <img width="250" alt="Shipping Address" src="https://via.placeholder.com/250x500?text=Shipping+Address" />
-  <img width="250" alt="Payment Methods" src="https://via.placeholder.com/250x500?text=Payment+Methods" />
-  <img width="250" alt="Order Review" src="https://via.placeholder.com/250x500?text=Order+Review" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/93c8cbe2-f101-46f8-b349-767752cfd0d4" />
+</div>
+
+### 🧭 Filtration & Sorting / الفلترة والفرز
+<div align="center">
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/7e756cf3-189d-4b34-9617-4d5deca6aabf" />
 </div>
 
 ### 💳 Payment & Order Confirmation / الدفع وتأكيد الطلب
 <div align="center">
-  <img width="250" alt="Cash Payment" src="https://via.placeholder.com/250x500?text=Cash+Payment" />
-  <img width="250" alt="Visa Payment" src="https://via.placeholder.com/250x500?text=Visa+Payment" />
-  <img width="250" alt="Payment Processing" src="https://via.placeholder.com/250x500?text=Processing" />
-  <img width="250" alt="Order Success" src="https://via.placeholder.com/250x500?text=Order+Success" />
-  <img width="250" alt="Order Confirmation" src="https://via.placeholder.com/250x500?text=Confirmation" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/3589047d-bbef-4a24-8426-956a16589a40" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/27db605f-12bf-42f1-869b-1b93e7dc72cc" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/be99c06e-ec37-42b6-b9eb-1457a2ceaaaa" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/0e084867-0e64-4d28-b9bb-6f5a9f975568" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/eb49e40d-4326-482a-b110-bd20f522f29d" />
 </div>
+
+### 🔍 Search / البحث
+<div align="center">
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/a19d6eab-f065-41be-9825-df709660d8f2" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/a93142c9-b2e5-4c5a-ac74-c4b963abd1b4" />
+</div>
+
 
 ### 📦 Order Tracking & Management / تتبع الطلبات
 <div align="center">
-  <img width="250" alt="Orders List" src="https://via.placeholder.com/250x500?text=Orders+List" />
-  <img width="250" alt="Order Details" src="https://via.placeholder.com/250x500?text=Order+Details" />
-  <img width="250" alt="Order Status" src="https://via.placeholder.com/250x500?text=Order+Status" />
-  <img width="250" alt="Tracking Map" src="https://via.placeholder.com/250x500?text=Tracking+Map" />
-  <img width="250" alt="Delivery Timeline" src="https://via.placeholder.com/250x500?text=Timeline" />
-</div>
-
-### ❤️ Wishlist & Best Sellers / المفضلة والأكثر مبيعاً
-<div align="center">
-  <img width="250" alt="Wishlist" src="https://via.placeholder.com/250x500?text=Wishlist" />
-  <img width="250" alt="Best Sellers" src="https://via.placeholder.com/250x500?text=Best+Sellers" />
-  <img width="250" alt="Recommendations" src="https://via.placeholder.com/250x500?text=Recommendations" />
-  <img width="250" alt="Wishlist Empty" src="https://via.placeholder.com/250x500?text=Empty+Wishlist" />
-  <img width="250" alt="Related Products" src="https://via.placeholder.com/250x500?text=Related+Products" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/0b066155-d459-4293-9a33-afc0810f9165" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/cd50d7dd-93b3-4b21-bc06-e7b30cc2ca1d" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/87481867-ea5b-41cd-b165-d910a33e272d" />
 </div>
 
 ### 👤 Profile & Account / الملف الشخصي
 <div align="center">
-  <img width="250" alt="Profile Screen" src="https://via.placeholder.com/250x500?text=Profile" />
-  <img width="250" alt="Edit Profile" src="https://via.placeholder.com/250x500?text=Edit+Profile" />
-  <img width="250" alt="My Addresses" src="https://via.placeholder.com/250x500?text=My+Addresses" />
-  <img width="250" alt="Add Address" src="https://via.placeholder.com/250x500?text=Add+Address" />
-  <img width="250" alt="Wallet" src="https://via.placeholder.com/250x500?text=Wallet" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/fb66853b-4806-4839-88e9-d4d9b4786185" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/8e21638b-50e3-48ea-ada7-0f5f15fca7d7" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/49f3c938-22e3-4df9-9a89-76c2ff3ce89d" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/093f711a-5f4f-4aac-a070-ce70eeddb867" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/6aac18c6-707c-42ff-b17c-7e295cc4333c" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/681a7f96-0140-4e17-a5e2-269f38fa72c0" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/cafe2fcc-31e7-48be-a1c3-b576f56eb4b7" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/dfacbbc1-e2fa-4675-a620-8575ec0794ee" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/653bed7b-cae4-4f15-b301-566bd7dccdf8" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/33ea2262-b006-466b-828b-ed0f073bddee" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/8acde96b-7cbe-4f53-9daf-520b3bfb0bc4" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/7e3c191d-303d-4b6a-b4cc-c52e2161a9f7" />
+<img width="250" height="2359" alt="Image" src="https://github.com/user-attachments/assets/23c3ca62-5294-4f70-844d-0ffbd7cddd55" />
 </div>
 
 ## 🏗️ Architecture
@@ -483,12 +480,20 @@ We welcome contributions! Please follow these steps:
 - **Name:** Moataz Ebrahim
 - **Email:** moatazebrahim221@gmail.com
 - **GitHub:** https://github.com/Eng-M0ataz
-
+- **LinkedIn:** https://www.linkedin.com/in/moataz-ebrahim/
 <br>
 
 - **Name:** Wasim Ghonim
 - **Email:** wasimghoniem@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/wasim-ghonim-37bb98333/
+ <br>
+
+- **Name:** Ahmed
+- **LinkedIn:** https://www.linkedin.com/in/ahmed-rajeh-205621221/
+ <br>
+
+- **Name:** yassin
+- **GitHub:** https://github.com/YassenAhmed-gif
 
 ## 🙏 Acknowledgments
 
@@ -498,10 +503,6 @@ We welcome contributions! Please follow these steps:
 - [Retrofit](https://pub.dev/packages/retrofit) - For type-safe HTTP clients
 - [Dio](https://pub.dev/packages/dio) - For powerful HTTP client
 - All contributors and open-source community
-
-## 📜 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📞 Support
 
